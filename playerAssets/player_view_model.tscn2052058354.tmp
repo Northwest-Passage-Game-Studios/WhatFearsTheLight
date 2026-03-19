@@ -580,7 +580,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.71123457, 0)
 shape = SubResource("CapsuleShape3D_70bn1")
 disabled = true
 debug_color = Color(1, 0.6, 0.69803923, 0.41960785)
-
-[node name="crouchRayCast" type="RayCast3D" parent="." unique_id=1490348057]
-transform = Transform3D(43.63, 0, 0, 0, 1.375, 0, 0, 0, 46.7, 0, -0.16252556, 0)
-target_position = Vector3(0, 0.46, 0)

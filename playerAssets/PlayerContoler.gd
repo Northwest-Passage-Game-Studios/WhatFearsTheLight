@@ -1,28 +1,62 @@
 extends CharacterBody3D
+@onready var standing_collision_box: CollisionShape3D = $standingCollisionBox
+@onready var crouching_collision_box: CollisionShape3D = $crouchingCollisionBox
 
 @onready var neck: Node3D = $Neck
 
 var mous_sen =0.2
+@export var gravity:=0.4
+@onready var crouch_ray_cast: RayCast3D = $crouchRayCast
 
+var crouching:=false
+var crouchTweening:=0
 
 var speed = 5.0
 const JUMP_VELOCITY = 4.5
 
+func _ready() -> void:
+	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+
+
 func _physics_process(delta: float) -> void:
+	standing_collision_box.disabled=crouching
+	crouching_collision_box.disabled=!crouching
 	var inputDirX = Input.get_axis("A", "D")
 	var inputDirY = Input.get_axis("W", "S")
 	var walkDir = Vector3(inputDirX, 0, inputDirY).rotated(Vector3.UP, neck.rotation.y)
 	
-	if Input.is_action_pressed("shift"):
-		speed=8.5
+	if Input.is_action_just_pressed("ctrl"):
+		speed=1.0
+		if !crouching && crouchTweening==0:
+			crouching=true
+			crouchTweening=1
+			var crtween = get_tree().create_tween()
+			crtween.tween_property(neck, "position", Vector3(neck.position.x,neck.position.y-0.65,neck.position.z), 0.25).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+			await crtween.finished
+			crouchTweening=2			
+		elif  crouching && crouchTweening==2:
+			if !crouch_ray_cast.is_colliding():
+				crouching=false
+				crouchTweening=3
+				var crtween2 = get_tree().create_tween()
+				crtween2.tween_property(neck, "position", Vector3(neck.position.x,neck.position.y+0.65,neck.position.z), 0.35).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+				await crtween2.finished
+				crouchTweening=0
 	else:
-		if Input.is_action_pressed("ctrl"):
-			speed=3.0
-		else:
-			speed=5.0
+		if !crouching:
+			if Input.is_action_pressed("shift"):
+				speed=5.5
+			else:
+				speed=3.0
 	
 	velocity.x = walkDir.x * speed
 	velocity.z = walkDir.z * speed
+	if !is_on_floor():
+		if velocity.y>-20:
+			velocity.y-=gravity
+	else:
+		velocity.y=0
+	
 	move_and_slide()
 
 
