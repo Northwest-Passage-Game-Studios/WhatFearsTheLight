@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://yube7kqonbgb"
-path="res://.godot/imported/PSX_First_Person_Arms.fbx-837734e8f510717d7515c8acdf3aca5d.scn"
+uid="uid://cjsju7alkjskl"
+path="res://.godot/imported/PSX_First_Person_Arms.glb-c7da9b776db9654e6a8fb3061fa6881c.scn"
 
 [deps]
 
-source_file="res://playerAssets/psx-first-person-arms-free-game-assets/PSX_First_Person_Arms.fbx"
-dest_files=["res://.godot/imported/PSX_First_Person_Arms.fbx-837734e8f510717d7515c8acdf3aca5d.scn"]
+source_file="res://playerAssets/PSX_First_Person_Arms.glb"
+dest_files=["res://.godot/imported/PSX_First_Person_Arms.glb-c7da9b776db9654e6a8fb3061fa6881c.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -38,7 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1
