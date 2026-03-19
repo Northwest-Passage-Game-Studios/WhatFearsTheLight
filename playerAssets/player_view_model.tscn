@@ -154,6 +154,12 @@ albedo_texture = ExtResource("1_4o0da")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_04v2t"]
 
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_04v2t"]
+angle = 3.1415927
+
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_70bn1"]
+angle = 3.1415927
+
 [sub_resource type="Animation" id="Animation_70bn1"]
 resource_name = "Hold"
 tracks/0/type = "rotation_3d"
@@ -1566,6 +1572,47 @@ bone_idx = 24
 transform = Transform3D(0.050270446, 0.02320822, 0.0002955334, 0.0050993217, -0.14564501, 0.026023688, -0.0040665576, 0.10426492, 0.036286, -0.028417617, 0.0065336525, 0.013678789)
 mesh = SubResource("CylinderMesh_04v2t")
 
+[node name="LeftArmIK" type="JacobianIK3D" parent="Neck/Armature/Skeleton3D" unique_id=1393443444]
+active = false
+setting_count = 1
+settings/0/target_node = NodePath("../../../../LeftIKMarker")
+settings/0/root_bone_name = "Bone.002.L"
+settings/0/root_bone = 2
+settings/0/end_bone_name = "Bone.004.L"
+settings/0/end_bone = 4
+settings/0/extend_end_bone = false
+settings/0/joint_count = 3
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = SubResource("JointLimitationCone3D_04v2t")
+settings/0/joints/0/limitation/right_axis = 0
+settings/0/joints/0/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/limitation = null
+settings/0/joints/2/rotation_axis = 3
+settings/0/joints/2/limitation = null
+
+[node name="RightArmIK" type="JacobianIK3D" parent="Neck/Armature/Skeleton3D" unique_id=1959371652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2342526e-08, 0, 0.25556868)
+active = false
+setting_count = 1
+settings/0/target_node = NodePath("../../../../RightIKMaker")
+settings/0/root_bone_name = "Bone.001.R"
+settings/0/root_bone = 20
+settings/0/end_bone_name = "Bone.004.R"
+settings/0/end_bone = 23
+settings/0/extend_end_bone = false
+settings/0/joint_count = 4
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = null
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/limitation = SubResource("JointLimitationCone3D_70bn1")
+settings/0/joints/1/limitation/right_axis = 0
+settings/0/joints/1/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
+settings/0/joints/2/rotation_axis = 3
+settings/0/joints/2/limitation = null
+settings/0/joints/3/rotation_axis = 3
+settings/0/joints/3/limitation = null
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1892485828]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=374512097]
@@ -1584,3 +1631,8 @@ debug_color = Color(1, 0.6, 0.69803923, 0.41960785)
 [node name="crouchRayCast" type="RayCast3D" parent="." unique_id=1048552759]
 transform = Transform3D(43.63, 0, 0, 0, 1.375, 0, 0, 0, 46.7, 0, -0.16252556, 0)
 target_position = Vector3(0, 0.46, 0)
+
+[node name="LeftIKMarker" type="Marker3D" parent="." unique_id=576461026]
+
+[node name="RightIKMaker" type="Marker3D" parent="." unique_id=1397181165]
+transform = Transform3D(-0.930232, -0.36697206, 0, 0.36697206, -0.930232, 0, 0, 0, 1, 0, 0, 0)
