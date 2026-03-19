@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bm2h5verfpp76"]
 
-[ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="1_dry0d"]
 [ext_resource type="Material" uid="uid://bra6ug2wjmj0j" path="res://worldAssets/grass/src/materials/grass_01/grass_ground_01.tres" id="2_6siol"]
+[ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="3_6siol"]
 [ext_resource type="Material" uid="uid://c2to67v55oatp" path="res://worldAssets/grass/src/materials/grass_01/grass_01.tres" id="3_185nt"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ue55g"]
@@ -54,5 +54,5 @@ material_override = ExtResource("3_185nt")
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_4vccv")
 
-[node name="Player" parent="." unique_id=689833380 instance=ExtResource("1_dry0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9246178, 0)
+[node name="Player" parent="." unique_id=827342177 instance=ExtResource("3_6siol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5027115, 1.074162, 2.062193)
