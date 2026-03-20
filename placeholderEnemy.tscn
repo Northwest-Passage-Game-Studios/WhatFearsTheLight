@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://bhxj4s43rjre"]
+[gd_scene format=3 uid="uid://dmlmm6j2kndth"]
 
 [ext_resource type="Texture2D" uid="uid://bsg6445duypct" path="res://worldAssets/monsters/Textures/Flashbound_Stalker_BaseColor.png" id="1_fsd4b"]
+[ext_resource type="Script" uid="uid://j0h0dola3q6j" path="res://Monsters/Wendigo/wendigo.gd" id="1_tj54y"]
 [ext_resource type="ArrayMesh" uid="uid://b7173dofm8os5" path="res://worldAssets/monsters/uploads_files_5936954_Flashbound+Stalker (1).obj" id="2_tj54y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5de07"]
@@ -12,7 +13,8 @@ emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 16.0
 
-[node name="Node3D" type="Node3D" unique_id=1231563894]
+[node name="Wendigo" type="Node3D" unique_id=1231563894]
+script = ExtResource("1_tj54y")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=19264694]
 material_override = SubResource("StandardMaterial3D_5de07")
@@ -46,3 +48,9 @@ shadow_enabled = true
 spot_range = 0.086
 spot_attenuation = 3.1
 spot_angle = 180.0
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1594100604]
+
+[node name="Kill_Timer" type="Timer" parent="." unique_id=320188991]
+
+[connection signal="timeout" from="Kill_Timer" to="." method="_on_kill_timer_timeout"]
