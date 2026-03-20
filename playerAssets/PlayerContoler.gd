@@ -1,22 +1,30 @@
-extends CharacterBody3D
+class_name player_body extends CharacterBody3D
 @onready var standing_collision_box: CollisionShape3D = $standingCollisionBox
 @onready var crouching_collision_box: CollisionShape3D = $crouchingCollisionBox
-
+@onready var camera_3d: Camera3D = $Neck/Camera3D
+@onready var crouch_ray_cast: RayCast3D = $crouchRayCast
 @onready var neck: Node3D = $Neck
 
-var baseSpeed:=2.5
-var crouchSpeed:=0.75
-var sprintSpeed:=5.5
-var sprinting:=false
-var jumpStrength:=7.0
 
-var mous_sen =0.2
+@export_category("Walk Settings")
+@export var baseSpeed:=2.5
+@export var crouchSpeed:=0.75
+@export var sprintSpeed:=5.5
+@export_category("Jumping & Gravity")
+@export var jumpStrength:=7.0
 @export var gravity:=0.4
-@onready var crouch_ray_cast: RayCast3D = $crouchRayCast
+@export_category("Camera Settings")
+@export var mous_sen =0.2
+@export var head_bob_freq=4
+@export var head_bob_amp=0.05
 
+
+
+#Hidden Settings
+var head_bobtime=0
 var crouching:=false
 var crouchTweening:=0
-
+var sprinting:=false
 var speed = 5.0
 const JUMP_VELOCITY = 4.5
 
@@ -24,7 +32,17 @@ func _ready() -> void:
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 
 
+func _head_bob(head_bobtime):
+	var head_bob_pos = Vector3.ZERO
+	head_bob_pos.y=sin(head_bobtime*head_bob_freq)*head_bob_amp
+	head_bob_pos.x=cos(head_bobtime*head_bob_freq/2)*head_bob_amp
+	return head_bob_pos
 func _physics_process(delta: float) -> void:	
+	
+	#View Bobbing
+	if not crouching:
+		head_bobtime += delta*velocity.length()*float(is_on_floor())
+		neck.transform.origin=_head_bob(head_bobtime)
 	#Jump code, not sure if I want to keep it or not. :/
 	if Input.is_action_just_pressed("jump") && is_on_floor() && crouchTweening==0:
 		velocity.y+=jumpStrength

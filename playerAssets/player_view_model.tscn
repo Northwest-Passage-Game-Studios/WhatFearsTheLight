@@ -1634,6 +1634,7 @@ transform = Transform3D(43.63, 0, 0, 0, 1.375, 0, 0, 0, 46.7, 0, -0.5396769, 0)
 target_position = Vector3(0, 0.73, 0)
 
 [node name="LeftIKMarker" type="Marker3D" parent="." unique_id=576461026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17109871, 0, -0.66941816)
 
 [node name="RightIKMaker" type="Marker3D" parent="." unique_id=1397181165]
 transform = Transform3D(-0.930232, -0.36697206, 0, 0.36697206, -0.930232, 0, 0, 0, 1, 0, 0, 0)
