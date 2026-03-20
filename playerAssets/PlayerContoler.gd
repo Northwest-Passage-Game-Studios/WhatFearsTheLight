@@ -3,7 +3,11 @@ class_name player_body extends CharacterBody3D
 @onready var crouching_collision_box: CollisionShape3D = $crouchingCollisionBox
 @onready var camera_3d: Camera3D = $Neck/Camera3D
 @onready var crouch_ray_cast: RayCast3D = $crouchRayCast
+@onready var crouch_ray_cast_2: RayCast3D = $crouchRayCast2
+@onready var crouch_ray_cast_3: RayCast3D = $crouchRayCast3
+@onready var crouch_ray_cast_4: RayCast3D = $crouchRayCast4
 @onready var neck: Node3D = $Neck
+@onready var crouch_delay: Timer = $crouchDelay
 
 
 @export_category("Walk Settings")
@@ -22,6 +26,7 @@ class_name player_body extends CharacterBody3D
 
 
 #Hidden Settings
+var canStand:=true
 var exhausted:=false
 var stamina:=6.0
 var head_bobtime=0
@@ -41,6 +46,7 @@ func _head_bob(head_bobtime):
 	head_bob_pos.x=cos(head_bobtime*head_bob_freq/2)*head_bob_amp
 	return head_bob_pos
 func _physics_process(delta: float) -> void:
+	
 	#exhaustion System
 	if exhausted:
 		baseSpeed=1.0
@@ -49,8 +55,7 @@ func _physics_process(delta: float) -> void:
 	#stamina drain
 	if stamina<=0:
 		exhausted=true
-	print(neck.position)
-	if !Input.is_action_pressed("shift") || exhausted:
+	if !Input.is_action_pressed("shift") || exhausted || crouchTweening!=0:
 		if stamina<staminaMax:
 			stamina+=1*delta
 			if exhausted:
@@ -59,7 +64,7 @@ func _physics_process(delta: float) -> void:
 			exhausted=false
 			baseSpeed=1.75
 			crouchSpeed=0.75
-	if sprinting:
+	if sprinting && crouchTweening==0:
 		if stamina>0:
 			stamina-=1*delta
 	
@@ -102,6 +107,7 @@ func _physics_process(delta: float) -> void:
 	var inputDirX = Input.get_axis("A", "D")
 	var inputDirY = Input.get_axis("W", "S")
 	var walkDir = Vector3(inputDirX, 0, inputDirY).rotated(Vector3.UP, neck.rotation.y)
+	canStand=!crouch_ray_cast.is_colliding() && !crouch_ray_cast_2.is_colliding() && !crouch_ray_cast_3.is_colliding() && !crouch_ray_cast_4.is_colliding()
 	if Input.is_action_just_pressed("ctrl"):
 		if !crouching && crouchTweening==0:
 			var runtween = get_tree().create_tween()
@@ -114,7 +120,7 @@ func _physics_process(delta: float) -> void:
 			await get_tree().create_timer(0.1).timeout
 			crouchTweening=2			
 		elif  crouching && crouchTweening==2:
-			if !crouch_ray_cast.is_colliding():
+			if canStand:
 				var runtween = get_tree().create_tween()
 				runtween.tween_property(self, "speed", baseSpeed, 0.45).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
 				crouching=false
@@ -128,6 +134,8 @@ func _physics_process(delta: float) -> void:
 					sprinting=true
 					var runtween2 = get_tree().create_tween()
 					runtween2.tween_property(self, "speed", sprintSpeed, 0.5).set_ease(Tween.EASE_IN)
+			else:
+				crouch_delay.start()
 	else:
 		if Input.is_action_pressed("shift") && stamina>0 && !exhausted:
 			if !sprinting:
@@ -145,6 +153,9 @@ func _physics_process(delta: float) -> void:
 			else:
 				var runtween = get_tree().create_tween()
 				runtween.tween_property(self, "speed", crouchSpeed, 0.25).set_ease(Tween.EASE_IN)
+	if !crouch_delay.is_stopped():
+		if canStand:
+			Input.action_press("ctrl")
 	if is_on_floor():
 		velocity.x = walkDir.x * speed
 		velocity.z = walkDir.z * speed

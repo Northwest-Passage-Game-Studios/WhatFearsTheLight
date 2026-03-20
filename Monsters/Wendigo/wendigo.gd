@@ -1,6 +1,6 @@
 class_name wendigo extends Node3D
-@onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var kill_timer: Timer = $Kill_Timer
+@onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 
 
 @export var target:Node3D

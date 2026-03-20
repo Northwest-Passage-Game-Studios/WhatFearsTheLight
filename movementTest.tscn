@@ -3,7 +3,6 @@
 [ext_resource type="Material" uid="uid://bra6ug2wjmj0j" path="res://worldAssets/grass/src/materials/grass_01/grass_ground_01.tres" id="2_6siol"]
 [ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="3_6siol"]
 [ext_resource type="Material" uid="uid://c2to67v55oatp" path="res://worldAssets/grass/src/materials/grass_01/grass_01.tres" id="3_185nt"]
-[ext_resource type="PackedScene" uid="uid://dmlmm6j2kndth" path="res://placeholderEnemy.tscn" id="4_185nt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6siol"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -305,6 +304,3 @@ shadow_enabled = true
 spot_range = 9.663
 spot_attenuation = -0.29
 spot_angle = 11.76
-
-[node name="Node3D" parent="." unique_id=1255352738 instance=ExtResource("4_185nt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0991707, 0, -9.796075)
