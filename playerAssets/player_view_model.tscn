@@ -1268,7 +1268,8 @@ _data = {
 height = 1.6801758
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_70bn1"]
-height = 1.001831
+radius = 0.3359375
+height = 0.6973758
 
 [node name="Player" type="CharacterBody3D" unique_id=827342177]
 script = ExtResource("1_04v2t")
@@ -1623,14 +1624,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.37509555, 0)
 shape = SubResource("CapsuleShape3D_04v2t")
 
 [node name="crouchingCollisionBox" type="CollisionShape3D" parent="." unique_id=1151845027]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.71123457, 0)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.0026361942, -0.88952106, 0)
 shape = SubResource("CapsuleShape3D_70bn1")
 disabled = true
 debug_color = Color(1, 0.6, 0.69803923, 0.41960785)
 
 [node name="crouchRayCast" type="RayCast3D" parent="." unique_id=1048552759]
-transform = Transform3D(43.63, 0, 0, 0, 1.375, 0, 0, 0, 46.7, 0, -0.16252556, 0)
-target_position = Vector3(0, 0.46, 0)
+transform = Transform3D(43.63, 0, 0, 0, 1.375, 0, 0, 0, 46.7, 0, -0.5396769, 0)
+target_position = Vector3(0, 0.73, 0)
 
 [node name="LeftIKMarker" type="Marker3D" parent="." unique_id=576461026]
 

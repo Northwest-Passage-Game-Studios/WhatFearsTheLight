@@ -24,13 +24,12 @@ func _ready() -> void:
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 
 
-func _physics_process(delta: float) -> void:
-	
+func _physics_process(delta: float) -> void:	
 	#Jump code, not sure if I want to keep it or not. :/
 	if Input.is_action_just_pressed("jump") && is_on_floor() && crouchTweening==0:
 		velocity.y+=jumpStrength
 		if jumpStrength>1:
-			jumpStrength-=2
+			jumpStrength-=3
 		else:
 			jumpStrength=1
 	if jumpStrength<7:
@@ -76,7 +75,7 @@ func _physics_process(delta: float) -> void:
 				sprinting=true
 				if crouchTweening==0:
 					var runtween = get_tree().create_tween()
-					runtween.tween_property(self, "speed", sprintSpeed, 1.0).set_ease(Tween.EASE_IN)
+					runtween.tween_property(self, "speed", sprintSpeed, 0.75).set_ease(Tween.EASE_IN)
 				
 		else:
 			sprinting=false
