@@ -1265,7 +1265,6 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_04v2t"]
-radius = 0.34716797
 height = 1.6801758
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_70bn1"]
@@ -1633,7 +1632,7 @@ disabled = true
 debug_color = Color(1, 0.6, 0.69803923, 0.41960785)
 
 [node name="crouchRayCast" type="RayCast3D" parent="." unique_id=1048552759]
-transform = Transform3D(70.025, 0, 0, 0, 1.95, 0, 0, 0, 70.035, 0, -0.6434935, 0)
+transform = Transform3D(43.63, 0, 0, 0, 1.375, 0, 0, 0, 46.7, 0, -0.5396769, 0)
 target_position = Vector3(0, 0.73, 0)
 
 [node name="LeftIKMarker" type="Marker3D" parent="." unique_id=576461026]

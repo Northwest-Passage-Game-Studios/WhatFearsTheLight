@@ -61,6 +61,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.204586, 0.3977548, 8.84797
 use_collision = true
 size = Vector3(1.5418665, 1.2783203, 2.2364635)
 
+[node name="CSGBox3D13" type="CSGBox3D" parent="." unique_id=1599146851]
+transform = Transform3D(0.97720146, 0.21231411, 0, -0.21231411, 0.97720146, 0, 0, 0, 1, -4.360216, 0.24257006, 8.84797)
+use_collision = true
+size = Vector3(1.5418665, 1.2895508, 2.2364635)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="." unique_id=1409373399]
+transform = Transform3D(0.97720146, 0.21231411, 0, -0.21231411, 0.97720146, 0, 0, 0, 1, -2.8825216, 1.2642115, 8.84797)
+use_collision = true
+size = Vector3(1.5418665, 1.2895508, 2.2364635)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="." unique_id=1088042836]
+transform = Transform3D(0.97720146, 0.21231411, 0, -0.21231411, 0.97720146, 0, 0, 0, 1, -1.4264808, 2.4186032, 8.84797)
+use_collision = true
+size = Vector3(1.5418665, 1.2895508, 2.2364635)
+
 [node name="CSGBox3D11" type="CSGBox3D" parent="." unique_id=600750758]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7267437, 0.9106332, 8.84797)
 use_collision = true
@@ -196,16 +211,16 @@ spot_attenuation = -0.29
 spot_angle = 34.31
 
 [node name="SpotLight3D7" type="SpotLight3D" parent="." unique_id=347689843]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.7491016, 4.551095, 0.44113183)
-light_energy = 9.0
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.7491016, 5.071988, 0.44113183)
+light_energy = 0.0
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_size = 0.257
 light_specular = 0.0
 shadow_enabled = true
-spot_range = 9.663
-spot_attenuation = -0.29
-spot_angle = 34.31
+spot_range = 0.0
+spot_attenuation = -1.88
+spot_angle = 180.0
 
 [node name="SpotLight3D8" type="SpotLight3D" parent="." unique_id=1119990835]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5.912324, 4.551095, 8.365267)
@@ -292,4 +307,4 @@ spot_attenuation = -0.29
 spot_angle = 11.76
 
 [node name="Node3D" parent="." unique_id=1255352738 instance=ExtResource("4_185nt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0991707, 0, -15.250534)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0991707, 0, -9.796075)
