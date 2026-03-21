@@ -1,4 +1,6 @@
 class_name player_body extends CharacterBody3D
+
+
 @onready var standing_collision_box: CollisionShape3D = $standingCollisionBox
 @onready var crouching_collision_box: CollisionShape3D = $crouchingCollisionBox
 @onready var camera_3d: Camera3D = $Neck/Camera3D
