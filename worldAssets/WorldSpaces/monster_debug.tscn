@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vlsvlapd6d1j"]
 
-[ext_resource type="PackedScene" uid="uid://dmlmm6j2kndth" path="res://placeholderEnemy.tscn" id="1_6xm4m"]
+[ext_resource type="PackedScene" uid="uid://dmlmm6j2kndth" path="res://Monsters/placeholderEnemy.tscn" id="1_6xm4m"]
 [ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="2_ybcfj"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ybcfj"]
