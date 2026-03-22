@@ -10,6 +10,8 @@ class_name player_body extends CharacterBody3D
 @onready var crouch_ray_cast_4: RayCast3D = $crouchRayCast4
 @onready var neck: Node3D = $Neck
 @onready var crouch_delay: Timer = $crouchDelay
+@onready var armature: Node3D = $Armature
+@onready var hands_clone_transform: RemoteTransform3D = $Neck/RemoteTransform3D
 
 
 @export_category("Walk Settings")
@@ -24,7 +26,7 @@ class_name player_body extends CharacterBody3D
 @export var mous_sen =0.2
 @export var head_bob_freq=4
 @export var head_bob_amp=0.05
-
+@export var lag_speed:=75
 
 
 #Hidden Settings
@@ -47,6 +49,18 @@ func _head_bob(head_bobtime):
 	head_bob_pos.y=sin(head_bobtime*head_bob_freq)*head_bob_amp
 	head_bob_pos.x=cos(head_bobtime*head_bob_freq/2)*head_bob_amp
 	return head_bob_pos
+
+func rotate_head(delta):
+	var neck_rotate = neck.global_rotation
+	var hands_to_rotate_x = lerp_angle(armature.global_rotation.x,neck_rotate.x,lag_speed*delta)
+	var hands_to_rotate_y = lerp_angle(armature.global_rotation.y,neck_rotate.y,lag_speed*delta)
+	var hands_to_rotate_z = lerp_angle(armature.global_rotation.z,neck_rotate.z,lag_speed*delta)
+	var final_vector=Vector3(hands_to_rotate_x,hands_to_rotate_y,hands_to_rotate_z)
+	armature.global_rotation.x=final_vector.x
+	armature.global_rotation.y=final_vector.y
+
+func _process(delta: float) -> void:
+	rotate_head(delta)
 func _physics_process(delta: float) -> void:
 	
 	#exhaustion System

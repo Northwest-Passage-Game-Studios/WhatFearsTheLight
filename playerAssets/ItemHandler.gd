@@ -1,6 +1,6 @@
 class_name Item_Handler extends BoneAttachment3D
 
-@onready var animation_player: AnimationPlayer = $"../../../../AnimationPlayer"
+@onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 
 var items:Array[Item]
 
