@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="3_6siol"]
 [ext_resource type="Material" uid="uid://c2to67v55oatp" path="res://worldAssets/grass/src/materials/grass_01/grass_01.tres" id="3_185nt"]
 [ext_resource type="PackedScene" uid="uid://d4mvahmoqcyqj" path="res://worldAssets/water/pSXWater/ocean_surface/ocean_surface.tscn" id="4_185nt"]
+[ext_resource type="PackedScene" uid="uid://b0rbgxb3m8oai" path="res://Monsters/Wendigo/Wendigo.tscn" id="5_n76m3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6siol"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -361,3 +362,6 @@ spot_angle = 11.76
 
 [node name="OceanSurface" parent="." unique_id=1891312276 instance=ExtResource("4_185nt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8975941, 0)
+
+[node name="Wendigo" parent="." unique_id=977576987 instance=ExtResource("5_n76m3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.6971583, 0.04373288, -4.758627)

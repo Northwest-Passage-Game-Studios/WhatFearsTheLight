@@ -24,7 +24,7 @@ mesh = SubResource("PlaneMesh_ybcfj")
 transform = Transform3D(36.735325, 0, 0, 0, 1, 0, 0, 0, 30.040873, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_ybcfj")
 
-[node name="Node3D" parent="." unique_id=1231563894 node_paths=PackedStringArray("target") instance=ExtResource("1_6xm4m")]
+[node name="Wendigo" parent="." unique_id=1231563894 node_paths=PackedStringArray("target") instance=ExtResource("1_6xm4m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2967987, 4.7683716e-07, -0.39812446)
 target = NodePath("../Player")
 

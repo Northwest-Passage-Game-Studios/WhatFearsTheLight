@@ -61,7 +61,8 @@ spot_angle = 20.71
 [node name="Kill_Timer" type="Timer" parent="." unique_id=320188991]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539324767]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17066205, 1.054625, -0.047609925)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12933797, 1.054625, 0.10708833)
 shape = SubResource("BoxShape3D_i88gt")
 
+[connection signal="navigation_finished" from="NavigationAgent3D" to="." method="navigation_finished"]
 [connection signal="timeout" from="Kill_Timer" to="." method="_on_kill_timer_timeout"]

@@ -1207,6 +1207,7 @@ bone_idx = 24
 script = ExtResource("3_rvkmj")
 
 [node name="FlashLight" type="Node3D" parent="Armature/Skeleton3D/BoneAttachment3D" unique_id=1432521659]
+visible = false
 script = ExtResource("4_66wqc")
 equip_ani_name = "PlayerHandAni/ShowFlashlight"
 dequip_ani_name = "PlayerHandAni/HideFlashlight"

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b5yko5j0syl1o"]
+
+[ext_resource type="Script" uid="uid://b0uqbllluwwej" path="res://Gobals/SettingsHandler/settings_handler.gd" id="1_j0gk4"]
+
+[node name="SettingsHandler" type="Node" unique_id=1131585988]
+script = ExtResource("1_j0gk4")
