@@ -29,7 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2967987, 4.7683716e-07, -0.
 target = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=827342177 instance=ExtResource("2_ybcfj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.838984, 8.344556)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.838984, 0)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=119880165]
 transform = Transform3D(36.735325, 0, 0, 0, 1, 0, 0, 0, 30.040873, 0, 0, 0)

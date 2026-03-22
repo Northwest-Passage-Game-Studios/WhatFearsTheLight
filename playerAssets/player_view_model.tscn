@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cln77wm3ktwi" path="res://Objects/Items/Flashlights/flash_light.gd" id="4_66wqc"]
 [ext_resource type="AudioStream" uid="uid://dn0eqa87s8t4a" path="res://Sounds/SoundEffects/click_switch.wav" id="6_bkphc"]
 [ext_resource type="AnimationLibrary" uid="uid://b56tevrrl3tav" path="res://playerAssets/PlayerHandAni.res" id="6_vae78"]
+[ext_resource type="Shape3D" uid="uid://ioy7p63kjc2u" path="res://Objects/Items/Flashlights/RayCone.tres" id="8_u2qr6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_04v2t"]
 radius = 0.336
@@ -1224,7 +1225,7 @@ mesh = SubResource("ArrayMesh_25hwu")
 skeleton = NodePath("")
 
 [node name="Cube" type="MeshInstance3D" parent="Armature/Skeleton3D/BoneAttachment3D/FlashLight" unique_id=835304467]
-transform = Transform3D(-8.649224e-05, -0.0005566131, 0.0037181193, -0.0027471902, -0.016774928, -0.00012225281, -0.005920464, 0.0077919657, 2.4091416e-06, -0.031501114, -0.08402604, 0.049052566)
+transform = Transform3D(-0.001199856, -0.0021468939, 0.0036311778, -0.0030112467, -0.016037459, -0.0007064216, -0.0056656133, 0.008978501, -0.00039354624, -0.031501114, -0.08402604, 0.049052566)
 mesh = SubResource("ArrayMesh_paw2d")
 skeleton = NodePath("")
 
@@ -1240,6 +1241,15 @@ spot_angle_attenuation = 1.8660663
 transform = Transform3D(0.99999917, 2.9802322e-08, 5.066395e-07, 0, 0.9999995, -8.940697e-08, 0, 2.9802322e-08, 0.9999997, -0.01227802, -0.048677415, 0.03733912)
 stream = ExtResource("6_bkphc")
 volume_db = 17.651
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="Armature/Skeleton3D/BoneAttachment3D/FlashLight" unique_id=914558146]
+transform = Transform3D(-1.0000007, 8.742275e-08, -3.8213714e-15, 0, -4.3711374e-08, -1.0000001, -8.742284e-08, -0.99999964, 4.3711395e-08, -0.343923, -0.11300975, 9.1458235)
+top_level = true
+shape = ExtResource("8_u2qr6")
+target_position = Vector3(0, 0, 0)
+margin = 8.16
+collision_mask = 2
+debug_shape_custom_color = Color(3.706068e-06, 0.51168704, 0.511687, 1)
 
 [node name="LeftArmIK" type="JacobianIK3D" parent="Armature/Skeleton3D" unique_id=1393443444]
 active = false
@@ -1286,4 +1296,4 @@ settings/0/joints/3/limitation = null
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_u2qr6")
 libraries/PlayerHandAni = ExtResource("6_vae78")
-autoplay = &"PlayerHandAni/HoldFlashLight"
+autoplay = &"PlayerHandAni/RESET"
