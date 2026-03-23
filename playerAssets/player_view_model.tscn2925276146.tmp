@@ -922,7 +922,6 @@ one_shot = true
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1737675372]
 transparent_bg = true
-canvas_cull_mask = 4294966274
 size = Vector2i(1024, 512)
 
 [node name="Armature" type="Node3D" parent="SubViewport" unique_id=1684849325]
@@ -1205,7 +1204,6 @@ bones/38/rotation = Quaternion(0.5790209, 0.032072123, -0.3398955, 0.7403899)
 bones/38/scale = Vector3(0.99999946, 0.9999997, 0.9999996)
 
 [node name="arms" type="MeshInstance3D" parent="SubViewport/Armature/Skeleton3D" unique_id=1117370895]
-layers = 2
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_fawpu")
 skin = SubResource("Skin_ahogf")
@@ -1218,6 +1216,7 @@ bone_idx = 24
 script = ExtResource("3_rvkmj")
 
 [node name="FlashLight" type="Node3D" parent="SubViewport/Armature/Skeleton3D/BoneAttachment3D" unique_id=1432521659]
+visible = false
 script = ExtResource("4_66wqc")
 equip_ani_name = "PlayerHandAni/ShowFlashlight"
 dequip_ani_name = "PlayerHandAni/HideFlashlight"
