@@ -10,7 +10,7 @@ class_name player_body extends CharacterBody3D
 @onready var crouch_ray_cast_4: RayCast3D = $crouchRayCast4
 @onready var neck: Node3D = $Neck
 @onready var crouch_delay: Timer = $crouchDelay
-@onready var armature: Node3D = $SubViewport/Armature
+@onready var armature: Node3D = $Armature
 @onready var hands_clone_transform: RemoteTransform3D = $Neck/RemoteTransform3D
 
 
