@@ -10,7 +10,7 @@ class_name player_body extends CharacterBody3D
 @onready var crouch_ray_cast_4: RayCast3D = $crouchRayCast4
 @onready var neck: Node3D = $Neck
 @onready var crouch_delay: Timer = $crouchDelay
-@onready var armature: Node3D = $Armature
+@onready var armature: Node3D = $SubViewport/Armature
 @onready var hands_clone_transform: RemoteTransform3D = $Neck/RemoteTransform3D
 
 
@@ -58,7 +58,6 @@ func rotate_head(delta):
 	var final_vector=Vector3(hands_to_rotate_x,hands_to_rotate_y,hands_to_rotate_z)
 	armature.global_rotation.x=final_vector.x
 	armature.global_rotation.y=final_vector.y
-
 func _process(delta: float) -> void:
 	rotate_head(delta)
 func _physics_process(delta: float) -> void:
