@@ -1,1 +1,1 @@
-class_name SettingsHandler extends Node
+extends Node

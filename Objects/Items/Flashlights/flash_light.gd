@@ -14,5 +14,6 @@ func _process(delta: float) -> void:
 			var obj :Node3D= shape_cast_3d.get_collider(0)
 
 			if obj is wendigo:
+				print(obj)
 				obj.spook()
 	

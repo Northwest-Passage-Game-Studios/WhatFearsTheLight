@@ -1,25 +1,19 @@
 class_name wendigo extends CharacterBody3D
 @onready var kill_timer: Timer = $Kill_Timer
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
-@onready var csg_sphere_3d: CSGSphere3D = $MeshInstance3D/CSGSphere3D
-@onready var csg_sphere_3d_2: CSGSphere3D = $MeshInstance3D/CSGSphere3D2
-@onready var left_eye_light: SpotLight3D = $MeshInstance3D/SpotLight3D
-@onready var right_eye_light: SpotLight3D = $MeshInstance3D/SpotLight3D2
 
 
-@export var debug_target:Node3D
-var target:Node3D
+@export var target:Node3D
+
 
 @export_category("Speeds")
 @export var chase_speed:=5
 @export var revsere_speed:=2
-@export_category("Looks")
-@export var red_eye_mat:Material
-@export var white_eye_mat:Material
+
 var fall_back_dist:=25
 var physics_delta: float
 var is_chasing := false
-var is_red_eye =true
+var is_red_eye =false
 var is_spooked :=false
 
 func Totally_Better_Look_At(target_pos:Vector3):
@@ -30,28 +24,17 @@ func Totally_Better_Look_At(target_pos:Vector3):
 
 func clac_spook_point():
 	var back_angle:=self.rotation.y*-1
-	var pos_x := 25*sin(back_angle)
-	var pos_z := 25*cos(back_angle)
-	var return_point:=Vector3(pos_x,0,pos_z)
+	var pos_x := 25*cos(back_angle)
+	var pos_z := 25*sin(back_angle)
+	var return_point:=Vector3(pos_x,0,pos_z)+self.global_position
 	return return_point
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if debug_target!=null:
-		target=debug_target
 	if not is_red_eye:
 		kill_timer.wait_time=3
-		csg_sphere_3d.material=white_eye_mat
-		csg_sphere_3d_2.material=white_eye_mat
-		left_eye_light.light_color=Color.WHITE
-		right_eye_light.light_color=Color.WHITE
 	else:
-		csg_sphere_3d.material=red_eye_mat
-		csg_sphere_3d_2.material=red_eye_mat
-		left_eye_light.light_color=Color.RED
-		right_eye_light.light_color=Color.RED
 		kill_timer.wait_time=1
-		
 	kill_timer.start()
 func way_point_reached():
 	var new_velocity: Vector3
@@ -95,7 +78,6 @@ func spook():
 		is_chasing=false
 		is_spooked=true
 		navigation_agent_3d.target_position= clac_spook_point()
-		print("Spooked")
 
 
 func navigation_finished() -> void:
