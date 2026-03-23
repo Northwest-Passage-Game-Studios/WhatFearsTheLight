@@ -847,6 +847,8 @@ _data = {
 script = ExtResource("1_04v2t")
 baseSpeed = 1.75
 sprintSpeed = 4.0
+mous_sen = 4.0
+lag_speed = 30
 
 [node name="Neck" type="Node3D" parent="." unique_id=1102690595]
 
@@ -1226,7 +1228,7 @@ mesh = SubResource("ArrayMesh_25hwu")
 skeleton = NodePath("")
 
 [node name="Cube" type="MeshInstance3D" parent="Armature/Skeleton3D/BoneAttachment3D/FlashLight" unique_id=835304467]
-transform = Transform3D(-0.001199856, -0.0021468939, 0.0036311778, -0.0030112467, -0.016037459, -0.0007064216, -0.0056656133, 0.008978501, -0.00039354624, -0.031501114, -0.08402604, 0.049052566)
+transform = Transform3D(-0.0011998562, -0.002146894, 0.0036311778, -0.0030112467, -0.016037459, -0.00070642174, -0.005665614, 0.0089785, -0.00039354624, -0.031501114, -0.08402604, 0.049052566)
 mesh = SubResource("ArrayMesh_paw2d")
 skeleton = NodePath("")
 

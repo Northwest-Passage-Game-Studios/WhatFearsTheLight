@@ -187,8 +187,8 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		neck.rotate_y(-event.relative.x*0.01)
-		var pitch_rotate = neck.rotation_degrees.x - event.relative.y* mous_sen
-		var new_pitch = clampf(pitch_rotate,-90,90)
+		neck.rotate_y(-event.relative.x*0.2*get_process_delta_time())
+		var pitch_rotate = neck.rotation_degrees.x - event.relative.y* mous_sen*get_process_delta_time()
+		var new_pitch = clampf(pitch_rotate,-80,80)
 
 		neck.rotation_degrees.x=new_pitch
