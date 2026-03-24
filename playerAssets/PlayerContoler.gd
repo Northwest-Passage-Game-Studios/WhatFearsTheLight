@@ -12,6 +12,11 @@ class_name player_body extends CharacterBody3D
 @onready var crouch_delay: Timer = $crouchDelay
 @onready var armature: Node3D = $Armature
 @onready var hands_clone_transform: RemoteTransform3D = $Neck/RemoteTransform3D
+@onready var left_ik_marker: Marker3D = $LeftIKMarker
+@onready var right_ik_maker: Marker3D = $RightIKMaker
+@onready var right_arm_ik: JacobianIK3D = $Armature/Skeleton3D/RightArmIK
+@onready var left_arm_ik: JacobianIK3D = $Armature/Skeleton3D/LeftArmIK
+@onready var backpack: BackPack = $Backpack
 
 
 @export_category("Walk Settings")
@@ -42,6 +47,7 @@ const JUMP_VELOCITY = 4.5
 
 func _ready() -> void:
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+
 
 
 func _head_bob(head_bobtime):
