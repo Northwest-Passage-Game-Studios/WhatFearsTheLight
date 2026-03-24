@@ -17,6 +17,8 @@ class_name player_body extends CharacterBody3D
 @onready var right_arm_ik: JacobianIK3D = $Armature/Skeleton3D/RightArmIK
 @onready var left_arm_ik: JacobianIK3D = $Armature/Skeleton3D/LeftArmIK
 @onready var backpack: BackPack = $Backpack
+@onready var flashlight_overheat_timer: Timer = $flashlightOverheatTimer
+@onready var spot_light_3d: SpotLight3D = $Armature/Skeleton3D/BoneAttachment3D/FlashLight/SpotLight3D
 
 
 @export_category("Walk Settings")
@@ -32,7 +34,9 @@ class_name player_body extends CharacterBody3D
 @export var head_bob_freq=4
 @export var head_bob_amp=0.05
 @export var lag_speed:=75
-
+@export_category("Flashlight Settings")
+@export var flashlightMaxDurability:=40.0
+var flashlightDurability:=0.0
 
 #Hidden Settings
 var canStand:=true
@@ -47,7 +51,7 @@ const JUMP_VELOCITY = 4.5
 
 func _ready() -> void:
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
-
+	flashlightDurability=flashlightMaxDurability
 
 
 func _head_bob(head_bobtime):
@@ -67,7 +71,22 @@ func rotate_head(delta):
 func _process(delta: float) -> void:
 	rotate_head(delta)
 func _physics_process(delta: float) -> void:
-	
+	print(flashlightDurability)
+	if spot_light_3d.visible:
+		flashlightDurability-=1*delta
+		if int(flashlightDurability)==25||int(flashlightDurability)==28||int(flashlightDurability)==34:
+				spot_light_3d.light_energy=randi_range(8,13)
+		if flashlightDurability<20:
+			if int(flashlightDurability)%3==0:
+				spot_light_3d.light_energy=randi_range(2,5)
+				flashlightDurability+=randi_range(-2,2)
+			if int(flashlightDurability)%3==1:
+				spot_light_3d.light_energy=16
+	else:
+		if flashlightDurability<flashlightMaxDurability:
+			flashlightDurability+=15*delta
+		else:
+			flashlightDurability=flashlightMaxDurability
 	#exhaustion System
 	if exhausted:
 		baseSpeed=1.0

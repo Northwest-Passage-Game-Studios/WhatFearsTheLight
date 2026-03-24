@@ -19,7 +19,7 @@ var target:Node3D
 var fall_back_dist:=25
 var physics_delta: float
 var is_chasing := false
-var is_red_eye =true
+var is_red_eye =false
 var is_spooked :=false
 
 func Totally_Better_Look_At(target_pos:Vector3):
