@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ejva0tq80cdc"]
+
+[ext_resource type="Script" uid="uid://ckv4277fmtep4" path="res://Monsters/Keeper/keeper.gd" id="1_dx88w"]
+[ext_resource type="PackedScene" uid="uid://b3vvh3dng62wu" path="res://KeeperModel.tscn" id="2_dvjnk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i88gt"]
+size = Vector3(2.205748, 3, 3)
+
+[node name="Keeper" type="CharacterBody3D" unique_id=977576987]
+collision_layer = 2
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_dx88w")
+
+[node name="KeeperModel" parent="." unique_id=495538435 instance=ExtResource("2_dvjnk")]
+freezeTime = 0.2
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1594100604]
+avoidance_layers = 0
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="Kill_Timer" type="Timer" parent="." unique_id=320188991]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539324767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12933797, 1.541311, 0.04399824)
+shape = SubResource("BoxShape3D_i88gt")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1454978638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16652143, 1.9184086, 0)
+aabb = AABB(-1, -1.9926435, -1.2376171, 2, 3.3964198, 2.4752343)
+
+[connection signal="navigation_finished" from="NavigationAgent3D" to="." method="navigation_finished"]
+[connection signal="timeout" from="Kill_Timer" to="." method="_on_kill_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
