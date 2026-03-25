@@ -185,7 +185,7 @@ func _physics_process(delta: float) -> void:
 	if !crouch_delay.is_stopped():
 		if canStand:
 			Input.action_press("ctrl")
-	if is_on_floor():
+	if is_on_floor() || !sprinting:
 		velocity.x = walkDir.x * speed
 		velocity.z = walkDir.z * speed
 	if !is_on_floor():
