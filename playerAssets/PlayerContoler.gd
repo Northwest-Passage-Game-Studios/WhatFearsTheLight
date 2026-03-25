@@ -19,6 +19,7 @@ class_name player_body extends CharacterBody3D
 @onready var backpack: BackPack = $Backpack
 @onready var flashlight_overheat_timer: Timer = $flashlightOverheatTimer
 @onready var spot_light_3d: SpotLight3D = $Armature/Skeleton3D/BoneAttachment3D/FlashLight/SpotLight3D
+@onready var tool_handler: Item_Handler = $Armature/Skeleton3D/BoneAttachment3D
 
 
 @export_category("Walk Settings")
@@ -35,8 +36,7 @@ class_name player_body extends CharacterBody3D
 @export var head_bob_amp=0.05
 @export var lag_speed:=75
 @export_category("Flashlight Settings")
-@export var flashlightMaxDurability:=40.0
-var flashlightDurability:=0.0
+
 
 #Hidden Settings
 var canStand:=true
@@ -49,9 +49,12 @@ var sprinting:=false
 var speed = 5.0
 const JUMP_VELOCITY = 4.5
 
+
+
+
 func _ready() -> void:
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
-	flashlightDurability=flashlightMaxDurability
+
 
 
 func _head_bob(head_bobtime):
@@ -71,31 +74,8 @@ func rotate_head(delta):
 func _process(delta: float) -> void:
 	rotate_head(delta)
 func _physics_process(delta: float) -> void:
-	print(flashlightDurability)
-	if spot_light_3d!=null:
-		if spot_light_3d.visible:
-			if flashlightDurability>-1:
-				flashlightDurability-=1*delta
-			if int(flashlightDurability)==25||int(flashlightDurability)==28||int(flashlightDurability)==34:
-					spot_light_3d.light_energy=randi_range(8,13)
-			elif flashlightDurability<12:
-				if flashlightDurability<5:
-					spot_light_3d.light_energy=randi_range(0,12)
-				else:
-					spot_light_3d.light_energy=randi_range(13,19)
-			elif flashlightDurability>0:
-				spot_light_3d.light_energy=16
-			if flashlightDurability<1:
-				spot_light_3d.light_energy=0
-				spot_light_3d.spot_range=0
-		else:
-			if flashlightDurability>0:
-				if flashlightDurability<flashlightMaxDurability:
-					flashlightDurability+=15*delta
-				else:
-					flashlightDurability=flashlightMaxDurability
-			else:
-				spot_light_3d.visible=false
+
+
 	#exhaustion System
 	if exhausted:
 		baseSpeed=1.0
@@ -216,6 +196,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y=0
 	
 	move_and_slide()
+
 
 
 func _input(event: InputEvent) -> void:

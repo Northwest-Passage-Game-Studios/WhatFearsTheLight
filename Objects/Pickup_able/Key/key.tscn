@@ -11,7 +11,7 @@ material = SubResource("StandardMaterial3D_i0sk0")
 [sub_resource type="BoxShape3D" id="BoxShape3D_i0sk0"]
 size = Vector3(2.3537598, 3.6660156, 1.9433594)
 
-[node name="key" type="Node3D" unique_id=1339377948]
+[node name="Item_Pickup" type="Node3D" unique_id=1339377948]
 script = ExtResource("1_i0sk0")
 
 [node name="Key" type="MeshInstance3D" parent="." unique_id=641981107]
