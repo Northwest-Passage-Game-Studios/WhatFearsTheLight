@@ -72,21 +72,30 @@ func _process(delta: float) -> void:
 	rotate_head(delta)
 func _physics_process(delta: float) -> void:
 	print(flashlightDurability)
-	if spot_light_3d.visible:
-		flashlightDurability-=1*delta
-		if int(flashlightDurability)==25||int(flashlightDurability)==28||int(flashlightDurability)==34:
-				spot_light_3d.light_energy=randi_range(8,13)
-		if flashlightDurability<20:
-			if int(flashlightDurability)%3==0:
-				spot_light_3d.light_energy=randi_range(2,5)
-				flashlightDurability+=randi_range(-2,2)
-			if int(flashlightDurability)%3==1:
+	if spot_light_3d!=null:
+		if spot_light_3d.visible:
+			if flashlightDurability>-1:
+				flashlightDurability-=1*delta
+			if int(flashlightDurability)==25||int(flashlightDurability)==28||int(flashlightDurability)==34:
+					spot_light_3d.light_energy=randi_range(8,13)
+			elif flashlightDurability<12:
+				if flashlightDurability<5:
+					spot_light_3d.light_energy=randi_range(0,12)
+				else:
+					spot_light_3d.light_energy=randi_range(13,19)
+			elif flashlightDurability>0:
 				spot_light_3d.light_energy=16
-	else:
-		if flashlightDurability<flashlightMaxDurability:
-			flashlightDurability+=15*delta
+			if flashlightDurability<1:
+				spot_light_3d.light_energy=0
+				spot_light_3d.spot_range=0
 		else:
-			flashlightDurability=flashlightMaxDurability
+			if flashlightDurability>0:
+				if flashlightDurability<flashlightMaxDurability:
+					flashlightDurability+=15*delta
+				else:
+					flashlightDurability=flashlightMaxDurability
+			else:
+				spot_light_3d.visible=false
 	#exhaustion System
 	if exhausted:
 		baseSpeed=1.0

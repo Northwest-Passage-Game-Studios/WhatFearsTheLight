@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dn0eqa87s8t4a" path="res://Sounds/SoundEffects/click_switch.wav" id="6_bkphc"]
 [ext_resource type="AnimationLibrary" uid="uid://b56tevrrl3tav" path="res://playerAssets/PlayerHandAni.res" id="6_vae78"]
 [ext_resource type="Shape3D" uid="uid://ioy7p63kjc2u" path="res://Objects/Items/Flashlights/RayCone.tres" id="8_u2qr6"]
-[ext_resource type="Script" path="res://playerAssets/backpack.gd" id="9_pah8v"]
+[ext_resource type="Script" uid="uid://dxabmhadb7672" path="res://playerAssets/backpack.gd" id="9_pah8v"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_04v2t"]
 radius = 0.336
@@ -1921,7 +1921,7 @@ mesh = SubResource("ArrayMesh_25hwu")
 skeleton = NodePath("")
 
 [node name="Cube" type="MeshInstance3D" parent="Armature/Skeleton3D/BoneAttachment3D/FlashLight" unique_id=835304467]
-transform = Transform3D(-0.00041868855, 0.007390097, 0.0034022303, -0.002966073, -0.015314524, 0.0012258837, -0.0057994463, 0.0072989473, -0.00087258953, -0.031501085, -0.08402604, 0.049052574)
+transform = Transform3D(-0.00041868855, 0.007390097, 0.0034022306, -0.002966073, -0.015314524, 0.0012258838, -0.0057994463, 0.0072989473, -0.0008725896, -0.031501085, -0.08402604, 0.049052574)
 mesh = SubResource("ArrayMesh_paw2d")
 skeleton = NodePath("")
 
