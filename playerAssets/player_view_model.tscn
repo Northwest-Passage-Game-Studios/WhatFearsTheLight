@@ -1103,7 +1103,6 @@ distance_fade_enabled = true
 spot_range = 0.75
 spot_attenuation = 0.0
 spot_angle = 108.95
-spot_angle_attenuation = 9.189586
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Neck" unique_id=1392966149]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -1.116628, -0.05709687)

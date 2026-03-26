@@ -6,7 +6,7 @@ var is_broken:=false
 
 @onready var shape_cast_3d: ShapeCast3D = $ShapeCast3D
 @onready var spot_light_3d: SpotLight3D = $SpotLight3D
-@export var flashlightMaxDurability:=40.0
+@export var flashlightMaxDurability:=15.0
 var flashlightDurability:=0.0
 
 func _switched_on():
@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 
 			if obj is wendigo:
 				obj.spook()
+	print(flashlightDurability)
 	if _is_on:
 		spot_light_3d.visible=true
 		if flashlightDurability>-1:
@@ -42,11 +43,10 @@ func _process(delta: float) -> void:
 		if flashlightDurability<1:
 			spot_light_3d.light_energy=0
 			spot_light_3d.spot_range=0
-		#else:
-			#if flashlightDurability>0:
-				#if flashlightDurability<flashlightMaxDurability:
-					#flashlightDurability+=15*delta
-				#else:
-					#flashlightDurability=flashlightMaxDurability
 	else:
 		spot_light_3d.visible=false
+		if flashlightDurability>0 && !spot_light_3d.visible:
+			if flashlightDurability<flashlightMaxDurability:
+				flashlightDurability+=15*delta
+			else:
+				flashlightDurability=flashlightMaxDurability
