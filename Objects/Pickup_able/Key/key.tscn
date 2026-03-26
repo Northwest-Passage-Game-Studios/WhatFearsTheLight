@@ -8,6 +8,12 @@ albedo_color = Color(0.5372549, 0, 1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_i0sk0"]
 material = SubResource("StandardMaterial3D_i0sk0")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xqcxt"]
+albedo_color = Color(0.28235295, 0, 0.4117647, 1)
+emission_enabled = true
+emission = Color(0.28235295, 0, 0.4117647, 1)
+emission_energy_multiplier = 16.0
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_i0sk0"]
 size = Vector3(2.3537598, 3.6660156, 1.9433594)
 
@@ -17,6 +23,7 @@ script = ExtResource("1_i0sk0")
 [node name="Key" type="MeshInstance3D" parent="." unique_id=641981107]
 transform = Transform3D(0.24086045, 0, 0, 0, 0.19124013, 0, 0, 0, 0.2388553, 0, 0, 0)
 mesh = SubResource("BoxMesh_i0sk0")
+surface_material_override/0 = SubResource("StandardMaterial3D_xqcxt")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=518830175]
 

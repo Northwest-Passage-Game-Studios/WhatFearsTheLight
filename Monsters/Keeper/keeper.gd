@@ -75,10 +75,12 @@ func navigation_finished() -> void:
 
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
 	is_chasing=false
-	keeper_model.freeze()
+	if keeper_model!=null:
+		keeper_model.freeze()
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	is_chasing=true
-	keeper_model.unfreeze()
+	if keeper_model!=null:
+		keeper_model.unfreeze()
 	
 	
