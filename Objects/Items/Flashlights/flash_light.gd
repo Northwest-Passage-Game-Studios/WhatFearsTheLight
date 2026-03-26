@@ -2,6 +2,7 @@ extends Item
 
 var is_broken:=false
 @onready var click_switch: AudioStreamPlayer3D = $ClickSwitch
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var shape_cast_3d: ShapeCast3D = $ShapeCast3D
 @onready var spot_light_3d: SpotLight3D = $SpotLight3D
@@ -10,6 +11,10 @@ var flashlightDurability:=0.0
 
 func _switched_on():
 	click_switch.play()
+	if _is_on==false:
+		animation_player.play("Turn_on")
+	else:
+		animation_player.play_backwards("Turn_on")
 
 func _ready() -> void:
 	flashlightDurability=flashlightMaxDurability

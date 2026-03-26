@@ -40,7 +40,9 @@ func pick_up_item(tool_model:PackedScene):
 	items.append(new_tool)
 	current_item=items.get(items.find(new_tool))
 	animation_player.play("pick_up")
-
+	await  animation_player.animation_finished
+	animation_player.play("RESET")
+	return
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("R-Equp") and animation_player.is_playing()==false:
