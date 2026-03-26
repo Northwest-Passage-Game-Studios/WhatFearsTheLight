@@ -1471,14 +1471,8 @@ _data = {
 collision_mask = 5
 script = ExtResource("1_04v2t")
 baseSpeed = 1.75
-crouchSpeed = null
 sprintSpeed = 4.0
-staminaMax = null
-jumpStrength = null
-gravity = null
 mous_sen = 4.0
-head_bob_freq = null
-head_bob_amp = null
 lag_speed = 30
 
 [node name="Neck" type="Node3D" parent="." unique_id=1102690595]
@@ -1517,28 +1511,24 @@ debug_color = Color(1, 0.6, 0.69803923, 0.41960785)
 
 [node name="crouchRayCast" type="RayCast3D" parent="." unique_id=1048552759]
 transform = Transform3D(20.165, 0, 0, 0, 1.845, 0, 0, 0, 21.295, 0, -0.8706188, -0.3331595)
-visible = false
 target_position = Vector3(0, 0.73, 0)
 hit_from_inside = true
 debug_shape_custom_color = Color(1, 1, 0, 0.18039216)
 
 [node name="crouchRayCast2" type="RayCast3D" parent="." unique_id=1652292777]
 transform = Transform3D(20.165, 0, 0, 0, 1.845, 0, 0, 0, 21.295, 0, -0.8706188, 0.3099877)
-visible = false
 target_position = Vector3(0, 0.73, 0)
 hit_from_inside = true
 debug_shape_custom_color = Color(1, 1, 0, 0.18039216)
 
 [node name="crouchRayCast3" type="RayCast3D" parent="." unique_id=1908074298]
 transform = Transform3D(20.165, 0, 0, 0, 1.845, 0, 0, 0, 21.295, 0.3215102, -0.8706188, 0.002159983)
-visible = false
 target_position = Vector3(0, 0.73, 0)
 hit_from_inside = true
 debug_shape_custom_color = Color(1, 1, 0, 0.18039216)
 
 [node name="crouchRayCast4" type="RayCast3D" parent="." unique_id=1911365030]
 transform = Transform3D(20.165, 0, 0, 0, 1.845, 0, 0, 0, 21.295, -0.31213623, -0.8706188, 0.002159983)
-visible = false
 target_position = Vector3(0, 0.73, 0)
 hit_from_inside = true
 debug_shape_custom_color = Color(1, 1, 0, 0.18039216)
