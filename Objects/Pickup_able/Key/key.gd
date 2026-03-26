@@ -22,7 +22,9 @@ var player_ref :player_body
 func _input(event: InputEvent) -> void:
 	if is_player_in==true and event.is_action("pick_up"):
 		if type_of_item == Types_Of_Pick.Tools:
-			await player_ref.tool_handler.pick_up_item(real_item)
+			player_ref.tool_handler.pick_up_item(real_item)
+			#await player_ref.tool_handler.pick_up_item(real_item)
+			await get_tree().create_timer(0.75).timeout
 			queue_free()
 		pass
 # Called when the node enters the scene tree for the first time.
