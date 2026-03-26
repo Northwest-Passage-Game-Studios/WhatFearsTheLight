@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6jq6bx4ug4i7"
-path.s3tc="res://.godot/imported/Flashbound_Stalker_Metallic.png-6361dedf146e054f3085be88de1cdce6.s3tc.ctex"
+uid="uid://bsg6445duypct"
+path.s3tc="res://.godot/imported/Flashbound_Stalker_BaseColor.png-ce80708d106007c8fbdd0e38bbd39d1d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://worldAssets/monsters/Textures/Flashbound_Stalker_Metallic.png"
-dest_files=["res://.godot/imported/Flashbound_Stalker_Metallic.png-6361dedf146e054f3085be88de1cdce6.s3tc.ctex"]
+source_file="res://Monsters/Wendigo/Textures/Flashbound_Stalker_BaseColor.png"
+dest_files=["res://.godot/imported/Flashbound_Stalker_BaseColor.png-ce80708d106007c8fbdd0e38bbd39d1d.s3tc.ctex"]
 
 [params]
 
