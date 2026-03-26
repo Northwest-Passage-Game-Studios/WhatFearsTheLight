@@ -4,9 +4,8 @@ var is_broken:=false
 @onready var click_switch: AudioStreamPlayer3D = $ClickSwitch
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@onready var shape_cast_3d: ShapeCast3D = $ShapeCast3D
 @onready var spot_light_3d: SpotLight3D = $SpotLight3D
-@export var flashlightMaxDurability:=15.0
+@export var flashlightMaxDurability:=90.0
 var flashlightDurability:=0.0
 
 func _switched_on():
@@ -20,13 +19,7 @@ func _ready() -> void:
 	flashlightDurability=flashlightMaxDurability
 	
 func _process(delta: float) -> void:
-	if spot_light_3d.visible==true:
-		if shape_cast_3d.is_colliding():
-			var obj :Node3D= shape_cast_3d.get_collider(0)
-
-			if obj is wendigo:
-				obj.spook()
-	print(flashlightDurability)
+	Manager.flashlightOn=spot_light_3d.visible==true
 	if _is_on:
 		spot_light_3d.visible=true
 		if flashlightDurability>-1:
@@ -45,7 +38,7 @@ func _process(delta: float) -> void:
 			spot_light_3d.spot_range=0
 	else:
 		spot_light_3d.visible=false
-		if flashlightDurability>0 && !spot_light_3d.visible:
+		if flashlightDurability>0 && !spot_light_3d.visible && !is_broken:
 			if flashlightDurability<flashlightMaxDurability:
 				flashlightDurability+=15*delta
 			else:

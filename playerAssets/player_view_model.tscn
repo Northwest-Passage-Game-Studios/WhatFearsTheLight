@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://biot6xoobfxod" path="res://playerAssets/psx-first-person-arms-free-game-assets/arms.png" id="1_4o0da"]
 [ext_resource type="Script" uid="uid://conesy5f0jc1i" path="res://playerAssets/PlayerContoler.gd" id="1_04v2t"]
+[ext_resource type="Shape3D" uid="uid://ioy7p63kjc2u" path="res://Objects/Items/Flashlights/RayCone.tres" id="2_pah8v"]
 [ext_resource type="Script" uid="uid://bi8rnqdiywiqr" path="res://playerAssets/ItemHandler.gd" id="3_rvkmj"]
 [ext_resource type="Shader" uid="uid://b7bfsxxcrfmyr" path="res://playerAssets/fpv.gdshader" id="4_u2qr6"]
 [ext_resource type="Texture2D" uid="uid://barfo2yoxinaa" path="res://worldAssets/items/padlock-key/textures/padlock_Padlock_BaseColor.png" id="5_pah8v"]
@@ -1471,14 +1472,8 @@ _data = {
 collision_mask = 5
 script = ExtResource("1_04v2t")
 baseSpeed = 1.75
-crouchSpeed = null
 sprintSpeed = 4.0
-staminaMax = null
-jumpStrength = null
-gravity = null
 mous_sen = 4.0
-head_bob_freq = null
-head_bob_amp = null
 lag_speed = 30
 
 [node name="Neck" type="Node3D" parent="." unique_id=1102690595]
@@ -1487,6 +1482,13 @@ lag_speed = 30
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08341712, -0.01617223, 0.13094938)
 current = true
 fov = 79.27665
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="Neck/Camera3D" unique_id=146584654]
+transform = Transform3D(1.5, 0, 0, 0, -6.556708e-08, -1.5, 0, 1.5, -6.556708e-08, 0, 0, -12.745)
+shape = ExtResource("2_pah8v")
+target_position = Vector3(0, 0, 0)
+collision_mask = 2
+debug_shape_custom_color = Color(1, 1, 1, 1)
 
 [node name="playersAmbientLight" type="SpotLight3D" parent="Neck" unique_id=1402063091]
 transform = Transform3D(-0.808168, 0.58631796, 0.055640224, -0.58715016, -0.7947074, -0.1539314, -0.046035033, -0.15707159, 0.98651373, -0.014953464, -0.109612346, -0.014523268)

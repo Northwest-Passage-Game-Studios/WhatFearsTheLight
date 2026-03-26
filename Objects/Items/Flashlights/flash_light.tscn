@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cln77wm3ktwi" path="res://Objects/Items/Flashlights/flash_light.gd" id="1_hwtuc"]
 [ext_resource type="Texture2D" uid="uid://c0cb3gg11amft" path="res://Objects/Items/Flashlights/FlashLight_FlashlightTexture.png" id="2_qvu7c"]
 [ext_resource type="AudioStream" uid="uid://dn0eqa87s8t4a" path="res://Sounds/SoundEffects/click_switch.wav" id="3_kyhd8"]
-[ext_resource type="Shape3D" uid="uid://ioy7p63kjc2u" path="res://Objects/Items/Flashlights/RayCone.tres" id="4_2kr2e"]
 
 [sub_resource type="Shader" id="Shader_pah8v"]
 code = "shader_type spatial;
@@ -240,15 +239,6 @@ spot_angle_attenuation = 1.8660663
 transform = Transform3D(0.99999917, 2.9802322e-08, 5.066395e-07, 0, 0.9999995, -8.940697e-08, 0, 2.9802322e-08, 0.9999997, -0.01227802, -0.048677415, 0.03733912)
 stream = ExtResource("3_kyhd8")
 volume_db = 17.651
-
-[node name="ShapeCast3D" type="ShapeCast3D" parent="." unique_id=1881819442]
-transform = Transform3D(-1.0000007, 8.742275e-08, -3.8213714e-15, 0, -4.3711374e-08, -1.0000001, -8.742284e-08, -0.99999964, 4.3711395e-08, -0.343923, -0.11300975, 9.1458235)
-top_level = true
-shape = ExtResource("4_2kr2e")
-target_position = Vector3(0, 0, 0)
-margin = 8.16
-collision_mask = 2
-debug_shape_custom_color = Color(3.706068e-06, 0.51168704, 0.511687, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2023988577]
 libraries/ = SubResource("AnimationLibrary_kyhd8")

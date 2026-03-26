@@ -19,9 +19,9 @@ var target:Node3D
 var fall_back_dist:=25
 var physics_delta: float
 var is_chasing := false
-var is_red_eye =false
+var is_red_eye := (randi_range(0,2)==2)
 var is_spooked :=false
-
+var anxiety:=randf_range(0.3,2)
 func Totally_Better_Look_At(target_pos:Vector3):
 	look_at(target_pos)
 	self.rotation.x=0
@@ -36,11 +36,15 @@ func clac_spook_point():
 	return return_point
 
 # Called when the node enters the scene tree for the first time.
+func set_target(target_node:Node3D):
+	target=target_node
+	kill_timer.start()
+
 func _ready() -> void:
 	if debug_target!=null:
 		target=debug_target
 	if not is_red_eye:
-		kill_timer.wait_time=3
+		kill_timer.start(5.0)
 		csg_sphere_3d.material=white_eye_mat
 		csg_sphere_3d_2.material=white_eye_mat
 		left_eye_light.light_color=Color.WHITE
@@ -50,7 +54,7 @@ func _ready() -> void:
 		csg_sphere_3d_2.material=red_eye_mat
 		left_eye_light.light_color=Color.RED
 		right_eye_light.light_color=Color.RED
-		kill_timer.wait_time=1
+		kill_timer.start(7.0)
 		
 	kill_timer.start()
 func way_point_reached():
@@ -90,7 +94,11 @@ func _on_kill_timer_timeout() -> void:
 	is_chasing=true
 	
 func spook():
-	if is_chasing==false and kill_timer.is_stopped()==false and is_spooked==false:
+	anxiety-=0.01
+	if !kill_timer.is_stopped():
+		kill_timer.start(anxiety+0.5)
+	print(str(anxiety)+" Anxiety and "+str(kill_timer.time_left))
+	if is_chasing==false and kill_timer.is_stopped()==false and is_spooked==false && anxiety<0:
 		kill_timer.stop()
 		is_chasing=false
 		is_spooked=true

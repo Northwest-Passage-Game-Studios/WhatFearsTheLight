@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://b0rbgxb3m8oai" path="res://Monsters/Wendigo/Wendigo.tscn" id="1_6xm4m"]
 [ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="2_ybcfj"]
+[ext_resource type="PackedScene" uid="uid://iuic20mq0k8u" path="res://Objects/Pickup_able/Key/key.tscn" id="3_mb3yk"]
+[ext_resource type="PackedScene" uid="uid://bprx3w3vwsvla" path="res://Objects/Items/Flashlights/flash_light.tscn" id="4_lhwji"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ybcfj"]
 
@@ -34,3 +36,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.838984, 8.344556)
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=119880165]
 transform = Transform3D(36.735325, 0, 0, 0, 1, 0, 0, 0, 30.040873, 0, 0, 0)
 navigation_mesh = SubResource("NavigationMesh_fpnow")
+
+[node name="key" parent="." unique_id=1339377948 instance=ExtResource("3_mb3yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30571365, 1.3727705, 9.8111925)
+type_of_item = 0
+real_item = ExtResource("4_lhwji")

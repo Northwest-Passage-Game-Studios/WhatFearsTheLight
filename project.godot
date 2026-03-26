@@ -18,6 +18,10 @@ config/name="WhatFearsTheLight"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Manager="*uid://cvmvt02xp02ld"
+
 [filesystem]
 
 import/blender/enabled=false

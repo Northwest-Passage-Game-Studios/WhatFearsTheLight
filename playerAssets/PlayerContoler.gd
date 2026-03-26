@@ -36,6 +36,7 @@ class_name player_body extends CharacterBody3D
 @export var head_bob_amp=0.05
 @export var lag_speed:=75
 @export_category("Flashlight Settings")
+@onready var shape_cast_3d: ShapeCast3D = $Neck/Camera3D/ShapeCast3D
 
 
 #Hidden Settings
@@ -74,7 +75,12 @@ func rotate_head(delta):
 func _process(delta: float) -> void:
 	rotate_head(delta)
 func _physics_process(delta: float) -> void:
-
+	if shape_cast_3d!=null:
+		shape_cast_3d.enabled=Manager.flashlightOn
+		if shape_cast_3d.is_colliding():
+			var obj :Node3D= shape_cast_3d.get_collider(0)
+			if obj is wendigo:
+				obj.spook()
 
 	#exhaustion System
 	if exhausted:
