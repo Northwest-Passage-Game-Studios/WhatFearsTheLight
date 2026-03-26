@@ -26,7 +26,11 @@ func _input(event: InputEvent) -> void:
 			#await player_ref.tool_handler.pick_up_item(real_item)
 			await get_tree().create_timer(0.75).timeout
 			queue_free()
-		pass
+		elif type_of_item == Types_Of_Pick.Items:
+			player_ref.tool_handler.pick_up_item(real_item)
+			#await player_ref.tool_handler.pick_up_item(real_item)
+			await get_tree().create_timer(0.75).timeout
+			queue_free()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

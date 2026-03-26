@@ -4,6 +4,8 @@ class_name Item_Handler extends BoneAttachment3D
 
 var items:Array[Item]
 
+var quest_objects:Array[Item]
+
 var current_item:Item:
 	set(new_item):
 		if current_item !=null and is_current_item_in_use==true:
@@ -36,7 +38,7 @@ func equip():
 
 func pick_up_item(tool_model:PackedScene):
 	var new_tool := tool_model.instantiate()
-	add_child(new_tool)
+	$Animation_Node.add_child(new_tool)
 	items.append(new_tool)
 	current_item=items.get(items.find(new_tool))
 	animation_player.play("pick_up")

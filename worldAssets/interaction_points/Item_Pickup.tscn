@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://iuic20mq0k8u"]
 
-[ext_resource type="Script" uid="uid://bbpbqo4cr83pm" path="res://Objects/Pickup_able/Key/key.gd" id="1_i0sk0"]
+[ext_resource type="Script" uid="uid://bbpbqo4cr83pm" path="res://worldAssets/interaction_points/Item_Pickup.gd" id="1_i0sk0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0sk0"]
 albedo_color = Color(0.5372549, 0, 1, 1)
@@ -19,6 +19,7 @@ size = Vector3(2.3537598, 3.6660156, 1.9433594)
 
 [node name="Item_Pickup" type="Node3D" unique_id=1339377948]
 script = ExtResource("1_i0sk0")
+type_of_item = null
 
 [node name="Key" type="MeshInstance3D" parent="." unique_id=641981107]
 transform = Transform3D(0.24086045, 0, 0, 0, 0.19124013, 0, 0, 0, 0.2388553, 0, 0, 0)
