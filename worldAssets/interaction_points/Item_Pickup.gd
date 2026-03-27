@@ -27,7 +27,8 @@ func _input(event: InputEvent) -> void:
 			await get_tree().create_timer(0.75).timeout
 			queue_free()
 		elif type_of_item == Types_Of_Pick.Items:
-			player_ref.tool_handler.pick_up_item(real_item)
+			print(player_ref)
+			player_ref.tool_handler.pick_up_object(real_item)
 			#await player_ref.tool_handler.pick_up_item(real_item)
 			await get_tree().create_timer(0.75).timeout
 			queue_free()

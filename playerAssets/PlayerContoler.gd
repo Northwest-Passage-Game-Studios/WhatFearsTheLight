@@ -19,7 +19,7 @@ class_name player_body extends CharacterBody3D
 @onready var backpack: BackPack = $Backpack
 @onready var flashlight_overheat_timer: Timer = $flashlightOverheatTimer
 @onready var spot_light_3d: SpotLight3D = $Armature/Skeleton3D/BoneAttachment3D/FlashLight/SpotLight3D
-@onready var tool_handler: Item_Handler = $Armature/Skeleton3D/BoneAttachment3D
+@onready var tool_handler: Item_Handler = $Armature/Skeleton3D/Item_Bone_Anchor
 
 
 @export_category("Walk Settings")

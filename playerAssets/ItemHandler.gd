@@ -1,6 +1,8 @@
 class_name Item_Handler extends BoneAttachment3D
 
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
+@onready var object_bone_anchor: BoneAttachment3D = $"../Object_Bone_Anchor"
+
 
 var items:Array[Item]
 
@@ -45,6 +47,17 @@ func pick_up_item(tool_model:PackedScene):
 	await  animation_player.animation_finished
 	animation_player.play("RESET")
 	return
+	
+func pick_up_object(tool_model:PackedScene):
+	var new_tool :Quest_Object= tool_model.instantiate()
+	object_bone_anchor.get_node("Animation_Node").add_child(new_tool)
+	items.append(new_tool)
+	current_item=items.get(items.find(new_tool))
+	animation_player.play("pick_up")
+	await  animation_player.animation_finished
+	animation_player.play(new_tool.pick_up_ani)
+	return
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("R-Equp") and animation_player.is_playing()==false:
