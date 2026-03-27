@@ -11,8 +11,8 @@ class_name wendigo extends CharacterBody3D
 var target:Node3D
 
 @export_category("Speeds")
-@export var chase_speed:=5
-@export var revsere_speed:=2
+@export var chase_speed:=20
+@export var revsere_speed:=20
 @export_category("Looks")
 @export var red_eye_mat:Material
 @export var white_eye_mat:Material
@@ -68,8 +68,7 @@ func way_point_reached():
 		new_velocity = global_position.direction_to(next_pos) * revsere_speed
 	if navigation_agent_3d.avoidance_enabled:
 		navigation_agent_3d.set_velocity(new_velocity)
-	else:
-		_on_velocity_computed(new_velocity)
+	_on_velocity_computed(new_velocity)
 
 func _on_velocity_computed(safe_velocity: Vector3) -> void:
 	velocity=safe_velocity
@@ -92,9 +91,10 @@ func _physics_process(delta: float) -> void:
 
 func _on_kill_timer_timeout() -> void:
 	is_chasing=true
-	
+
 func spook():
-	anxiety-=0.01
+	if !is_spooked:
+		anxiety-=0.01
 	if !kill_timer.is_stopped():
 		kill_timer.start(anxiety+0.5)
 	print(str(anxiety)+" Anxiety and "+str(kill_timer.time_left))

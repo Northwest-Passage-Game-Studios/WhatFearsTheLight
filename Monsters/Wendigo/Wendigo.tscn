@@ -73,6 +73,8 @@ spot_angle = 20.71
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1594100604]
 avoidance_enabled = true
+height = 3.0
+radius = 7.0
 avoidance_layers = 2
 avoidance_mask = 2
 debug_enabled = true
