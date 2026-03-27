@@ -2,7 +2,7 @@ extends CharacterBody3D
 @onready var player: player_body = $"../Player"
 var frozen:=false
 
-var movement_speed: float = 10.0
+var movement_speed: float = 4.0
 @onready var movement_target_position: Vector3 = player.global_position
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
 
