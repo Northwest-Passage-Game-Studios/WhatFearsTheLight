@@ -16,7 +16,13 @@ enum Types_Of_Pick {
 var is_player_in:=false
 var player_ref :player_body
 
+
+
+
 @onready var key: MeshInstance3D = $Key
+
+
+signal Picked_Up
 
 
 func _input(event: InputEvent) -> void:
@@ -32,6 +38,7 @@ func _input(event: InputEvent) -> void:
 			#await player_ref.tool_handler.pick_up_item(real_item)
 			await get_tree().create_timer(0.75).timeout
 			queue_free()
+		Picked_Up.emit()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://brou3fpfw0pvm" path="res://Objects/Items/Key/key.gd" id="1_oa7o5"]
 [ext_resource type="Shader" uid="uid://b7bfsxxcrfmyr" path="res://playerAssets/fpv.gdshader" id="2_1xhsr"]
-[ext_resource type="Texture2D" uid="uid://barfo2yoxinaa" path="res://worldAssets/items/padlock-key/textures/padlock_Padlock_BaseColor.png" id="3_tpdql"]
-[ext_resource type="Texture2D" uid="uid://b5yjaxlm7kxhm" path="res://worldAssets/items/padlock-key/textures/padlock_Padlock_Normal.png" id="4_umesb"]
+[ext_resource type="Texture2D" uid="uid://barfo2yoxinaa" path="res://Objects/Items/Key/textures/padlock_Padlock_BaseColor.png" id="3_tpdql"]
+[ext_resource type="Texture2D" uid="uid://b5yjaxlm7kxhm" path="res://Objects/Items/Key/textures/padlock_Padlock_Normal.png" id="4_umesb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8g5vc"]
 render_priority = 0

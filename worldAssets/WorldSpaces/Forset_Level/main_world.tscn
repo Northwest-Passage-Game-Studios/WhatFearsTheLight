@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cmvs2j7mldfnf"]
 
+[ext_resource type="Script" uid="uid://p010a7y388t2" path="res://worldAssets/WorldSpaces/Forset_Level/main_world.gd" id="1_3r06u"]
 [ext_resource type="Material" uid="uid://bra6ug2wjmj0j" path="res://worldAssets/grass/src/materials/grass_01/grass_ground_01.tres" id="1_swhhd"]
-[ext_resource type="Script" uid="uid://dhkvcb11lumvg" path="res://worldAssets/WorldSpaces/ground.gd" id="2_3kala"]
+[ext_resource type="Script" uid="uid://dhkvcb11lumvg" path="res://worldAssets/WorldSpaces/Forset_Level/ground.gd" id="2_3kala"]
 [ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="3_tbems"]
 [ext_resource type="PackedScene" uid="uid://d4mvahmoqcyqj" path="res://worldAssets/water/pSXWater/ocean_surface/ocean_surface.tscn" id="5_wa85s"]
 [ext_resource type="PackedScene" uid="uid://iuic20mq0k8u" path="res://worldAssets/interaction_points/Item_Pickup.tscn" id="6_3kala"]
-[ext_resource type="Script" uid="uid://bml7hv1twhwpv" path="res://worldAssets/WorldSpaces/timer.gd" id="7_3kala"]
+[ext_resource type="Script" uid="uid://bml7hv1twhwpv" path="res://worldAssets/WorldSpaces/Forset_Level/timer.gd" id="7_3kala"]
+[ext_resource type="PackedScene" uid="uid://ulu3elc8iyd0" path="res://Objects/Items/Key/key.tscn" id="7_bk25w"]
 [ext_resource type="PackedScene" uid="uid://bprx3w3vwsvla" path="res://Objects/Items/Flashlights/flash_light.tscn" id="7_tbems"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mqh1b"]
@@ -36,6 +38,8 @@ volumetric_fog_length = 1024.0
 adjustment_enabled = true
 
 [node name="mainWorld" type="Node3D" unique_id=234071416]
+script = ExtResource("1_3r06u")
+starting_tool = ExtResource("7_tbems")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=900856087]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0.06280327, -0.5173943, -446.27762)
@@ -70,11 +74,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5027115, 2.3987594, 2.06219
 
 [node name="OceanSurface" parent="." unique_id=1891312276 instance=ExtResource("5_wa85s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9023199, 197.99762)
+visible = false
 
 [node name="key" parent="." unique_id=1339377948 instance=ExtResource("6_3kala")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30571365, 1.3727705, -1.6675003)
-type_of_item = 0
-real_item = ExtResource("7_tbems")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30571365, 1.3727705, -4.1804447)
+type_of_item = 1
+real_item = ExtResource("7_bk25w")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=159762498]
 transform = Transform3D(1, 0, 0, 0, 0.4372413, 0.8993442, 0, -0.8993442, 0.4372413, 0, 4.581883, 2.548546)
@@ -88,4 +93,5 @@ wait_time = 7.0
 autostart = true
 script = ExtResource("7_3kala")
 
+[connection signal="Picked_Up" from="key" to="." method="_on_key_picked_up"]
 [connection signal="timeout" from="wendigoSpawner" to="wendigoSpawner" method="_on_timeout"]

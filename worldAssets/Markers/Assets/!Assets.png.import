@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgxtd726ny2q8"
-path.s3tc="res://.godot/imported/padlock_Padlock_Metallic.png-5f5f07e729fb1d8c08c67aeff613e1aa.s3tc.ctex"
+uid="uid://1dslt60oubqd"
+path.s3tc="res://.godot/imported/!Assets.png-adab7c78ed7eccbde4e4ee6f4bbd4f59.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://worldAssets/items/padlock-key/textures/padlock_Padlock_Metallic.png"
-dest_files=["res://.godot/imported/padlock_Padlock_Metallic.png-5f5f07e729fb1d8c08c67aeff613e1aa.s3tc.ctex"]
+source_file="res://worldAssets/Markers/Assets/!Assets.png"
+dest_files=["res://.godot/imported/!Assets.png-adab7c78ed7eccbde4e4ee6f4bbd4f59.s3tc.ctex"]
 
 [params]
 

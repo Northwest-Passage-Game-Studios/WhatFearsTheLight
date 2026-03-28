@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b38wn8nj3n6h5"]
+
+[ext_resource type="Script" uid="uid://bnujm0hd6usbc" path="res://Gobals/QuestManger/QuestManger.gd" id="1_sfpqb"]
+[ext_resource type="PackedScene" uid="uid://r4gyls1m4n1y" path="res://worldAssets/Markers/quest_marker.tscn" id="2_5dg0u"]
+
+[node name="QuestManger" type="Node" unique_id=1291544714]
+script = ExtResource("1_sfpqb")
+Quest_Maker = ExtResource("2_5dg0u")
