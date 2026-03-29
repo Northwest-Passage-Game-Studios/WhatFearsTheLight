@@ -8,6 +8,8 @@ var treee=preload("res://worldAssets/treees/tree.tscn")
 @onready var tree_container: Node3D = $treeContainer
 @onready var reference_point: Node3D = $referencePoint
 
+@onready var key_2: Object_PickUp_Point = $key2
+@onready var key_3: Object_PickUp_Point = $key3
 
 
 @export var starting_tool :PackedScene
@@ -45,7 +47,5 @@ func _ready() -> void:
 	player.tool_handler.pick_up_item(starting_tool)
 	
 	#Starts_Debug_key_finding_Quest
-	find_key_quest_ref_id=Quest_Manger.add_new_quest(key.global_position,"Find the Key","Find the key")
-
-func _on_key_picked_up() -> void:
-	Quest_Manger.mark_quest_completed(find_key_quest_ref_id)
+	find_key_quest_ref_id=Quest_Manger.add_new_quest("Find the Key","Find the key",Quest_Manger.Quest_Type.Mutiple_Item_Fetch)
+	Quest_Manger.add_mutiple_item(find_key_quest_ref_id,[key,key_2,key_3])

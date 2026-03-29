@@ -79,7 +79,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9023199, 197.99762)
 visible = false
 
 [node name="key" parent="." unique_id=1339377948 instance=ExtResource("6_3kala")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30571365, 1.3727705, -4.1804447)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30571365, 1.3727703, -4.1804447)
+type_of_item = 1
+real_item = ExtResource("7_bk25w")
+
+[node name="key2" parent="." unique_id=861999061 instance=ExtResource("6_3kala")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3057137, 1.3727703, -4.1804447)
+type_of_item = 1
+real_item = ExtResource("7_bk25w")
+
+[node name="key3" parent="." unique_id=1110244672 instance=ExtResource("6_3kala")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3057137, 1.3727703, -4.1804447)
 type_of_item = 1
 real_item = ExtResource("7_bk25w")
 
@@ -96,4 +106,6 @@ autostart = true
 script = ExtResource("7_3kala")
 
 [connection signal="Picked_Up" from="key" to="." method="_on_key_picked_up"]
+[connection signal="Picked_Up" from="key2" to="." method="_on_key_picked_up"]
+[connection signal="Picked_Up" from="key3" to="." method="_on_key_picked_up"]
 [connection signal="timeout" from="wendigoSpawner" to="wendigoSpawner" method="_on_timeout"]
