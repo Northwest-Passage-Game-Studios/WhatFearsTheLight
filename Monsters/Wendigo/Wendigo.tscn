@@ -75,9 +75,8 @@ spot_angle = 20.71
 avoidance_enabled = true
 height = 3.0
 radius = 7.0
-avoidance_layers = 2
-avoidance_mask = 2
 debug_enabled = true
+debug_use_custom = true
 debug_path_custom_point_size = 71.8
 
 [node name="Kill_Timer" type="Timer" parent="." unique_id=320188991]

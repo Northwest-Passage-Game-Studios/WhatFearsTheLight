@@ -38,14 +38,15 @@ func equip():
 			await animation_player.animation_finished
 			current_item.hide()
 
-func pick_up_item(tool_model:PackedScene):
+func pick_up_item(tool_model:PackedScene,Us_Ani:bool=true):
 	var new_tool := tool_model.instantiate()
 	$Animation_Node.add_child(new_tool)
 	items.append(new_tool)
 	current_item=items.get(items.find(new_tool))
-	animation_player.play("pick_up")
-	await  animation_player.animation_finished
-	animation_player.play("RESET")
+	if Us_Ani:
+		animation_player.play("pick_up")
+		await  animation_player.animation_finished
+		animation_player.play("RESET")
 	return
 	
 func pick_up_object(tool_model:PackedScene):

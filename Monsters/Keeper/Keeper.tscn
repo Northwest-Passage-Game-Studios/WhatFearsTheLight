@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ejva0tq80cdc"]
 
 [ext_resource type="Script" uid="uid://ckv4277fmtep4" path="res://Monsters/Keeper/keeper.gd" id="1_dx88w"]
-[ext_resource type="PackedScene" uid="uid://b3vvh3dng62wu" path="res://KeeperModel.tscn" id="2_dvjnk"]
+[ext_resource type="PackedScene" uid="uid://b3vvh3dng62wu" path="res://Monsters/Keeper/KeeperModel.tscn" id="2_dvjnk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i88gt"]
 size = Vector3(2.205748, 3, 3)

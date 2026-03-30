@@ -1,76 +1,97 @@
 [gd_scene format=3 uid="uid://r4gyls1m4n1y"]
 
-[ext_resource type="Texture2D" uid="uid://1dslt60oubqd" path="res://worldAssets/Markers/Assets/!Assets.png" id="1_grn4g"]
+[ext_resource type="Texture2D" uid="uid://i2xy4eypeuiq" path="res://worldAssets/Markers/Assets/yellowAnchor.png" id="1_grn4g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4bhj"]
 atlas = ExtResource("1_grn4g")
-region = Rect2(0, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k8cx6"]
-atlas = ExtResource("1_grn4g")
-region = Rect2(1024, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_11htl"]
-atlas = ExtResource("1_grn4g")
-region = Rect2(2048, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bpfr3"]
-atlas = ExtResource("1_grn4g")
-region = Rect2(3072, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oq0l7"]
-atlas = ExtResource("1_grn4g")
-region = Rect2(4096, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ojyim"]
-atlas = ExtResource("1_grn4g")
-region = Rect2(5120, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tvoap"]
-atlas = ExtResource("1_grn4g")
-region = Rect2(6144, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1o7ps"]
-atlas = ExtResource("1_grn4g")
-region = Rect2(7168, 0, 1024, 1024)
+region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b813w"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p4bhj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k8cx6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_11htl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bpfr3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oq0l7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ojyim")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tvoap")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1o7ps")
 }],
 "loop": true,
 "name": &"default",
 "speed": 12.0
 }]
 
+[sub_resource type="Animation" id="Animation_grn4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.26881838, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.81537366, 0.8268999, 0.34279865, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p4bhj"]
+resource_name = "anchorAnimate"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.29, 0), Vector3(0, 0.296, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.73, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.8156863, 0.827451, 0.34117648, 0.22745098), Color(0.8156863, 0.827451, 0.34117648, 0.67058825), Color(0.8156863, 0.827451, 0.34117648, 0.45490196), Color(0.8156863, 0.827451, 0.34117648, 0.22745098)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k8cx6"]
+_data = {
+&"RESET": SubResource("Animation_grn4g"),
+&"anchorAnimate": SubResource("Animation_p4bhj")
+}
+
 [node name="Quest_Marker" type="Node3D" unique_id=1570456349]
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="." unique_id=974341932]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.26881838, 0)
+visibility_range_begin = 2.0
+visibility_range_begin_margin = 0.4
+visibility_range_fade_mode = 1
 modulate = Color(0.81537366, 0.8268999, 0.34279865, 1)
 pixel_size = 0.001
-billboard = 2
+billboard = 1
+fixed_size = true
 sprite_frames = SubResource("SpriteFrames_b813w")
-frame_progress = 0.73688024
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1401863306]
+libraries/ = SubResource("AnimationLibrary_k8cx6")
+autoplay = &"anchorAnimate"

@@ -229,7 +229,7 @@ shape = SubResource("SphereShape3D_7eftw")
 debug_color = Color(0, 1, 0, 0.41960785)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D" unique_id=286664846]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0.3679924, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.13390398, 0)
 billboard = 2
 sprite_frames = SubResource("SpriteFrames_xkna1")
 autoplay = "default"

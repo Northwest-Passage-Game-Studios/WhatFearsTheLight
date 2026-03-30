@@ -21,6 +21,7 @@ class_name player_body extends CharacterBody3D
 @onready var spot_light_3d: SpotLight3D = $Armature/Skeleton3D/BoneAttachment3D/FlashLight/SpotLight3D
 @onready var tool_handler: Item_Handler = $Armature/Skeleton3D/Item_Bone_Anchor
 
+@onready var close_range_light: SpotLight3D = $Neck/Camera3D/closeRangeLight
 
 @export_category("Walk Settings")
 @export var baseSpeed:=2.5
@@ -37,6 +38,7 @@ class_name player_body extends CharacterBody3D
 @export var lag_speed:=75
 @export_category("Flashlight Settings")
 @onready var shape_cast_3d: ShapeCast3D = $Neck/Camera3D/ShapeCast3D
+@onready var animation_player: AnimationPlayer = $Armature/AnimationPlayer
 
 
 #Hidden Settings
@@ -75,6 +77,9 @@ func rotate_head(delta):
 func _process(delta: float) -> void:
 	rotate_head(delta)
 func _physics_process(delta: float) -> void:
+	if animation_player!=null:
+		close_range_light.visible=animation_player.current_animation!="PlayerHandAni/ShowFlashLight" && Manager.flashlightOn && animation_player.current_animation!="PlayerHandAni/HideFlashLight"
+	
 	if shape_cast_3d!=null:
 		shape_cast_3d.enabled=Manager.flashlightOn
 		if shape_cast_3d.is_colliding():
@@ -212,3 +217,7 @@ func _input(event: InputEvent) -> void:
 		var new_pitch = clampf(pitch_rotate,-80,80)
 
 		neck.rotation_degrees.x=new_pitch
+	if event.is_action("save"):
+		var packed_scene := PackedScene.new()
+		var result := packed_scene.pack(get_tree().current_scene)
+		var save_result := ResourceSaver.save(packed_scene, "user://world_temp.tscn")
