@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3mvlxcys4pg8"
-path.s3tc="res://.godot/imported/Monster_Lofi_MonsterMat_OcclusionRoughness.png-6729ec14ed77c35d6d97f897815b6138.s3tc.ctex"
+uid="uid://i2xy4eypeuiq"
+path.s3tc="res://.godot/imported/yellowAnchor.png-822479466de995e27a673236cb726c69.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://worldAssets/monsters/textures2/Monster_Lofi_MonsterMat_OcclusionRoughness.png"
-dest_files=["res://.godot/imported/Monster_Lofi_MonsterMat_OcclusionRoughness.png-6729ec14ed77c35d6d97f897815b6138.s3tc.ctex"]
+source_file="res://worldAssets/Markers/Assets/yellowAnchor.png"
+dest_files=["res://.godot/imported/yellowAnchor.png-822479466de995e27a673236cb726c69.s3tc.ctex"]
 
 [params]
 

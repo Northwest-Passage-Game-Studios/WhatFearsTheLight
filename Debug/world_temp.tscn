@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://cd8f0ax8mc6h5" path="res://worldAssets/water/pSXWater/ocean_surface/ocean_surface.gdshader" id="8_b5nwj"]
 [ext_resource type="Texture2D" uid="uid://cpqiiurdc062b" path="res://worldAssets/water/pSXWater/ocean_surface/waterTileabke.jpg" id="9_xv3v6"]
 [ext_resource type="PackedScene" uid="uid://iuic20mq0k8u" path="res://worldAssets/interaction_points/Item_Pickup.tscn" id="10_p4p3f"]
+[ext_resource type="Texture2D" uid="uid://qo7vmn5s1tlf" path="res://worldAssets/water/waterCaustics.jpg" id="12_8kbah"]
 [ext_resource type="PackedScene" uid="uid://ulu3elc8iyd0" path="res://Objects/Items/Key/key.tscn" id="12_nqirj"]
 [ext_resource type="Script" uid="uid://bml7hv1twhwpv" path="res://worldAssets/WorldSpaces/Forset_Level/timer.gd" id="13_tyrw6"]
 
@@ -64,6 +65,9 @@ adjustment_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_wu3sq"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6oxct"]
+albedo_texture = ExtResource("12_8kbah")
+
 [node name="mainWorld" type="Node3D" unique_id=234071416]
 script = ExtResource("1_i138e")
 starting_tool = ExtResource("2_eqsow")
@@ -107,11 +111,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30571365, 1.3727703, -4.180
 real_item = ExtResource("12_nqirj")
 
 [node name="key2" parent="." unique_id=861999061 instance=ExtResource("10_p4p3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3057137, 1.3727703, -4.1804447)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8746107, 0.84528565, -4.2308297)
 real_item = ExtResource("12_nqirj")
 
 [node name="key3" parent="." unique_id=1110244672 instance=ExtResource("10_p4p3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3057137, 1.3727703, -4.1804447)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3057137, 0.24036922, -4.1804447)
 real_item = ExtResource("12_nqirj")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=159762498]
@@ -128,6 +132,14 @@ script = ExtResource("13_tyrw6")
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1958840002]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -446.08002)
 navigation_mesh = SubResource("NavigationMesh_wu3sq")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=381907197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8704872, 0.2723925, -4.2099857)
+material_override = SubResource("StandardMaterial3D_6oxct")
+use_collision = true
+radius = 0.091
+height = 1.134
+sides = 64
 
 [connection signal="Picked_Up" from="key" to="." method="_on_key_picked_up"]
 [connection signal="Picked_Up" from="key2" to="." method="_on_key_picked_up"]

@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="3_6siol"]
 [ext_resource type="Material" uid="uid://c2to67v55oatp" path="res://worldAssets/grass/src/materials/grass_01/grass_01.tres" id="3_185nt"]
 [ext_resource type="PackedScene" uid="uid://d4mvahmoqcyqj" path="res://worldAssets/water/pSXWater/ocean_surface/ocean_surface.tscn" id="4_185nt"]
-[ext_resource type="PackedScene" uid="uid://b0rbgxb3m8oai" path="res://Monsters/Wendigo/Wendigo.tscn" id="5_n76m3"]
+[ext_resource type="PackedScene" uid="uid://iuic20mq0k8u" path="res://worldAssets/interaction_points/Item_Pickup.tscn" id="5_i155q"]
+[ext_resource type="PackedScene" uid="uid://bprx3w3vwsvla" path="res://Objects/Items/Flashlights/flash_light.tscn" id="6_t4bd4"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ue55g"]
 size = Vector2(20, 20)
@@ -259,8 +260,16 @@ spot_angle = 34.31
 [node name="OceanSurface" parent="." unique_id=1891312276 instance=ExtResource("4_185nt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8975941, 0)
 
-[node name="Wendigo" parent="." unique_id=977576987 instance=ExtResource("5_n76m3")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.6971583, 0.04373288, -4.758627)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2027779031]
 environment = SubResource("Environment_ue6nl")
+
+[node name="key" parent="." unique_id=1339377948 instance=ExtResource("5_i155q")]
+transform = Transform3D(0.6320293, 0, 0.7749445, 0, 1, 0, -0.7749445, 0, 0.6320293, -7.814743, 1.125587, 2.4087324)
+type_of_item = 0
+real_item = ExtResource("6_t4bd4")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=2019488011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.802988, 0.5529046, 2.4198263)
+radius = 0.091
+height = 1.134
+sides = 64

@@ -19,7 +19,7 @@ func _ready() -> void:
 	flashlightDurability=flashlightMaxDurability
 	
 func _process(delta: float) -> void:
-	Manager.flashlightOn=spot_light_3d.visible==true
+	Manager.flashlightOn=spot_light_3d.visible
 	if _is_on:
 		spot_light_3d.visible=true
 		if flashlightDurability>-1:
