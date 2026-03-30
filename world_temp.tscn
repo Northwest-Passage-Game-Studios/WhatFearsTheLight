@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://drasmpv2qh207"]
+
+[ext_resource type="Script" uid="uid://p010a7y388t2" path="res://worldAssets/WorldSpaces/Forset_Level/main_world.gd" id="1_i138e"]
+[ext_resource type="PackedScene" uid="uid://bprx3w3vwsvla" path="res://Objects/Items/Flashlights/flash_light.tscn" id="2_eqsow"]
+[ext_resource type="Material" uid="uid://bra6ug2wjmj0j" path="res://worldAssets/grass/src/materials/grass_01/grass_ground_01.tres" id="3_mksir"]
+[ext_resource type="Script" uid="uid://dhkvcb11lumvg" path="res://worldAssets/WorldSpaces/Forset_Level/ground.gd" id="4_tmujn"]
+[ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="5_p4sst"]
+[ext_resource type="PackedScene" uid="uid://d4mvahmoqcyqj" path="res://worldAssets/water/pSXWater/ocean_surface/ocean_surface.tscn" id="7_s3yhq"]
+[ext_resource type="Shader" uid="uid://cd8f0ax8mc6h5" path="res://worldAssets/water/pSXWater/ocean_surface/ocean_surface.gdshader" id="8_b5nwj"]
+[ext_resource type="Texture2D" uid="uid://cpqiiurdc062b" path="res://worldAssets/water/pSXWater/ocean_surface/waterTileabke.jpg" id="9_xv3v6"]
+[ext_resource type="PackedScene" uid="uid://iuic20mq0k8u" path="res://worldAssets/interaction_points/Item_Pickup.tscn" id="10_p4p3f"]
+[ext_resource type="PackedScene" uid="uid://ulu3elc8iyd0" path="res://Objects/Items/Key/key.tscn" id="12_nqirj"]
+[ext_resource type="Script" uid="uid://bml7hv1twhwpv" path="res://worldAssets/WorldSpaces/Forset_Level/timer.gd" id="13_tyrw6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mqh1b"]
+size = Vector2(1000, 1000)
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nayo1"]
+shading_mode = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mymsq"]
+lightmap_size_hint = Vector2i(1002, 1002)
+material = SubResource("StandardMaterial3D_nayo1")
+size = Vector2(200, 200)
+subdivide_width = 100
+subdivide_depth = 100
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3pxpg"]
+render_priority = 0
+shader = ExtResource("8_b5nwj")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/water_texture1 = ExtResource("9_xv3v6")
+shader_parameter/water_texture2 = ExtResource("9_xv3v6")
+shader_parameter/scroll_speed1 = Vector2(0.05, 0.285)
+shader_parameter/scroll_speed2 = Vector2(0.17, 0)
+shader_parameter/blend_factor = 1.82
+shader_parameter/scale1 = Vector2(100, 100)
+shader_parameter/scale2 = Vector2(100, 100)
+shader_parameter/wave_strength = 0.5
+shader_parameter/wave_scale = 0.02
+shader_parameter/pixelation_level = 56
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_swhhd"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_185nt"]
+sky_material = SubResource("ProceduralSkyMaterial_swhhd")
+
+[sub_resource type="Environment" id="Environment_3kala"]
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_185nt")
+ambient_light_source = 1
+ambient_light_energy = 10.69
+fog_light_energy = 0.0
+volumetric_fog_density = 0.8462
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 0.23
+volumetric_fog_length = 1024.0
+adjustment_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_wu3sq"]
+
+[node name="mainWorld" type="Node3D" unique_id=234071416]
+script = ExtResource("1_i138e")
+starting_tool = ExtResource("2_eqsow")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=900856087]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0.06280327, -0.5173943, -446.27762)
+use_collision = true
+size = Vector3(20.001183, 1, 20.000923)
+
+[node name="Node3D" type="Node3D" parent="." unique_id=991613535]
+
+[node name="referencePoint" type="Node3D" parent="." unique_id=1397863416]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -490, 0, -936)
+
+[node name="treeContainer" type="Node3D" parent="." unique_id=877445987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -446.08002)
+
+[node name="grassContair" type="Node3D" parent="." unique_id=574363932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -446.08002)
+
+[node name="wendigoContainer" type="Node3D" parent="." unique_id=1497540679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -446.08002)
+
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=1784751366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -446.08002)
+material_override = ExtResource("3_mksir")
+mesh = SubResource("PlaneMesh_mqh1b")
+script = ExtResource("4_tmujn")
+
+[node name="Player" parent="." unique_id=827342177 instance=ExtResource("5_p4sst")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5027115, 2.3987594, 2.062193)
+
+[node name="OceanSurface" parent="." unique_id=1891312276 instance=ExtResource("7_s3yhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9023199, 197.99762)
+visible = false
+mesh = SubResource("PlaneMesh_mymsq")
+surface_material_override/0 = SubResource("ShaderMaterial_3pxpg")
+
+[node name="key" parent="." unique_id=1339377948 instance=ExtResource("10_p4p3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30571365, 1.3727703, -4.1804447)
+real_item = ExtResource("12_nqirj")
+
+[node name="key2" parent="." unique_id=861999061 instance=ExtResource("10_p4p3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3057137, 1.3727703, -4.1804447)
+real_item = ExtResource("12_nqirj")
+
+[node name="key3" parent="." unique_id=1110244672 instance=ExtResource("10_p4p3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3057137, 1.3727703, -4.1804447)
+real_item = ExtResource("12_nqirj")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=159762498]
+transform = Transform3D(1, 0, 0, 0, 0.4372413, 0.8993442, 0, -0.8993442, 0.4372413, 0, 4.581883, 2.548546)
+spot_range = 50.397
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1932304844]
+environment = SubResource("Environment_3kala")
+
+[node name="wendigoSpawner" type="Timer" parent="." unique_id=208686425]
+wait_time = 7.0
+script = ExtResource("13_tyrw6")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1958840002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -446.08002)
+navigation_mesh = SubResource("NavigationMesh_wu3sq")
+
+[connection signal="Picked_Up" from="key" to="." method="_on_key_picked_up"]
+[connection signal="Picked_Up" from="key2" to="." method="_on_key_picked_up"]
+[connection signal="Picked_Up" from="key3" to="." method="_on_key_picked_up"]
+[connection signal="timeout" from="wendigoSpawner" to="wendigoSpawner" method="_on_timeout"]

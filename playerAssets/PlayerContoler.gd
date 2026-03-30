@@ -212,3 +212,7 @@ func _input(event: InputEvent) -> void:
 		var new_pitch = clampf(pitch_rotate,-80,80)
 
 		neck.rotation_degrees.x=new_pitch
+	if event.is_action("save"):
+		var packed_scene := PackedScene.new()
+		var result := packed_scene.pack(get_tree().current_scene)
+		var save_result := ResourceSaver.save(packed_scene, "user://world_temp.tscn")
