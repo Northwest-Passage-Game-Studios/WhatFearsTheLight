@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://b3vvh3dng62wu"]
 
-[ext_resource type="Script" uid="uid://d157pogeai0qw" path="res://keeper_model.gd" id="1_rpqha"]
+[ext_resource type="Script" uid="uid://d157pogeai0qw" path="res://Monsters/Keeper/keeper_model.gd" id="1_rpqha"]
 [ext_resource type="Texture2D" uid="uid://k1q6lauieadm" path="res://worldAssets/monsters/textures2/Monster_Lofi_MonsterMat_BaseColor.png" id="2_iv4q5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cj2ac"]
