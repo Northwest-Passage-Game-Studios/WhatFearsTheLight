@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bm1jc2s1bxgp6"]
+
+[ext_resource type="Script" uid="uid://de18oqn5pa77d" path="res://Dev_Tools/CAIP/caip.gd" id="1_qrj0s"]
+
+[node name="CAIP" type="Node3D" unique_id=520449822]
+script = ExtResource("1_qrj0s")
+gen_steps = null

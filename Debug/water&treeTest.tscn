@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://bra6ug2wjmj0j" path="res://worldAssets/grass/src/materials/grass_01/grass_ground_01.tres" id="1_o5l4j"]
 [ext_resource type="Material" uid="uid://c2to67v55oatp" path="res://worldAssets/grass/src/materials/grass_01/grass_01.tres" id="2_2dx65"]
 [ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="3_p7x75"]
-[ext_resource type="PackedScene" uid="uid://hvj1r5jxfc87" path="res://worldAssets/treees/tree.tscn" id="4_s28pq"]
+[ext_resource type="PackedScene" uid="uid://hvj1r5jxfc87" path="res://worldAssets/treees/Tree_1/tree.tscn" id="4_s28pq"]
 [ext_resource type="PackedScene" uid="uid://d4mvahmoqcyqj" path="res://worldAssets/water/pSXWater/ocean_surface/ocean_surface.tscn" id="5_pfmmg"]
 [ext_resource type="PackedScene" uid="uid://ejva0tq80cdc" path="res://Monsters/Keeper/Keeper.tscn" id="6_2dx65"]
 

@@ -1,7 +1,7 @@
 extends Node3D
 
 var grasse=preload("res://worldAssets/grass/WAVEYgrass.tscn")
-var treee=preload("res://worldAssets/treees/tree.tscn")
+
 @onready var player: player_body = $Player
 @onready var key: Object_PickUp_Point = $key
 @onready var grass_contair: Node3D = $grassContair
@@ -20,8 +20,8 @@ var find_key_quest_ref_id:int
 
 
 func _make_world() -> void:
-	for x in range(50):
-		for z in range(50):
+	for x in range(-25,25,1):
+		for z in range(-25,25,1):
 			var grasInst=grasse.instantiate()
 			grass_contair.add_child(grasInst)
 			grasInst.global_position.y=reference_point.global_position.y
@@ -29,15 +29,15 @@ func _make_world() -> void:
 			grasInst.global_position.z=reference_point.global_position.z+20*z
 			
 			
-	for x in range(0,100,2):
-		for z in range(0,100,2):
-			var tree=treee.instantiate()
-			tree_container.add_child(tree)
-			tree.global_position.y=reference_point.global_position.y
-			tree.global_position.x=reference_point.global_position.x+10*x+randi_range(-30,30)
-			tree.global_position.z=reference_point.global_position.z+10*z+randi_range(-30,30)
-			tree.scale*=randf_range(0.9,2.1)
-			tree.rotation.y=randf_range(0,360)
+	#for x in range(0,100,2):
+		#for z in range(0,100,2):
+			#var tree=treee.instantiate()
+			#tree_container.add_child(tree)
+			#tree.global_position.y=reference_point.global_position.y
+			#tree.global_position.x=reference_point.global_position.x+10*x+randi_range(-30,30)
+			#tree.global_position.z=reference_point.global_position.z+10*z+randi_range(-30,30)
+			#tree.scale*=randf_range(0.9,2.1)
+			#tree.rotation.y=randf_range(0,360)
 	
 
 	
