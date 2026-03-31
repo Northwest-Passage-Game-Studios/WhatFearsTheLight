@@ -26,16 +26,23 @@ func _sort_world_objects(a:Object_Config,b:Object_Config):
 	return a.chance_to_spawn<b.chance_to_spawn
 
 func create_object_at_point(pos:Vector3):
-	Objects.sort_custom(_sort_world_objects)
-	Objects.reverse()
+	#Objects.sort_custom(_sort_world_objects)
+	#Objects.reverse()
 	for build_object:Object_Config in Objects:
-		var chance_clac := randf_range(0,101)
+		var chance_clac := randi_range(0,101)
 		if build_object.chance_to_spawn <= chance_clac:
 			var build_object_ref :Node3D= build_object.object.instantiate()
 			add_child(build_object_ref)
 			build_object_ref.owner = get_tree().edited_scene_root
 			build_object_ref.position=pos
-		return
+			var offset_pos :=Vector3(0,0,0)
+			offset_pos.x = randi_range(1,build_object.offset_random)
+			offset_pos.z = randi_range(1,build_object.offset_random)
+			build_object_ref.position+=offset_pos
+			build_object_ref.scale*=randi_range(1,build_object.scale_random)
+			build_object_ref.rotation_degrees.y=randi_range(0,180)
+			if build_object.allow_other_gen==false:
+				return
 		
 		
 func _clear_all_children():

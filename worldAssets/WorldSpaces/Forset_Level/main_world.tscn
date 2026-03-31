@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bprx3w3vwsvla" path="res://Objects/Items/Flashlights/flash_light.tscn" id="7_tbems"]
 [ext_resource type="Script" uid="uid://de18oqn5pa77d" path="res://Dev_Tools/CAIP/caip.gd" id="10_pb7lo"]
 [ext_resource type="Script" uid="uid://b10rxjhdqr5wx" path="res://Dev_Tools/CAIP/BuildConfig.gd" id="11_iw8dy"]
-[ext_resource type="PackedScene" uid="uid://hvj1r5jxfc87" path="res://worldAssets/treees/Tree_1/tree.tscn" id="12_kpegf"]
-[ext_resource type="Script" uid="uid://b8pblqwwja1pt" path="res://worldAssets/treees/Tree_1/tree.gd" id="13_kpegf"]
+[ext_resource type="PackedScene" uid="uid://hvj1r5jxfc87" path="res://worldAssets/treees/Tree_1/tree.tscn" id="11_sl3aq"]
+[ext_resource type="Script" uid="uid://b8pblqwwja1pt" path="res://worldAssets/treees/Tree_1/tree.gd" id="12_sl3aq"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mqh1b"]
 size = Vector2(1000, 1000)
@@ -40,18 +40,12 @@ adjustment_enabled = true
 
 [sub_resource type="Resource" id="Resource_sl3aq"]
 script = ExtResource("11_iw8dy")
-name = "Bob"
-object = ExtResource("12_kpegf")
-chance_to_spawn = 44.6
-metadata/_custom_type_script = "uid://b10rxjhdqr5wx"
-
-[sub_resource type="Resource" id="Resource_kpegf"]
-script = ExtResource("11_iw8dy")
+name = "Tree"
+object = ExtResource("11_sl3aq")
+offset_random = 50
 metadata/_custom_type_script = "uid://b10rxjhdqr5wx"
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_sl3aq"]
-vertices = PackedVector3Array(-490.52957, 0.23300004, -499.52307, -490.52957, 0.23300004, 499.47693, 508.47043, 0.23300004, 499.47693, 508.47043, 0.23300004, -499.52307)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 geometry_source_geometry_mode = 1
 
 [node name="mainWorld" type="Node3D" unique_id=234071416]
@@ -108,228 +102,205 @@ script = ExtResource("7_3kala")
 
 [node name="CAIP" type="Node3D" parent="." unique_id=150396291]
 script = ExtResource("10_pb7lo")
-Objects = Array[ExtResource("11_iw8dy")]([SubResource("Resource_sl3aq"), SubResource("Resource_kpegf")])
-gen_steps = 10
+Objects = Array[ExtResource("11_iw8dy")]([SubResource("Resource_sl3aq")])
+gen_steps = 15
 metadata/_custom_type_script = "uid://de18oqn5pa77d"
 
-[node name="TREE" type="Node3D" parent="CAIP" unique_id=1250169194 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -50)
-script = ExtResource("13_kpegf")
+[node name="TREE" type="Node3D" parent="CAIP" unique_id=1250169194 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, -10, 0, -16)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56944" type="Node3D" parent="CAIP" unique_id=767797297 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -30)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23484" type="Node3D" parent="CAIP" unique_id=1425590294 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.57357645, 0, 0.81915206, 0, 1, 0, -0.81915206, 0, 0.57357645, 0, 0, -19)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56945" type="Node3D" parent="CAIP" unique_id=421880451 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -20)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23485" type="Node3D" parent="CAIP" unique_id=1820046475 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.9510565, 0, 0.30901703, 0, 1, 0, -0.30901703, 0, -0.9510565, -19, 0, 17)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56946" type="Node3D" parent="CAIP" unique_id=1572782958 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23486" type="Node3D" parent="CAIP" unique_id=1421851190 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.1736482, 0, 0.9848077, 0, 1, 0, -0.9848077, 0, -0.1736482, -37, 0, 19)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56947" type="Node3D" parent="CAIP" unique_id=1071204463 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 10)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23487" type="Node3D" parent="CAIP" unique_id=797196713 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.88294756, 0, 0.46947157, 0, 1, 0, -0.46947157, 0, -0.88294756, -18, 0, 36)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56948" type="Node3D" parent="CAIP" unique_id=2055226253 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 20)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23488" type="Node3D" parent="CAIP" unique_id=750464305 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.1736482, 0, 0.9848077, 0, 1, 0, -0.9848077, 0, -0.1736482, -2, 0, 59)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56949" type="Node3D" parent="CAIP" unique_id=1413897757 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 30)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23489" type="Node3D" parent="CAIP" unique_id=1978243545 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.76604444, 0, 0.6427876, 0, 1, 0, -0.6427876, 0, 0.76604444, -22, 0, 49)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56950" type="Node3D" parent="CAIP" unique_id=1160323229 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 40)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23490" type="Node3D" parent="CAIP" unique_id=637768952 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.34202015, 0, 0.9396926, 0, 1, 0, -0.9396926, 0, 0.34202015, -26, 0, -9)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56951" type="Node3D" parent="CAIP" unique_id=1716567610 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -50)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23491" type="Node3D" parent="CAIP" unique_id=1708354526 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.76604444, 0, 0.64278764, 0, 1, 0, -0.64278764, 0, -0.76604444, 2, 0, 1)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56952" type="Node3D" parent="CAIP" unique_id=2137689046 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -10)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23492" type="Node3D" parent="CAIP" unique_id=703780838 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.29237175, 0, 0.9563047, 0, 1, 0, -0.9563047, 0, -0.29237175, 0, 0, 17)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56953" type="Node3D" parent="CAIP" unique_id=209528000 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 20)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23493" type="Node3D" parent="CAIP" unique_id=1040425468 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.4694716, 0, 0.88294756, 0, 1, 0, -0.88294756, 0, 0.4694716, -29, 0, 30)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56954" type="Node3D" parent="CAIP" unique_id=1821854658 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 40)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23494" type="Node3D" parent="CAIP" unique_id=2078968362 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.32556814, 0, 0.94551855, 0, 1, 0, -0.94551855, 0, 0.32556814, 13, 0, 36)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56955" type="Node3D" parent="CAIP" unique_id=1630984980 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -50)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23495" type="Node3D" parent="CAIP" unique_id=1349739788 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.22495104, 0, 0.97437006, 0, 1, 0, -0.97437006, 0, 0.22495104, 1, 0, 54)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56956" type="Node3D" parent="CAIP" unique_id=606697515 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -20)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23496" type="Node3D" parent="CAIP" unique_id=164425718 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.06975651, 0, 0.9975641, 0, 1, 0, -0.9975641, 0, 0.06975651, -8, 0, 49)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56957" type="Node3D" parent="CAIP" unique_id=98494645 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23497" type="Node3D" parent="CAIP" unique_id=1155877594 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.9702957, 0, 0.2419219, 0, 1, 0, -0.2419219, 0, 0.9702957, 8, 0, -11)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56958" type="Node3D" parent="CAIP" unique_id=16576129 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 10)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23498" type="Node3D" parent="CAIP" unique_id=1208852924 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.92050487, 0, 0.39073113, 0, 1, 0, -0.39073113, 0, 0.92050487, -9, 0, 2)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56959" type="Node3D" parent="CAIP" unique_id=1467967086 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 30)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23499" type="Node3D" parent="CAIP" unique_id=971481746 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -18, 0, -16)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56960" type="Node3D" parent="CAIP" unique_id=1184834255 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 40)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23500" type="Node3D" parent="CAIP" unique_id=879099585 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.8571673, 0, 0.515038, 0, 1, 0, -0.515038, 0, -0.8571673, -17, 0, 38)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56961" type="Node3D" parent="CAIP" unique_id=208278756 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -20)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23501" type="Node3D" parent="CAIP" unique_id=1752661446 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.99026805, 0, 0.13917318, 0, 1, 0, -0.13917318, 0, -0.99026805, 3, 0, 34)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56962" type="Node3D" parent="CAIP" unique_id=1142923974 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23502" type="Node3D" parent="CAIP" unique_id=2059564482 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.08715577, 0, 0.9961947, 0, 1, 0, -0.9961947, 0, -0.08715577, 30, 0, 47)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56963" type="Node3D" parent="CAIP" unique_id=889738837 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 10)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23503" type="Node3D" parent="CAIP" unique_id=1551149364 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.6819983, 0, 0.7313537, 0, 1, 0, -0.7313537, 0, -0.6819983, -1, 0, 52)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56964" type="Node3D" parent="CAIP" unique_id=833517697 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 30)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23504" type="Node3D" parent="CAIP" unique_id=1211917562 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.92718387, 0, 0.37460658, 0, 1, 0, -0.37460658, 0, 0.92718387, 2, 0, -17)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56965" type="Node3D" parent="CAIP" unique_id=1212494996 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -50)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23505" type="Node3D" parent="CAIP" unique_id=284734732 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.84804803, 0, 0.5299193, 0, 1, 0, -0.5299193, 0, -0.84804803, 45, 0, -15)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56966" type="Node3D" parent="CAIP" unique_id=543094465 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23506" type="Node3D" parent="CAIP" unique_id=569767681 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.3746066, 0, 0.92718387, 0, 1, 0, -0.92718387, 0, -0.3746066, 16, 0, 0)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56967" type="Node3D" parent="CAIP" unique_id=878146220 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 20)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23507" type="Node3D" parent="CAIP" unique_id=1817718816 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.83867055, 0, 0.54463905, 0, 1, 0, -0.54463905, 0, 0.83867055, -4, 0, 8)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56968" type="Node3D" parent="CAIP" unique_id=1925145675 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23508" type="Node3D" parent="CAIP" unique_id=2136550441 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.2419219, 0, 0.9702957, 0, 1, 0, -0.9702957, 0, 0.2419219, 16, 0, 34)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56969" type="Node3D" parent="CAIP" unique_id=1771761091 instance=ExtResource("12_kpegf")]
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23509" type="Node3D" parent="CAIP" unique_id=1138477026 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.052335974, 0, 0.9986295, 0, 1, 0, -0.9986295, 0, 0.052335974, 18, 0, 35)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56970" type="Node3D" parent="CAIP" unique_id=2144232121 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23510" type="Node3D" parent="CAIP" unique_id=855887336 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.9986295, 0, 0.05233605, 0, 1, 0, -0.05233605, 0, -0.9986295, 29, 0, 77)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56971" type="Node3D" parent="CAIP" unique_id=846637832 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23511" type="Node3D" parent="CAIP" unique_id=2078020886 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.97437006, 0, 0.22495112, 0, 1, 0, -0.22495112, 0, -0.97437006, 47, 0, -5)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56972" type="Node3D" parent="CAIP" unique_id=764120136 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23512" type="Node3D" parent="CAIP" unique_id=29478797 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.45399052, 0, 0.8910065, 0, 1, 0, -0.8910065, 0, 0.45399052, 55, 0, -30)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56973" type="Node3D" parent="CAIP" unique_id=1918411331 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23513" type="Node3D" parent="CAIP" unique_id=344763154 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.6819983, 0, 0.7313537, 0, 1, 0, -0.7313537, 0, -0.6819983, 53, 0, 4)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56974" type="Node3D" parent="CAIP" unique_id=442484012 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -50)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23514" type="Node3D" parent="CAIP" unique_id=1330035724 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 53, 0, 8)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56975" type="Node3D" parent="CAIP" unique_id=1559023649 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -20)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23515" type="Node3D" parent="CAIP" unique_id=17833061 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.9945219, 0, 0.104528464, 0, 1, 0, -0.104528464, 0, 0.9945219, 12, 0, 27)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56976" type="Node3D" parent="CAIP" unique_id=2017357400 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23516" type="Node3D" parent="CAIP" unique_id=2079149687 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.54463905, 0, 0.83867055, 0, 1, 0, -0.83867055, 0, -0.54463905, 49, 0, 48)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56977" type="Node3D" parent="CAIP" unique_id=1853030505 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 40)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23517" type="Node3D" parent="CAIP" unique_id=909866282 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.64278764, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, 0.64278764, 20, 0, 79)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56978" type="Node3D" parent="CAIP" unique_id=1609547203 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -50)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23518" type="Node3D" parent="CAIP" unique_id=198954988 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.9975641, 0, 0.06975647, 0, 1, 0, -0.06975647, 0, 0.9975641, 53, 0, -45)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56979" type="Node3D" parent="CAIP" unique_id=1688098920 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -40)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23519" type="Node3D" parent="CAIP" unique_id=1356445336 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.29237175, 0, 0.9563047, 0, 1, 0, -0.9563047, 0, -0.29237175, 26, 0, -34)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56980" type="Node3D" parent="CAIP" unique_id=135031647 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -20)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23520" type="Node3D" parent="CAIP" unique_id=21910751 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.97437006, 0, 0.22495104, 0, 1, 0, -0.22495104, 0, 0.97437006, 33, 0, 25)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56981" type="Node3D" parent="CAIP" unique_id=1430788613 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23521" type="Node3D" parent="CAIP" unique_id=1029014036 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.94551855, 0, 0.32556814, 0, 1, 0, -0.32556814, 0, 0.94551855, 65, 0, 17)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56982" type="Node3D" parent="CAIP" unique_id=1350217223 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 10)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23522" type="Node3D" parent="CAIP" unique_id=960655646 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.5877853, 0, 0.809017, 0, 1, 0, -0.809017, 0, 0.5877853, 65, 0, 11)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56983" type="Node3D" parent="CAIP" unique_id=462594885 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 20)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23523" type="Node3D" parent="CAIP" unique_id=740981320 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.10452851, 0, 0.9945219, 0, 1, 0, -0.9945219, 0, -0.10452851, 51, 0, 45)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56984" type="Node3D" parent="CAIP" unique_id=360975054 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 30)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23524" type="Node3D" parent="CAIP" unique_id=1783948770 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, -0.81915206, 53, 0, 45)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56985" type="Node3D" parent="CAIP" unique_id=1319698187 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 40)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23525" type="Node3D" parent="CAIP" unique_id=1178661973 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.809017, 0, 0.58778524, 0, 1, 0, -0.58778524, 0, 0.809017, 83, 0, -25)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56986" type="Node3D" parent="CAIP" unique_id=1755366389 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -30)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23526" type="Node3D" parent="CAIP" unique_id=1900192535 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.8746198, 0, 0.48480955, 0, 1, 0, -0.48480955, 0, -0.8746198, 43, 0, -28)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56987" type="Node3D" parent="CAIP" unique_id=205607176 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -10)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23527" type="Node3D" parent="CAIP" unique_id=628166041 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, 0.81915206, 76, 0, 3)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56988" type="Node3D" parent="CAIP" unique_id=2139055145 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23528" type="Node3D" parent="CAIP" unique_id=1484989959 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.10452842, 0, 0.9945219, 0, 1, 0, -0.9945219, 0, 0.10452842, 81, 0, 17)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56989" type="Node3D" parent="CAIP" unique_id=1743855953 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 10)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23529" type="Node3D" parent="CAIP" unique_id=496594897 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.64278764, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, -0.64278764, 77, 0, 25)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56990" type="Node3D" parent="CAIP" unique_id=1439239567 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 20)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23530" type="Node3D" parent="CAIP" unique_id=2003998857 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(0.087155804, 0, 0.9961947, 0, 1, 0, -0.9961947, 0, 0.087155804, 83, 0, 42)
+script = ExtResource("12_sl3aq")
 
-[node name="@Node3D@56991" type="Node3D" parent="CAIP" unique_id=1624724325 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 30)
-script = ExtResource("13_kpegf")
-
-[node name="@Node3D@56992" type="Node3D" parent="CAIP" unique_id=1879732888 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -50)
-script = ExtResource("13_kpegf")
-
-[node name="@Node3D@56993" type="Node3D" parent="CAIP" unique_id=1094500318 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -40)
-script = ExtResource("13_kpegf")
-
-[node name="@Node3D@56994" type="Node3D" parent="CAIP" unique_id=1632301514 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -30)
-script = ExtResource("13_kpegf")
-
-[node name="@Node3D@56995" type="Node3D" parent="CAIP" unique_id=1885243374 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 10)
-script = ExtResource("13_kpegf")
-
-[node name="@Node3D@56996" type="Node3D" parent="CAIP" unique_id=987977740 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 30)
-script = ExtResource("13_kpegf")
-
-[node name="@Node3D@56997" type="Node3D" parent="CAIP" unique_id=1667155715 instance=ExtResource("12_kpegf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 40)
-script = ExtResource("13_kpegf")
+[node name="@Node3D@23531" type="Node3D" parent="CAIP" unique_id=2132520454 groups=["navigation_mesh_source_group"] instance=ExtResource("11_sl3aq")]
+transform = Transform3D(-0.42261833, 0, 0.90630776, 0, 1, 0, -0.90630776, 0, -0.42261833, 83, 0, 60)
+script = ExtResource("12_sl3aq")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1402025499]
 navigation_mesh = SubResource("NavigationMesh_sl3aq")
