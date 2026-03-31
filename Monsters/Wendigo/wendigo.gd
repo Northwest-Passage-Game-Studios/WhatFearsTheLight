@@ -1,18 +1,21 @@
 class_name wendigo extends CharacterBody3D
 @onready var kill_timer: Timer = $Kill_Timer
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
-@onready var csg_sphere_3d: CSGSphere3D = $MeshInstance3D/CSGSphere3D
-@onready var csg_sphere_3d_2: CSGSphere3D = $MeshInstance3D/CSGSphere3D2
-@onready var left_eye_light: SpotLight3D = $MeshInstance3D/SpotLight3D
-@onready var right_eye_light: SpotLight3D = $MeshInstance3D/SpotLight3D2
+
+@onready var csg_sphere_3d: CSGSphere3D = $the_angel_reference_skeleton/Skeleton3D/BoneAttachment3D/CSGSphere3D
+@onready var left_eye_light: SpotLight3D = $the_angel_reference_skeleton/Skeleton3D/BoneAttachment3D/CSGSphere3D/SpotLight3D
+@onready var csg_sphere_3d_2: CSGSphere3D = $the_angel_reference_skeleton/Skeleton3D/BoneAttachment3D/CSGSphere3D2
+@onready var right_eye_light: SpotLight3D = $the_angel_reference_skeleton/Skeleton3D/BoneAttachment3D/CSGSphere3D2/SpotLight3D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var skeleton_3d: Skeleton3D = $the_angel_reference_skeleton/Skeleton3D
 
 
 @export var debug_target:Node3D
 var target:Node3D
 
 @export_category("Speeds")
-@export var chase_speed:=20
-@export var revsere_speed:=20
+@export var chase_speed:=10
+@export var revsere_speed:=1
 @export_category("Looks")
 @export var red_eye_mat:Material
 @export var white_eye_mat:Material
@@ -21,7 +24,8 @@ var physics_delta: float
 var is_chasing := false
 var is_red_eye := (randi_range(0,2)==2)
 var is_spooked :=false
-var anxiety:=randf_range(0.3,2)
+var anxiety:=randf_range(1.5,3.3)
+var uprotation:=0.0
 func Totally_Better_Look_At(target_pos:Vector3):
 	look_at(target_pos)
 	self.rotation.x=0
@@ -29,9 +33,12 @@ func Totally_Better_Look_At(target_pos:Vector3):
 	pass
 
 func clac_spook_point():
-	var back_angle:=self.rotation.y*-1
-	var pos_x := 25*sin(back_angle)
-	var pos_z := 25*cos(back_angle)
+	look_at(target.global_position)
+	self.rotation.x=0
+	self.rotation.z=0
+	var back_angle:=self.rotation.y+180
+	var pos_x := 50*cos(back_angle)
+	var pos_z := 50*sin(back_angle)
 	var return_point:=Vector3(pos_x,0,pos_z)
 	return return_point
 
@@ -39,6 +46,8 @@ func clac_spook_point():
 func set_target(target_node:Node3D):
 	target=target_node
 	kill_timer.start()
+
+
 
 func _ready() -> void:
 	if debug_target!=null:
@@ -79,6 +88,13 @@ func _process(delta: float) -> void:
 	if target!=null:
 		if is_chasing:
 			navigation_agent_3d.target_position=target.position
+			animation_player.play("the_angel_reference_skeleton|0200")
+		if is_spooked:
+			csg_sphere_3d.visible=false
+			csg_sphere_3d_2.visible=false
+			navigation_agent_3d.target_position= clac_spook_point()
+
+			
 	
 func _physics_process(delta: float) -> void:
 	physics_delta = delta
@@ -95,6 +111,9 @@ func _on_kill_timer_timeout() -> void:
 func spook():
 	if !is_spooked:
 		anxiety-=0.01
+		uprotation=randf_range(-0.5,0.5)
+		var upper=skeleton_3d.find_bone("ValveBiped.Bip01_Spine4")
+		skeleton_3d.set_bone_pose_rotation(upper,Quaternion(uprotation,uprotation+rotation.x,uprotation+rotation.y,uprotation+rotation.z+(4*PI)))
 	if !kill_timer.is_stopped():
 		kill_timer.start(anxiety+0.5)
 	print(str(anxiety)+" Anxiety and "+str(kill_timer.time_left))
@@ -102,8 +121,9 @@ func spook():
 		kill_timer.stop()
 		is_chasing=false
 		is_spooked=true
-		navigation_agent_3d.target_position= clac_spook_point()
 		print("Spooked")
+		
+		animation_player.play_backwards("the_angel_reference_skeleton|0200")
 
 
 func navigation_finished() -> void:

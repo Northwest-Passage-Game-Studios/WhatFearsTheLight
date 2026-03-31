@@ -1,22 +1,6 @@
-[gd_scene format=4 uid="uid://b0rbgxb3m8oai"]
+[gd_scene format=4 uid="uid://bgerye0jtdvki"]
 
-[ext_resource type="Script" uid="uid://j0h0dola3q6j" path="res://Monsters/Wendigo/wendigo.gd" id="1_tj54y"]
-[ext_resource type="Texture2D" uid="uid://dvljoeutb2bgd" path="res://Monsters/Wendigo/AngelWendigo/the-angel-rig/textures/body_(5).png" id="2_ptkl6"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x81h2"]
-albedo_color = Color(0.6857328, 3.1044335e-06, 5.7756904e-07, 1)
-emission_enabled = true
-emission = Color(0.6857328, 3.1044335e-06, 5.7756904e-07, 1)
-emission_energy_multiplier = 16.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ynn8"]
-albedo_color = Color(18.892157, 18.892157, 18.892157, 1)
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 16.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lylwj"]
-albedo_texture = ExtResource("2_ptkl6")
+[ext_resource type="Script" uid="uid://ch73gr1adaus8" path="res://Monsters/Wendigo/AngelWendigo/the-angel-rig/source/the_angel.gd" id="1_2b5bm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydes3"]
 resource_name = "body"
@@ -24,7 +8,7 @@ vertex_color_use_as_albedo = true
 albedo_color = Color(0.7076792, 0.8549193, 0.8407089, 1)
 emission_enabled = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_7v70s"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_xd8ii"]
 resource_name = "the_angel_reference"
 _surfaces = [{
 "aabb": AABB(-0.30726382, -0.1028066, -0.00445879, 0.5851523, 0.25956553, 0.81454605),
@@ -44,7 +28,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="Skin" id="Skin_76cvq"]
+[sub_resource type="Skin" id="Skin_3v3cu"]
 resource_name = "Skin"
 bind_count = 14
 bind/0/name = &"ValveBiped.Bip01_Pelvis"
@@ -90,11 +74,9 @@ bind/13/name = &"ValveBiped.Bip01_R_Toe0"
 bind/13/bone = -1
 bind/13/pose = Transform3D(-0.9890571, 0.1474701, 0.0032653927, -0.1474682, -0.9890629, 0.002231343, 0.0035595756, 0.0017247642, 0.99999225, -0.09402044, -0.03377746, -0.005469846)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vq4ga"]
-albedo_color = Color(18.892157, 18.892157, 18.892157, 1)
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 16.0
+[sub_resource type="Animation" id="Animation_nm0t4"]
+resource_name = "freakoBeako"
+loop_mode = 1
 
 [sub_resource type="Animation" id="Animation_mrpv7"]
 resource_name = "the_angel_reference_skeleton|0000"
@@ -507,31 +489,123 @@ tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = PackedFloat32Array(0, 1, 0.15065773, -5.767222e-11, 8.65371e-12, 0.988586, 0.041666668, 1, 0.15080324, 0.0016507398, -0.00066402915, 0.9885622, 0.083333336, 1, 0.15095456, 0.006309496, -0.002545537, 0.9885173, 0.125, 1, 0.15131034, 0.01350169, -0.0054544616, 0.98837906, 0.16666667, 1, 0.15178777, 0.022767292, -0.009209238, 0.9881079, 0.20833333, 1, 0.15238889, 0.033640765, -0.013620925, 0.987654, 0.25, 1, 0.15310045, 0.045654617, -0.018515173, 0.9869818, 0.29166666, 1, 0.15390232, 0.058343105, -0.023693586, 0.9860775, 0.33333334, 1, 0.1547754, 0.07124696, -0.028974064, 0.98495126, 0.375, 1, 0.15568405, 0.08390403, -0.034161627, 0.983644, 0.41666666, 1, 0.15659401, 0.09584699, -0.039071552, 0.9822246, 0.45833334, 1, 0.15745546, 0.10662773, -0.043508757, 0.9807881, 0.5, 1, 0.15822153, 0.11579288, -0.04728564, 0.97944987, 0.5416667, 1, 0.1588294, 0.122893795, -0.050214004, 0.97833985, 0.5833333, 1, 0.15902223, 0.12749319, -0.052075606, 0.9776224, 0.6666667, 1, 0.15902223, 0.12749319, -0.052075606, 0.9776224, 0.7083333, 1, 0.1588294, 0.122893795, -0.050214004, 0.97833985, 0.75, 1, 0.15822153, 0.11579288, -0.04728564, 0.97944987, 0.7916667, 1, 0.15745546, 0.10662773, -0.043508757, 0.9807881, 0.8333333, 1, 0.15659401, 0.09584699, -0.039071552, 0.9822246, 0.875, 1, 0.15568405, 0.08390403, -0.034161627, 0.983644, 0.9166667, 1, 0.1547754, 0.07124696, -0.028974064, 0.98495126, 0.9583333, 1, 0.15390232, 0.058343105, -0.023693586, 0.9860775, 1, 1, 0.15310045, 0.045654617, -0.018515173, 0.9869818, 1.0416666, 1, 0.15238889, 0.033640765, -0.013620925, 0.987654, 1.0833334, 1, 0.15178777, 0.022767292, -0.009209238, 0.9881079, 1.125, 1, 0.15131034, 0.01350169, -0.0054544616, 0.98837906, 1.1666666, 1, 0.15095456, 0.006309496, -0.002545537, 0.9885173, 1.2083334, 1, 0.15080324, 0.0016507398, -0.00066402915, 0.9885622, 1.25, 1, 0.15065773, -5.767222e-11, 8.65371e-12, 0.988586)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_v7dni"]
+[sub_resource type="Animation" id="Animation_n2rac"]
+resource_name = "the_angel_reference_skeleton|freakout"
+length = 6.6666665
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("the_angel_reference_skeleton/Skeleton3D:ValveBiped.Bip01_Spine")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1.06932864e-35, 2.4102248e-14, 2.4102248e-14, 1, 0.17, 1, -0.00076193997, 2.4083878e-14, 2.4120607e-14, 0.9999997, 0.25, 1, -0.0011204998, 2.4075226e-14, 2.412924e-14, 0.99999934, 0.34, 1, -0.0020870988, 2.4051894e-14, 2.4152499e-14, 0.99999785, 0.375, 1, -0.0024629976, 2.4042812e-14, 2.4161539e-14, 0.99999696, 0.45833334, 1, -0.003613493, 2.4014997e-14, 2.4189184e-14, 0.99999344, 0.49, 1, -0.0041416893, 2.4002218e-14, 2.4201868e-14, 0.9999915, 0.5833333, 1, -0.0056984695, 2.396451e-14, 2.4239203e-14, 0.9999838, 0.6666667, 1, -0.0072984346, 2.3925698e-14, 2.4277514e-14, 0.99997336, 0.75, 1, -0.009060376, 2.3882883e-14, 2.4319634e-14, 0.99995893, 0.875, 1, -0.011972214, 2.3811963e-14, 2.4389079e-14, 0.99992836, 0.9166667, 1, -0.013009137, 2.3786659e-14, 2.4413758e-14, 0.99991536, 0.9583333, 1, -0.014075534, 2.3760609e-14, 2.4439113e-14, 0.99990094, 1.0833334, 1, -0.017430618, 2.3678469e-14, 2.4518704e-14, 0.99984807, 1.125, 1, -0.01859293, 2.3649951e-14, 2.4546214e-14, 0.99982715, 1.1666666, 1, -0.019785209, 2.3620662e-14, 2.4574398e-14, 0.99980426, 1.25, 1, -0.022217678, 2.3560802e-14, 2.4631794e-14, 0.9997532, 1.2916666, 1, -0.023457857, 2.3530228e-14, 2.4661003e-14, 0.9997248, 1.3333334, 1, -0.024715483, 2.3499186e-14, 2.4690584e-14, 0.9996945, 1.375, 1, -0.025985574, 2.3467798e-14, 2.472042e-14, 0.99966234, 1.4583334, 1, -0.028555619, 2.3404164e-14, 2.4780674e-14, 0.9995922, 1.5, 1, -0.029855069, 2.337193e-14, 2.4811079e-14, 0.9995542, 1.5416666, 1, -0.031160958, 2.3339495e-14, 2.4841593e-14, 0.9995144, 1.5833334, 1, -0.03247229, 2.3306882e-14, 2.4872192e-14, 0.9994726, 1.75, 1, -0.03773654, 2.3175545e-14, 2.4994616e-14, 0.9992877, 1.9, 1, -0.042424865, 2.3058014e-14, 2.5103082e-14, 0.9990997, 2.0416667, 1, -0.046746973, 2.2949192e-14, 2.5202606e-14, 0.9989068, 2.1, 1, -0.0484767, 2.2905514e-14, 2.5242309e-14, 0.9988243, 2.125, 1, -0.049212616, 2.288691e-14, 2.5259178e-14, 0.9987883, 2.25, 1, -0.052767485, 2.2796855e-14, 2.5340485e-14, 0.9986068, 2.2916667, 1, -0.053910367, 2.2767837e-14, 2.536656e-14, 0.99854577, 2.3333333, 1, -0.0550292, 2.2739399e-14, 2.5392054e-14, 0.99848473, 2.4166667, 1, -0.057183295, 2.2684564e-14, 2.5441055e-14, 0.9983637, 2.4583333, 1, -0.05821806, 2.2658182e-14, 2.5464555e-14, 0.9983039, 2.5416667, 1, -0.060186107, 2.2607934e-14, 2.5509175e-14, 0.9981872, 2.6, 1, -0.061480496, 2.2574836e-14, 2.5538472e-14, 0.99810827, 2.7083333, 1, -0.063702844, 2.2517912e-14, 2.5588676e-14, 0.9979689, 2.7666667, 1, -0.064776815, 2.2490361e-14, 2.5612894e-14, 0.9978998, 2.8333333, 1, -0.06590919, 2.2461281e-14, 2.56384e-14, 0.9978256, 2.9166667, 1, -0.06715889, 2.2429151e-14, 2.5666513e-14, 0.9977423, 3, 1, -0.06820503, 2.2402227e-14, 2.5690016e-14, 0.9976713, 3.125, 1, -0.06938271, 2.2371885e-14, 2.5716444e-14, 0.9975901, 3.6666667, 1, -0.06820503, 2.2402227e-14, 2.5690016e-14, 0.9976713, 3.75, 1, -0.06715889, 2.2429151e-14, 2.5666513e-14, 0.9977423, 3.8333333, 1, -0.06590919, 2.2461281e-14, 2.56384e-14, 0.9978256, 3.9166667, 1, -0.06448024, 2.2497973e-14, 2.560621e-14, 0.99791896, 4.0416665, 1, -0.062022157, 2.2560972e-14, 2.5550718e-14, 0.99807477, 4.1, 1, -0.060746074, 2.259362e-14, 2.5521855e-14, 0.99815327, 4.2083335, 1, -0.05821806, 2.2658182e-14, 2.5464555e-14, 0.9983039, 4.25, 1, -0.057183295, 2.2684564e-14, 2.5441055e-14, 0.9983637, 4.3333335, 1, -0.0550292, 2.2739399e-14, 2.5392054e-14, 0.99848473, 4.375, 1, -0.053910367, 2.2767837e-14, 2.536656e-14, 0.99854577, 4.5416665, 1, -0.049212616, 2.288691e-14, 2.5259178e-14, 0.9987883, 4.6, 1, -0.04749044, 2.2930427e-14, 2.521968e-14, 0.9988717, 4.625, 1, -0.046746973, 2.2949192e-14, 2.5202606e-14, 0.9989068, 4.6666665, 1, -0.0454898, 2.2980892e-14, 2.5173704e-14, 0.9989648, 4.75, 1, -0.0429398, 2.3045071e-14, 2.5114964e-14, 0.9990777, 4.9166665, 1, -0.03773654, 2.3175545e-14, 2.4994616e-14, 0.9992877, 5.0833335, 1, -0.03247229, 2.3306882e-14, 2.4872192e-14, 0.9994726, 5.125, 1, -0.031160958, 2.3339495e-14, 2.4841593e-14, 0.9995144, 5.1666665, 1, -0.029855069, 2.337193e-14, 2.4811079e-14, 0.9995542, 5.2083335, 1, -0.028555619, 2.3404164e-14, 2.4780674e-14, 0.9995922, 5.25, 1, -0.02726762, 2.3436075e-14, 2.4750498e-14, 0.9996282, 5.4166665, 1, -0.022217678, 2.3560802e-14, 2.4631794e-14, 0.9997532, 5.5, 1, -0.019785209, 2.3620662e-14, 2.4574398e-14, 0.99980426, 5.5416665, 1, -0.01859293, 2.3649951e-14, 2.4546214e-14, 0.99982715, 5.75, 1, -0.013009137, 2.3786659e-14, 2.4413758e-14, 0.99991536, 5.7916665, 1, -0.011972214, 2.3811963e-14, 2.4389079e-14, 0.99992836, 5.9166665, 1, -0.009060376, 2.3882883e-14, 2.4319634e-14, 0.99995893, 6, 1, -0.0072984346, 2.3925698e-14, 2.4277514e-14, 0.99997336, 6.0833335, 1, -0.0056984695, 2.396451e-14, 2.4239203e-14, 0.9999838, 6.1666665, 1, -0.004260487, 2.3999342e-14, 2.4204717e-14, 0.99999094, 6.25, 1, -0.0030139957, 2.4029495e-14, 2.4174783e-14, 0.99999547, 6.3333335, 1, -0.0019654988, 2.405483e-14, 2.4149575e-14, 0.9999981, 6.4583335, 1, -0.0007850001, 2.408332e-14, 2.412116e-14, 0.9999997, 6.6666665, 1, 1.06932864e-35, 2.4102248e-14, 2.4102248e-14, 1)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("the_angel_reference_skeleton/Skeleton3D:ValveBiped.Bip01_L_Thigh")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.707152, 0.0027995096, -0.7062508, 0.0337345, 0.17, 1, 0.70715207, -0.0027995096, 0.70625085, -0.033734504, 0.34, 1, 0.70715207, -0.0027995096, 0.70625085, -0.033734504, 0.49, 1, 0.70715207, -0.002799508, 0.7062508, -0.033734497)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("the_angel_reference_skeleton/Skeleton3D:ValveBiped.Bip01_R_Thigh")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.70787966, -0.033416804, 0.7055317, -0.0038407287, 0.17, 1, 0.70787966, -0.033416808, 0.7055318, -0.003840726, 0.34, 1, 0.70787966, -0.033416808, 0.7055318, -0.003840726, 0.49, 1, 0.70787966, -0.033416808, 0.7055318, -0.003840724)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("the_angel_reference_skeleton/Skeleton3D:ValveBiped.Bip01_Spine1")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 1.06932864e-35, 2.4102248e-14, 2.4102248e-14, 1, 0.17, 1, 0.0006216172, 2.4117229e-14, 2.4087262e-14, 0.9999999, 0.29166666, 1, 0.0010664997, 2.412794e-14, 2.4076529e-14, 0.9999994, 0.34, 1, 0.0014744329, 2.4137759e-14, 2.4066684e-14, 0.9999989, 0.41666666, 1, 0.0021214986, 2.4153327e-14, 2.405106e-14, 0.99999774, 0.49, 1, 0.0029264027, 2.4172679e-14, 2.403161e-14, 0.9999957, 0.5416667, 1, 0.003493493, 2.4186302e-14, 2.40179e-14, 0.9999939, 0.625, 1, 0.0045599844, 2.4211903e-14, 2.3992091e-14, 0.9999896, 0.7083333, 1, 0.005746469, 2.4240353e-14, 2.3963346e-14, 0.9999835, 0.7916667, 1, 0.007040941, 2.4271353e-14, 2.3931949e-14, 0.9999752, 0.9166667, 1, 0.009161873, 2.4322058e-14, 2.3880415e-14, 0.99995804, 1, 1, 0.010684299, 2.4358387e-14, 2.3843357e-14, 0.9999429, 1.0833334, 1, 0.012277693, 2.4396351e-14, 2.380451e-14, 0.9999246, 1.1666666, 1, 0.013937552, 2.4435833e-14, 2.376398e-14, 0.99990284, 1.2666667, 1, 0.016001321, 2.448483e-14, 2.3713494e-14, 0.99987197, 1.375, 1, 0.018305475, 2.4539412e-14, 2.3657007e-14, 0.99983245, 1.4333333, 1, 0.019574452, 2.4569419e-14, 2.3625841e-14, 0.99980843, 1.5416666, 1, 0.021954237, 2.4625586e-14, 2.3567292e-14, 0.99975896, 1.6, 1, 0.023248011, 2.4656064e-14, 2.3535405e-14, 0.99972975, 1.7083334, 1, 0.02565619, 2.4712686e-14, 2.3475942e-14, 0.9996708, 1.7666667, 1, 0.026953738, 2.4743137e-14, 2.3443846e-14, 0.9996367, 1.875, 1, 0.02934629, 2.4799178e-14, 2.3384555e-14, 0.9995693, 1.9333333, 1, 0.03061222, 2.4828775e-14, 2.3353129e-14, 0.9995313, 2, 1, 0.032053515, 2.4862424e-14, 2.3317301e-14, 0.99948615, 2.1, 1, 0.034155462, 2.4911408e-14, 2.3264961e-14, 0.99941653, 2.1666667, 1, 0.035527013, 2.4943314e-14, 2.3230751e-14, 0.9993687, 2.2666667, 1, 0.037502807, 2.4989195e-14, 2.3181391e-14, 0.99929655, 2.4166667, 1, 0.040293097, 2.5053829e-14, 2.3111521e-14, 0.9991879, 2.5833333, 1, 0.04307118, 2.5117993e-14, 2.304177e-14, 0.999072, 2.6666667, 1, 0.044310488, 2.5146557e-14, 2.3010592e-14, 0.99901783, 2.75, 1, 0.045441844, 2.5172601e-14, 2.29821e-14, 0.998967, 2.9166667, 1, 0.04732732, 2.5215935e-14, 2.2934545e-14, 0.99887943, 3.0833333, 1, 0.048656296, 2.5246427e-14, 2.2900974e-14, 0.9988156, 3.75, 1, 0.04732732, 2.5215935e-14, 2.2934545e-14, 0.99887943, 3.875, 1, 0.045962803, 2.5184583e-14, 2.2968969e-14, 0.99894315, 3.9583333, 1, 0.04489142, 2.5159935e-14, 2.2995965e-14, 0.99899185, 4.0833335, 1, 0.04307118, 2.5117993e-14, 2.304177e-14, 0.999072, 4.1666665, 1, 0.041730378, 2.5087049e-14, 2.3075456e-14, 0.99912894, 4.25, 1, 0.040293097, 2.5053829e-14, 2.3111521e-14, 0.9991879, 4.375, 1, 0.037987858, 2.5000443e-14, 2.3169258e-14, 0.9992782, 4.6666665, 1, 0.032053515, 2.4862424e-14, 2.3317301e-14, 0.99948615, 4.75, 1, 0.030250384, 2.482032e-14, 2.3362116e-14, 0.99954236, 4.8333335, 1, 0.028429667, 2.4777725e-14, 2.3407286e-14, 0.9995958, 4.9166665, 1, 0.026584871, 2.4734485e-14, 2.3452974e-14, 0.99964654, 5.0833335, 1, 0.022876507, 2.4647315e-14, 2.3544565e-14, 0.9997383, 5.1666665, 1, 0.021031449, 2.4603822e-14, 2.3590012e-14, 0.9997788, 5.25, 1, 0.019210324, 2.4560813e-14, 2.3634789e-14, 0.99981546, 5.375, 1, 0.016526245, 2.4497275e-14, 2.3700637e-14, 0.99986345, 5.5833335, 1, 0.012277693, 2.4396351e-14, 2.380451e-14, 0.9999246, 5.75, 1, 0.009161873, 2.4322058e-14, 2.3880415e-14, 0.99995804, 5.9166665, 1, 0.006381958, 2.4255576e-14, 2.3947937e-14, 0.9999796, 6.0416665, 1, 0.0045599844, 2.4211903e-14, 2.3992091e-14, 0.9999896, 6.125, 1, 0.003493493, 2.4186302e-14, 2.40179e-14, 0.9999939, 6.25, 1, 0.0021214986, 2.4153327e-14, 2.405106e-14, 0.99999774, 6.375, 1, 0.0010664997, 2.412794e-14, 2.4076529e-14, 0.9999994, 6.6, 1, 6.120001e-05, 2.4103724e-14, 2.4100772e-14, 1, 6.6666665, 1, 1.06932864e-35, 2.4102248e-14, 2.4102248e-14, 1)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("the_angel_reference_skeleton/Skeleton3D:ValveBiped.Bip01_L_Calf")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.010838332, -0.7064129, -0.00015246434, 0.70771694, 0.17, 1, -0.010838332, -0.7064129, -0.00015246471, 0.70771694, 0.34, 1, -0.010838332, -0.7064129, -0.00015246437, 0.70771694, 0.49, 1, -0.010838332, -0.7064129, -0.00015246471, 0.70771694)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("the_angel_reference_skeleton/Skeleton3D:ValveBiped.Bip01_R_Calf")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.0001783101, -0.70608586, -0.010837337, 0.7080433, 0.17, 1, -0.0001783101, -0.70608586, -0.010837337, 0.70804334, 0.34, 1, -0.00017830984, -0.70608586, -0.010837338, 0.70804334, 0.49, 1, -0.00017831005, -0.7060858, -0.010837338, 0.7080434)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("the_angel_reference_skeleton/Skeleton3D:ValveBiped.Bip01_Spine2")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -4.9999994e-07, 9.30922e-14, -4.4890317e-14, 1, 0.17, 1, 0.013947393, 9.462469e-08, -9.455593e-08, 0.9999027, 0.34, 1, 0.027892571, 1.8923087e-07, -1.8909343e-07, 0.99961096, 0.41666666, 1, 0.0010659999, 9.304427e-14, -4.4989572e-14, 0.9999994, 0.49, 1, 0.0014963198, 9.3024906e-14, -4.502961e-14, 0.9999989, 0.625, 1, 0.0022884985, 9.29892e-14, -4.5103285e-14, 0.9999974, 0.76666665, 1, 0.0033372939, 9.294185e-14, -4.520079e-14, 0.99999446, 0.9166667, 1, 0.004601484, 9.288463e-14, -4.5318248e-14, 0.9999894, 1.0416666, 1, 0.00576397, 9.2831884e-14, -4.5426197e-14, 0.9999834, 1.1666666, 1, 0.0069984426, 9.2775736e-14, -4.5540764e-14, 0.9999755, 1.2666667, 1, 0.008038814, 9.272831e-14, -4.563726e-14, 0.9999677, 1.375, 1, 0.009197372, 9.2675366e-14, -4.5744668e-14, 0.9999577, 1.5833334, 1, 0.011492248, 9.257014e-14, -4.5957236e-14, 0.99993396, 1.75, 1, 0.013356107, 9.2484316e-14, -4.612971e-14, 0.99991083, 1.875, 1, 0.0147459665, 9.2420104e-14, -4.6258218e-14, 0.9998913, 2, 1, 0.0161063, 9.2357084e-14, -4.638391e-14, 0.9998703, 2.1, 1, 0.017161656, 9.230808e-14, -4.6481367e-14, 0.9998527, 2.2083333, 1, 0.01826899, 9.225654e-14, -4.658357e-14, 0.9998331, 2.3333333, 1, 0.019485265, 9.219981e-14, -4.6695764e-14, 0.99981016, 2.5, 1, 0.020970965, 9.213031e-14, -4.6832723e-14, 0.99978006, 2.6666667, 1, 0.02227116, 9.206933e-14, -4.69525e-14, 0.999752, 2.8333333, 1, 0.023343386, 9.201892e-14, -4.7051217e-14, 0.9997275, 3.0833333, 1, 0.024457559, 9.1966426e-14, -4.715374e-14, 0.99970084, 3.8333333, 1, 0.023343386, 9.201892e-14, -4.7051217e-14, 0.9997275, 4, 1, 0.02227116, 9.206933e-14, -4.69525e-14, 0.999752, 4.25, 1, 0.020252116, 9.216396e-14, -4.6766468e-14, 0.9997949, 4.375, 1, 0.019089846, 9.2218266e-14, -4.6659298e-14, 0.9998178, 4.5, 1, 0.017849553, 9.2276074e-14, -4.6544864e-14, 0.9998407, 4.6, 1, 0.01681171, 9.232434e-14, -4.6449057e-14, 0.9998587, 4.7083335, 1, 0.015656859, 9.237793e-14, -4.6342392e-14, 0.99987745, 4.9166665, 1, 0.013356107, 9.2484316e-14, -4.612971e-14, 0.99991083, 5.0833335, 1, 0.011492248, 9.257014e-14, -4.5957236e-14, 0.99993396, 5.25, 1, 0.009652853, 9.265452e-14, -4.5786878e-14, 0.9999534, 5.4166665, 1, 0.00786142, 9.27364e-14, -4.562081e-14, 0.9999691, 5.5416665, 1, 0.006578953, 9.279483e-14, -4.550184e-14, 0.99997836, 5.6666665, 1, 0.0053684735, 9.284985e-14, -4.5389477e-14, 0.9999856, 5.7916665, 1, 0.0042359876, 9.290119e-14, -4.5284296e-14, 0.999991, 5.9166665, 1, 0.0032054945, 9.2947805e-14, -4.5188537e-14, 0.9999949, 6.0833335, 1, 0.0020129986, 9.300163e-14, -4.5077667e-14, 0.999998, 6.266667, 1, 0.0009869998, 9.304783e-14, -4.4982223e-14, 0.9999995, 6.6666665, 1, -4.9999994e-07, 9.30922e-14, -4.4890317e-14, 1)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = true
+tracks/7/enabled = true
+tracks/7/path = NodePath("the_angel_reference_skeleton/Skeleton3D:ValveBiped.Bip01_L_Foot")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.035882637, 0.9104859, -0.41116956, 0.02583467, 0.17, 1, 0.035882637, 0.9104859, -0.41116956, 0.02583467, 0.34, 1, 0.035882637, 0.9104859, -0.41116956, 0.02583467, 0.49, 1, 0.03588264, 0.9104859, -0.4111696, 0.025834668)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = true
+tracks/8/enabled = true
+tracks/8/path = NodePath("the_angel_reference_skeleton/Skeleton3D:ValveBiped.Bip01_R_Foot")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, 0.034446735, -0.91039234, 0.41128612, 0.029033368, 0.17, 1, -0.03444674, 0.91039246, -0.41128618, -0.029033372, 0.34, 1, -0.03444674, 0.91039246, -0.41128618, -0.029033372, 0.49, 1, -0.034446735, 0.91039234, -0.41128612, -0.029033368)
+tracks/9/type = "rotation_3d"
+tracks/9/imported = true
+tracks/9/enabled = true
+tracks/9/path = NodePath("the_angel_reference_skeleton/Skeleton3D:ValveBiped.Bip01_Spine4")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, 5.0000017e-07, -4.4883368e-14, 9.3082646e-14, 1, 0.17, 1, 2.5000008e-07, -2.2441684e-14, 4.6541323e-14, 1, 0.34, 1, 0, 0, 0, 1, 0.49, 1, 0, 0, -0.59, 1)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = true
+tracks/10/enabled = true
+tracks/10/path = NodePath("the_angel_reference_skeleton/Skeleton3D:ValveBiped.Bip01_L_Toe0")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 0.36769748, -0.049926884, 0.020000536, 0.92838883, 0.34, 1, 0.3676975, -0.04992689, 0.020000538, 0.9283889, 0.49, 1, 0.3676975, -0.049926884, 0.020000536, 0.92838883)
+tracks/11/type = "position_3d"
+tracks/11/imported = true
+tracks/11/enabled = true
+tracks/11/path = NodePath("the_angel_reference_skeleton/Skeleton3D:ValveBiped.Bip01_R_Toe0")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, 0.0018663445, 0.033839837, 0.02530499)
+tracks/12/type = "rotation_3d"
+tracks/12/imported = true
+tracks/12/enabled = true
+tracks/12/path = NodePath("the_angel_reference_skeleton/Skeleton3D:ValveBiped.Bip01_R_Toe0")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = PackedFloat32Array(0, 1, 0.36770508, 0.043708812, -0.019886756, 0.9287018, 0.17, 1, 0.36770514, 0.043708805, -0.019886756, 0.92870176, 0.34, 1, 0.3677051, 0.04370881, -0.019886756, 0.9287018, 0.49, 1, 0.36770514, 0.043708805, -0.019886756, 0.92870176)
+tracks/13/type = "rotation_3d"
+tracks/13/imported = true
+tracks/13/enabled = true
+tracks/13/path = NodePath("the_angel_reference_skeleton/Skeleton3D:ValveBiped.Bip01_Neck1")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = PackedFloat32Array(0, 1, -1.7313353e-18, 2.410571e-14, 2.4095309e-14, 1, 0.17, 1, -1.7313353e-18, 2.410571e-14, 2.4095309e-14, 1, 0.34, 1, -1.7313353e-18, 2.410571e-14, 2.4095309e-14, 1, 0.49, 1, -1.7313353e-18, 2.410571e-14, 2.4095309e-14, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_srcdi"]
 _data = {
+&"freakoBeako": SubResource("Animation_nm0t4"),
 &"the_angel_reference_skeleton|0000": SubResource("Animation_mrpv7"),
 &"the_angel_reference_skeleton|0200": SubResource("Animation_mcn4i"),
 &"the_angel_reference_skeleton|0500": SubResource("Animation_dtqui"),
-&"the_angel_reference_skeleton|3000": SubResource("Animation_nic6c")
+&"the_angel_reference_skeleton|3000": SubResource("Animation_nic6c"),
+&"the_angel_reference_skeleton|freakout": SubResource("Animation_n2rac")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_i88gt"]
-size = Vector3(2.205748, 3.4713218, 2.1862311)
+[node name="Node3D" type="Node3D" unique_id=601207389]
+script = ExtResource("1_2b5bm")
 
-[node name="Wendigo" type="CharacterBody3D" unique_id=977576987]
-collision_layer = 2
-collision_mask = 3
-axis_lock_angular_x = true
-axis_lock_angular_z = true
-script = ExtResource("1_tj54y")
-red_eye_mat = SubResource("StandardMaterial3D_x81h2")
-white_eye_mat = SubResource("StandardMaterial3D_0ynn8")
-
-[node name="the_angel_reference_skeleton" type="Node3D" parent="." unique_id=906958418]
-transform = Transform3D(-100, 8.742277e-06, 3.8213706e-13, 0, -4.3711384e-06, 99.99999, 8.742278e-06, 99.99999, 4.3711384e-06, 0, 0, 0)
-
-[node name="Skeleton3D" type="Skeleton3D" parent="the_angel_reference_skeleton" unique_id=803632198]
-transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0)
+[node name="Skeleton3D" type="Skeleton3D" parent="." unique_id=1917361819]
 bones/0/name = "ValveBiped.Bip01_Pelvis"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 7.0000583e-06, -6.9999433e-06, -7.000001e-06, 8.285046e-06, -0.99999994, -7.0000006e-06, 0.99999994, 8.285046e-06, 0, 0, 0.4796118)
@@ -544,35 +618,35 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(1, 0, 0, 0, 1, -2.646978e-23, 0, 2.646978e-23, 1, 0, 0.021347413, -6.376218e-14)
 bones/1/enabled = true
 bones/1/position = Vector3(1.2382318e-13, 0.021347428, -1.1833937e-13)
-bones/1/rotation = Quaternion(4.9540935e-16, 2.4097157e-14, -0.020554487, 0.9997888)
+bones/1/rotation = Quaternion(0, 2.4102248e-14, 2.4102248e-14, 1)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "ValveBiped.Bip01_Spine1"
 bones/2/parent = 1
 bones/2/rest = Transform3D(1, 0, 0, 0, 1, -2.646978e-23, 0, 2.646978e-23, 1, 0, 0.031319145, -0.008729399)
 bones/2/enabled = true
 bones/2/position = Vector3(2.3843858e-09, 0.031319078, -0.0087294)
-bones/2/rotation = Quaternion(0.05354512, 0.0017323678, 0.0323332, 0.99804044)
+bones/2/rotation = Quaternion(0, 2.4102248e-14, 2.4102248e-14, 1)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "ValveBiped.Bip01_Spine2"
 bones/3/parent = 2
 bones/3/rest = Transform3D(1, 0, 0, 0, 1, 1.14575e-06, 0, -1.14575e-06, 1, 0, 0.040244486, -0.0067582307)
 bones/3/enabled = true
-bones/3/position = Vector3(6.366463e-14, 0.040244497, -0.0067582345)
-bones/3/rotation = Quaternion(0.00987922, -0.0007013636, -0.008987337, 0.9999106)
-bones/3/scale = Vector3(1.0000001, 0.99999994, 1)
+bones/3/position = Vector3(-1.3778919e-12, 0.040244736, -0.0067582303)
+bones/3/rotation = Quaternion(-4.9999994e-07, 9.30922e-14, -4.4890317e-14, 1)
+bones/3/scale = Vector3(1.0000005, 1.0000006, 1.0000006)
 bones/4/name = "ValveBiped.Bip01_Spine4"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, 0, 0, 0, 1, -1.5276692e-06, 0, 1.5276692e-06, 1, 0, 0.065287575, -0.016613942)
 bones/4/enabled = true
 bones/4/position = Vector3(9.313226e-11, 0.0652877, -0.016613953)
-bones/4/rotation = Quaternion(0.050936945, 2.703572e-13, 2.8458654e-13, 0.9987019)
+bones/4/rotation = Quaternion(5.0000017e-07, -4.4883368e-14, 9.3082646e-14, 1)
 bones/4/scale = Vector3(1, 1, 0.9999999)
 bones/5/name = "ValveBiped.Bip01_Neck1"
 bones/5/parent = 4
 bones/5/rest = Transform3D(1, 0, 0, 0, 1, 8.271806e-25, 0, -8.271806e-25, 1, 0.0016895599, 0.039067287, 0.022640074)
 bones/5/enabled = true
 bones/5/position = Vector3(0.0016895559, 0.039067224, 0.0226401)
-bones/5/rotation = Quaternion(-3.7252903e-09, 4.2632561e-13, 1.9895197e-13, 1)
+bones/5/rotation = Quaternion(-1.7313353e-18, 2.410571e-14, 2.4095309e-14, 1)
 bones/5/scale = Vector3(0.99999994, 1, 1.0000001)
 bones/6/name = "ValveBiped.Bip01_Neck1_end"
 bones/6/parent = 5
@@ -586,28 +660,28 @@ bones/7/parent = 0
 bones/7/rest = Transform3D(0.0024603659, 0.042913526, 0.99907887, -0.05152506, -0.99774617, 0.042983446, 0.9986708, -0.05158308, -0.00024366454, 0.02213948, -0.00483667, -9.462031e-16)
 bones/7/enabled = true
 bones/7/position = Vector3(0.022139478, -0.004836576, 1.5543082e-09)
-bones/7/rotation = Quaternion(0.70718455, 0.062133744, 0.7036626, 0.029806498)
+bones/7/rotation = Quaternion(0.70715207, -0.0027995096, 0.70625085, -0.033734504)
 bones/7/scale = Vector3(1.0000001, 1.0000001, 1.0000001)
 bones/8/name = "ValveBiped.Bip01_L_Calf"
 bones/8/parent = 7
 bones/8/rest = Transform3D(0.0019574757, 0.015529092, -0.99987763, 0.015097174, 0.9997651, 0.015556902, 0.9998839, -0.015125781, 0.0017225745, 0.039648984, 0.17492272, 0.03534745)
 bones/8/enabled = true
 bones/8/position = Vector3(0.039649192, 0.17492259, 0.035347305)
-bones/8/rotation = Quaternion(0.25440046, -0.64742523, 0.26724634, 0.66685855)
+bones/8/rotation = Quaternion(-0.010838332, -0.7064129, -0.00015246437, 0.70771694)
 bones/8/scale = Vector3(1, 1.0000001, 1)
 bones/9/name = "ValveBiped.Bip01_L_Foot"
 bones/9/parent = 8
 bones/9/rest = Transform3D(-0.996102, 0.08648875, 0.017343547, 0.044175524, 0.6592908, -0.75058955, -0.07635197, -0.74689764, -0.66054136, 0.020317275, 0.2915716, 0.042251047)
 bones/9/enabled = true
 bones/9/position = Vector3(0.020317191, 0.29157147, 0.04225196)
-bones/9/rotation = Quaternion(0.0366436, 0.94470346, -0.32526886, 0.01981719)
+bones/9/rotation = Quaternion(0.035882637, 0.9104859, -0.41116956, 0.02583467)
 bones/9/scale = Vector3(1, 1.0000001, 1.0000001)
 bones/10/name = "ValveBiped.Bip01_L_Toe0"
 bones/10/parent = 9
 bones/10/rest = Transform3D(0.9942125, -0.07387057, -0.07800527, 0.00042744732, 0.7288023, -0.684724, 0.1074314, 0.68072766, 0.72461593, -0.001969752, 0.03383234, 0.02529027)
 bones/10/enabled = true
 bones/10/position = Vector3(-0.0019698099, 0.033832308, 0.025290446)
-bones/10/rotation = Quaternion(0.4149089, -0.055411704, 0.01847241, 0.9079862)
+bones/10/rotation = Quaternion(0.3676975, -0.04992689, 0.020000538, 0.9283889)
 bones/10/scale = Vector3(1, 0.9999999, 1)
 bones/11/name = "ValveBiped.Bip01_L_Toe0_end"
 bones/11/parent = 10
@@ -621,28 +695,28 @@ bones/12/parent = 0
 bones/12/rest = Transform3D(0.0022445966, -0.043396812, 0.99905854, -0.051725276, -0.9977254, -0.04322297, 0.998661, -0.051579278, -0.0044841906, -0.0236913, -0.006053125, -9.999995e-09)
 bones/12/enabled = true
 bones/12/position = Vector3(-0.023691298, -0.0060531367, -1.0000203e-08)
-bones/12/rotation = Quaternion(0.6953978, 0.102830574, 0.6986105, 0.13338412)
+bones/12/rotation = Quaternion(0.70787966, -0.033416808, 0.7055318, -0.003840726)
 bones/12/scale = Vector3(0.9999994, 1.0000004, 0.9999999)
 bones/13/name = "ValveBiped.Bip01_R_Calf"
 bones/13/parent = 12
 bones/13/rest = Transform3D(0.0026431081, 0.015599182, -0.99987483, -0.015090691, 0.99976504, 0.015557577, 0.9998826, 0.0150476815, 0.0028778908, 0.039299287, 0.17147602, -0.036034502)
 bones/13/enabled = true
 bones/13/position = Vector3(0.039299443, 0.17147611, -0.036034238)
-bones/13/rotation = Quaternion(0.068119355, -0.705828, 0.056805946, 0.70280844)
+bones/13/rotation = Quaternion(-0.00017830984, -0.70608586, -0.010837338, 0.70804334)
 bones/13/scale = Vector3(1, 1.0000001, 1.0000001)
 bones/14/name = "ValveBiped.Bip01_R_Foot"
 bones/14/parent = 13
 bones/14/rest = Transform3D(-0.99594724, -0.08656378, -0.024427027, -0.038888656, 0.65931046, -0.7508646, 0.08110268, -0.7468711, -0.6600047, -0.017097995, 0.29386878, 0.042166244)
 bones/14/enabled = true
 bones/14/position = Vector3(-0.017099429, 0.29386857, 0.042166766)
-bones/14/rotation = Quaternion(-0.033668593, 0.9078951, -0.41690004, -0.028060488)
+bones/14/rotation = Quaternion(-0.03444674, 0.91039246, -0.41128618, -0.029033372)
 bones/14/scale = Vector3(0.99999976, 0.9999998, 1)
 bones/15/name = "ValveBiped.Bip01_R_Toe0"
 bones/15/parent = 14
 bones/15/rest = Transform3D(0.99538887, 0.06907679, 0.06655206, -0.0047945078, 0.72878635, -0.68472433, -0.09580078, 0.681248, 0.72575706, 0.0018664481, 0.03383996, 0.025304722)
 bones/15/enabled = true
-bones/15/position = Vector3(0.0018663217, 0.033839837, 0.025304995)
-bones/15/rotation = Quaternion(0.36945948, 0.043895986, -0.019669015, 0.92800105)
+bones/15/position = Vector3(0.0018663445, 0.033839837, 0.02530499)
+bones/15/rotation = Quaternion(0.3677051, 0.04370881, -0.019886756, 0.9287018)
 bones/15/scale = Vector3(1, 1, 1.0000002)
 bones/16/name = "ValveBiped.Bip01_R_Toe0_end"
 bones/16/parent = 15
@@ -652,63 +726,9 @@ bones/16/position = Vector3(0, 0.001560657, 0)
 bones/16/rotation = Quaternion(0, 0, 0, 1)
 bones/16/scale = Vector3(1, 1, 1)
 
-[node name="the_angel_reference" type="MeshInstance3D" parent="the_angel_reference_skeleton/Skeleton3D" unique_id=490492020]
-material_override = SubResource("StandardMaterial3D_lylwj")
-mesh = SubResource("ArrayMesh_7v70s")
-skin = SubResource("Skin_76cvq")
+[node name="the_angel_reference" type="MeshInstance3D" parent="Skeleton3D" unique_id=1435215361]
+mesh = SubResource("ArrayMesh_xd8ii")
+skin = SubResource("Skin_3v3cu")
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="the_angel_reference_skeleton/Skeleton3D" unique_id=1253300292]
-transform = Transform3D(0.999984, -0.0053312397, 0.001955355, 0.00069489423, -0.22686774, -0.9739252, 0.005635843, 0.9739109, -0.22686034, -5.826482e-05, 0.019358497, 0.6398415)
-bone_name = "ValveBiped.Bip01_Spine4"
-bone_idx = 4
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="the_angel_reference_skeleton/Skeleton3D/BoneAttachment3D" unique_id=2145717786]
-transform = Transform3D(-0.007999999, -5.530063e-08, -5.600003e-08, -4.6394014e-08, 0.007911722, -0.0011851948, 6.357476e-08, -0.001185195, -0.007911726, -0.012243401, 0.115790665, 0.047329925)
-radius = 0.465
-material = SubResource("StandardMaterial3D_vq4ga")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="the_angel_reference_skeleton/Skeleton3D/BoneAttachment3D/CSGSphere3D" unique_id=204773881]
-transform = Transform3D(30.21323, -0.0139324, -7.9826665, 0, 31.249956, -0.054541495, 7.9826803, 0.052732013, 30.213177, 0.0029951334, 0.09805298, 0.6640949)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-shadow_enabled = true
-spot_range = 61.922
-spot_attenuation = 3.1
-spot_angle = 34.28
-
-[node name="CSGSphere3D2" type="CSGSphere3D" parent="the_angel_reference_skeleton/Skeleton3D/BoneAttachment3D" unique_id=1592956031]
-transform = Transform3D(-0.007999999, -5.6000026e-08, -5.5300596e-08, -4.3404928e-08, 0.007828376, -0.0016482443, 6.5651875e-08, -0.0016482456, -0.007828368, 0.016451474, 0.11049712, 0.048693206)
-radius = 0.465
-material = SubResource("StandardMaterial3D_vq4ga")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="the_angel_reference_skeleton/Skeleton3D/BoneAttachment3D/CSGSphere3D2" unique_id=1062240588]
-transform = Transform3D(1.2500001, 0, 0, 0, 1.2499982, -0.0021816606, 0, 0.0021816606, 1.2499982, 0.002996074, 0.0011572838, 0.017323136)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-shadow_enabled = true
-spot_range = 61.922
-spot_attenuation = 3.1
-spot_angle = 20.71
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=886205713]
-libraries/ = SubResource("AnimationLibrary_v7dni")
-speed_scale = 15.0
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1594100604]
-avoidance_enabled = true
-height = 3.0
-radius = 7.0
-debug_enabled = true
-debug_use_custom = true
-debug_path_custom_point_size = 71.8
-
-[node name="Kill_Timer" type="Timer" parent="." unique_id=320188991]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539324767]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12933797, 1.7769719, 0.09531999)
-shape = SubResource("BoxShape3D_i88gt")
-
-[connection signal="navigation_finished" from="NavigationAgent3D" to="." method="navigation_finished"]
-[connection signal="timeout" from="Kill_Timer" to="." method="_on_kill_timer_timeout"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=265466079]
+libraries/ = SubResource("AnimationLibrary_srcdi")
