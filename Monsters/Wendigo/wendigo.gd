@@ -8,14 +8,14 @@ class_name wendigo extends CharacterBody3D
 @onready var right_eye_light: SpotLight3D = $the_angel_reference_skeleton/Skeleton3D/BoneAttachment3D/CSGSphere3D2/SpotLight3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var skeleton_3d: Skeleton3D = $the_angel_reference_skeleton/Skeleton3D
-
+var ready4SpookyTimes:=false
 
 @export var debug_target:Node3D
 var target:Node3D
 
 @export_category("Speeds")
 @export var chase_speed:=10
-@export var revsere_speed:=1
+@export var revsere_speed:=20
 @export_category("Looks")
 @export var red_eye_mat:Material
 @export var white_eye_mat:Material
@@ -24,7 +24,8 @@ var physics_delta: float
 var is_chasing := false
 var is_red_eye := (randi_range(0,2)==2)
 var is_spooked :=false
-var anxiety:=randf_range(1.5,3.3)
+var maxAnxiety:=randf_range(1.0,2.6)
+var anxiety:=0.0
 var uprotation:=0.0
 func Totally_Better_Look_At(target_pos:Vector3):
 	look_at(target_pos)
@@ -50,6 +51,8 @@ func set_target(target_node:Node3D):
 
 
 func _ready() -> void:
+	
+	anxiety=maxAnxiety
 	if debug_target!=null:
 		target=debug_target
 	if not is_red_eye:
@@ -64,8 +67,8 @@ func _ready() -> void:
 		left_eye_light.light_color=Color.RED
 		right_eye_light.light_color=Color.RED
 		kill_timer.start(7.0)
-		
-	kill_timer.start()
+	await get_tree().create_timer(1.0).timeout
+	ready4SpookyTimes=true
 func way_point_reached():
 	var new_velocity: Vector3
 	var next_pos=navigation_agent_3d.get_next_path_position()
@@ -74,7 +77,9 @@ func way_point_reached():
 		new_velocity = global_position.direction_to(next_pos) * chase_speed
 	elif is_spooked:
 		Totally_Better_Look_At(target.position)
-		new_velocity = global_position.direction_to(next_pos) * revsere_speed
+		new_velocity = (global_position.direction_to(next_pos) * revsere_speed)
+		new_velocity*=-1
+		new_velocity.y=0
 	if navigation_agent_3d.avoidance_enabled:
 		navigation_agent_3d.set_velocity(new_velocity)
 	_on_velocity_computed(new_velocity)
@@ -92,7 +97,7 @@ func _process(delta: float) -> void:
 		if is_spooked:
 			csg_sphere_3d.visible=false
 			csg_sphere_3d_2.visible=false
-			navigation_agent_3d.target_position= clac_spook_point()
+			navigation_agent_3d.target_position=target.position
 
 			
 	
@@ -106,24 +111,38 @@ func _physics_process(delta: float) -> void:
 			
 
 func _on_kill_timer_timeout() -> void:
-	is_chasing=true
+	if !is_red_eye:
+		is_chasing=true
+	else:
+		is_spooked=true
+		animation_player.play_backwards("the_angel_reference_skeleton|0200")
+		await get_tree().create_timer(4.0).timeout
+		queue_free()
 
 func spook():
 	if !is_spooked:
 		anxiety-=0.01
-		uprotation=randf_range(-0.5,0.5)
+		if is_red_eye:
+			anxiety-=0.03
+			uprotation=randf_range(-2.0*(1-anxiety/maxAnxiety),2.0*(1-anxiety/maxAnxiety))
+		else:
+			uprotation=randf_range(-1*(1-anxiety/maxAnxiety),(1-anxiety/maxAnxiety))
 		var upper=skeleton_3d.find_bone("ValveBiped.Bip01_Spine4")
 		skeleton_3d.set_bone_pose_rotation(upper,Quaternion(uprotation,uprotation+rotation.x,uprotation+rotation.y,uprotation+rotation.z+(4*PI)))
 	if !kill_timer.is_stopped():
-		kill_timer.start(anxiety+0.5)
-	print(str(anxiety)+" Anxiety and "+str(kill_timer.time_left))
+		if ready4SpookyTimes:
+			kill_timer.start(0.7)
 	if is_chasing==false and kill_timer.is_stopped()==false and is_spooked==false && anxiety<0:
-		kill_timer.stop()
-		is_chasing=false
-		is_spooked=true
-		print("Spooked")
-		
-		animation_player.play_backwards("the_angel_reference_skeleton|0200")
+		if !is_red_eye:
+			kill_timer.stop()
+			is_chasing=false
+			is_spooked=true
+			animation_player.play_backwards("the_angel_reference_skeleton|0200")
+			await get_tree().create_timer(4.0).timeout
+			queue_free()
+		else:
+			is_chasing=true
+			kill_timer.stop()
 
 
 func navigation_finished() -> void:

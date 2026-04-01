@@ -78,7 +78,7 @@ func _process(delta: float) -> void:
 	rotate_head(delta)
 func _physics_process(delta: float) -> void:
 	if animation_player!=null:
-		close_range_light.visible=animation_player.current_animation!="PlayerHandAni/ShowFlashLight" && Manager.flashlightOn && animation_player.current_animation!="PlayerHandAni/HideFlashLight"
+		close_range_light.visible=Manager.flashlightOn
 	
 	if shape_cast_3d!=null:
 		shape_cast_3d.enabled=Manager.flashlightOn

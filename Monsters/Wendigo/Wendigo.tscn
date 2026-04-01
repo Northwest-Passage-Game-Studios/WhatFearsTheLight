@@ -516,7 +516,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i88gt"]
-size = Vector3(2.205748, 3.4713218, 2.1862311)
+size = Vector3(1.0023648, 2.2113364, 1.3915285)
 
 [node name="Wendigo" type="CharacterBody3D" unique_id=977576987]
 collision_layer = 2
@@ -700,14 +700,15 @@ speed_scale = 15.0
 avoidance_enabled = true
 height = 3.0
 radius = 7.0
-debug_enabled = true
 debug_use_custom = true
 debug_path_custom_point_size = 71.8
 
 [node name="Kill_Timer" type="Timer" parent="." unique_id=320188991]
+wait_time = 7.0
+one_shot = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539324767]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12933797, 1.7769719, 0.09531999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.051495433, 1.1469792, 0.019111574)
 shape = SubResource("BoxShape3D_i88gt")
 
 [connection signal="navigation_finished" from="NavigationAgent3D" to="." method="navigation_finished"]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://vlsvlapd6d1j"]
 
 [ext_resource type="PackedScene" uid="uid://b0rbgxb3m8oai" path="res://Monsters/Wendigo/Wendigo.tscn" id="1_6xm4m"]
+[ext_resource type="Script" uid="uid://dh80op0xh2kdq" path="res://Debug/monster_debug.gd" id="1_p7ekh"]
 [ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="2_ybcfj"]
 [ext_resource type="PackedScene" uid="uid://iuic20mq0k8u" path="res://worldAssets/interaction_points/Item_Pickup.tscn" id="3_mb3yk"]
 [ext_resource type="PackedScene" uid="uid://bprx3w3vwsvla" path="res://Objects/Items/Flashlights/flash_light.tscn" id="4_lhwji"]
@@ -17,6 +18,8 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [node name="Monster_Debug" type="Node3D" unique_id=1557218608]
+script = ExtResource("1_p7ekh")
+starting_tool = ExtResource("4_lhwji")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=560103771]
 transform = Transform3D(36.735325, 0, 0, 0, 1, 0, 0, 0, 30.040876, 0, 0, 0)
@@ -44,10 +47,6 @@ avoidance_layers = 3
 transform = Transform3D(36.735325, 0, 0, 0, 1, 0, 0, 0, 30.040873, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_ybcfj")
 
-[node name="Wendigo" parent="." unique_id=1231563894 node_paths=PackedStringArray("debug_target") instance=ExtResource("1_6xm4m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2967987, 4.7683716e-07, -0.39812446)
-debug_target = NodePath("../Player")
-
 [node name="Player" parent="." unique_id=827342177 instance=ExtResource("2_ybcfj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.838984, 8.344556)
 
@@ -55,3 +54,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.838984, 8.344556)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30571365, 1.3727705, 9.8111925)
 type_of_item = 0
 real_item = ExtResource("4_lhwji")
+
+[node name="Wendigo" parent="." unique_id=977576987 node_paths=PackedStringArray("debug_target") instance=ExtResource("1_6xm4m")]
+debug_target = NodePath("../Player")
