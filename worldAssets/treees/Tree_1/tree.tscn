@@ -243,9 +243,9 @@ bind/67/name = &"tree1_3d_Bone_12_End_066"
 bind/67/bone = -1
 bind/67/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8897, 7.13916, -19.9506)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_gq2do"]
-height = 54.232227
-radius = 2.0
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gq2do"]
+radius = 2.1582031
+height = 49.079346
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uv1rx"]
 render_priority = 0
@@ -290,7 +290,7 @@ script = ExtResource("1_5bim6")
 
 [node name="Bottom" type="MeshInstance3D" parent="." unique_id=1916102359 groups=["navigation_mesh_source_group"]]
 transform = Transform3D(-2.1855694e-08, 0.5, 2.1855694e-08, 0, -2.1855694e-08, 0.5, 0.5, 2.1855694e-08, 9.553427e-16, 0, 0, 0)
-visibility_range_end = 100.0
+visibility_range_end = 50.0
 mesh = SubResource("ArrayMesh_untrq")
 skin = SubResource("Skin_t2l2t")
 skeleton = NodePath("")
@@ -299,12 +299,12 @@ skeleton = NodePath("")
 transform = Transform3D(-8.742278e-08, 0, 2, 2, -8.742278e-08, 8.742278e-08, 8.742278e-08, 2, 3.821371e-15, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bottom/StaticBody3D" unique_id=551112367]
-transform = Transform3D(-2.1855694e-08, -4.371139e-08, 0.5, 0, -0.5, -4.371139e-08, 0.5, -1.9106855e-15, 2.1855694e-08, -0.03578192, 9.114043, -0.0093479175)
-shape = SubResource("CylinderShape3D_gq2do")
+transform = Transform3D(-2.1855694e-08, -4.371139e-08, 0.5, 0, -0.5, -4.371139e-08, 0.5, -1.9106855e-15, 2.1855694e-08, -0.03578201, 8.115081, -0.0093479175)
+shape = SubResource("CapsuleShape3D_gq2do")
 
 [node name="Top" type="MeshInstance3D" parent="." unique_id=977631373]
 transform = Transform3D(-2.1855694e-08, 0.5, 2.1855694e-08, 0, -2.1855694e-08, 0.5, 0.5, 2.1855694e-08, 9.553427e-16, 0, 0, 0)
-visibility_range_end = 100.0
+visibility_range_end = 50.0
 mesh = SubResource("ArrayMesh_hj0ms")
 skin = SubResource("Skin_t2l2t")
 skeleton = NodePath("")
