@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cokmcffbfkrmv" path="res://worldAssets/rock/rock.tscn" id="14_tccbh"]
 [ext_resource type="PackedScene" uid="uid://d0y8flrvlwuji" path="res://worldAssets/Fences/brick_fence/brick_wall.fbx" id="15_r76ls"]
 [ext_resource type="Texture2D" uid="uid://cy5p6auwfrot7" path="res://worldAssets/Fences/brick_fence/brick_wall_gate_0.png" id="16_r76ls"]
+[ext_resource type="AudioStream" uid="uid://bw8s5fa5sswtb" path="res://Sounds/SoundEffects/188288__willstepp__wind-in-the-trees.ogg" id="17_shk0k"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mqh1b"]
 size = Vector2(1000, 1000)
@@ -32,14 +33,14 @@ sky_material = SubResource("ProceduralSkyMaterial_swhhd")
 [sub_resource type="Environment" id="Environment_3kala"]
 background_energy_multiplier = 0.0
 sky = SubResource("Sky_185nt")
-ambient_light_source = 1
-ambient_light_energy = 10.69
+ambient_light_source = 3
+ambient_light_color = Color(0.6452097, 0.6452098, 0.6452097, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.03
 fog_light_energy = 0.0
-volumetric_fog_density = 0.8462
-volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_enabled = true
 volumetric_fog_emission_energy = 0.0
-volumetric_fog_gi_inject = 0.23
-volumetric_fog_length = 1024.0
+volumetric_fog_temporal_reprojection_enabled = false
 adjustment_enabled = true
 
 [sub_resource type="Resource" id="Resource_sl3aq"]
@@ -2985,6 +2986,9 @@ shape = SubResource("BoxShape3D_mw84r")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Wall/StaticBody3D" unique_id=1903424768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 147.44815)
 shape = SubResource("BoxShape3D_byclw")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="." unique_id=53871203]
+stream = ExtResource("17_shk0k")
 
 [connection signal="Picked_Up" from="key" to="." method="_on_key_picked_up"]
 [connection signal="Picked_Up" from="key2" to="." method="_on_key_picked_up"]

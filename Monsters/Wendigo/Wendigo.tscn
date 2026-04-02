@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://j0h0dola3q6j" path="res://Monsters/Wendigo/wendigo.gd" id="1_tj54y"]
 [ext_resource type="Texture2D" uid="uid://dvljoeutb2bgd" path="res://Monsters/Wendigo/AngelWendigo/the-angel-rig/textures/body_(5).png" id="2_ptkl6"]
+[ext_resource type="AudioStream" uid="uid://cn4syacs06kwe" path="res://Sounds/SoundEffects/661841__rslebs__stick-breaking-softly.wav" id="3_x81h2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x81h2"]
 albedo_color = Color(0.6857328, 3.1044335e-06, 5.7756904e-07, 1)
@@ -516,7 +517,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i88gt"]
-size = Vector3(1.0023648, 2.2113364, 1.3915285)
+size = Vector3(0.5300101, 2.2113364, 0.56126106)
 
 [node name="Wendigo" type="CharacterBody3D" unique_id=977576987]
 collision_layer = 2
@@ -671,7 +672,7 @@ material = SubResource("StandardMaterial3D_vq4ga")
 transform = Transform3D(30.21323, -0.0139324, -7.9826665, 0, 31.249956, -0.054541495, 7.9826803, 0.052732013, 30.213177, 0.0029951334, 0.09805298, 0.6640949)
 light_energy = 16.0
 light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
+light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 spot_range = 61.922
 spot_attenuation = 3.1
@@ -686,7 +687,7 @@ material = SubResource("StandardMaterial3D_vq4ga")
 transform = Transform3D(1.2500001, 0, 0, 0, 1.2499982, -0.0021816606, 0, 0.0021816606, 1.2499982, 0.002996074, 0.0011572838, 0.017323136)
 light_energy = 16.0
 light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
+light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 spot_range = 61.922
 spot_attenuation = 3.1
@@ -708,8 +709,14 @@ wait_time = 7.0
 one_shot = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539324767]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.051495433, 1.1469792, 0.019111574)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010384619, 1.1469792, 0.06367642)
 shape = SubResource("BoxShape3D_i88gt")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=2105632837]
+stream = ExtResource("3_x81h2")
+unit_size = 46.74
+pitch_scale = 1.29
+autoplay = true
 
 [connection signal="navigation_finished" from="NavigationAgent3D" to="." method="navigation_finished"]
 [connection signal="timeout" from="Kill_Timer" to="." method="_on_kill_timer_timeout"]

@@ -9,6 +9,9 @@ class_name wendigo extends CharacterBody3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var skeleton_3d: Skeleton3D = $the_angel_reference_skeleton/Skeleton3D
 var ready4SpookyTimes:=false
+@onready var stickBreakSound:=preload("res://Sounds/SoundEffects/661841__rslebs__stick-breaking-softly.wav")
+@onready var bushRustleSound:=preload("res://Sounds/SoundEffects/735081__debsound__bush-hedge-thicket-short.wav")
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 @export var debug_target:Node3D
 var target:Node3D
@@ -51,7 +54,13 @@ func set_target(target_node:Node3D):
 
 
 func _ready() -> void:
-	
+	if stickBreakSound!=null:
+		if randi_range(0,1)==0:
+			audio_stream_player_3d.stream=stickBreakSound
+		else:
+			audio_stream_player_3d.stream=bushRustleSound
+		audio_stream_player_3d.pitch_scale=randf_range(0.8,1.9)
+		audio_stream_player_3d.play()
 	anxiety=maxAnxiety
 	if debug_target!=null:
 		target=debug_target

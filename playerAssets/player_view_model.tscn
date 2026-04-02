@@ -1728,6 +1728,10 @@ _data = {
 &"pick_up_funcy": SubResource("Animation_66wqc")
 }
 
+[sub_resource type="FogMaterial" id="FogMaterial_vae78"]
+density = -8.0
+edge_fade = 3.5506253
+
 [node name="Player" type="CharacterBody3D" unique_id=827342177]
 collision_mask = 5
 script = ExtResource("1_04v2t")
@@ -2179,3 +2183,7 @@ autoplay = &"PlayerHandAni/RESET"
 [node name="Backpack" type="Node3D" parent="." unique_id=1842362059]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.53079665, -0.18908727)
 script = ExtResource("9_pah8v")
+
+[node name="FogVolume" type="FogVolume" parent="." unique_id=501808602]
+size = Vector3(30, 30, 30)
+material = SubResource("FogMaterial_vae78")
