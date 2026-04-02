@@ -55,4 +55,4 @@ func _ready() -> void:
 	
 	#Starts_Debug_key_finding_Quest
 	find_key_quest_ref_id=Quest_Manger.add_new_quest("Find the Key","Find the key",Quest_Manger.Quest_Type.Mutiple_Item_Fetch)
-	Quest_Manger.add_mutiple_item(find_key_quest_ref_id,[key,key_2,key_3])
+	Quest_Manger.add_mutiple_item(find_key_quest_ref_id,[key])

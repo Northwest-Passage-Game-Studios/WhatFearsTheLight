@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://3edcyd2no7d"]
+
+[ext_resource type="Script" uid="uid://bnf8wptrqe4hs" path="res://UI/HUD/hud.gd" id="1_ia7gp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ia7gp"]
+font_size = 26
+
+[node name="Hud" type="Control" unique_id=1507218794]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ia7gp")
+
+[node name="Quest_Show_Label" type="Label" parent="." unique_id=1511955420]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -205.0
+offset_right = 5.0
+offset_bottom = 36.0
+grow_horizontal = 0
+text = "Quest Added:"
+label_settings = SubResource("LabelSettings_ia7gp")

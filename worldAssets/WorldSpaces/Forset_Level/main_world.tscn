@@ -146,25 +146,15 @@ use_collision = true
 size = Vector3(20.001183, 1, 20.000923)
 
 [node name="Player" parent="." unique_id=827342177 instance=ExtResource("3_tbems")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5027115, 2.3987594, -22.937805)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.8249, 1.232933, 8.1120405)
 
 [node name="key" parent="." unique_id=1339377948 instance=ExtResource("6_3kala")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30571365, 1.3727703, -4.1804447)
-type_of_item = 1
-real_item = ExtResource("7_bk25w")
-
-[node name="key2" parent="." unique_id=861999061 instance=ExtResource("6_3kala")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3057137, 0.9265425, -4.1804447)
-type_of_item = 1
-real_item = ExtResource("7_bk25w")
-
-[node name="key3" parent="." unique_id=1110244672 instance=ExtResource("6_3kala")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3057137, 0.4301877, -4.1804447)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30571365, 0.0010258853, -27.180445)
 type_of_item = 1
 real_item = ExtResource("7_bk25w")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=159762498]
-transform = Transform3D(1, 0, 0, 0, 0.4372413, 0.8993442, 0, -0.8993442, 0.4372413, 0, 4.581883, 2.548546)
+transform = Transform3D(1, 0, 0, 0, 0.4372413, 0.8993442, 0, -0.8993442, 0.4372413, 0, 12.604973, -13.953829)
 spot_range = 50.397
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1932304844]
@@ -180,7 +170,6 @@ script = ExtResource("10_pb7lo")
 Objects = Array[ExtResource("11_iw8dy")]([SubResource("Resource_sl3aq")])
 size_x = 150
 size_z = 150
-no_place_layers = 4096
 gen_steps = 5
 metadata/_custom_type_script = "uid://de18oqn5pa77d"
 
@@ -2883,7 +2872,7 @@ transform = Transform3D(-1, -5.7411853e-12, 8.661209e-08, -8.444389e-08, 0.22241
 transform = Transform3D(5, 0, 0, 0, 4.947276, 0.72419906, 0, -0.72419906, 4.947276, 0, 0.36280596, -4.9633083)
 
 [node name="Wall" type="Node3D" parent="." unique_id=449038590 groups=["navigation_mesh_source_group"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.37445, 0, -80)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.37445, -1.8896523, -80)
 
 [node name="brick_wall" parent="Wall" unique_id=1755856592 instance=ExtResource("15_r76ls")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 0, 0, 0)
@@ -2922,7 +2911,7 @@ transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -3.4
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -4.153259e-06, 0, 95.01549)
 
 [node name="brick_wall27" parent="Wall" unique_id=1481665687 instance=ExtResource("15_r76ls")]
-transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -7.6293945e-06, 0, 89.976074)
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -7.569054e-06, 0, 88.59564)
 
 [node name="brick_wall14" parent="Wall" unique_id=1371438085 instance=ExtResource("15_r76ls")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -4.144517e-06, 0, 102.9913)
@@ -2964,7 +2953,7 @@ transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -8.3
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -8.306361e-06, 0, 198.2032)
 
 [node name="brick_wall_gate" type="Node3D" parent="Wall" unique_id=1108406593]
-transform = Transform3D(-8.742277e-08, 0, -1.9999999, 0, 2, 0, 1.9999999, 0, -8.742277e-08, 0.07445526, 0, 87.01012)
+transform = Transform3D(-4.9092186e-08, 0, -1.9999999, 0, 1.247085, 0, 1.1230983, 0, -8.742277e-08, 0.07445526, 1.7803729, 87.01012)
 
 [node name="brick_wall_gate" type="MeshInstance3D" parent="Wall/brick_wall_gate" unique_id=1196149142]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
@@ -2991,6 +2980,4 @@ shape = SubResource("BoxShape3D_byclw")
 stream = ExtResource("17_shk0k")
 
 [connection signal="Picked_Up" from="key" to="." method="_on_key_picked_up"]
-[connection signal="Picked_Up" from="key2" to="." method="_on_key_picked_up"]
-[connection signal="Picked_Up" from="key3" to="." method="_on_key_picked_up"]
 [connection signal="timeout" from="wendigoSpawner" to="wendigoSpawner" method="_on_timeout"]
