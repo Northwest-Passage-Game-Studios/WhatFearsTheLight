@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://m6ocfv0kd38c"]
+
+[ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="1_gu0gv"]
+[ext_resource type="PackedScene" uid="uid://sfkiw500xvds" path="res://worldAssets/skeleton/skeleton.tscn" id="2_8ms2x"]
+[ext_resource type="PackedScene" uid="uid://cokmcffbfkrmv" path="res://worldAssets/rock/rock.tscn" id="3_ws7d8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r1jlr"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_rw2kb"]
+sky_material = SubResource("ProceduralSkyMaterial_r1jlr")
+
+[sub_resource type="Environment" id="Environment_sfa6r"]
+background_mode = 2
+sky = SubResource("Sky_rw2kb")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ybcfj"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ybcfj"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_fpnow"]
+vertices = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, -1)
+polygons = [PackedInt32Array(0, 1, 2), PackedInt32Array(1, 3, 2)]
+
+[node name="Monster_Debug" type="Node3D" unique_id=1557218608]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2090478869]
+environment = SubResource("Environment_sfa6r")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1480025576]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=560103771]
+transform = Transform3D(36.735325, 0, 0, 0, 1, 0, 0, 0, 30.040873, 0, 0, 0)
+mesh = SubResource("PlaneMesh_ybcfj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1051212474]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1187658318]
+transform = Transform3D(36.735325, 0, 0, 0, 1, 0, 0, 0, 30.040873, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_ybcfj")
+
+[node name="Player" parent="." unique_id=827342177 instance=ExtResource("1_gu0gv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.838984, 8.344556)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=119880165]
+transform = Transform3D(36.735325, 0, 0, 0, 1, 0, 0, 0, 30.040873, 0, 0, 0)
+navigation_mesh = SubResource("NavigationMesh_fpnow")
+
+[node name="Skeleton" parent="." unique_id=1138696578 instance=ExtResource("2_8ms2x")]
+transform = Transform3D(1, 0, 0, 0, 0.3979486, 0.9174077, 0, -0.9174077, 0.3979486, -1, 0.9, 3.9)
+
+[node name="Rock" parent="." unique_id=847071361 instance=ExtResource("3_ws7d8")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -1, 0, 2)

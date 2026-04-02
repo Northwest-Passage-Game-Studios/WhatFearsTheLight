@@ -285,7 +285,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[node name="TREE" type="Node3D" unique_id=1250169194]
+[node name="TREE" type="Node3D" unique_id=1250169194 groups=["Tree"]]
 script = ExtResource("1_5bim6")
 
 [node name="Bottom" type="MeshInstance3D" parent="." unique_id=1916102359 groups=["navigation_mesh_source_group"]]
@@ -295,7 +295,7 @@ mesh = SubResource("ArrayMesh_untrq")
 skin = SubResource("Skin_t2l2t")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bottom" unique_id=181352695]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bottom" unique_id=181352695 groups=["Tree"]]
 transform = Transform3D(-8.742278e-08, 0, 2, 2, -8.742278e-08, 8.742278e-08, 8.742278e-08, 2, 3.821371e-15, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bottom/StaticBody3D" unique_id=551112367]
