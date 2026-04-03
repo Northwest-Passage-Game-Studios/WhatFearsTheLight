@@ -2,11 +2,15 @@ class_name Item_Handler extends BoneAttachment3D
 
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var object_bone_anchor: BoneAttachment3D = $"../Object_Bone_Anchor"
+@onready var tape_recorder_audio_player: AudioStreamPlayer3D = $"../../../TapeRecorderAudioPlayer"
 
 
 var items:Array[Item]
 
 var quest_objects:Array[Item]
+
+
+signal quest_item_add(ref_id:int)
 
 var current_item:Item:
 	set(new_item):
@@ -47,9 +51,11 @@ func pick_up_item(tool_model:PackedScene,Us_Ani:bool=true):
 		animation_player.play("pick_up")
 		await  animation_player.animation_finished
 		animation_player.play("RESET")
+
 	return
 	
-func pick_up_object(tool_model:PackedScene):
+	
+func pick_up_object(tool_model:PackedScene,object_info:Quest_Object_Info=Quest_Object_Info.new()):
 	var new_tool :Quest_Object= tool_model.instantiate()
 	object_bone_anchor.get_node("Animation_Node").add_child(new_tool)
 	quest_objects.append(new_tool)
@@ -58,8 +64,15 @@ func pick_up_object(tool_model:PackedScene):
 	animation_player.play(new_tool.pick_up_ani)
 	await animation_player.animation_finished
 	animation_player.play("RESET")
+	if object_info.play_sound:
+		tape_recorder_audio_player.stream=object_info.audio_file
+		tape_recorder_audio_player.play()
+	if object_info.does_emit_signal:
+		quest_item_add.emit(object_info.ref_id_emit)
+	new_tool.queue_free()
+	
 	return
-
+	
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("R-Equp") and animation_player.is_playing()==false:

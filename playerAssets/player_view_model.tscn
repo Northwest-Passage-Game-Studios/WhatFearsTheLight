@@ -5,7 +5,10 @@
 [ext_resource type="Shape3D" uid="uid://ioy7p63kjc2u" path="res://Objects/Items/Flashlights/RayCone.tres" id="2_pah8v"]
 [ext_resource type="Script" uid="uid://bi8rnqdiywiqr" path="res://playerAssets/ItemHandler.gd" id="3_rvkmj"]
 [ext_resource type="AnimationLibrary" uid="uid://b56tevrrl3tav" path="res://playerAssets/PlayerHandAni.res" id="6_vae78"]
+[ext_resource type="PackedScene" uid="uid://3edcyd2no7d" path="res://UI/HUD/hud.tscn" id="7_bkphc"]
+[ext_resource type="Texture2D" uid="uid://bl5p0y8fixyc2" path="res://UI/src/crosshair001.png" id="8_pah8v"]
 [ext_resource type="Script" uid="uid://dxabmhadb7672" path="res://playerAssets/backpack.gd" id="9_pah8v"]
+[ext_resource type="Texture2D" uid="uid://dirn8aqfp4rp7" path="res://UI/src/crosshair002.png" id="9_ywkye"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_04v2t"]
 radius = 0.336
@@ -1766,6 +1769,12 @@ spot_attenuation = 1.25
 spot_angle = 20.0
 spot_angle_attenuation = 3.7321322
 
+[node name="ItemPickable" type="RayCast3D" parent="Neck/Camera3D" unique_id=905292947]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+target_position = Vector3(0, -5, 0)
+collision_mask = 8
+collide_with_areas = true
+
 [node name="playersAmbientLight" type="SpotLight3D" parent="Neck" unique_id=1402063091]
 transform = Transform3D(-0.808168, 0.58631796, 0.055640224, -0.58715016, -0.7947074, -0.1539314, -0.046035033, -0.15707159, 0.98651373, -0.014953464, -0.109612346, -0.014523268)
 light_energy = 0.2
@@ -2187,3 +2196,13 @@ script = ExtResource("9_pah8v")
 [node name="FogVolume" type="FogVolume" parent="." unique_id=501808602]
 size = Vector3(30, 30, 30)
 material = SubResource("FogMaterial_vae78")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=577129]
+
+[node name="Hud" parent="CanvasLayer" unique_id=1507218794 instance=ExtResource("7_bkphc")]
+normal_state_texture = ExtResource("8_pah8v")
+intercat_texture = ExtResource("9_ywkye")
+
+[node name="TapeRecorderAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=587339860]
+
+[connection signal="can_pick_up" from="." to="CanvasLayer/Hud" method="can_intercat"]

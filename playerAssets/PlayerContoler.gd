@@ -20,6 +20,7 @@ class_name player_body extends CharacterBody3D
 @onready var flashlight_overheat_timer: Timer = $flashlightOverheatTimer
 @onready var spot_light_3d: SpotLight3D = $Armature/Skeleton3D/BoneAttachment3D/FlashLight/SpotLight3D
 @onready var tool_handler: Item_Handler = $Armature/Skeleton3D/Item_Bone_Anchor
+@onready var item_pickable: RayCast3D = $Neck/Camera3D/ItemPickable
 
 @onready var close_range_light: SpotLight3D = $Neck/Camera3D/closeRangeLight
 
@@ -52,6 +53,7 @@ var sprinting:=false
 var speed = 5.0
 const JUMP_VELOCITY = 4.5
 
+signal can_pick_up(state:bool)
 
 
 
@@ -65,6 +67,19 @@ func _head_bob(head_bobtime):
 	head_bob_pos.y=sin(head_bobtime*head_bob_freq)*head_bob_amp
 	head_bob_pos.x=cos(head_bobtime*head_bob_freq/2)*head_bob_amp
 	return head_bob_pos
+	
+func _pick_up_check():
+	var looking_at = item_pickable.get_collider()
+
+	if looking_at==null:
+		can_pick_up.emit(false)
+		return
+	if looking_at is Object_PickUp_Point:
+		if Input.is_action_just_pressed("pick_up"):
+			looking_at.call_pick_up(self)
+		else:
+			can_pick_up.emit(true)
+	
 
 func rotate_head(delta):
 	var neck_rotate = neck.global_rotation
@@ -76,6 +91,7 @@ func rotate_head(delta):
 	armature.global_rotation.y=final_vector.y
 func _process(delta: float) -> void:
 	rotate_head(delta)
+	_pick_up_check()
 func _physics_process(delta: float) -> void:
 	if animation_player!=null:
 		close_range_light.visible=Manager.flashlightOn

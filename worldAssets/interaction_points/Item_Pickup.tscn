@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bbpbqo4cr83pm" path="res://worldAssets/interaction_points/Item_Pickup.gd" id="1_i0sk0"]
 [ext_resource type="Texture2D" uid="uid://barfo2yoxinaa" path="res://Objects/Items/Key/textures/padlock_Padlock_BaseColor.png" id="3_fboqf"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_i0sk0"]
-size = Vector3(2.3537598, 3.6660156, 1.9433594)
+[sub_resource type="BoxShape3D" id="BoxShape3D_bac0b"]
+size = Vector3(0.021728516, 0.001, 0.026000977)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6msw"]
 resource_name = "Padlock"
@@ -51,19 +51,15 @@ shadow_mesh = SubResource("ArrayMesh_5o1eo")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bac0b"]
 albedo_texture = ExtResource("3_fboqf")
 
-[node name="Item_Pickup" type="Node3D" unique_id=1339377948]
+[node name="Pickable" type="Area3D" unique_id=88219778]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource("1_i0sk0")
 type_of_item = null
 
-[node name="Area3D" type="Area3D" parent="." unique_id=518830175]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1941097464]
-shape = SubResource("BoxShape3D_i0sk0")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1337412403]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -0.02201499)
-mesh = SubResource("ArrayMesh_0tqwx")
-surface_material_override/0 = SubResource("StandardMaterial3D_bac0b")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=636550699]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0.018615723)
+shape = SubResource("BoxShape3D_bac0b")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=107999807]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038363084, 0.017799765)
@@ -72,5 +68,8 @@ light_energy = 0.1
 spot_range = 0.1
 spot_angle = 180.0
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1337412403]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -0.022014992)
+mesh = SubResource("ArrayMesh_0tqwx")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_bac0b")

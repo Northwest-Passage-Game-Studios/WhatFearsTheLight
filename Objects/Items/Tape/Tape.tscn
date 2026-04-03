@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://y8dikjl3i7a6"]
+
+[ext_resource type="Script" uid="uid://b3eff7bjh3fs8" path="res://Objects/Items/object.gd" id="1_o6r7i"]
+[ext_resource type="PackedScene" uid="uid://clip4buh5sils" path="res://Objects/Items/Tape/Src/Mesh_Tape_01.fbx" id="1_qydn6"]
+
+[node name="Tape" type="Node3D" unique_id=1965427467]
+script = ExtResource("1_o6r7i")
+pick_up_ani = "Pick_Up_Key"
+
+[node name="Mesh_Tape_01" parent="." unique_id=1358764851 instance=ExtResource("1_qydn6")]

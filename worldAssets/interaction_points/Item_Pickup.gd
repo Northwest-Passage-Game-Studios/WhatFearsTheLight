@@ -9,36 +9,33 @@ enum Types_Of_Pick {
 
 @export var type_of_item :Types_Of_Pick = Types_Of_Pick.Items
 @export var real_item:PackedScene
+@export var Quest_item_info:Quest_Object_Info
 
 
 
 
-var is_player_in:=false
-var player_ref :player_body
 
 
 
-
-@onready var key: MeshInstance3D = $Key
 
 
 signal Picked_Up
 
+func call_pick_up(player_ref:player_body):
+	if type_of_item == Types_Of_Pick.Tools:
+		player_ref.tool_handler.pick_up_item(real_item,true)
+		#await player_ref.tool_handler.pick_up_item(real_item)
+		await get_tree().create_timer(0.75).timeout
+		queue_free()
+	elif type_of_item == Types_Of_Pick.Items:
+		print(player_ref)
+		player_ref.tool_handler.pick_up_object(real_item,Quest_item_info)
+		#await player_ref.tool_handler.pick_up_item(real_item)
+		await get_tree().create_timer(0.75).timeout
+		queue_free()
+	Picked_Up.emit()
 
-func _input(event: InputEvent) -> void:
-	if is_player_in==true and event.is_action("pick_up"):
-		if type_of_item == Types_Of_Pick.Tools:
-			player_ref.tool_handler.pick_up_item(real_item)
-			#await player_ref.tool_handler.pick_up_item(real_item)
-			await get_tree().create_timer(0.75).timeout
-			queue_free()
-		elif type_of_item == Types_Of_Pick.Items:
-			print(player_ref)
-			player_ref.tool_handler.pick_up_object(real_item)
-			#await player_ref.tool_handler.pick_up_item(real_item)
-			await get_tree().create_timer(0.75).timeout
-			queue_free()
-		Picked_Up.emit()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -46,14 +43,3 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body is player_body:
-		player_ref=body
-		is_player_in=true
-
-
-func _on_area_3d_body_exited(body: Node3D) -> void:
-	if body is player_body:
-		player_ref=null
-		is_player_in=false
