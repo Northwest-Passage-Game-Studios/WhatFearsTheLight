@@ -23,7 +23,6 @@ class_name player_body extends CharacterBody3D
 @onready var item_pickable: RayCast3D = $Neck/Camera3D/ItemPickable
 @onready var footstep_player: AudioStreamPlayer = $footstepPlayer
 
-@onready var close_range_light: SpotLight3D = $Neck/Camera3D/closeRangeLight
 
 @export_category("Walk Settings")
 @export var baseSpeed:=2.5
@@ -104,8 +103,6 @@ func _process(delta: float) -> void:
 	rotate_head(delta)
 	_pick_up_check()
 func _physics_process(delta: float) -> void:
-	if animation_player!=null:
-		close_range_light.visible=Manager.flashlightOn
 	
 	if shape_cast_3d!=null:
 		shape_cast_3d.enabled=Manager.flashlightOn

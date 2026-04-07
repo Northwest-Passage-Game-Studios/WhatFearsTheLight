@@ -13,7 +13,7 @@ var ready4SpookyTimes:=false
 @onready var bushRustleSound:=preload("res://Sounds/SoundEffects/735081__debsound__bush-hedge-thicket-short.wav")
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var footstep_player: AudioStreamPlayer3D = $footstepPlayer
-@onready var footstep_player_2: AudioStreamPlayer3D = $footstepPlayer2
+@onready var footstep_interval: Timer = $footstepInterval
 
 @export var debug_target:Node3D
 var target:Node3D
@@ -126,8 +126,10 @@ func _physics_process(delta: float) -> void:
 func _on_kill_timer_timeout() -> void:
 	if !is_red_eye:
 		is_chasing=true
+		footstep_interval.start()
 	else:
 		is_spooked=true
+		footstep_interval.start()
 		animation_player.play_backwards("the_angel_reference_skeleton|0200")
 		await get_tree().create_timer(4.0).timeout
 		queue_free()
@@ -147,6 +149,7 @@ func spook():
 			kill_timer.start(0.7)
 	if is_chasing==false and kill_timer.is_stopped()==false and is_spooked==false && anxiety<0:
 		if !is_red_eye:
+			footstep_interval.start()
 			kill_timer.stop()
 			is_chasing=false
 			is_spooked=true
@@ -154,6 +157,7 @@ func spook():
 			await get_tree().create_timer(4.0).timeout
 			queue_free()
 		else:
+			footstep_interval.start()
 			is_chasing=true
 			kill_timer.stop()
 
@@ -161,3 +165,9 @@ func spook():
 func navigation_finished() -> void:
 	if is_spooked:
 		queue_free()
+
+
+func _on_footstep_interval_timeout() -> void:
+	footstep_player.play()
+	footstep_player.pitch_scale=randf_range(0.8,1.2)
+	footstep_interval.start()

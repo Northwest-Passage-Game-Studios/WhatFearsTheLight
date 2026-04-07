@@ -1758,18 +1758,6 @@ target_position = Vector3(0, 0, 0)
 collision_mask = 2
 debug_shape_custom_color = Color(1, 1, 1, 1)
 
-[node name="closeRangeLight" type="SpotLight3D" parent="Neck/Camera3D" unique_id=857451312]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008116037, -0.007199168, -0.03601986)
-light_energy = 4.492
-light_indirect_energy = 0.0
-light_volumetric_fog_energy = 16.0
-light_specular = 0.0
-distance_fade_enabled = true
-spot_range = 1.641
-spot_attenuation = 1.25
-spot_angle = 20.0
-spot_angle_attenuation = 3.7321322
-
 [node name="ItemPickable" type="RayCast3D" parent="Neck/Camera3D" unique_id=905292947]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 target_position = Vector3(0, -5, 0)
@@ -1913,14 +1901,14 @@ bones/9/name = "Bone.009.L"
 bones/9/parent = 8
 bones/9/rest = Transform3D(0.9602264, 0.269227, -0.07404076, -0.2779146, 0.89588, -0.3466445, -0.02699443, 0.3534342, 0.9350698, 3.5390258e-08, 0.030301526, -4.4703484e-08)
 bones/9/enabled = true
-bones/9/position = Vector3(3.5390258e-08, 0.030301526, -4.4703484e-08)
+bones/9/position = Vector3(-0.009839054, 0.026819566, -0.0025003897)
 bones/9/rotation = Quaternion(0.17977525, -0.012081163, -0.1405021, 0.97354716)
 bones/9/scale = Vector3(1.0000006, 1.0000004, 1.0000001)
 bones/10/name = "Bone.010.L"
 bones/10/parent = 9
 bones/10/rest = Transform3D(0.99909645, 0.0424176, -0.00266112, -0.042417638, 0.99126077, -0.124910764, -0.002660551, 0.124910764, 0.99216443, 2.6600901e-08, 0.041361604, -5.5879354e-09)
 bones/10/enabled = true
-bones/10/position = Vector3(2.6600901e-08, 0.041361604, -5.5879354e-09)
+bones/10/position = Vector3(-0.031696822, 0.009629231, 0.00090068736)
 bones/10/rotation = Quaternion(0.0625923, -1.4245471e-07, -0.021255303, 0.9978129)
 bones/10/scale = Vector3(1.0000007, 1.0000002, 1.0000005)
 bones/11/name = "Bone.011.L"
@@ -2211,3 +2199,5 @@ stream = ExtResource("10_ywkye")
 volume_db = -15.0
 
 [connection signal="can_pick_up" from="." to="CanvasLayer/Hud" method="can_intercat"]
+[connection signal="animation_changed" from="Armature/AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
+[connection signal="animation_finished" from="Armature/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
