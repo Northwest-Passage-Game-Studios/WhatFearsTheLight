@@ -54,7 +54,7 @@ var speed = 5.0
 const JUMP_VELOCITY = 4.5
 var headPosNeg:=false
 var lowestheadPos:=100.0
-
+var last_look_at:Object_PickUp_Point
 signal can_pick_up(state:bool)
 
 
@@ -80,7 +80,8 @@ func _head_bob(head_bobtime):
 	
 func _pick_up_check():
 	var looking_at = item_pickable.get_collider()
-
+	if last_look_at !=null:
+		last_look_at.hide_outline()
 	if looking_at==null:
 		can_pick_up.emit(false)
 		return
@@ -89,6 +90,8 @@ func _pick_up_check():
 			looking_at.call_pick_up(self)
 		else:
 			can_pick_up.emit(true)
+			looking_at.show_outline()
+	last_look_at=looking_at
 	
 
 func rotate_head(delta):
