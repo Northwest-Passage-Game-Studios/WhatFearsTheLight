@@ -21,6 +21,7 @@ class_name player_body extends CharacterBody3D
 @onready var spot_light_3d: SpotLight3D = $Armature/Skeleton3D/BoneAttachment3D/FlashLight/SpotLight3D
 @onready var tool_handler: Item_Handler = $Armature/Skeleton3D/Item_Bone_Anchor
 @onready var item_pickable: RayCast3D = $Neck/Camera3D/ItemPickable
+@onready var footstep_player: AudioStreamPlayer = $footstepPlayer
 
 @onready var close_range_light: SpotLight3D = $Neck/Camera3D/closeRangeLight
 
@@ -52,6 +53,8 @@ var crouchTweening:=0
 var sprinting:=false
 var speed = 5.0
 const JUMP_VELOCITY = 4.5
+var headPosNeg:=false
+var lowestheadPos:=100.0
 
 signal can_pick_up(state:bool)
 
@@ -66,6 +69,14 @@ func _head_bob(head_bobtime):
 	var head_bob_pos = Vector3.ZERO
 	head_bob_pos.y=sin(head_bobtime*head_bob_freq)*head_bob_amp
 	head_bob_pos.x=cos(head_bobtime*head_bob_freq/2)*head_bob_amp
+	if head_bob_pos.x<0 && !headPosNeg:
+		headPosNeg=true
+		footstep_player.pitch_scale=randf_range(0.8,1.2)
+		footstep_player.play()
+	if head_bob_pos.x>0 && headPosNeg:
+		headPosNeg=false
+		footstep_player.pitch_scale=randf_range(0.8,1.2)
+		footstep_player.play()
 	return head_bob_pos
 	
 func _pick_up_check():

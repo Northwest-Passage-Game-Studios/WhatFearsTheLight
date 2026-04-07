@@ -12,6 +12,8 @@ var ready4SpookyTimes:=false
 @onready var stickBreakSound:=preload("res://Sounds/SoundEffects/661841__rslebs__stick-breaking-softly.wav")
 @onready var bushRustleSound:=preload("res://Sounds/SoundEffects/735081__debsound__bush-hedge-thicket-short.wav")
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var footstep_player: AudioStreamPlayer3D = $footstepPlayer
+@onready var footstep_player_2: AudioStreamPlayer3D = $footstepPlayer2
 
 @export var debug_target:Node3D
 var target:Node3D
@@ -111,6 +113,8 @@ func _process(delta: float) -> void:
 			
 	
 func _physics_process(delta: float) -> void:
+	if is_chasing:
+		pass
 	physics_delta = delta
 	if target!=null:
 		if is_chasing or is_spooked:

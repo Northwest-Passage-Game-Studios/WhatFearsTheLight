@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://y8dikjl3i7a6" path="res://Objects/Items/Tape/Tape.tscn" id="16_ndwlv"]
 [ext_resource type="Texture2D" uid="uid://cy5p6auwfrot7" path="res://worldAssets/Fences/brick_fence/brick_wall_gate_0.png" id="16_r76ls"]
 [ext_resource type="PackedScene" uid="uid://clip4buh5sils" path="res://Objects/Items/Tape/Src/Mesh_Tape_01.fbx" id="16_t50r7"]
-[ext_resource type="AudioStream" uid="uid://bw8s5fa5sswtb" path="res://Sounds/SoundEffects/188288__willstepp__wind-in-the-trees.ogg" id="17_shk0k"]
 [ext_resource type="AudioStream" uid="uid://6qwcm1rdhgq" path="res://Sounds/SoundEffects/SOS.wav" id="18_05nld"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mqh1b"]
@@ -3090,9 +3089,6 @@ shape = SubResource("BoxShape3D_mw84r")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Wall/StaticBody3D" unique_id=1903424768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 147.44815)
 shape = SubResource("BoxShape3D_byclw")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="." unique_id=53871203]
-stream = ExtResource("17_shk0k")
 
 [connection signal="timeout" from="wendigoSpawner" to="wendigoSpawner" method="_on_timeout"]
 [connection signal="Picked_Up" from="Key_1/gate_key" to="." method="_on_key_picked_up"]
