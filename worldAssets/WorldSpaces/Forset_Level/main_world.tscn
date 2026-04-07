@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cokmcffbfkrmv" path="res://worldAssets/rock/rock.tscn" id="14_tccbh"]
 [ext_resource type="Texture2D" uid="uid://barfo2yoxinaa" path="res://Objects/Items/Key/textures/padlock_Padlock_BaseColor.png" id="15_ndwlv"]
 [ext_resource type="PackedScene" uid="uid://d0y8flrvlwuji" path="res://worldAssets/Fences/brick_fence/brick_wall.fbx" id="15_r76ls"]
-[ext_resource type="Script" uid="uid://b1xhtytlf50pm" path="res://Objects/Items/Quest_Item_Config.gd" id="15_t50r7"]
+[ext_resource type="Script" path="res://Objects/Items/Quest_Item_Config.gd" id="15_t50r7"]
 [ext_resource type="PackedScene" uid="uid://y8dikjl3i7a6" path="res://Objects/Items/Tape/Tape.tscn" id="16_ndwlv"]
 [ext_resource type="Texture2D" uid="uid://cy5p6auwfrot7" path="res://worldAssets/Fences/brick_fence/brick_wall_gate_0.png" id="16_r76ls"]
 [ext_resource type="PackedScene" uid="uid://clip4buh5sils" path="res://Objects/Items/Tape/Src/Mesh_Tape_01.fbx" id="16_t50r7"]
@@ -26,6 +26,10 @@
 size = Vector2(1000, 1000)
 subdivide_width = 10
 subdivide_depth = 10
+
+[sub_resource type="FogMaterial" id="FogMaterial_t50r7"]
+density = -10.0
+edge_fade = 1.2996042
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_swhhd"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -42,9 +46,10 @@ ambient_light_color = Color(0.6452097, 0.6452098, 0.6452097, 1)
 ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.03
 fog_light_energy = 0.0
-volumetric_fog_enabled = true
-volumetric_fog_emission_energy = 0.0
+volumetric_fog_density = 5.0
+volumetric_fog_length = 50.0
 volumetric_fog_temporal_reprojection_enabled = false
+volumetric_fog_temporal_reprojection_amount = 0.5
 adjustment_enabled = true
 
 [sub_resource type="Resource" id="Resource_sl3aq"]
@@ -216,6 +221,11 @@ size = Vector3(20.001183, 1, 20.000923)
 
 [node name="Player" parent="." unique_id=827342177 instance=ExtResource("3_tbems")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.430459, 1.232933, -25.620716)
+
+[node name="FogVolume2" type="FogVolume" parent="Player" unique_id=1305975514]
+size = Vector3(10, 10, 10)
+shape = 2
+material = SubResource("FogMaterial_t50r7")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=159762498]
 transform = Transform3D(1, 0, 0, 0, 0.4372413, 0.8993442, 0, -0.8993442, 0.4372413, 0, 12.604973, -13.953829)

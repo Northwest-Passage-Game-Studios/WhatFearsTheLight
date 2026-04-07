@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://iuic20mq0k8u" path="res://worldAssets/interaction_points/Item_Pickup.tscn" id="2_r1jlr"]
 [ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="2_rw2kb"]
 [ext_resource type="PackedScene" uid="uid://ulu3elc8iyd0" path="res://Objects/Items/Key/key.tscn" id="3_sfa6r"]
+[ext_resource type="Script" path="res://Objects/Items/Quest_Item_Config.gd" id="4_446vs"]
 [ext_resource type="Texture2D" uid="uid://barfo2yoxinaa" path="res://Objects/Items/Key/textures/padlock_Padlock_BaseColor.png" id="4_sfa6r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r1jlr"]
@@ -26,6 +27,9 @@ data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0
 [sub_resource type="NavigationMesh" id="NavigationMesh_fpnow"]
 vertices = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, -1)
 polygons = [PackedInt32Array(0, 1, 2), PackedInt32Array(1, 3, 2)]
+
+[sub_resource type="Resource" id="Resource_4k67u"]
+script = ExtResource("4_446vs")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtc7e"]
 albedo_texture = ExtResource("4_sfa6r")
@@ -173,10 +177,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.838984, 8.344556)
 transform = Transform3D(36.735325, 0, 0, 0, 1, 0, 0, 0, 30.040873, 0, 0, 0)
 navigation_mesh = SubResource("NavigationMesh_fpnow")
 
-[node name="key" parent="." unique_id=1339377948 instance=ExtResource("2_r1jlr")]
+[node name="key" parent="." unique_id=1339377948 node_paths=PackedStringArray("mesh") instance=ExtResource("2_r1jlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30571365, 0.5, 0.3094945)
 type_of_item = 1
 real_item = ExtResource("3_sfa6r")
+Quest_item_info = SubResource("Resource_4k67u")
+mesh = NodePath("MeshInstance3D")
 
 [node name="padlock" type="Node3D" parent="." unique_id=349993730]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4759007, 2.962758, 0.10858464)

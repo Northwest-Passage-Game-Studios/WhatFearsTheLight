@@ -290,7 +290,7 @@ script = ExtResource("1_5bim6")
 
 [node name="Bottom" type="MeshInstance3D" parent="." unique_id=1916102359 groups=["navigation_mesh_source_group"]]
 transform = Transform3D(-2.1855694e-08, 0.5, 2.1855694e-08, 0, -2.1855694e-08, 0.5, 0.5, 2.1855694e-08, 9.553427e-16, 0, 0, 0)
-visibility_range_end = 50.0
+visibility_range_end = 25.0
 mesh = SubResource("ArrayMesh_untrq")
 skin = SubResource("Skin_t2l2t")
 skeleton = NodePath("")
@@ -304,7 +304,7 @@ shape = SubResource("CapsuleShape3D_gq2do")
 
 [node name="Top" type="MeshInstance3D" parent="." unique_id=977631373]
 transform = Transform3D(-2.1855694e-08, 0.5, 2.1855694e-08, 0, -2.1855694e-08, 0.5, 0.5, 2.1855694e-08, 9.553427e-16, 0, 0, 0)
-visibility_range_end = 50.0
+visibility_range_end = 25.0
 mesh = SubResource("ArrayMesh_hj0ms")
 skin = SubResource("Skin_t2l2t")
 skeleton = NodePath("")
