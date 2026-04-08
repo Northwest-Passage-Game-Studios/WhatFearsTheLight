@@ -11,6 +11,7 @@ enum Types_Of_Pick {
 @export var real_item:PackedScene
 @export var Quest_item_info:Quest_Object_Info
 @export var mesh:MeshInstance3D
+const ITEM_GLOW = preload("uid://b6k4dyrs2b0y5")
 
 
 
@@ -21,23 +22,6 @@ enum Types_Of_Pick {
 
 signal Picked_Up
 
-func create_outline_mesh(original: MeshInstance3D) -> MeshInstance3D:
-	# Duplicate the mesh instance
-	return null
-	#commented to fix a crash
-	
-	#var outline_instance := MeshInstance3D.new()
-	#outline_instance.mesh = original.mesh
-	#outline_instance.transform = original.transform
-	# Create an unshaded material for the outline
-	#var mat := load("res://Objects/item_Glow.tres")
-#
-	## Ensure the outline renders behind the original mesh
-	#var outline_thickness: float = 0.05       # Scale offset
-	#outline_instance.material_override=mat
-	#mat.cull_mode = BaseMaterial3D.CULL_FRONT 
-	#outline_instance.scale = original.scale * (1.0 + outline_thickness)
-	#return outline_instance
 
 
 func call_pick_up(player_ref:player_body):
@@ -55,22 +39,16 @@ func call_pick_up(player_ref:player_body):
 	Picked_Up.emit()
 
 func show_outline():
-	var outline = mesh.get_child(0)
-	if outline is MeshInstance3D:
-		outline.show()
+	if mesh is MeshInstance3D:
+		mesh.material_overlay=ITEM_GLOW
 
 func hide_outline():
-	var outline = mesh.get_child(0)
-	if outline is MeshInstance3D:
-		outline.hide()
+	if mesh is MeshInstance3D:
+		mesh.material_overlay=null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
-	#var outline_mesh:=create_outline_mesh(mesh)
-	#outline_mesh.hide()
-	#mesh.add_child(outline_mesh)
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
