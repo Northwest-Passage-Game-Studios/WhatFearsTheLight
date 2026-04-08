@@ -6,7 +6,7 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animation_player.pause()
-	await get_tree().create_timer(0.86).timeout
+	await get_tree().create_timer(0.16).timeout
 	the_angel_reference_skeleton.visible=true
 	
 
@@ -22,4 +22,4 @@ func _on_animation_player_2_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	queue_free()
+	get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/Forset_Level/main_world.tscn")

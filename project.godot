@@ -95,6 +95,7 @@ save={
 3d_physics/layer_3="World Objects"
 3d_physics/layer_4="Pickables"
 3d_physics/layer_5="Intereactable"
+3d_physics/layer_6="playerDetector"
 3d_physics/layer_13="The Onceler"
 
 [physics]

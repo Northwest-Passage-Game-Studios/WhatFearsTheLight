@@ -1737,6 +1737,7 @@ density = -8.0
 edge_fade = 3.5506253
 
 [node name="Player" type="CharacterBody3D" unique_id=827342177]
+collision_layer = 33
 collision_mask = 5
 script = ExtResource("1_04v2t")
 baseSpeed = 1.75

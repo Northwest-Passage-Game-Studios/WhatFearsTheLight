@@ -171,3 +171,7 @@ func _on_footstep_interval_timeout() -> void:
 	footstep_player.play()
 	footstep_player.pitch_scale=randf_range(0.8,1.2)
 	footstep_interval.start()
+
+
+func _on_player_kill_trigger_body_entered(body: Node3D) -> void:
+	get_tree().change_scene_to_file("res://Monsters/Wendigo/wendigo_jumpscare.tscn")

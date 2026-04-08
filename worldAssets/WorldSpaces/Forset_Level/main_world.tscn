@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cokmcffbfkrmv" path="res://worldAssets/rock/rock.tscn" id="14_tccbh"]
 [ext_resource type="Texture2D" uid="uid://barfo2yoxinaa" path="res://Objects/Items/Key/textures/padlock_Padlock_BaseColor.png" id="15_ndwlv"]
 [ext_resource type="PackedScene" uid="uid://d0y8flrvlwuji" path="res://worldAssets/Fences/brick_fence/brick_wall.fbx" id="15_r76ls"]
-[ext_resource type="Script" path="res://Objects/Items/Quest_Item_Config.gd" id="15_t50r7"]
+[ext_resource type="Script" uid="uid://b1xhtytlf50pm" path="res://Objects/Items/Quest_Item_Config.gd" id="15_t50r7"]
 [ext_resource type="PackedScene" uid="uid://y8dikjl3i7a6" path="res://Objects/Items/Tape/Tape.tscn" id="16_ndwlv"]
 [ext_resource type="Texture2D" uid="uid://cy5p6auwfrot7" path="res://worldAssets/Fences/brick_fence/brick_wall_gate_0.png" id="16_r76ls"]
 [ext_resource type="PackedScene" uid="uid://clip4buh5sils" path="res://Objects/Items/Tape/Src/Mesh_Tape_01.fbx" id="16_t50r7"]
@@ -35,12 +35,12 @@ edge_fade = 1.2996042
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_185nt"]
+[sub_resource type="Sky" id="Sky_t50r7"]
 sky_material = SubResource("ProceduralSkyMaterial_swhhd")
 
 [sub_resource type="Environment" id="Environment_3kala"]
 background_energy_multiplier = 0.0
-sky = SubResource("Sky_185nt")
+sky = SubResource("Sky_t50r7")
 ambient_light_source = 3
 ambient_light_color = Color(0.6452097, 0.6452098, 0.6452097, 1)
 ambient_light_sky_contribution = 0.0
