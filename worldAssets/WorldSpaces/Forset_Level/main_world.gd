@@ -68,6 +68,7 @@ func _ready() -> void:
 	
 
 
+<<<<<<< Updated upstream
 func _on_static_body_3d_opened() -> void:
 	pass # Replace with function body.
 
@@ -86,3 +87,7 @@ func _on_gate_key_picked_up() -> void:
 		await get_tree().create_timer(4).timeout
 		quest_stage_three_ref_id=Quest_Manger.add_new_quest("Find the gate key","None",Quest_Manger.Quest_Type.Smiple_Marker)
 		Quest_Manger.set_quest_marker(quest_stage_three_ref_id,gate_static_body_3d.global_position)
+=======
+func _on_enemyspawnchecker_screen_entered() -> void:
+	pass # Replace with function body.
+>>>>>>> Stashed changes
