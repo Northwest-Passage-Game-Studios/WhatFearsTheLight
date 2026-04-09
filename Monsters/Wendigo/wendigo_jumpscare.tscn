@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dvljoeutb2bgd" path="res://Monsters/Wendigo/AngelWendigo/the-angel-rig/textures/body_(5).png" id="3_txsj8"]
 [ext_resource type="PackedScene" uid="uid://hvj1r5jxfc87" path="res://worldAssets/treees/Tree_1/tree.tscn" id="5_sili0"]
 [ext_resource type="Texture2D" uid="uid://gna5mxktobba" path="res://UI/HUD/blood.jpg" id="6_dlxqj"]
+[ext_resource type="AudioStream" uid="uid://bo6veqvw6emuk" path="res://Sounds/SoundEffects/Rustling_Footfalls (mp3cut.net).mp3" id="7_ehvt8"]
+[ext_resource type="AudioStream" uid="uid://jyfq31kyy0jf" path="res://Sounds/SoundEffects/396013__morganpurkis__rustling-grass-2.wav" id="8_w3mi7"]
+[ext_resource type="AudioStream" uid="uid://tosgpj58nsxb" path="res://Sounds/SoundEffects/593909_newlocknew_crushing-kick_1-x317lrs (mp3cut.net).mp3" id="9_wjxn8"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mp7wg"]
 size = Vector2(20, 20)
@@ -494,6 +497,18 @@ tracks/9/path = NodePath("the_angel_reference_skeleton/Skeleton3D:ValveBiped.Bip
 tracks/9/interp = 2
 tracks/9/loop_wrap = true
 tracks/9/keys = PackedFloat32Array(0, 1, 0.15065773, -5.767222e-11, 8.65371e-12, 0.988586, 0.041666668, 1, 0.15080324, 0.0016507398, -0.00066402915, 0.9885622, 0.083333336, 1, 0.15095456, 0.006309496, -0.002545537, 0.9885173, 0.125, 1, 0.15131034, 0.01350169, -0.0054544616, 0.98837906, 0.16666667, 1, 0.15178777, 0.022767292, -0.009209238, 0.9881079, 0.20833333, 1, 0.15238889, 0.033640765, -0.013620925, 0.987654, 0.25, 1, 0.15310045, 0.045654617, -0.018515173, 0.9869818, 0.29166666, 1, 0.15390232, 0.058343105, -0.023693586, 0.9860775, 0.33333334, 1, 0.1547754, 0.07124696, -0.028974064, 0.98495126, 0.375, 1, 0.15568405, 0.08390403, -0.034161627, 0.983644, 0.41666666, 1, 0.15659401, 0.09584699, -0.039071552, 0.9822246, 0.45833334, 1, 0.15745546, 0.10662773, -0.043508757, 0.9807881, 0.5, 1, 0.15822153, 0.11579288, -0.04728564, 0.97944987, 0.5416667, 1, 0.1588294, 0.122893795, -0.050214004, 0.97833985, 0.5833333, 1, 0.15902223, 0.12749319, -0.052075606, 0.9776224, 0.6666667, 1, 0.15902223, 0.12749319, -0.052075606, 0.9776224, 0.7083333, 1, 0.1588294, 0.122893795, -0.050214004, 0.97833985, 0.75, 1, 0.15822153, 0.11579288, -0.04728564, 0.97944987, 0.7916667, 1, 0.15745546, 0.10662773, -0.043508757, 0.9807881, 0.8333333, 1, 0.15659401, 0.09584699, -0.039071552, 0.9822246, 0.875, 1, 0.15568405, 0.08390403, -0.034161627, 0.983644, 0.9166667, 1, 0.1547754, 0.07124696, -0.028974064, 0.98495126, 0.9583333, 1, 0.15390232, 0.058343105, -0.023693586, 0.9860775, 1, 1, 0.15310045, 0.045654617, -0.018515173, 0.9869818, 1.0416666, 1, 0.15238889, 0.033640765, -0.013620925, 0.987654, 1.0833334, 1, 0.15178777, 0.022767292, -0.009209238, 0.9881079, 1.125, 1, 0.15131034, 0.01350169, -0.0054544616, 0.98837906, 1.1666666, 1, 0.15095456, 0.006309496, -0.002545537, 0.9885173, 1.2083334, 1, 0.15080324, 0.0016507398, -0.00066402915, 0.9885622, 1.25, 1, 0.15065773, -5.767222e-11, 8.65371e-12, 0.988586)
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("rustle:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pr55l"]
 _data = {
@@ -542,6 +557,46 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("footstepPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ehvt8"]
+resource_name = "blackIn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_dlxqj"]
 resource_name = "bloodView"
@@ -586,10 +641,23 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.7853982, 0, 0), Vector3(-0.90137523, 0, 0), Vector3(-1.0751228, 0, 0), Vector3(-1.0751228, 0, 0), Vector3(-0.87375087, 0.34264377, 0.12534985), Vector3(0.21976916, 1.3179672, 0.41020215), Vector3(1.0855948, 3.1415927, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("footstepPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3499311, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xdw8p"]
 _data = {
 &"RESET": SubResource("Animation_w3mi7"),
+&"blackIn": SubResource("Animation_ehvt8"),
 &"bloodView": SubResource("Animation_dlxqj"),
 &"cameraAnimation": SubResource("Animation_wjxn8")
 }
@@ -683,7 +751,7 @@ bones/5/parent = 4
 bones/5/rest = Transform3D(1, 0, 0, 0, 1, 8.271806e-25, 0, -8.271806e-25, 1, 0.0016895599, 0.039067287, 0.022640074)
 bones/5/enabled = true
 bones/5/position = Vector3(0.0016895559, 0.039067224, 0.0226401)
-bones/5/rotation = Quaternion(0.15065771, -5.767221e-11, 8.653708e-12, 0.988586)
+bones/5/rotation = Quaternion(0.15822153, 0.11579288, -0.04728564, 0.97944987)
 bones/5/scale = Vector3(0.99999994, 1, 1.0000001)
 bones/6/name = "ValveBiped.Bip01_Neck1_end"
 bones/6/parent = 5
@@ -732,28 +800,28 @@ bones/12/parent = 0
 bones/12/rest = Transform3D(0.0022445966, -0.043396812, 0.99905854, -0.051725276, -0.9977254, -0.04322297, 0.998661, -0.051579278, -0.0044841906, -0.0236913, -0.006053125, -9.999995e-09)
 bones/12/enabled = true
 bones/12/position = Vector3(-0.023691298, -0.0060531367, -1.0000203e-08)
-bones/12/rotation = Quaternion(0.70788133, -0.033402614, 0.70553213, -0.003579355)
+bones/12/rotation = Quaternion(0.70506525, 0.16152388, 0.580052, 0.37461025)
 bones/12/scale = Vector3(0.9999994, 1.0000004, 0.9999999)
 bones/13/name = "ValveBiped.Bip01_R_Calf"
 bones/13/parent = 12
 bones/13/rest = Transform3D(0.0026431081, 0.015599182, -0.99987483, -0.015090691, 0.99976504, 0.015557577, 0.9998826, 0.0150476815, 0.0028778908, 0.039299287, 0.17147602, -0.036034502)
 bones/13/enabled = true
 bones/13/position = Vector3(0.039299443, 0.17147611, -0.036034238)
-bones/13/rotation = Quaternion(-0.00017844225, -0.70608693, -0.010837863, 0.70804226)
+bones/13/rotation = Quaternion(0.38905245, -0.5708808, 0.11887729, 0.7131631)
 bones/13/scale = Vector3(1, 1.0000001, 1.0000001)
 bones/14/name = "ValveBiped.Bip01_R_Foot"
 bones/14/parent = 13
 bones/14/rest = Transform3D(-0.99594724, -0.08656378, -0.024427027, -0.038888656, 0.65931046, -0.7508646, 0.08110268, -0.7468711, -0.6600047, -0.017097995, 0.29386878, 0.042166244)
 bones/14/enabled = true
 bones/14/position = Vector3(-0.017099429, 0.29386857, 0.042166766)
-bones/14/rotation = Quaternion(-0.034448598, 0.9103943, -0.41128385, -0.029004717)
+bones/14/rotation = Quaternion(-0.025690932, 0.9170048, -0.39801347, -0.0052516554)
 bones/14/scale = Vector3(0.99999976, 0.9999998, 1)
 bones/15/name = "ValveBiped.Bip01_R_Toe0"
 bones/15/parent = 14
 bones/15/rest = Transform3D(0.99538887, 0.06907679, 0.06655206, -0.0047945078, 0.72878635, -0.68472433, -0.09580078, 0.681248, 0.72575706, 0.0018664481, 0.03383996, 0.025304722)
 bones/15/enabled = true
-bones/15/position = Vector3(0.0018663509, 0.033839844, 0.025304997)
-bones/15/rotation = Quaternion(0.36770824, 0.043707635, -0.019887004, 0.9287006)
+bones/15/position = Vector3(0.0019835504, 0.033996105, 0.022843972)
+bones/15/rotation = Quaternion(0.3660351, 0.038517494, 0.005620327, 0.92978656)
 bones/15/scale = Vector3(1, 1, 1.0000002)
 bones/16/name = "ValveBiped.Bip01_R_Toe0_end"
 bones/16/parent = 15
@@ -769,7 +837,7 @@ mesh = SubResource("ArrayMesh_sili0")
 skin = SubResource("Skin_dlxqj")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="the_angel_reference_skeleton/Skeleton3D" unique_id=341214786]
-transform = Transform3D(0.9102823, 0.32220617, -0.2599413, 0.23243313, -0.91736054, -0.3231477, -0.34257993, 0.23373657, -0.9099484, 0.013135504, -0.02289917, 0.64035445)
+transform = Transform3D(0.89703804, 0.43618798, -0.07115516, 0.4094579, -0.88083375, -0.23764661, -0.16633438, 0.1840429, -0.968742, 0.013135504, -0.02289917, 0.64035445)
 bone_name = "ValveBiped.Bip01_Neck1"
 bone_idx = 5
 
@@ -813,7 +881,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 1
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=90328431]
 libraries/ = SubResource("AnimationLibrary_xdw8p")
-autoplay = &"cameraAnimation"
+autoplay = &"blackIn"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=784452493]
 environment = SubResource("Environment_sili0")
@@ -839,5 +907,31 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_dlxqj")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1547291387]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="footstepPlayer" type="AudioStreamPlayer" parent="." unique_id=1794099131]
+stream = ExtResource("7_ehvt8")
+volume_db = -3.84
+pitch_scale = 1.53
+
+[node name="rustle" type="AudioStreamPlayer" parent="." unique_id=431957375]
+stream = ExtResource("8_w3mi7")
+volume_db = 7.651
+pitch_scale = 1.23
+
+[node name="cronch" type="AudioStreamPlayer" parent="." unique_id=1361202620]
+stream = ExtResource("9_wjxn8")
+volume_db = -3.84
+pitch_scale = 0.84
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_2_animation_finished"]
+[connection signal="finished" from="footstepPlayer" to="." method="_on_footstep_player_finished"]
+[connection signal="finished" from="rustle" to="." method="_on_footstep_player_finished"]
+[connection signal="finished" from="cronch" to="." method="_on_footstep_player_finished"]

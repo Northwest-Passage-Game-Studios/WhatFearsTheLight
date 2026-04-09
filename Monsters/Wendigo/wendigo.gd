@@ -174,4 +174,5 @@ func _on_footstep_interval_timeout() -> void:
 
 
 func _on_player_kill_trigger_body_entered(body: Node3D) -> void:
-	get_tree().change_scene_to_file("res://Monsters/Wendigo/wendigo_jumpscare.tscn")
+	if body is player_body:
+		body.murdered("Wendigo")

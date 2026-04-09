@@ -22,6 +22,7 @@ class_name player_body extends CharacterBody3D
 @onready var tool_handler: Item_Handler = $Armature/Skeleton3D/Item_Bone_Anchor
 @onready var item_pickable: RayCast3D = $Neck/Camera3D/ItemPickable
 @onready var footstep_player: AudioStreamPlayer = $footstepPlayer
+@onready var color_rect: ColorRect = $CanvasLayer/ColorRect
 
 
 @export_category("Walk Settings")
@@ -40,6 +41,7 @@ class_name player_body extends CharacterBody3D
 @export_category("Flashlight Settings")
 @onready var shape_cast_3d: ShapeCast3D = $Neck/Camera3D/ShapeCast3D
 @onready var animation_player: AnimationPlayer = $Armature/AnimationPlayer
+@onready var black_animator: AnimationPlayer = $blackAnimator
 
 
 #Hidden Settings
@@ -235,6 +237,12 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+func murdered(thing : String)->void:
+	print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+	black_animator.play("new_animation")
+	if thing=="Wendigo":
+		await get_tree().create_timer(0.2).timeout
+		get_tree().change_scene_to_file("res://Monsters/Wendigo/wendigo_jumpscare.tscn")
 
 
 func _input(event: InputEvent) -> void:
