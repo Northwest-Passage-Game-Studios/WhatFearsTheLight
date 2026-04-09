@@ -4,10 +4,12 @@ extends Node3D
 @onready var animation_player_2: AnimationPlayer = $AnimationPlayer2
 @onready var footstep_player: AudioStreamPlayer = $footstepPlayer
 @onready var cronch: AudioStreamPlayer = $cronch
+@onready var rustle: AudioStreamPlayer = $rustle
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animation_player.pause()
+	rustle.playing=false
 	await get_tree().create_timer(0.16).timeout
 	the_angel_reference_skeleton.visible=true
 	

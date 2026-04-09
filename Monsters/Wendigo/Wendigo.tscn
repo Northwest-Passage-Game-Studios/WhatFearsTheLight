@@ -518,7 +518,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i88gt"]
-size = Vector3(0.5300101, 2.2113364, 0.56126106)
+size = Vector3(0.20988345, 2.2113364, 0.24151155)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ynn8"]
 size = Vector3(0.7749634, 2.666, 0.7657471)
@@ -704,7 +704,7 @@ speed_scale = 15.0
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1594100604]
 avoidance_enabled = true
 height = 3.0
-radius = 7.0
+radius = 0.75
 debug_use_custom = true
 debug_path_custom_point_size = 71.8
 
@@ -713,7 +713,7 @@ wait_time = 7.0
 one_shot = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539324767]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010384619, 1.1469792, 0.06367642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001628682, 1.1469792, -0.013809994)
 shape = SubResource("BoxShape3D_i88gt")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=2105632837]

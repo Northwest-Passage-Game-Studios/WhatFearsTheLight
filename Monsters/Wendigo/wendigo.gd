@@ -127,6 +127,13 @@ func _on_kill_timer_timeout() -> void:
 	if !is_red_eye:
 		is_chasing=true
 		footstep_interval.start()
+		await get_tree().create_timer(4.0).timeout
+		is_chasing=false
+		is_spooked=true
+		footstep_interval.start()
+		animation_player.play_backwards("the_angel_reference_skeleton|0200")
+		await get_tree().create_timer(4.0).timeout
+		queue_free()
 	else:
 		is_spooked=true
 		footstep_interval.start()
@@ -160,6 +167,13 @@ func spook():
 			footstep_interval.start()
 			is_chasing=true
 			kill_timer.stop()
+			await get_tree().create_timer(4.0).timeout
+			is_chasing=false
+			is_spooked=true
+			footstep_interval.start()
+			animation_player.play_backwards("the_angel_reference_skeleton|0200")
+			await get_tree().create_timer(4.0).timeout
+			queue_free()
 
 
 func navigation_finished() -> void:
