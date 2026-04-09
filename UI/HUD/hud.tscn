@@ -2,13 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bnf8wptrqe4hs" path="res://UI/HUD/hud.gd" id="1_ia7gp"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ia7gp"]
-load_path = "res://.godot/imported/crosshairs_tilesheet_white.png-cb878ca138f84b3b936ee38b4d331ec9.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ing8j"]
-atlas = SubResource("CompressedTexture2D_ia7gp")
-region = Rect2(0, 0, 68, 68)
-
 [sub_resource type="LabelSettings" id="LabelSettings_ia7gp"]
 font_size = 26
 
@@ -20,16 +13,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ia7gp")
-idle_texture = SubResource("AtlasTexture_ing8j")
 
 [node name="Quest_Show_Label" type="Label" parent="." unique_id=1511955420]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -210.0
+offset_right = 210.0
 offset_bottom = 36.0
-grow_horizontal = 0
 text = "Quest Added:"
 label_settings = SubResource("LabelSettings_ia7gp")
 
