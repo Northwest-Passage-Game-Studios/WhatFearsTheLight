@@ -8,7 +8,7 @@ class_name Item_Handler extends BoneAttachment3D
 var items:Array[Item]
 
 var quest_objects:Array[Item]
-
+var key_rings:Array[int]=[]
 
 signal quest_item_add(ref_id:int)
 
@@ -69,6 +69,9 @@ func pick_up_object(tool_model:PackedScene,object_info:Quest_Object_Info=Quest_O
 		tape_recorder_audio_player.play()
 	if object_info.does_emit_signal:
 		quest_item_add.emit(object_info.ref_id_emit)
+	if object_info.is_key:
+		key_rings.append(object_info.key_id)
+		
 	new_tool.queue_free()
 	
 	return

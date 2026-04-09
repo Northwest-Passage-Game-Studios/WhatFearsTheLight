@@ -56,7 +56,7 @@ var speed = 5.0
 const JUMP_VELOCITY = 4.5
 var headPosNeg:=false
 var lowestheadPos:=100.0
-var last_look_at:Object_PickUp_Point
+var last_look_at:Node3D
 signal can_pick_up(state:bool)
 
 
@@ -90,6 +90,13 @@ func _pick_up_check():
 	if looking_at is Object_PickUp_Point:
 		if Input.is_action_just_pressed("pick_up"):
 			looking_at.call_pick_up(self)
+		else:
+			can_pick_up.emit(true)
+			looking_at.show_outline(
+			)
+	if looking_at is Door_Interact:
+		if Input.is_action_just_pressed("pick_up"):
+			looking_at.try_to_open(self.tool_handler.key_rings)
 		else:
 			can_pick_up.emit(true)
 			looking_at.show_outline()

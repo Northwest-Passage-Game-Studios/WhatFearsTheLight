@@ -13,6 +13,7 @@ enum Quest_Type{
 	Smiple_Marker,
 	Mutiple_Item_Fetch,
 	Smiple_Item_Fetch,
+	Just_Text
 }
 
 
@@ -161,7 +162,7 @@ func mark_quest_completed(Ref_ID:int):
 		return
 	if quest_to_mark["Type"]==Quest_Type.Mutiple_Item_Fetch:
 		quest_to_mark["Is_Completed"]=true
-	else:
+	if quest_to_mark["Type"]==Quest_Type.Smiple_Item_Fetch:
 		quest_to_mark["Is_Completed"]=true
 		var quest_marker = quest_to_mark["Marker_Node"]
 		if quest_marker is Node3D:
