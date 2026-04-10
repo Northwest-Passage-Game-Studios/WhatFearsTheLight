@@ -705,6 +705,7 @@ speed_scale = 15.0
 avoidance_enabled = true
 height = 3.0
 radius = 0.75
+neighbor_distance = 20.0
 debug_use_custom = true
 debug_path_custom_point_size = 71.8
 
@@ -718,6 +719,7 @@ shape = SubResource("BoxShape3D_i88gt")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=2105632837]
 stream = ExtResource("3_x81h2")
+volume_db = -10.237
 unit_size = 46.74
 max_db = -6.737
 pitch_scale = 1.29
@@ -725,8 +727,18 @@ autoplay = true
 
 [node name="footstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=667782671]
 stream = ExtResource("4_0ynn8")
+volume_db = 2.275
 unit_size = 3.0
 max_db = 6.0
+max_distance = 40.0
+max_polyphony = 10
+
+[node name="footstepPlayer2" type="AudioStreamPlayer3D" parent="." unique_id=387652247]
+stream = ExtResource("4_0ynn8")
+volume_db = 2.275
+unit_size = 3.0
+max_db = 6.0
+max_distance = 40.0
 max_polyphony = 10
 
 [node name="footstepInterval" type="Timer" parent="." unique_id=1230999951]

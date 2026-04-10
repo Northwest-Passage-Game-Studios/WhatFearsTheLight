@@ -1,11 +1,13 @@
 extends Timer
 var wendigoScene=preload("res://Monsters/Wendigo/Wendigo.tscn")
 @onready var wendigo_container: Node3D = $"../wendigoContainer"
-@onready var player: player_body = $"../Player"
+
 @onready var reference_point: Node3D = $"../referencePoint"
+
 @onready var enemyspawnchecker: VisibleOnScreenNotifier3D = $"../enemyspawnchecker"
 var displaceX:=0.0
 var displaceZ:=0.0
+@onready var player: player_body = $"../Player"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,7 +37,7 @@ func _on_timeout() -> void:
 		enemyspawnchecker.global_position.x=player.global_position.x+displaceX
 		enemyspawnchecker.global_position.z=player.global_position.z+displaceZ
 		enemyspawnchecker.visible=true
-		await get_tree().create_timer(0.25).timeout
+		await get_tree().create_timer(0.1).timeout
 		print("SPawned")
 		enemyspawnchecker.visible=false
 		var wendInst:wendigo=wendigoScene.instantiate()

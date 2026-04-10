@@ -19,7 +19,6 @@
 [ext_resource type="Script" uid="uid://b1xhtytlf50pm" path="res://Objects/Items/Quest_Item_Config.gd" id="15_t50r7"]
 [ext_resource type="Script" uid="uid://cbjroi5l552aq" path="res://worldAssets/doors/door.gd" id="18_byclw"]
 [ext_resource type="Texture2D" uid="uid://cy5p6auwfrot7" path="res://worldAssets/Fences/brick_fence/brick_wall_gate_0.png" id="18_ndwlv"]
-[ext_resource type="AudioStream" uid="uid://bw8s5fa5sswtb" path="res://Sounds/SoundEffects/188288__willstepp__wind-in-the-trees.ogg" id="20_ndwlv"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mqh1b"]
 size = Vector2(1000, 1000)
@@ -3072,16 +3071,7 @@ door_mesh = NodePath("../brick_wall_gate2")
 transform = Transform3D(1, 0, 0, 0, 1, 1.4425273e-22, 0, -4.0077996e-22, 1, 0.73848057, 0.9628797, 0.032951355)
 shape = SubResource("BoxShape3D_shk0k")
 
-[node name="enemyspawnchecker" type="VisibleOnScreenNotifier3D" parent="." unique_id=70219]
-visible = false
-aabb = AABB(-5, -5, -5, 10, 10, 10)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2027669428]
-stream = ExtResource("20_ndwlv")
-autoplay = true
-
 [connection signal="timeout" from="wendigoSpawner" to="wendigoSpawner" method="_on_timeout"]
 [connection signal="Picked_Up" from="Key_1/gate_key" to="." method="_on_gate_key_picked_up"]
 [connection signal="opened" from="brick_wall_gate/StaticBody3D" to="." method="_on_static_body_3d_opened"]
 [connection signal="tried_to_open" from="brick_wall_gate/StaticBody3D" to="." method="_on_static_body_3d_tried_to_open"]
-[connection signal="screen_entered" from="enemyspawnchecker" to="wendigoSpawner" method="_on_enemyspawnchecker_screen_entered"]

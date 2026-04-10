@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cln77wm3ktwi" path="res://Objects/Items/Flashlights/flash_light.gd" id="1_hwtuc"]
 [ext_resource type="Texture2D" uid="uid://c0cb3gg11amft" path="res://Objects/Items/Flashlights/FlashLight_FlashlightTexture.png" id="2_qvu7c"]
 [ext_resource type="AudioStream" uid="uid://dn0eqa87s8t4a" path="res://Sounds/SoundEffects/click_switch.wav" id="3_kyhd8"]
+[ext_resource type="AudioStream" uid="uid://bt2o37gf7unlm" path="res://Sounds/SoundEffects/682640__jamgrif__lightbulbhum.mp3" id="4_qvu7c"]
+[ext_resource type="AudioStream" uid="uid://bwl6remj4cvsm" path="res://Sounds/SoundEffects/322602__natty23__small-glass-break.mp3" id="5_kyhd8"]
 
 [sub_resource type="Shader" id="Shader_pah8v"]
 code = "shader_type spatial;
@@ -242,3 +244,11 @@ volume_db = 17.651
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2023988577]
 libraries/ = SubResource("AnimationLibrary_kyhd8")
+
+[node name="buzzing" type="AudioStreamPlayer" parent="." unique_id=1247361548]
+stream = ExtResource("4_qvu7c")
+volume_db = -24.0
+
+[node name="explode" type="AudioStreamPlayer" parent="." unique_id=1203019300]
+stream = ExtResource("5_kyhd8")
+volume_db = 5.0
