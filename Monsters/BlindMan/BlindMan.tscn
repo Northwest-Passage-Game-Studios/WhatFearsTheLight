@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://d2wxhtl1nkaw8"]
+
+[ext_resource type="Script" uid="uid://dk78quvfc7k01" path="res://Monsters/BlindMan/blind_man.gd" id="1_5lxi8"]
+[ext_resource type="PackedScene" path="res://Monsters/Keeper/KeeperModel.tscn" id="2_75ide"]
+[ext_resource type="Shape3D" uid="uid://ioy7p63kjc2u" path="res://Objects/Items/Flashlights/RayCone.tres" id="3_5pl2g"]
+[ext_resource type="AudioStream" uid="uid://bwl6remj4cvsm" path="res://Sounds/SoundEffects/322602__natty23__small-glass-break.mp3" id="4_2kh7w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pl2g"]
+albedo_color = Color(0.6857328, 3.1044335e-06, 5.7756904e-07, 1)
+emission_enabled = true
+emission = Color(0.6857328, 3.1044335e-06, 5.7756904e-07, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kh7w"]
+albedo_color = Color(18.892157, 18.892157, 18.892157, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5lxi8"]
+albedo_color = Color(18.892157, 18.892157, 18.892157, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i88gt"]
+size = Vector3(2.205748, 3, 3)
+
+[sub_resource type="Animation" id="Animation_5pl2g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KeeperModel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.1415925, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5lxi8"]
+resource_name = "search"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KeeperModel:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.1415927, 0), Vector3(0, 1.5707964, 0), Vector3(0, 0, 0), Vector3(0, -1.5707964, 0), Vector3(0, -3.1415927, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5pl2g"]
+_data = {
+&"RESET": SubResource("Animation_5pl2g"),
+&"search": SubResource("Animation_5lxi8")
+}
+
+[node name="BlindMan" type="CharacterBody3D" unique_id=977576987]
+collision_layer = 2
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_5lxi8")
+red_eye_mat = SubResource("StandardMaterial3D_5pl2g")
+white_eye_mat = SubResource("StandardMaterial3D_2kh7w")
+
+[node name="KeeperModel" parent="." unique_id=495538435 instance=ExtResource("2_75ide")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
+freezeTime = 0.2
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="KeeperModel" unique_id=2112679622]
+transform = Transform3D(-0.007999999, -5.530064e-08, -5.600003e-08, -7.796042e-08, 0.006348247, 0.0048682457, 1.07855875e-08, 0.0048682434, -0.0063482495, -0.09238006, 3.1783464, 1.3804832)
+radius = 6.389
+material = SubResource("StandardMaterial3D_5lxi8")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="KeeperModel/CSGSphere3D" unique_id=463151215]
+transform = Transform3D(120.85284, -0.05514089, -31.931038, 16.50347, 107.11743, 62.27748, 27.33548, -64.42704, 103.5708, 0.0029764175, 15.961456, -11.494125)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+spot_range = 61.922
+spot_attenuation = 3.1
+spot_angle = 34.28
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="KeeperModel/CSGSphere3D" unique_id=1576805324]
+transform = Transform3D(83.835, -0.00019804298, -0.00049203145, -0.00020212677, 37.73662, -112.92421, 0.00032366998, 74.86162, 56.923344, 0.0062437057, -309.66168, -598.96405)
+shape = ExtResource("3_5pl2g")
+target_position = Vector3(0, 0, 0)
+debug_shape_custom_color = Color(1, 1, 1, 1)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1594100604]
+avoidance_layers = 0
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539324767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12933797, 1.541311, 0.04399824)
+shape = SubResource("BoxShape3D_i88gt")
+
+[node name="Animater" type="AnimationPlayer" parent="." unique_id=865252253]
+libraries/ = SubResource("AnimationLibrary_5pl2g")
+
+[node name="angerTimer" type="Timer" parent="." unique_id=775661915]
+one_shot = true
+
+[node name="chaseTimer" type="Timer" parent="." unique_id=1591098280]
+wait_time = 10.0
+one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=807672260]
+stream = ExtResource("4_2kh7w")
+volume_db = 80.0
+unit_size = 100.0
+max_polyphony = 682
+
+[connection signal="navigation_finished" from="NavigationAgent3D" to="." method="navigation_finished"]
+[connection signal="animation_finished" from="Animater" to="." method="_on_animater_animation_finished"]
+[connection signal="timeout" from="angerTimer" to="." method="_on_anger_timer_timeout"]
+[connection signal="timeout" from="chaseTimer" to="." method="_on_chase_timer_timeout"]

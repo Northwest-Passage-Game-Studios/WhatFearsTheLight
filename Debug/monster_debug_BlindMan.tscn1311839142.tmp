@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://d3johvaq6k4ke"]
+
+[ext_resource type="Script" uid="uid://dh80op0xh2kdq" path="res://Debug/monster_debug.gd" id="1_cbb33"]
+[ext_resource type="PackedScene" uid="uid://bprx3w3vwsvla" path="res://Objects/Items/Flashlights/flash_light.tscn" id="2_o2knb"]
+[ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="3_ya74d"]
+[ext_resource type="PackedScene" uid="uid://iuic20mq0k8u" path="res://worldAssets/interaction_points/Item_Pickup.tscn" id="4_4jpvt"]
+[ext_resource type="PackedScene" uid="uid://d2wxhtl1nkaw8" path="res://Monsters/BlindMan/BlindMan.tscn" id="5_cbb33"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ybcfj"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_mb3yk"]
+vertices = PackedVector3Array(-0.5, 0.5, -0.5000001, -0.5, 0.5, 0.49999988, 0.5, 0.5, 0.49999988, 0.5, 0.5, -0.5000001)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lhwji"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ybcfj"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="Monster_Debug" type="Node3D" unique_id=1557218608]
+script = ExtResource("1_cbb33")
+starting_tool = ExtResource("2_o2knb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2011813045]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=560103771]
+transform = Transform3D(36.735325, 0, 0, 0, 1, 0, 0, 0, 30.040876, 0, 0, 0)
+mesh = SubResource("PlaneMesh_ybcfj")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1705497953]
+transform = Transform3D(36.735325, 0, 0, 0, 1, 0, 0, 0, 30.040873, 0, -1, 0)
+navigation_mesh = SubResource("NavigationMesh_mb3yk")
+navigation_layers = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D" unique_id=175869293]
+mesh = SubResource("PlaneMesh_lhwji")
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="NavigationRegion3D" unique_id=1605319358]
+transform = Transform3D(0.027221756, 0, 0, 0, 1, 0, 0, 0, 0.033287983, 0.073188595, -3.2628045, 0.16646567)
+height = 10.0
+vertices = PackedVector3Array(0.006319523, 0, 1.8939447, 0.7328944, 0, 1.027884, 1.3284173, 0, -0.08105087, 0.36003852, 0, -0.96737814, -0.762954, 0, 0.34501076)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_layers = 3
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1051212474]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1187658318]
+transform = Transform3D(36.735325, 0, 0, 0, 1, 0, 0, 0, 30.040873, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_ybcfj")
+
+[node name="Player" parent="." unique_id=827342177 instance=ExtResource("3_ya74d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.838984, 8.344556)
+
+[node name="key" parent="." unique_id=1339377948 instance=ExtResource("4_4jpvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30571365, 1.3727705, 9.8111925)
+type_of_item = 0
+real_item = ExtResource("2_o2knb")
+
+[node name="BlindMan" parent="." unique_id=977576987 node_paths=PackedStringArray("debug_target") instance=ExtResource("5_cbb33")]
+debug_target = NodePath("../Player")
