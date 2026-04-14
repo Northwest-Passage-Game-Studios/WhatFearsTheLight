@@ -9,6 +9,7 @@ var grasse=preload("res://worldAssets/grass/WAVEYgrass.tscn")
 @onready var reference_point: Node3D = $referencePoint
 @onready var ground: MeshInstance3D = $Ground
 @onready var gate_static_body_3d: Door_Interact = $brick_wall_gate/StaticBody3D
+@onready var animation_player: AnimationPlayer = $Door_OpenSnece/AnimationPlayer
 
 
 @onready var navigation_region_3d: NavigationRegion3D = $NavigationRegion3D
@@ -64,12 +65,12 @@ func _ready() -> void:
 	#Starts_Forset_key_finding_Quest
 	quest_stage_one_ref_id=Quest_Manger.add_new_quest("Find the way out of the forset","None",Quest_Manger.Quest_Type.Just_Text)
 
-	
+	_on_static_body_3d_opened()
 	
 
 
 func _on_static_body_3d_opened() -> void:
-	pass # Replace with function body.
+	animation_player.play("Door_Open")
 
 
 func _on_static_body_3d_tried_to_open() -> void:
