@@ -29,6 +29,6 @@ shader_parameter/wave_scale = 0.02
 shader_parameter/pixelation_level = 56
 
 [node name="OceanSurface" type="MeshInstance3D" unique_id=1891312276]
-transparency = 0.8
+transparency = 0.1
 mesh = SubResource("PlaneMesh_mymsq")
 surface_material_override/0 = SubResource("ShaderMaterial_3pxpg")

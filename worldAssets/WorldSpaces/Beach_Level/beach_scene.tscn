@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://baekuxik0nx0l"]
+
+[ext_resource type="PackedScene" uid="uid://d4mvahmoqcyqj" path="res://worldAssets/water/pSXWater/ocean_surface/ocean_surface.tscn" id="1_ssl73"]
+[ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="2_pryur"]
+[ext_resource type="ArrayMesh" uid="uid://um0pm5m3w7p7" path="res://worldAssets/beachStuff/boat/12219_boat_v2_L2.obj" id="3_b5jyx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5jyx"]
+shading_mode = 0
+albedo_color = Color(18.892157, 18.892157, 7.7643785, 1)
+
+[node name="beachScene" type="Node3D" unique_id=159205370]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=76125290]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
+light_energy = 1.451
+shadow_enabled = true
+
+[node name="OceanSurface" parent="." unique_id=1891312276 instance=ExtResource("1_ssl73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27520847, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1475891354]
+transform = Transform3D(1, 0, 0, 0, 0.13682216, 0.9905956, 0, -0.9905956, 0.13682216, 0, -7.985077, 1.7756958)
+use_collision = true
+size = Vector3(100, 72.24494, 7.9936523)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1417334841]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0.086, -3.081, -92.458)
+use_collision = true
+size = Vector3(100, 117.99574, 7.9936523)
+
+[node name="Player" parent="." unique_id=827342177 instance=ExtResource("2_pryur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5027115, 23.629343, -48.06202)
+
+[node name="12219BoatV2L2" type="MeshInstance3D" parent="." unique_id=1750983583]
+transform = Transform3D(-1.3113416e-09, 0.02691775, -0.0132451765, 0, 0.0132451765, 0.02691775, 0.03, 1.1766121e-09, -5.7896504e-10, 4.1486664, -11.532255, -1.921608)
+mesh = ExtResource("3_b5jyx")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="12219BoatV2L2" unique_id=1263622336]
+transform = Transform3D(-1.4570462e-06, 6.424902e-14, 33.333332, 29.908611, 14.716864, 1.3073469e-06, -14.716864, 29.908611, -6.4329447e-07, -314.51263, 39.596004, 766.488)
+rings = 12
+material = SubResource("StandardMaterial3D_b5jyx")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="12219BoatV2L2/CSGSphere3D" unique_id=53173358]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2813015, 0.41053772, 1.1447792)
+light_color = Color(1, 1, 0.8980392, 1)
+light_energy = 16.0
+spot_range = 153.608
+spot_angle = 26.47
+spot_angle_attenuation = 0.18946452
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1947290507]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.0877056, 49.482338, -3.5633268)
+light_energy = 16.0
+spot_range = 153.608
+spot_angle = 43.24
+spot_angle_attenuation = 17.753096
