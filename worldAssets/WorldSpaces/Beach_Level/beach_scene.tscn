@@ -1,20 +1,45 @@
 [gd_scene format=3 uid="uid://baekuxik0nx0l"]
 
+[ext_resource type="Texture2D" uid="uid://cox5s051a157q" path="res://worldAssets/sky/mud_road_puresky_4k.exr" id="1_3rti2"]
 [ext_resource type="PackedScene" uid="uid://d4mvahmoqcyqj" path="res://worldAssets/water/pSXWater/ocean_surface/ocean_surface.tscn" id="1_ssl73"]
 [ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="2_pryur"]
 [ext_resource type="ArrayMesh" uid="uid://um0pm5m3w7p7" path="res://worldAssets/beachStuff/boat/12219_boat_v2_L2.obj" id="3_b5jyx"]
+[ext_resource type="Script" uid="uid://bgyyjf1c5oq7" path="res://worldAssets/WorldSpaces/Beach_Level/12219_boat_v_2l_2.gd" id="5_tems7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3rti2"]
+sky_horizon_color = Color(0.385, 0.454, 0.55, 1)
+sky_curve = 3.7659962
+sky_energy_multiplier = 0.01
+sky_cover = ExtResource("1_3rti2")
+sky_cover_modulate = Color(1.1008143, 1.1008143, 1.1008143, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_rb0vb"]
+sky_material = SubResource("ProceduralSkyMaterial_3rti2")
+
+[sub_resource type="Environment" id="Environment_mmw58"]
+background_mode = 2
+sky = SubResource("Sky_rb0vb")
+ambient_light_source = 1
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_sky_affect = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5jyx"]
 shading_mode = 0
 albedo_color = Color(18.892157, 18.892157, 7.7643785, 1)
 
+[sub_resource type="FogMaterial" id="FogMaterial_3rti2"]
+density = 0.4
+albedo = Color(0.36810192, 0.36810198, 0.36810192, 1)
+
 [node name="beachScene" type="Node3D" unique_id=159205370]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=76125290]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-visible = false
-light_energy = 1.451
-shadow_enabled = true
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=457608894]
+environment = SubResource("Environment_mmw58")
 
 [node name="OceanSurface" parent="." unique_id=1891312276 instance=ExtResource("1_ssl73")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27520847, 0)
@@ -29,12 +54,28 @@ transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, 
 use_collision = true
 size = Vector3(100, 117.99574, 7.9936523)
 
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1243185765]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, -46.51654, 6.860742, -92.458)
+use_collision = true
+size = Vector3(6.794922, 117.99574, 27.877136)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=1022076357]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0.6487427, 6.860742, -90.47175)
+use_collision = true
+size = Vector3(101.12549, 14.975742, 27.877136)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1771900539]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 46.72148, 6.860742, -92.458)
+use_collision = true
+size = Vector3(6.794922, 117.99574, 27.877136)
+
 [node name="Player" parent="." unique_id=827342177 instance=ExtResource("2_pryur")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5027115, 23.629343, -48.06202)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3060865, 2.1935875, -34.153557)
 
 [node name="12219BoatV2L2" type="MeshInstance3D" parent="." unique_id=1750983583]
 transform = Transform3D(-1.3113416e-09, 0.02691775, -0.0132451765, 0, 0.0132451765, 0.02691775, 0.03, 1.1766121e-09, -5.7896504e-10, 4.1486664, -11.532255, -1.921608)
 mesh = ExtResource("3_b5jyx")
+script = ExtResource("5_tems7")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="12219BoatV2L2" unique_id=1263622336]
 transform = Transform3D(-1.4570462e-06, 6.424902e-14, 33.333332, 29.908611, 14.716864, 1.3073469e-06, -14.716864, 29.908611, -6.4329447e-07, -314.51263, 39.596004, 766.488)
@@ -45,13 +86,31 @@ material = SubResource("StandardMaterial3D_b5jyx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2813015, 0.41053772, 1.1447792)
 light_color = Color(1, 1, 0.8980392, 1)
 light_energy = 16.0
-spot_range = 153.608
+spot_range = 41.421307
 spot_angle = 26.47
 spot_angle_attenuation = 0.18946452
 
+[node name="Timer" type="Timer" parent="12219BoatV2L2" unique_id=49042748]
+wait_time = 7.0
+autostart = true
+
+[node name="flickerTimer" type="Timer" parent="12219BoatV2L2" unique_id=1745723193]
+wait_time = 0.5
+autostart = true
+
 [node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1947290507]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.0877056, 49.482338, -3.5633268)
+visible = false
 light_energy = 16.0
 spot_range = 153.608
 spot_angle = 43.24
 spot_angle_attenuation = 17.753096
+
+[node name="FogVolume" type="FogVolume" parent="." unique_id=1269844030]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.506561, 49.144768)
+size = Vector3(1024, 74.06, 130.66077)
+shape = 2
+material = SubResource("FogMaterial_3rti2")
+
+[connection signal="timeout" from="12219BoatV2L2/Timer" to="12219BoatV2L2" method="_on_timer_timeout"]
+[connection signal="timeout" from="12219BoatV2L2/flickerTimer" to="12219BoatV2L2" method="_on_flicker_timer_timeout"]
