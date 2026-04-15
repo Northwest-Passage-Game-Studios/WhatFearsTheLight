@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d2wxhtl1nkaw8"]
 
 [ext_resource type="Script" uid="uid://dk78quvfc7k01" path="res://Monsters/BlindMan/blind_man.gd" id="1_5lxi8"]
-[ext_resource type="PackedScene" path="res://Monsters/Keeper/KeeperModel.tscn" id="2_75ide"]
+[ext_resource type="PackedScene" uid="uid://ccy8a5upwblfi" path="res://Monsters/BlindMan/blindmanAssets/blind_man_model.tscn" id="2_2kh7w"]
 [ext_resource type="Shape3D" uid="uid://ioy7p63kjc2u" path="res://Objects/Items/Flashlights/RayCone.tres" id="3_5pl2g"]
 [ext_resource type="AudioStream" uid="uid://bwl6remj4cvsm" path="res://Sounds/SoundEffects/322602__natty23__small-glass-break.mp3" id="4_2kh7w"]
 
@@ -26,43 +26,6 @@ emission_energy_multiplier = 16.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_i88gt"]
 size = Vector3(2.205748, 3, 3)
 
-[sub_resource type="Animation" id="Animation_5pl2g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("KeeperModel:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -3.1415925, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_5lxi8"]
-resource_name = "search"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("KeeperModel:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 3.1415927, 0), Vector3(0, 1.5707964, 0), Vector3(0, 0, 0), Vector3(0, -1.5707964, 0), Vector3(0, -3.1415927, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5pl2g"]
-_data = {
-&"RESET": SubResource("Animation_5pl2g"),
-&"search": SubResource("Animation_5lxi8")
-}
-
 [node name="BlindMan" type="CharacterBody3D" unique_id=977576987]
 collision_layer = 2
 axis_lock_angular_x = true
@@ -71,17 +34,66 @@ script = ExtResource("1_5lxi8")
 red_eye_mat = SubResource("StandardMaterial3D_5pl2g")
 white_eye_mat = SubResource("StandardMaterial3D_2kh7w")
 
-[node name="KeeperModel" parent="." unique_id=495538435 instance=ExtResource("2_75ide")]
-transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
-freezeTime = 0.2
+[node name="blindManModel" parent="." unique_id=939725185 instance=ExtResource("2_2kh7w")]
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, 0, 0)
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="KeeperModel" unique_id=2112679622]
-transform = Transform3D(-0.007999999, -5.530064e-08, -5.600003e-08, -7.796042e-08, 0.006348247, 0.0048682457, 1.07855875e-08, 0.0048682434, -0.0063482495, -0.092380054, 3.1783464, 1.3095052)
-radius = 21.318
+[node name="Skeleton3D" parent="blindManModel/thc4_arma" parent_id_path=PackedInt32Array(939725185, 1499133816) index="0" unique_id=965068836]
+bones/1/position = Vector3(-0.0001619889, 0.9659128, 0.22022754)
+bones/1/rotation = Quaternion(0.5539197, -0.000102952545, 0.00070924556, 0.8325699)
+bones/2/rotation = Quaternion(0.00014422703, 0.9783182, 0.20709872, 0.001909514)
+bones/3/rotation = Quaternion(0.047026504, 0.025688546, -0.005339086, 0.99854904)
+bones/4/rotation = Quaternion(0.05368964, 0.0007552797, -0.000115811934, 0.9985574)
+bones/5/rotation = Quaternion(-0.19497602, 0.0014404604, 0.000150245, 0.98080695)
+bones/6/rotation = Quaternion(-0.19059098, -8.978999e-05, -5.72325e-05, 0.98166955)
+bones/8/rotation = Quaternion(-0.45781973, 0.39082775, 0.50670946, 0.61717117)
+bones/9/rotation = Quaternion(-0.42410716, -0.53015924, 0.34054452, 0.65045667)
+bones/10/rotation = Quaternion(-0.0005041108, -0.4410776, 0.8750595, -0.19930203)
+bones/11/rotation = Quaternion(-0.37285775, 0.19158813, 0.44599828, 0.7907951)
+bones/12/rotation = Quaternion(0.08221781, 0.8030163, -0.53652906, -0.24605224)
+bones/13/rotation = Quaternion(0.57421666, 0.11923459, -0.1282793, 0.7997518)
+bones/15/rotation = Quaternion(0.46852803, 0.62573695, -0.33322737, -0.5271568)
+bones/16/rotation = Quaternion(-0.35881564, 0.64044446, 0.6316269, 0.24925855)
+bones/18/rotation = Quaternion(-0.4446891, -0.41212052, -0.51436424, 0.6064963)
+bones/19/rotation = Quaternion(-0.40818357, 0.53928596, -0.3407036, 0.65305275)
+bones/20/rotation = Quaternion(0.0013508907, -0.43184692, 0.88047487, 0.19562894)
+bones/21/rotation = Quaternion(-0.38477632, -0.19539328, -0.4439809, 0.7852706)
+bones/22/rotation = Quaternion(-0.08221787, 0.80301607, -0.53652924, 0.24605234)
+bones/23/rotation = Quaternion(0.57421654, -0.11923456, 0.1282793, 0.7997519)
+bones/25/rotation = Quaternion(0.46786392, -0.62703097, 0.33335793, -0.52612555)
+bones/26/rotation = Quaternion(0.3588157, 0.6404443, 0.631627, -0.24925865)
+bones/28/position = Vector3(0.016117405, -2.2033955e-05, 8.639124e-06)
+bones/28/rotation = Quaternion(0.40355456, 0.8351797, 0.007639557, -0.3735778)
+bones/29/rotation = Quaternion(-0.68326324, -0.48113075, -0.0075028837, 0.54918873)
+bones/30/rotation = Quaternion(0.4540634, -0.47334155, 0.57479656, 0.48926792)
+bones/31/rotation = Quaternion(0.014857339, 0.8471397, -0.5155016, 0.12803052)
+bones/32/rotation = Quaternion(0.6379723, -0.11511902, -0.055563617, 0.7593759)
+bones/34/position = Vector3(-0.017007073, 2.3188451e-05, -9.131346e-06)
+bones/34/rotation = Quaternion(-0.48159307, 0.8147829, 0.06588219, 0.31600067)
+bones/35/rotation = Quaternion(-0.7406776, 0.2659458, -0.038368907, 0.61579007)
+bones/36/rotation = Quaternion(0.42137155, 0.50996244, -0.5334118, 0.5271208)
+bones/37/rotation = Quaternion(0.019880129, 0.71411884, -0.677496, -0.175038)
+bones/38/rotation = Quaternion(0.5760084, 0.11088184, 0.054886512, 0.8080267)
+bones/40/position = Vector3(0.57875633, 0.22509402, 1.3180386)
+bones/42/position = Vector3(1.2276514, 1.5269029, -0.89275146)
+bones/44/position = Vector3(0.3170824, 0.183969, 0.2144216)
+bones/44/rotation = Quaternion(-0.4370532, 0.17291243, 0.054663688, 0.88096404)
+bones/48/position = Vector3(-0.57875633, 0.22509402, 1.3180386)
+bones/50/position = Vector3(-1.2790618, 1.2871549, -0.8303926)
+bones/52/position = Vector3(-0.3170824, 0.19029309, -0.16090386)
+bones/52/rotation = Quaternion(-0.49114674, -0.21464086, -0.050046764, 0.8427333)
+
+[node name="BoneAttachment3D2" type="BoneAttachment3D" parent="blindManModel/thc4_arma/Skeleton3D" index="1" unique_id=1241657596]
+transform = Transform3D(-0.9985236, 0.00094037876, -0.054307945, 0.010475454, -0.9777445, -0.2095354, -0.053296335, -0.2097948, 0.9762911, -0.012671702, -1.7209057, 1.1612045)
+bone_name = "head"
+bone_idx = 5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="blindManModel/thc4_arma/Skeleton3D/BoneAttachment3D2" unique_id=2112679622]
+transform = Transform3D(-0.007999448, -9.213982e-05, -1.8551858e-05, 8.185015e-05, -0.0076054567, 0.002480009, -4.620026e-05, 0.002479644, 0.007605877, -0.061747342, 0.17234623, -0.043714404)
+radius = 3.546
 material = SubResource("StandardMaterial3D_5lxi8")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="KeeperModel/CSGSphere3D" unique_id=463151215]
-transform = Transform3D(120.85284, -0.05514089, -31.931038, 16.50347, 107.11743, 62.27748, 27.33548, -64.42704, 103.5708, 0.0029764175, 15.961456, -11.494125)
+[node name="SpotLight3D" type="SpotLight3D" parent="blindManModel/thc4_arma/Skeleton3D/BoneAttachment3D2/CSGSphere3D" unique_id=463151215]
+transform = Transform3D(62.5, 3.1166564e-07, 2.996021e-07, 1.0913936e-11, 18.690039, 59.64002, -2.1827873e-11, -59.639977, 18.69004, 0.61147976, -4.0912323, 1.7934265)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 0.0
@@ -90,11 +102,30 @@ spot_range = 61.922
 spot_attenuation = 3.1
 spot_angle = 34.28
 
-[node name="ShapeCast3D" type="ShapeCast3D" parent="KeeperModel/CSGSphere3D" unique_id=1576805324]
-transform = Transform3D(83.835, -0.00019804298, -0.00049203145, -0.00020212677, 37.73662, -112.92421, 0.00032366998, 74.86162, 56.923344, 0.0062437057, -309.66168, -598.96405)
+[node name="ShapeCast3D" type="ShapeCast3D" parent="blindManModel/thc4_arma/Skeleton3D/BoneAttachment3D2/CSGSphere3D/SpotLight3D" unique_id=1576805324]
+transform = Transform3D(0.266, -7.58294e-07, -1.178912e-06, -6.413278e-07, 0.14449146, -0.27056792, 1.0269722e-06, 0.28664127, 0.13638914, -0.1428889, -1.2631717, -2.3341448)
+enabled = false
 shape = ExtResource("3_5pl2g")
 target_position = Vector3(0, 0, 0)
 debug_shape_custom_color = Color(1, 1, 1, 1)
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="blindManModel/thc4_arma/Skeleton3D/BoneAttachment3D2" unique_id=1394730549]
+transform = Transform3D(-0.007999448, -9.213979e-05, -1.8551866e-05, 8.185015e-05, -0.0076054567, 0.002480009, -4.620026e-05, 0.002479644, 0.007605877, 0.071193375, 0.17098653, -0.04294777)
+radius = 3.546
+material = SubResource("StandardMaterial3D_5lxi8")
+
+[node name="SpotLight3D_2" type="SpotLight3D" parent="blindManModel/thc4_arma/Skeleton3D/BoneAttachment3D2/CSGSphere3D2" unique_id=1328907299]
+transform = Transform3D(62.5, 3.1166564e-07, 2.996021e-07, 1.0913936e-11, 18.690039, 59.64002, -2.1827873e-11, -59.639977, 18.69004, 0.61147976, -4.0912323, 1.7934265)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+spot_range = 61.922
+spot_attenuation = 3.1
+spot_angle = 34.28
+
+[node name="BoneAttachment3D" parent="blindManModel/thc4_arma/Skeleton3D" index="2" unique_id=1098633358]
+transform = Transform3D(-0.9985236, 0.00094037876, -0.054307945, 0.010475454, -0.9777445, -0.2095354, -0.053296335, -0.2097948, 0.9762911, -0.012671702, -1.7209057, 1.1612045)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1594100604]
 avoidance_layers = 0
@@ -105,23 +136,18 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12933797, 1.541311, 0.04399824)
 shape = SubResource("BoxShape3D_i88gt")
 
-[node name="Animater" type="AnimationPlayer" parent="." unique_id=865252253]
-libraries/ = SubResource("AnimationLibrary_5pl2g")
-
-[node name="angerTimer" type="Timer" parent="." unique_id=775661915]
-one_shot = true
-
 [node name="chaseTimer" type="Timer" parent="." unique_id=1591098280]
 wait_time = 10.0
 one_shot = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=807672260]
 stream = ExtResource("4_2kh7w")
-volume_db = 80.0
+volume_db = -80.0
 unit_size = 100.0
 max_polyphony = 682
 
+[connection signal="animation_finished" from="blindManModel/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="navigation_finished" from="NavigationAgent3D" to="." method="navigation_finished"]
-[connection signal="animation_finished" from="Animater" to="." method="_on_animater_animation_finished"]
-[connection signal="timeout" from="angerTimer" to="." method="_on_anger_timer_timeout"]
 [connection signal="timeout" from="chaseTimer" to="." method="_on_chase_timer_timeout"]
+
+[editable path="blindManModel"]

@@ -29,11 +29,9 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
 volumetric_fog_sky_affect = 0.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rb0vb"]
-albedo_texture = ExtResource("4_j8n23")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmw58"]
 albedo_texture = ExtResource("4_j8n23")
+uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5jyx"]
 shading_mode = 0
@@ -51,13 +49,17 @@ environment = SubResource("Environment_mmw58")
 [node name="OceanSurface" parent="." unique_id=1891312276 instance=ExtResource("1_ssl73")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8088751, 0)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1475891354]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1815079170]
+material_override = SubResource("StandardMaterial3D_mmw58")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1475891354]
 transform = Transform3D(1, 0, 0, 0, 0.13682216, 0.9905956, 0, -0.9905956, 0.13682216, 0, -7.985077, 1.7756958)
-material_override = SubResource("StandardMaterial3D_rb0vb")
+material_override = SubResource("StandardMaterial3D_mmw58")
 use_collision = true
 size = Vector3(100, 72.24494, 7.9936523)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1417334841]
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1417334841]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0.086, -3.081, -92.458)
 material_override = SubResource("StandardMaterial3D_mmw58")
 use_collision = true

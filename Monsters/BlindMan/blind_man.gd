@@ -1,17 +1,20 @@
 class_name blindman extends CharacterBody3D
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
-@onready var keeper_model: Node3D = $KeeperModel
-@onready var animater: AnimationPlayer = $Animater
 
 @export var debug_target:Node3D
 var target:Node3D
-@onready var anger_timer: Timer = $angerTimer
 @onready var chase_timer: Timer = $chaseTimer
-@onready var csg_sphere_3d: CSGSphere3D = $KeeperModel/CSGSphere3D
-@onready var spot_light_3d: SpotLight3D = $KeeperModel/CSGSphere3D/SpotLight3D
+
 @export var red_eye_mat:Material
 @export var white_eye_mat:Material
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var animation_player: AnimationPlayer = $blindManModel/AnimationPlayer
+
+@onready var shape_cast_3d: ShapeCast3D = $blindManModel/thc4_arma/Skeleton3D/BoneAttachment3D2/CSGSphere3D/SpotLight3D/ShapeCast3D
+@onready var spot_light_3d: SpotLight3D = $blindManModel/thc4_arma/Skeleton3D/BoneAttachment3D2/CSGSphere3D/SpotLight3D
+@onready var csg_sphere_3d: CSGSphere3D = $blindManModel/thc4_arma/Skeleton3D/BoneAttachment3D2/CSGSphere3D
+@onready var csg_sphere_3d_2: CSGSphere3D = $blindManModel/thc4_arma/Skeleton3D/BoneAttachment3D2/CSGSphere3D2
+@onready var spot_light_3d_2: SpotLight3D = $blindManModel/thc4_arma/Skeleton3D/BoneAttachment3D2/CSGSphere3D2/SpotLight3D_2
 
 
 @export_category("Speeds")
@@ -25,13 +28,18 @@ var wanderArea:=Vector3.ZERO
 var wanderTarget:=Vector3.ZERO
 var wanderMoving:=true
 @export var wanderDistance:=10
-@onready var shape_cast_3d: ShapeCast3D = $KeeperModel/CSGSphere3D/ShapeCast3D
+
 
 func Totally_Better_Look_At(target_pos:Vector3):
+	var oldRotation:=rotation
 	look_at(target_pos)
 	self.rotation.x=0
 	self.rotation.z=0
-
+	var newRotation:=rotation
+	rotation=oldRotation
+	var looktween = create_tween()
+	looktween.set_trans(Tween.TRANS_SINE)
+	looktween.tween_property(self,"rotation",newRotation,0.2)    
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -59,15 +67,23 @@ func _on_velocity_computed(safe_velocity: Vector3) -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if wanderMoving==true:
+		if animation_player.current_animation!="thc4_arma|st_walk":
+			animation_player.play("thc4_arma|st_walk")
+	else:
+		await get_tree().create_timer(0.2).timeout
+		if animation_player.current_animation!="thc4_arma|st_idle_howl":
+			animation_player.play("thc4_arma|st_idle_howl")
 	print(chase_timer.time_left)
 	if shape_cast_3d.is_colliding():
+		print("GUMMY")
 		audio_stream_player_3d.play()
 		csg_sphere_3d.material=red_eye_mat
 		spot_light_3d.light_color=Color.RED
-		animater.play("RESET")
-		if anger_timer.is_stopped():
-			wanderArea=target.global_position
-			anger_timer.start()
+		csg_sphere_3d_2.material=red_eye_mat
+		spot_light_3d_2.light_color=Color.RED
+		if animation_player.current_animation!="thc4_arma|str_roar" && !is_chasing:
+			animation_player.play("thc4_arma|st_roar")
 	if target!=null:
 		if is_chasing:
 			navigation_agent_3d.target_position=target.position
@@ -82,11 +98,10 @@ func _physics_process(delta: float) -> void:
 
 func navigation_finished() -> void:
 	if !is_chasing && wanderMoving:
-		if keeper_model!=null:
-			keeper_model.freeze()
+		#await get_tree().create_timer(0.5).timeout
 		wanderMoving=false
-		await get_tree().create_timer(1.0).timeout
-		animater.play("search")
+		
+
 		
 
 
@@ -94,21 +109,20 @@ func navigation_finished() -> void:
 	
 
 
-func _on_animater_animation_finished(anim_name: StringName) -> void:
-	if anim_name=="search":
-		if keeper_model!=null:
-			keeper_model.freeze()
-			wanderMoving=true
-			wanderTarget=Vector3(wanderArea.x+randi_range(-1*wanderDistance,wanderDistance),wanderArea.y,wanderArea.z+randi_range(-1*wanderDistance,wanderDistance))
-
 
 func _on_chase_timer_timeout() -> void:
 	is_chasing=false
 	csg_sphere_3d.material=white_eye_mat
 	spot_light_3d.light_color=Color.WHITE
+	animation_player.play("thc4_arma|st_walk")
 
-func _on_anger_timer_timeout() -> void:
-	is_chasing=true
-	
-	chase_timer.start()
-	
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name=="thc4_arma|st_idle_howl":
+			wanderMoving=true
+			wanderTarget=Vector3(wanderArea.x+randi_range(-1*wanderDistance,wanderDistance),wanderArea.y,wanderArea.z+randi_range(-1*wanderDistance,wanderDistance))
+	if anim_name=="thc4_arma|str_roar":
+		animation_player.play("thc4_arma|st_run")
+		is_chasing=true
+		chase_timer.start()

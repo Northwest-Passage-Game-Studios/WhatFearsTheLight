@@ -13,7 +13,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if flickering:
-		csg_sphere_3d.visible=randi_range(0,1)==1
+		csg_sphere_3d.visible=randi_range(0,9)==1
 	else:
 		csg_sphere_3d.visible=true
 
