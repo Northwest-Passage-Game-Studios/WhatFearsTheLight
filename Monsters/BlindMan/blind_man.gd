@@ -18,8 +18,10 @@ var target:Node3D
 
 
 @export_category("Speeds")
+@export var investigate_speed:=10
 @export var chase_speed:=5
 @export var wander_speed:=3
+@export var wanderDistance:=10
 @export_category("Looks")
 var fall_back_dist:=25
 var physics_delta: float
@@ -27,10 +29,20 @@ var is_chasing := false
 var wanderArea:=Vector3.ZERO
 var wanderTarget:=Vector3.ZERO
 var wanderMoving:=true
-@export var wanderDistance:=10
+var seenPlayer:=false
+var investigateLocation:=Vector3.ZERO
+var investigating:=false
 
+func investigate(thing_pos:Vector3):
+	investigating=true
+	investigateLocation=thing_pos
 
 func Totally_Better_Look_At(target_pos:Vector3):
+	look_at(target_pos)
+	rotation.x=0
+	rotation.z=0
+
+func Way_Better_Look_At(target_pos:Vector3):
 	var oldRotation:=rotation
 	look_at(target_pos)
 	self.rotation.x=0
@@ -50,12 +62,20 @@ func way_point_reached():
 	var new_velocity: Vector3
 	var next_pos=navigation_agent_3d.get_next_path_position()
 	if csg_sphere_3d.material==red_eye_mat:
-		Totally_Better_Look_At(next_pos)
-	if is_chasing:
+		#Totally_Better_Look_At(next_pos)
+		pass
+	if investigating:
+		Way_Better_Look_At(next_pos)
+		new_velocity = global_position.direction_to(next_pos) * investigate_speed
+	elif  is_chasing:
 		new_velocity = global_position.direction_to(next_pos) * chase_speed
+		Way_Better_Look_At(next_pos)
 	else:
-		Totally_Better_Look_At(next_pos)
-		new_velocity = global_position.direction_to(next_pos) * wander_speed
+		if seenPlayer:
+			Way_Better_Look_At(next_pos)
+		else:
+			Way_Better_Look_At(next_pos)
+			new_velocity = global_position.direction_to(next_pos) * wander_speed
 	if navigation_agent_3d.avoidance_enabled:
 		navigation_agent_3d.set_velocity(new_velocity)
 	else:
@@ -67,28 +87,49 @@ func _on_velocity_computed(safe_velocity: Vector3) -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if wanderMoving==true:
-		if animation_player.current_animation!="thc4_arma|st_walk":
-			animation_player.play("thc4_arma|st_walk")
-	else:
-		await get_tree().create_timer(0.2).timeout
-		if animation_player.current_animation!="thc4_arma|st_idle_howl":
-			animation_player.play("thc4_arma|st_idle_howl")
 	print(chase_timer.time_left)
+	if !seenPlayer && !investigating:
+		animation_player.speed_scale=1.0
+		if wanderMoving==true:
+			if animation_player.current_animation!="thc4_arma|st_walk" && animation_player.current_animation!="thc4_arma|str_roar":
+				animation_player.play("thc4_arma|st_walk")
+		else:
+			#await get_tree().create_timer(0.2).timeout
+			if animation_player.current_animation!="thc4_arma|st_idle_howl" && animation_player.current_animation!="thc4_arma|str_roar":
+				animation_player.play("thc4_arma|st_idle_howl")
+				
+	else:
+		animation_player.speed_scale=2.0
 	if shape_cast_3d.is_colliding():
 		print("GUMMY")
-		audio_stream_player_3d.play()
-		csg_sphere_3d.material=red_eye_mat
-		spot_light_3d.light_color=Color.RED
-		csg_sphere_3d_2.material=red_eye_mat
-		spot_light_3d_2.light_color=Color.RED
-		if animation_player.current_animation!="thc4_arma|str_roar" && !is_chasing:
+		print(shape_cast_3d.collision_result)
+		if csg_sphere_3d.material!=red_eye_mat:
+			seenPlayer=true
+			audio_stream_player_3d.play()
+			csg_sphere_3d.material=red_eye_mat
+			spot_light_3d.light_color=Color.RED
+			csg_sphere_3d_2.material=red_eye_mat
+			spot_light_3d_2.light_color=Color.RED
 			animation_player.play("thc4_arma|st_roar")
+			wanderMoving=false
+			velocity=Vector3.ZERO
+			navigation_agent_3d.target_position=debug_target.global_position
+			await get_tree().create_timer(2.5).timeout
+			is_chasing=true
+			chase_timer.start()
 	if target!=null:
-		if is_chasing:
+
+		if investigating:
+			navigation_agent_3d.target_position=investigateLocation
+			if animation_player.current_animation!="thc4_arma|st_run":
+				animation_player.play("thc4_arma|st_run")
+		elif is_chasing:
 			navigation_agent_3d.target_position=target.position
+			if animation_player.current_animation!="thc4_arma|st_run":
+				animation_player.play("thc4_arma|st_run")
 		else:
-			navigation_agent_3d.target_position=wanderTarget
+			if wanderMoving:
+				navigation_agent_3d.target_position=wanderTarget
 	
 func _physics_process(delta: float) -> void:
 	physics_delta = delta
@@ -98,8 +139,15 @@ func _physics_process(delta: float) -> void:
 
 func navigation_finished() -> void:
 	if !is_chasing && wanderMoving:
-		#await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.2).timeout
 		wanderMoving=false
+	if investigating:
+		investigating=false
+		wanderMoving=false
+		animation_player.play("thc4_arma|st_idle_howl")
+		wanderArea=investigateLocation
+		velocity=Vector3.ZERO
+		navigation_agent_3d.target_position=global_position
 		
 
 		
@@ -114,15 +162,16 @@ func _on_chase_timer_timeout() -> void:
 	is_chasing=false
 	csg_sphere_3d.material=white_eye_mat
 	spot_light_3d.light_color=Color.WHITE
-	animation_player.play("thc4_arma|st_walk")
-
+	csg_sphere_3d_2.material=white_eye_mat
+	spot_light_3d_2.light_color=Color.WHITE
+	animation_player.play("thc4_arma|st_idle_howl")
+	seenPlayer=false
+	wanderMoving=false
+	velocity=Vector3.ZERO
+	navigation_agent_3d.target_position=global_position
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name=="thc4_arma|st_idle_howl":
 			wanderMoving=true
 			wanderTarget=Vector3(wanderArea.x+randi_range(-1*wanderDistance,wanderDistance),wanderArea.y,wanderArea.z+randi_range(-1*wanderDistance,wanderDistance))
-	if anim_name=="thc4_arma|str_roar":
-		animation_player.play("thc4_arma|st_run")
-		is_chasing=true
-		chase_timer.start()

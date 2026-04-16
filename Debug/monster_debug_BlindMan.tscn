@@ -17,6 +17,9 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ybcfj"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_cbb33"]
+size = Vector3(1.9242554, 2.854248, 1.9989624)
+
 [node name="Monster_Debug" type="Node3D" unique_id=1557218608]
 script = ExtResource("1_cbb33")
 starting_tool = ExtResource("2_o2knb")
@@ -59,8 +62,18 @@ real_item = ExtResource("2_o2knb")
 debug_target = NodePath("../Player")
 chase_speed = 9
 
+[node name="SpotLight3D" type="SpotLight3D" parent="BlindMan" unique_id=2127226740]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 11.060767, 0)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+spot_range = 61.922
+spot_attenuation = 0.6
+spot_angle = 28.11
+
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1123393946]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.1137426, 5.0559654, 1.0614452)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17.8782, 5.0559654, -11.76365)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 0.0
@@ -68,3 +81,18 @@ shadow_enabled = true
 spot_range = 61.922
 spot_attenuation = 3.1
 spot_angle = 28.11
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2065114792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5522785, 0, 8.342991)
+size = Vector3(2, 1, 2)
+
+[node name="Area3D" type="Area3D" parent="CSGBox3D" unique_id=892359649]
+transform = Transform3D(0.99999994, 0.00025539723, -0.00017132287, -0.0002554105, 1, -6.4135646e-05, 0.00017130308, 6.41885e-05, 1, 0.53120995, 0.77233684, -0.7106533)
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/Area3D" unique_id=19250725]
+transform = Transform3D(1, -5.341505e-12, 0, 3.2234055e-09, 1, 0, 0, 0, 1, -0.5348201, -0.11719656, 0.72305155)
+shape = SubResource("BoxShape3D_cbb33")
+debug_color = Color(1, 0.7882353, 0, 0.41960785)
+
+[connection signal="body_entered" from="CSGBox3D/Area3D" to="." method="_on_area_3d_body_entered"]

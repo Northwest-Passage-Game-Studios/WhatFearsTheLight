@@ -102,7 +102,7 @@ spot_attenuation = 3.1
 spot_angle = 34.28
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="blindManModel/thc4_arma/Skeleton3D/BoneAttachment3D2/CSGSphere3D/SpotLight3D" unique_id=1576805324]
-transform = Transform3D(0.721, -1.1838569e-06, -3.5140306e-06, -1.7385642e-06, 0.22551474, -0.80634594, 2.7843166e-06, 0.44737464, 0.4064667, -0.12221613, -1.8546968, -3.6988912)
+transform = Transform3D(0.676, -7.582943e-07, -2.073796e-06, -1.6298408e-06, 0.1444915, -0.4759495, 2.6099e-06, 0.28664127, 0.23991889, -0.1428889, -1.2631717, -2.3341448)
 shape = ExtResource("3_5pl2g")
 target_position = Vector3(0, 0, 0)
 collision_mask = 32
