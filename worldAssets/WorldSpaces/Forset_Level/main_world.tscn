@@ -4779,7 +4779,7 @@ bone_name = "Bone.005.R"
 bone_idx = 24
 
 [node name="Animation_Node" type="Node3D" parent="Door_OpenSnece/Player/Armature/Skeleton3D/Item_Bone_Anchor" unique_id=2115404357]
-transform = Transform3D(0.9105393, 1.4901161e-08, -0.41342226, 0.17231621, 0.9089962, 0.3795168, 0.37579927, -0.4168044, 0.8276768, -0.02118873, -0.009946845, 0.104626484)
+transform = Transform3D(0.9105393, 1.4901161e-08, -0.41342223, 0.17231621, 0.9089962, 0.37951678, 0.37579927, -0.4168044, 0.8276767, -0.02118873, -0.009946845, 0.104626484)
 
 [node name="Key" type="Node3D" parent="Door_OpenSnece/Player/Armature/Skeleton3D/Item_Bone_Anchor/Animation_Node" unique_id=818561822]
 transform = Transform3D(0.99999964, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999994, 0, 0, 0)

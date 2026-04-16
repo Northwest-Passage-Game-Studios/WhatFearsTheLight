@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bh20j8qn7h0eu"]
+
+[ext_resource type="Texture2D" uid="uid://bnrchg1ptyt1m" path="res://worldAssets/dirt/Ground103_1K-PNG_Color.png" id="Color"]
+[ext_resource type="Texture2D" uid="uid://2yymdj3wroc8" path="res://worldAssets/dirt/Ground103_1K-PNG_Roughness.png" id="Roughness"]
+
+[resource]
+albedo_texture = ExtResource("Color")
+roughness_texture = ExtResource("Roughness")
+roughness_texture_channel = 4
+normal_enabled = true
+ao_enabled = true
+ao_texture_channel = 4
+heightmap_enabled = true
+heightmap_scale = 1.0
+uv1_triplanar = true

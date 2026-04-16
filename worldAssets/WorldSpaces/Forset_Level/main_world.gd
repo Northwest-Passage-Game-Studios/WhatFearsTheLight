@@ -65,7 +65,7 @@ func _ready() -> void:
 	#Starts_Forset_key_finding_Quest
 	quest_stage_one_ref_id=Quest_Manger.add_new_quest("Find the way out of the forset","None",Quest_Manger.Quest_Type.Just_Text)
 
-	_on_static_body_3d_opened()
+
 	
 
 
