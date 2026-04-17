@@ -1,22 +1,39 @@
 class_name Door_Interact extends Node3D
 
 @export var door_mesh:MeshInstance3D
+
+@export_category("Key")
+@export var use_key:=false
 @export var key_id:=1
+
+@export_category("Animation")
+@export var use_ani:bool=false
+@export var ani_player:AnimationPlayer
+@export var animation_name:String
 
 const ITEM_GLOW = preload("uid://b6k4dyrs2b0y5")
 
 signal tried_to_open
 signal opened
+signal closed
 
+var is_open:=false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _open():
+	print("hello")
+	if not is_open:
+		opened.emit()
+		if use_ani:
+			ani_player.play(animation_name)
+		is_open=true
+	else:
+		closed.emit()
+		if use_ani:
+			ani_player.play_backwards(animation_name)
+		is_open=false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _tried_to_open():
+	tried_to_open.emit()
 
 func _check_if_open(key_rings:Array[int])->bool:
 	for key in key_rings:
@@ -25,10 +42,13 @@ func _check_if_open(key_rings:Array[int])->bool:
 	return false
 
 func try_to_open(key_rings:Array[int]):
-	if _check_if_open(key_rings):
-		opened.emit()
+	if use_key:
+		if _check_if_open(key_rings):
+			_open()
+		else:
+			tried_to_open.emit()
 	else:
-		tried_to_open.emit()
+		_open()
 	
 	
 func show_outline():
