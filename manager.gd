@@ -4,3 +4,6 @@ extends Node
 
 
 @export var flashlightOn:=false
+@export var crouching:=false
+@export var running:=false
+@export var moving:=false

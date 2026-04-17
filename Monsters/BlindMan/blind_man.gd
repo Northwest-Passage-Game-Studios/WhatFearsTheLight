@@ -15,6 +15,9 @@ var target:Node3D
 @onready var csg_sphere_3d: CSGSphere3D = $blindManModel/thc4_arma/Skeleton3D/BoneAttachment3D2/CSGSphere3D
 @onready var csg_sphere_3d_2: CSGSphere3D = $blindManModel/thc4_arma/Skeleton3D/BoneAttachment3D2/CSGSphere3D2
 @onready var spot_light_3d_2: SpotLight3D = $blindManModel/thc4_arma/Skeleton3D/BoneAttachment3D2/CSGSphere3D2/SpotLight3D_2
+@onready var footstep: AudioStreamPlayer3D = $footstep
+@onready var roar: AudioStreamPlayer3D = $roar
+@onready var roar_2: AudioStreamPlayer3D = $roar2
 
 
 @export_category("Speeds")
@@ -23,6 +26,9 @@ var target:Node3D
 @export var wander_speed:=3
 @export var wanderDistance:=10
 @export_category("Looks")
+@export var sprintHearRadius:=15 
+@export var walkHearRadius:=7 
+@export var crouchHearRadius:=0 
 var fall_back_dist:=25
 var physics_delta: float
 var is_chasing := false
@@ -87,7 +93,12 @@ func _on_velocity_computed(safe_velocity: Vector3) -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(chase_timer.time_left)
+	if Manager.running&& !Manager.crouching:
+		if debug_target.global_position.distance_to(global_position)<sprintHearRadius && !seenPlayer:
+			investigate(debug_target.global_position)
+	if Manager.moving && !Manager.crouching:
+		if debug_target.global_position.distance_to(global_position)<walkHearRadius && !seenPlayer:
+			investigate(debug_target.global_position)
 	if !seenPlayer && !investigating:
 		animation_player.speed_scale=1.0
 		if wanderMoving==true:
@@ -104,8 +115,15 @@ func _process(delta: float) -> void:
 		print("GUMMY")
 		print(shape_cast_3d.collision_result)
 		if csg_sphere_3d.material!=red_eye_mat:
+			if investigating:
+				investigating=false
+				wanderMoving=false
+				velocity=Vector3.ZERO
+				navigation_agent_3d.target_position=global_position
 			seenPlayer=true
-			audio_stream_player_3d.play()
+			roar.pitch_scale=randf_range(0.85,1.15)
+			roar.play(0.18)
+			roar_2.play(0.1)
 			csg_sphere_3d.material=red_eye_mat
 			spot_light_3d.light_color=Color.RED
 			csg_sphere_3d_2.material=red_eye_mat
@@ -118,7 +136,6 @@ func _process(delta: float) -> void:
 			is_chasing=true
 			chase_timer.start()
 	if target!=null:
-
 		if investigating:
 			navigation_agent_3d.target_position=investigateLocation
 			if animation_player.current_animation!="thc4_arma|st_run":
@@ -148,13 +165,7 @@ func navigation_finished() -> void:
 		wanderArea=investigateLocation
 		velocity=Vector3.ZERO
 		navigation_agent_3d.target_position=global_position
-		
 
-		
-
-
-	
-	
 
 
 
@@ -175,3 +186,34 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name=="thc4_arma|st_idle_howl":
 			wanderMoving=true
 			wanderTarget=Vector3(wanderArea.x+randi_range(-1*wanderDistance,wanderDistance),wanderArea.y,wanderArea.z+randi_range(-1*wanderDistance,wanderDistance))
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if investigating:
+		investigating=false
+		wanderMoving=false
+		velocity=Vector3.ZERO
+		navigation_agent_3d.target_position=global_position
+	print("GUMMY")
+	print(shape_cast_3d.collision_result)
+	if csg_sphere_3d.material!=red_eye_mat:
+		seenPlayer=true
+		roar.pitch_scale=randf_range(0.85,1.15)
+		roar.play(0.18)
+		roar_2.play(0.1)
+		csg_sphere_3d.material=red_eye_mat
+		spot_light_3d.light_color=Color.RED
+		csg_sphere_3d_2.material=red_eye_mat
+		spot_light_3d_2.light_color=Color.RED
+		animation_player.play("thc4_arma|st_roar")
+		wanderMoving=false
+		velocity=Vector3.ZERO
+		navigation_agent_3d.target_position=debug_target.global_position
+		await get_tree().create_timer(2.5).timeout
+		is_chasing=true
+		chase_timer.start()
+
+
+func _on_kill_aera_body_entered(body: Node3D) -> void:
+	if body is player_body:
+		body.murdered("Blindman")

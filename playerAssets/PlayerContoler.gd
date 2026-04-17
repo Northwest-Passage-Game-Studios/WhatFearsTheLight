@@ -115,7 +115,9 @@ func _process(delta: float) -> void:
 	rotate_head(delta)
 	_pick_up_check()
 func _physics_process(delta: float) -> void:
-	
+	Manager.moving=velocity!=Vector3.ZERO
+	Manager.running=sprinting
+	Manager.crouching=crouching
 	if shape_cast_3d!=null:
 		shape_cast_3d.enabled=Manager.flashlightOn
 		if shape_cast_3d.is_colliding():
@@ -250,6 +252,9 @@ func murdered(thing : String)->void:
 	if thing=="Wendigo":
 		await get_tree().create_timer(0.2).timeout
 		get_tree().change_scene_to_file("res://Monsters/Wendigo/wendigo_jumpscare.tscn")
+	if thing=="Blindman":
+		await get_tree().create_timer(0.2).timeout
+		get_tree().change_scene_to_file("res://Monsters/BlindMan/blindman_jumpscare.tscn")
 
 
 func _input(event: InputEvent) -> void:
