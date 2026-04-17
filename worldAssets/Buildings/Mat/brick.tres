@@ -1,4 +1,9 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://cu2yjrlfk4nyy"]
 
+[ext_resource type="Texture2D" uid="uid://bvg7xesvvy52t" path="res://worldAssets/Buildings/src/Texturelabs_Concrete_200S.jpg" id="1_lbcki"]
+
 [resource]
-albedo_color = Color(0.4186483, 0.4186483, 0.4186483, 1)
+albedo_texture = ExtResource("1_lbcki")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar_sharpness = 0.50000006
+uv1_world_triplanar = true

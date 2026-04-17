@@ -1173,6 +1173,15 @@ tracks/43/keys = {
 [sub_resource type="Animation" id="Animation_vae78"]
 resource_name = "pick_up"
 length = 1.3
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"HandOut",
+"time": 0.77
+}, {
+"color": Color(1, 1, 1, 1),
+"name": &"Start",
+"time": 0.0
+}]
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1940,14 +1949,14 @@ bones/9/name = "Bone.009.L"
 bones/9/parent = 8
 bones/9/rest = Transform3D(0.9602264, 0.269227, -0.07404076, -0.2779146, 0.89588, -0.3466445, -0.02699443, 0.3534342, 0.9350698, 3.5390258e-08, 0.030301526, -4.4703484e-08)
 bones/9/enabled = true
-bones/9/position = Vector3(-0.009839054, 0.026819566, -0.0025003897)
+bones/9/position = Vector3(3.5390258e-08, 0.030301526, -4.4703484e-08)
 bones/9/rotation = Quaternion(0.17977525, -0.012081163, -0.1405021, 0.97354716)
 bones/9/scale = Vector3(1.0000006, 1.0000004, 1.0000001)
 bones/10/name = "Bone.010.L"
 bones/10/parent = 9
 bones/10/rest = Transform3D(0.99909645, 0.0424176, -0.00266112, -0.042417638, 0.99126077, -0.124910764, -0.002660551, 0.124910764, 0.99216443, 2.6600901e-08, 0.041361604, -5.5879354e-09)
 bones/10/enabled = true
-bones/10/position = Vector3(-0.031696822, 0.009629231, 0.00090068736)
+bones/10/position = Vector3(2.6600901e-08, 0.041361604, -5.5879354e-09)
 bones/10/rotation = Quaternion(0.0625923, -1.4245471e-07, -0.021255303, 0.9978129)
 bones/10/scale = Vector3(1.0000007, 1.0000002, 1.0000005)
 bones/11/name = "Bone.011.L"
