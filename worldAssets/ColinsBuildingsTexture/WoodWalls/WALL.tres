@@ -1,0 +1,10 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://dk4v6d2o27mnh"]
+
+[ext_resource type="Texture2D" uid="uid://gs6j86b8ot7w" path="res://worldAssets/ColinsBuildingsTexture/WoodWalls/brown_planks_09_diff_1k.jpg" id="1_7bdb4"]
+[ext_resource type="Texture2D" uid="uid://0p3xqnfmk0bd" path="res://worldAssets/ColinsBuildingsTexture/WoodWalls/brown_planks_09_disp_1k.png" id="2_3jf54"]
+
+[resource]
+albedo_texture = ExtResource("1_7bdb4")
+normal_enabled = true
+normal_texture = ExtResource("2_3jf54")
+uv1_triplanar = true

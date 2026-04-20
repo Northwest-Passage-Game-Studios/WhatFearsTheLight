@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dpsk164hc4tt"]
+
+[ext_resource type="Texture2D" uid="uid://dnfyjojogu4p7" path="res://worldAssets/ColinsBuildingsTexture/Roof/roof_tiles_14_diff_1k.jpg" id="1_ylk1r"]
+[ext_resource type="Texture2D" uid="uid://b3wby0dkkd1ff" path="res://worldAssets/ColinsBuildingsTexture/Roof/roof_tiles_14_rough_1k.jpg" id="2_x50k5"]
+
+[resource]
+albedo_texture = ExtResource("1_ylk1r")
+roughness_texture = ExtResource("2_x50k5")
+uv1_triplanar = true

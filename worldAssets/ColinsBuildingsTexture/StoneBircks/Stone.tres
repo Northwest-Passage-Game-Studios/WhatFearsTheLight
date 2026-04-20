@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dbd71vwlh4kuj"]
+
+[ext_resource type="Texture2D" uid="uid://bt1excuuexjyr" path="res://worldAssets/ColinsBuildingsTexture/StoneBircks/white_sandstone_bricks_diff_1k.jpg" id="1_5lfbr"]
+[ext_resource type="Texture2D" uid="uid://d5o1nigd30jm" path="res://worldAssets/ColinsBuildingsTexture/StoneBircks/white_sandstone_bricks_disp_1k.png" id="2_rbox0"]
+
+[resource]
+albedo_texture = ExtResource("1_5lfbr")
+normal_enabled = true
+normal_texture = ExtResource("2_rbox0")
+uv1_triplanar = true
