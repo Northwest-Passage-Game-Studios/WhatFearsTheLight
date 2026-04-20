@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cuu3k4ymwm08x"]
+
+[ext_resource type="PackedScene" uid="uid://b75lvuwi4dgc2" path="res://worldAssets/beachStuff/rocks/Rocks/Rock0.fbx" id="1_a826u"]
+[ext_resource type="Texture2D" uid="uid://dmaaisvcxcmfy" path="res://worldAssets/beachStuff/rocks/Rocks/Textures/Rock1_Diffuse.png" id="2_wbs3h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ik02o"]
+albedo_texture = ExtResource("2_wbs3h")
+
+[node name="Rock0" unique_id=1859531785 instance=ExtResource("1_a826u")]
+
+[node name="Rock0" parent="." index="0" unique_id=170531214]
+material_override = SubResource("StandardMaterial3D_ik02o")

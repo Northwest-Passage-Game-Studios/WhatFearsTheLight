@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://3x0gx3enqnmk"]
+
+[ext_resource type="PackedScene" uid="uid://boio8yee6v58w" path="res://worldAssets/beachStuff/rocks/Rocks/Rock8.fbx" id="1_0vwqi"]
+[ext_resource type="Texture2D" uid="uid://c4myv8833mn6" path="res://worldAssets/beachStuff/rocks/Rocks/Textures/Rock9_Diffuse.png" id="2_c5fao"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bsm5"]
+albedo_texture = ExtResource("2_c5fao")
+
+[node name="Rock8" unique_id=523361733 instance=ExtResource("1_0vwqi")]
+
+[node name="Rock8" parent="." index="0" unique_id=330910916]
+material_override = SubResource("StandardMaterial3D_2bsm5")

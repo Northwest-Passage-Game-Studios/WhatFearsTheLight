@@ -34,6 +34,7 @@ size = Vector3(3.664, 3.516, 3.81)
 size = Vector3(2.205748, 3, 2.2352905)
 
 [node name="BlindMan" type="CharacterBody3D" unique_id=977576987]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 collision_layer = 2
 axis_lock_angular_x = true
 axis_lock_angular_z = true
