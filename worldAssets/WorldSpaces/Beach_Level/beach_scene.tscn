@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://3x0gx3enqnmk" path="res://worldAssets/beachStuff/rocks/rock_8.tscn" id="15_57qcg"]
 [ext_resource type="PackedScene" uid="uid://b74mv508b7pi" path="res://worldAssets/beachStuff/rocks/rock_9.tscn" id="16_ejrn3"]
 [ext_resource type="PackedScene" uid="uid://djxnsdfj0ni2m" path="res://worldAssets/beachStuff/rocks/rock_10.tscn" id="17_fhhh3"]
+[ext_resource type="FontFile" uid="uid://bahu0s6ecrjyt" path="res://fomts/Digitag.ttf" id="19_3iacj"]
 [ext_resource type="Texture2D" uid="uid://bsg6445duypct" path="res://Monsters/Wendigo/Textures/Flashbound_Stalker_BaseColor.png" id="21_aibvq"]
 [ext_resource type="ArrayMesh" uid="uid://b7173dofm8os5" path="res://Monsters/Wendigo/uploads_files_5936954_Flashbound+Stalker (1).obj" id="22_j4b3f"]
 [ext_resource type="Script" uid="uid://bbpbqo4cr83pm" path="res://worldAssets/interaction_points/Item_Pickup.gd" id="23_beqg8"]
@@ -45,7 +46,6 @@ sky_material = SubResource("ProceduralSkyMaterial_3rti2")
 [sub_resource type="Environment" id="Environment_mmw58"]
 background_mode = 2
 sky = SubResource("Sky_rb0vb")
-ambient_light_source = 1
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.28
@@ -565,8 +565,38 @@ transform = Transform3D(0.5293835, 0, -1.8143464, 0, 1.89, 0, 1.8143464, 0, 0.52
 [node name="Rock22" parent="Node3D" unique_id=953305565 instance=ExtResource("15_57qcg")]
 transform = Transform3D(-0.8194677, 0, -0.35985774, 0, 0.895, 0, 0.35985774, 0, -0.8194677, 0.9927058, 2.0385308, -97.14975)
 
-[node name="Rock8" parent="Node3D/Rock22" index="0" unique_id=1132349410]
+[node name="Rock8" parent="Node3D/Rock22" index="0" unique_id=330910916]
 material_override = SubResource("StandardMaterial3D_aibvq")
+
+[node name="Label3D" type="Label3D" parent="Node3D/Rock22/Rock8" index="0" unique_id=22892954]
+transform = Transform3D(-0.91979575, -0.19024016, 0.3432024, -1.4951594e-08, 0.87462056, 0.48481005, -0.3924018, 0.44592583, -0.8044715, 3.343956, 0.5597267, -0.7465439)
+transparency = 0.55
+shaded = true
+modulate = Color(1, 1, 1, 0.9647059)
+text = "SPACE"
+font = ExtResource("19_3iacj")
+font_size = 188
+outline_size = 0
+
+[node name="Label3D2" type="Label3D" parent="Node3D/Rock22/Rock8" index="1" unique_id=1563101771]
+transform = Transform3D(-0.7688461, -0.45341694, 0.4508814, -0.3211913, 0.8835578, 0.3408294, -0.552917, 0.11722684, -0.824952, 1.9475021, 0.34639502, -1.4694977)
+transparency = 0.55
+shaded = true
+modulate = Color(1, 1, 1, 0.9647059)
+text = "to"
+font = ExtResource("19_3iacj")
+font_size = 137
+outline_size = 0
+
+[node name="Label3D3" type="Label3D" parent="Node3D/Rock22/Rock8" index="2" unique_id=1590600062]
+transform = Transform3D(-0.88967425, 0.15761095, 0.42853868, 0.32921326, 0.87176025, 0.36284372, -0.31639463, 0.4638929, -0.8274688, 1.0166969, 0.5814762, -1.8794937)
+transparency = 0.55
+shaded = true
+modulate = Color(1, 1, 1, 0.9647059)
+text = "Jump"
+font = ExtResource("19_3iacj")
+font_size = 131
+outline_size = 0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D/Rock22" unique_id=674889118]
 transform = Transform3D(0.90630776, 0, -0.42261827, 0, 1, 0, 0.42261827, 0, 0.90630776, 0, 0, 0)
@@ -578,9 +608,39 @@ shape = SubResource("BoxShape3D_j4b3f")
 [node name="Rock23" parent="Node3D" unique_id=485673582 instance=ExtResource("15_57qcg")]
 transform = Transform3D(-1.4100338, -1.0002404e-08, -0.39001343, 0.09453606, 0.88450736, -0.13559686, 0.61193734, -0.13664447, -0.8777261, 0.9927058, 1.4628043, -103.27665)
 
-[node name="Rock8" parent="Node3D/Rock23" index="0" unique_id=1132349410]
+[node name="Rock8" parent="Node3D/Rock23" index="0" unique_id=330910916]
 transform = Transform3D(1.0000002, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1.0000002, 0, 0.46550477, 0)
 material_override = SubResource("StandardMaterial3D_aibvq")
+
+[node name="Label3D4" type="Label3D" parent="Node3D/Rock23/Rock8" index="0" unique_id=1304651814]
+transform = Transform3D(-0.89685446, -0.013672128, 0.44212186, 0.18265554, 0.8988793, 0.398318, -0.4028585, 0.43798763, -0.8036647, 2.4184837, 0.41866493, -1.2310181)
+transparency = 0.55
+shaded = true
+modulate = Color(1, 1, 1, 0.9647059)
+text = "SHIFT"
+font = ExtResource("19_3iacj")
+font_size = 164
+outline_size = 0
+
+[node name="Label3D5" type="Label3D" parent="Node3D/Rock23/Rock8" index="1" unique_id=2127098173]
+transform = Transform3D(-0.81005037, -0.43262172, 0.39580658, -0.3406345, 0.89662886, 0.28289336, -0.47727558, 0.09433225, -0.8736787, 1.4600773, 0.07645035, -1.8202667)
+transparency = 0.55
+shaded = true
+modulate = Color(1, 1, 1, 0.9647059)
+text = "to"
+font = ExtResource("19_3iacj")
+font_size = 140
+outline_size = 0
+
+[node name="Label3D6" type="Label3D" parent="Node3D/Rock23/Rock8" index="2" unique_id=339319120]
+transform = Transform3D(-0.8886659, -0.35805607, 0.28648782, -0.3069141, 0.9286059, 0.20856075, -0.34070808, 0.09741357, -0.93511117, 0.7094097, 0.43674278, -2.0179596)
+transparency = 0.55
+shaded = true
+modulate = Color(1, 1, 1, 0.9647059)
+text = "Run"
+font = ExtResource("19_3iacj")
+font_size = 156
+outline_size = 0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D/Rock23" unique_id=1332342]
 transform = Transform3D(0.9063079, 0, -0.42261827, 0, 1, 0, 0.42261827, 0, 0.9063079, 0, 0.5165793, 0)
@@ -592,7 +652,7 @@ shape = SubResource("BoxShape3D_fhhh3")
 [node name="Rock21" parent="Node3D" unique_id=1368774742 instance=ExtResource("15_57qcg")]
 transform = Transform3D(0.8045719, -0.02971485, 0.15550262, -0.04089503, -0.81710017, 0.055452336, 0.15294322, -0.062164236, -0.8032086, 0.02082777, 3.9426098, -90.33201)
 
-[node name="Rock8" parent="Node3D/Rock21" index="0" unique_id=1132349410]
+[node name="Rock8" parent="Node3D/Rock21" index="0" unique_id=330910916]
 material_override = null
 surface_material_override/0 = SubResource("StandardMaterial3D_ejrn3")
 
@@ -605,6 +665,46 @@ shape = SubResource("BoxShape3D_ejrn3")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/Rock21/StaticBody3D" unique_id=34554224]
 transform = Transform3D(0.74870473, -0.032357365, -0.66211593, 0.057396356, 0.9982217, 0.016119547, 0.6604166, -0.05007175, 0.7492284, 1.2364655, 0.38558722, 1.3675919)
 shape = SubResource("BoxShape3D_ejrn3")
+
+[node name="Label3D2" type="Label3D" parent="Node3D/Rock21" unique_id=1403124955]
+transform = Transform3D(0.97177523, 0.0010315888, 0.23590921, -0.061119683, -0.9647474, 0.25598752, 0.2278563, -0.26318133, -0.9374541, -0.69755554, 0.2920208, -2.4675064)
+transparency = 0.55
+shaded = true
+modulate = Color(1, 1, 1, 0.9647059)
+text = "ctrl"
+font = ExtResource("19_3iacj")
+font_size = 194
+outline_size = 0
+
+[node name="Label3D3" type="Label3D" parent="Node3D/Rock21" unique_id=687308639]
+transform = Transform3D(0.8236562, 0.49494588, 0.27680665, 0.47426146, -0.86881155, 0.14228572, 0.31091577, 0.014083818, -0.95033467, 0.77580833, 0.1256175, -2.0436172)
+transparency = 0.55
+shaded = true
+modulate = Color(1, 1, 1, 0.9647059)
+text = "to"
+font = ExtResource("19_3iacj")
+font_size = 176
+outline_size = 0
+
+[node name="Label3D4" type="Label3D" parent="Node3D/Rock21" unique_id=842969369]
+transform = Transform3D(0.90936255, 0.0700375, 0.41006964, -0.11294003, -0.90714306, 0.40538812, 0.40038288, -0.414958, -0.8170111, 2.35388, 0.47110748, -1.251297)
+transparency = 0.55
+shaded = true
+modulate = Color(1, 1, 1, 0.9647059)
+text = "Crouch"
+font = ExtResource("19_3iacj")
+font_size = 168
+outline_size = 0
+
+[node name="Label3D5" type="Label3D" parent="Node3D/Rock21" unique_id=763295699]
+transform = Transform3D(0.90936255, 0.0700375, 0.41006964, -0.11294003, -0.90714306, 0.40538812, 0.40038288, -0.414958, -0.8170111, 2.35388, 0.47110748, -1.251297)
+transparency = 0.55
+shaded = true
+modulate = Color(1, 1, 1, 0.9647059)
+text = "Crouch"
+font = ExtResource("19_3iacj")
+font_size = 168
+outline_size = 0
 
 [node name="Rock20" parent="Node3D" unique_id=873260365 instance=ExtResource("15_57qcg")]
 transform = Transform3D(-5.202761, 7.690396e-09, -1.798973, 0.019403594, 5.5046797, -0.056116585, 1.7988684, -0.059376515, -5.2024584, -2.493267, 23.653812, -88.272316)
@@ -635,6 +735,7 @@ shape = SubResource("BoxShape3D_4rwrr")
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="Node3D/StaticBody3D" unique_id=1982877926]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.379734, 1.8574829, -48.736107)
 shape = SubResource("BoxShape3D_4rwrr")
+disabled = true
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="Node3D/StaticBody3D" unique_id=1134393265]
 transform = Transform3D(0.8135171, 0, -0.581541, 0, 1, 0, 0.581541, 0, 0.8135171, -12.954436, 1.8574829, -76.76555)
