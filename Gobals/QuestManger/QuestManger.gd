@@ -89,7 +89,7 @@ func set_quest_marker(Ref_ID:int,marker_pos:Vector3):
 		var qeust_marker_node :=  _load_quest_marker(marker_pos)
 		quest["Marker_Node"]=qeust_marker_node
 	
-func add_item_to_quest(Ref_ID:int,item_pos:Vector3,item_picked:Signal=DONT_NOT_USE):
+func _add_item_to_quest(Ref_ID:int,item_pos:Vector3,item_picked:Signal=DONT_NOT_USE):
 	var quest=get_quest(Ref_ID)
 	if quest=={}:
 		push_warning("Quest Ref Id Doesnt Exist")
@@ -131,7 +131,12 @@ func add_item_to_quest(Ref_ID:int,item_pos:Vector3,item_picked:Signal=DONT_NOT_U
 
 func add_mutiple_item(Ref_ID:int,item_list:Array[Object_PickUp_Point]):
 	for item:Object_PickUp_Point in item_list:
-		add_item_to_quest(Ref_ID,item.global_position,item.Picked_Up)
+		_add_item_to_quest(Ref_ID,item.global_position,item.Picked_Up)
+		
+		
+func add_lone_item(Ref_ID:int,item:Object_PickUp_Point):
+	_add_item_to_quest(Ref_ID,item.global_position,item.Picked_Up)
+
 
 func _quest_complete_check(Ref_ID:int):
 	var quest=get_quest(Ref_ID)

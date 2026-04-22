@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cox5s051a157q" path="res://worldAssets/sky/mud_road_puresky_4k.exr" id="1_3rti2"]
 [ext_resource type="PackedScene" uid="uid://d4mvahmoqcyqj" path="res://worldAssets/water/pSXWater/ocean_surface/ocean_surface.tscn" id="1_ssl73"]
+[ext_resource type="Script" uid="uid://b3ctibm6dllo1" path="res://worldAssets/WorldSpaces/Beach_Level/level.gd" id="1_xnhl1"]
 [ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="2_pryur"]
 [ext_resource type="ArrayMesh" uid="uid://um0pm5m3w7p7" path="res://worldAssets/beachStuff/boat/12219_boat_v2_L2.obj" id="3_b5jyx"]
 [ext_resource type="Texture2D" uid="uid://bc3mmvpc53iek" path="res://worldAssets/rock/coast_sand_rocks_02_diff_1k.jpg" id="3_ex3jf"]
@@ -22,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://djxnsdfj0ni2m" path="res://worldAssets/beachStuff/rocks/rock_10.tscn" id="17_fhhh3"]
 [ext_resource type="FontFile" uid="uid://bahu0s6ecrjyt" path="res://fomts/Digitag.ttf" id="19_3iacj"]
 [ext_resource type="Texture2D" uid="uid://bsg6445duypct" path="res://Monsters/Wendigo/Textures/Flashbound_Stalker_BaseColor.png" id="21_aibvq"]
+[ext_resource type="Script" uid="uid://cbjroi5l552aq" path="res://worldAssets/doors/door.gd" id="22_8m7in"]
 [ext_resource type="ArrayMesh" uid="uid://b7173dofm8os5" path="res://Monsters/Wendigo/uploads_files_5936954_Flashbound+Stalker (1).obj" id="22_j4b3f"]
 [ext_resource type="Script" uid="uid://bbpbqo4cr83pm" path="res://worldAssets/interaction_points/Item_Pickup.gd" id="23_beqg8"]
 [ext_resource type="PackedScene" uid="uid://bprx3w3vwsvla" path="res://Objects/Items/Flashlights/flash_light.tscn" id="24_yijxw"]
@@ -188,6 +190,45 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_iy5pk")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_46map"]
+size = Vector3(0.00785358, 0.0010785221, 0.018060165)
+
+[sub_resource type="Animation" id="Animation_d7nan"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dqk25"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2.6179938, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nuggl"]
+_data = {
+&"RESET": SubResource("Animation_d7nan"),
+&"open": SubResource("Animation_dqk25")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4b3f"]
 albedo_color = Color(0, 0, 0, 1)
@@ -411,7 +452,11 @@ albedo_texture = ExtResource("29_seswe")
 [sub_resource type="BoxShape3D" id="BoxShape3D_xnhl1"]
 size = Vector3(0.8651123, 0.64404297, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_d7nan"]
+size = Vector3(56.648193, 38.24707, 1)
+
 [node name="beachScene" type="Node3D" unique_id=159205370]
+script = ExtResource("1_xnhl1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=457608894]
 environment = SubResource("Environment_mmw58")
@@ -467,7 +512,7 @@ use_collision = true
 size = Vector3(100, 117.99574, 7.9936523)
 
 [node name="Player" parent="." unique_id=827342177 instance=ExtResource("2_pryur")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3060865, 2.1935875, -34.153557)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.198062, 1.8213449, -32.216793)
 
 [node name="12219BoatV2L2" type="MeshInstance3D" parent="." unique_id=1750983583]
 transform = Transform3D(-1.3113416e-09, 0.02691775, -0.0132451765, 0, 0.0132451765, 0.02691775, 0.03, 1.1766121e-09, -5.7896504e-10, 4.1486664, -11.532255, -1.921608)
@@ -565,7 +610,7 @@ transform = Transform3D(0.5293835, 0, -1.8143464, 0, 1.89, 0, 1.8143464, 0, 0.52
 [node name="Rock22" parent="Node3D" unique_id=953305565 instance=ExtResource("15_57qcg")]
 transform = Transform3D(-0.8194677, 0, -0.35985774, 0, 0.895, 0, 0.35985774, 0, -0.8194677, 0.9927058, 2.0385308, -97.14975)
 
-[node name="Rock8" parent="Node3D/Rock22" index="0" unique_id=330910916]
+[node name="Rock8" parent="Node3D/Rock22" index="0" unique_id=1514517585]
 material_override = SubResource("StandardMaterial3D_aibvq")
 
 [node name="Label3D" type="Label3D" parent="Node3D/Rock22/Rock8" index="0" unique_id=22892954]
@@ -608,7 +653,7 @@ shape = SubResource("BoxShape3D_j4b3f")
 [node name="Rock23" parent="Node3D" unique_id=485673582 instance=ExtResource("15_57qcg")]
 transform = Transform3D(-1.4100338, -1.0002404e-08, -0.39001343, 0.09453606, 0.88450736, -0.13559686, 0.61193734, -0.13664447, -0.8777261, 0.9927058, 1.4628043, -103.27665)
 
-[node name="Rock8" parent="Node3D/Rock23" index="0" unique_id=330910916]
+[node name="Rock8" parent="Node3D/Rock23" index="0" unique_id=1514517585]
 transform = Transform3D(1.0000002, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1.0000002, 0, 0.46550477, 0)
 material_override = SubResource("StandardMaterial3D_aibvq")
 
@@ -652,7 +697,7 @@ shape = SubResource("BoxShape3D_fhhh3")
 [node name="Rock21" parent="Node3D" unique_id=1368774742 instance=ExtResource("15_57qcg")]
 transform = Transform3D(0.8045719, -0.02971485, 0.15550262, -0.04089503, -0.81710017, 0.055452336, 0.15294322, -0.062164236, -0.8032086, 0.02082777, 3.9426098, -90.33201)
 
-[node name="Rock8" parent="Node3D/Rock21" index="0" unique_id=330910916]
+[node name="Rock8" parent="Node3D/Rock21" index="0" unique_id=1514517585]
 material_override = null
 surface_material_override/0 = SubResource("StandardMaterial3D_ejrn3")
 
@@ -749,11 +794,30 @@ shape = SubResource("BoxShape3D_beqg8")
 transform = Transform3D(0.9396926, 0, -0.34202012, 0, 1, 0, 0.34202012, 0, 0.9396926, 10.665154, 1.8574829, -47.989174)
 shape = SubResource("BoxShape3D_beqg8")
 
-[node name="Worn Door_001" type="MeshInstance3D" parent="." unique_id=207331526]
-transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0.49677038, 3.422502, -105.92762)
+[node name="Door_Interact" type="StaticBody3D" parent="." unique_id=670747253 node_paths=PackedStringArray("door_mesh", "ani_player")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.44804984, 3.3829951, -105.929016)
+collision_layer = 20
+script = ExtResource("22_8m7in")
+door_mesh = NodePath("Worn Door_001")
+use_ani = true
+ani_player = NodePath("AnimationPlayer")
+animation_name = "open"
+teleport_type = 2
+teleport_when = 1
+metadata/_custom_type_script = "uid://cbjroi5l552aq"
+
+[node name="Worn Door_001" type="MeshInstance3D" parent="Door_Interact" unique_id=207331526]
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 99.99999, 0, -100, -4.3711384e-06, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_fhhh3")
 mesh = SubResource("ArrayMesh_aibvq")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door_Interact" unique_id=265086726]
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 99.99999, 0, -100, -4.3711384e-06, -0.39144313, -0.16151461, 0.004227222)
+shape = SubResource("BoxShape3D_46map")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Door_Interact" unique_id=1106252910]
+libraries/ = SubResource("AnimationLibrary_nuggl")
 
 [node name="CSGCombiner3D3" type="CSGCombiner3D" parent="." unique_id=1772520018]
 material_override = SubResource("StandardMaterial3D_j4b3f")
@@ -1067,8 +1131,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8826108, 0, -5.212429)
 transform = Transform3D(1.0000001, -4.8428774e-08, 0, -2.8312206e-07, 1, 0, -5.066395e-07, -1.4901161e-08, 1, -0.06743622, 0.30871582, 0)
 shape = SubResource("BoxShape3D_xnhl1")
 
+[node name="YouCantGoThatWay" type="StaticBody3D" parent="." unique_id=1360373468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -64.48877)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="YouCantGoThatWay" unique_id=2094176304]
+shape = SubResource("BoxShape3D_d7nan")
+
 [connection signal="timeout" from="12219BoatV2L2/Timer" to="12219BoatV2L2" method="_on_timer_timeout"]
 [connection signal="timeout" from="12219BoatV2L2/flickerTimer" to="12219BoatV2L2" method="_on_flicker_timer_timeout"]
+[connection signal="teleport_signal" from="Door_Interact" to="." method="_on_door_interact_teleport_signal"]
+[connection signal="Picked_Up" from="Pickable" to="." method="_on_pickable_picked_up"]
 
 [editable path="Node3D/Rock22"]
 [editable path="Node3D/Rock23"]
