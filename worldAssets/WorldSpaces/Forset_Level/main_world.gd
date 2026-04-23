@@ -64,14 +64,21 @@ func _ready() -> void:
 	Quest_Manger.Quest_Completed.connect(_handle_quest)
 	#Starts_Forset_key_finding_Quest
 	quest_stage_one_ref_id=Quest_Manger.add_new_quest("Find the way out of the forset","None",Quest_Manger.Quest_Type.Just_Text)
-
+	player.tool_handler.equip()
 
 	
 
 
 func _on_static_body_3d_opened() -> void:
+<<<<<<< Updated upstream
 	if animation_player!=null:
 		animation_player.play("Door_Open")
+=======
+	animation_player.play("Door_Open")
+	await animation_player.animation_finished.connect(func(name):
+		get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/demo.tscn")
+		)
+>>>>>>> Stashed changes
 
 
 func _on_static_body_3d_tried_to_open() -> void:

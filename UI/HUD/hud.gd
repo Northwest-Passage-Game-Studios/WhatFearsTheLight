@@ -1,5 +1,6 @@
 extends Control
 @onready var quest_show_label: Label = $Quest_Show_Label
+@onready var debug_pannel: Panel = $DebugPannel
 
 var quest_label_display_pos:Vector2
 @onready var cross_hair: TextureRect = $TextureRect
@@ -47,6 +48,8 @@ func _ready() -> void:
 	Quest_Manger.Quest_Added.connect(_on_quest_load)
 	Quest_Manger.Quest_Completed.connect(_on_quest_completed)
 	can_intercat(false)
+	if OS.has_feature("debug"):
+		debug_pannel.show()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

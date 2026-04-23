@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cwb4rcuadglon"]
+
+[ext_resource type="ArrayMesh" uid="uid://um0pm5m3w7p7" path="res://worldAssets/beachStuff/boat/12219_boat_v2_L2.obj" id="1_ro24h"]
+[ext_resource type="PackedScene" uid="uid://d4mvahmoqcyqj" path="res://worldAssets/water/pSXWater/ocean_surface/ocean_surface.tscn" id="2_k06bs"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5n05f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nayo1"]
+shading_mode = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ro24h"]
+lightmap_size_hint = Vector2i(1002, 1002)
+material = SubResource("StandardMaterial3D_nayo1")
+size = Vector2(500, 500)
+subdivide_width = 100
+subdivide_depth = 100
+
+[node name="MainMenu" type="Node3D" unique_id=1717556023]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=899726406]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=589733706]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1216694780]
+transform = Transform3D(0.8231337, -0.08072765, 0.56208, 0.003944274, 0.99063206, 0.13650142, -0.567834, -0.11014193, 0.81574106, 1.2214537, -42.042336, 234.72379)
+fov = 65.35576
+
+[node name="12219BoatV2L2" type="MeshInstance3D" parent="." unique_id=1961364391]
+transform = Transform3D(0.01, 0, 0, 0, -4.3711387e-10, 0.01, 0, -0.01, -4.3711387e-10, -8.313552, -47.115517, 224.775)
+mesh = ExtResource("1_ro24h")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="12219BoatV2L2" unique_id=1482750226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.32126, 0, 769.6245)
+process_material = SubResource("ParticleProcessMaterial_5n05f")
+
+[node name="OceanSurface" parent="." unique_id=1891312276 instance=ExtResource("2_k06bs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -45.260536, 227.54929)
+mesh = SubResource("PlaneMesh_ro24h")

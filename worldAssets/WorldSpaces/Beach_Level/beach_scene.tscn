@@ -513,7 +513,7 @@ use_collision = true
 size = Vector3(100, 117.99574, 7.9936523)
 
 [node name="Player" parent="." unique_id=827342177 instance=ExtResource("2_pryur")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.198062, 1.8213449, -32.216793)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018560529, 3.6541443, -103.71859)
 
 [node name="12219BoatV2L2" type="MeshInstance3D" parent="." unique_id=1750983583]
 transform = Transform3D(-1.3113416e-09, 0.02691775, -0.0132451765, 0, 0.0132451765, 0.02691775, 0.03, 1.1766121e-09, -5.7896504e-10, 4.1486664, -11.532255, -1.921608)
