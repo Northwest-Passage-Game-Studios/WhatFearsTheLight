@@ -41,6 +41,8 @@ axis_lock_angular_z = true
 script = ExtResource("1_5lxi8")
 red_eye_mat = SubResource("StandardMaterial3D_5pl2g")
 white_eye_mat = SubResource("StandardMaterial3D_2kh7w")
+sprintHearRadius = 10
+walkHearRadius = 5
 
 [node name="blindManModel" parent="." unique_id=939725185 instance=ExtResource("2_2kh7w")]
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, 0, 0)

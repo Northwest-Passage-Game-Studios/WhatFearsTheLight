@@ -1,6 +1,8 @@
 extends Control
 @onready var quest_show_label: Label = $Quest_Show_Label
 @onready var debug_pannel: Panel = $DebugPannel
+@onready var fade_in: ColorRect = $fadeIn
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var quest_label_display_pos:Vector2
 @onready var cross_hair: TextureRect = $TextureRect
@@ -43,6 +45,7 @@ func can_intercat(state:bool):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	animation_player.play("fadeIn")
 	quest_show_label.hide()
 	quest_label_display_pos=quest_show_label.position
 	Quest_Manger.Quest_Added.connect(_on_quest_load)

@@ -70,15 +70,13 @@ func _ready() -> void:
 
 
 func _on_static_body_3d_opened() -> void:
-<<<<<<< Updated upstream
 	if animation_player!=null:
 		animation_player.play("Door_Open")
-=======
 	animation_player.play("Door_Open")
 	await animation_player.animation_finished.connect(func(name):
 		get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/demo.tscn")
 		)
->>>>>>> Stashed changes
+
 
 
 func _on_static_body_3d_tried_to_open() -> void:

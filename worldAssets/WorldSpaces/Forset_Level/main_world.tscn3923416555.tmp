@@ -4239,9 +4239,9 @@ use_collision = true
 size = Vector3(76, 10, 35)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Node3D2/CSGBox3D" unique_id=479483785]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4672852, 4, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4, -0.5)
 operation = 2
-size = Vector3(74.06543, 18, 29)
+size = Vector3(75, 18, 29)
 
 [node name="Key_1" type="Node3D" parent="Node3D2" unique_id=276938956]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.000004)
@@ -4815,7 +4815,7 @@ bone_name = "Bone.005.R"
 bone_idx = 24
 
 [node name="Animation_Node" type="Node3D" parent="Node3D2/Door_OpenSnece/Player/Armature/Skeleton3D/Item_Bone_Anchor" unique_id=2115404357]
-transform = Transform3D(0.9105392, 1.4901161e-08, -0.41342223, 0.1723162, 0.9089962, 0.37951678, 0.37579924, -0.4168044, 0.8276767, -0.02118873, -0.009946845, 0.104626484)
+transform = Transform3D(0.91053927, 1.4901161e-08, -0.41342223, 0.17231621, 0.9089962, 0.37951678, 0.37579924, -0.4168044, 0.8276767, -0.02118873, -0.009946845, 0.104626484)
 
 [node name="Key" type="Node3D" parent="Node3D2/Door_OpenSnece/Player/Armature/Skeleton3D/Item_Bone_Anchor/Animation_Node" unique_id=818561822]
 transform = Transform3D(0.99999964, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999994, 0, 0, 0)
@@ -4857,7 +4857,7 @@ skeleton = NodePath("")
 transform = Transform3D(-4.231784e-09, -0.08850908, 0, 0.09681193, -3.868855e-09, 0, 0, 0, 0.09681193, -77.228035, 1.1256487, 8.564191)
 
 [node name="Node3D" type="Node3D" parent="Node3D2" unique_id=1879996962]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 120.45413, 1.2763873, 37.487225)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 126.98412, 1.0664742, 37.487225)
 
 [node name="Worn Door_001" type="MeshInstance3D" parent="Node3D2/Node3D" unique_id=1283939118]
 transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 99.99999, 0, -100, -4.3711384e-06, 0, 0, 0)
@@ -4870,7 +4870,7 @@ transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 99.99999, 0, -100, -4.37113
 shape = SubResource("BoxShape3D_q41tb")
 
 [node name="Player" parent="." unique_id=827342177 instance=ExtResource("3_tbems")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.14, 1.3807187, 119.57491)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.205383, 1.3807187, 125.26072)
 
 [node name="FogVolume2" type="FogVolume" parent="Player" unique_id=1305975514]
 size = Vector3(10, 10, 10)
@@ -4878,7 +4878,7 @@ shape = 2
 material = SubResource("FogMaterial_t50r7")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=159762498]
-transform = Transform3D(1, 0, 0, 0, -0.8820447, 0.4711659, 0, -0.4711659, -0.8820447, -37.07712, 1.8123443, 119.351074)
+transform = Transform3D(1, 0, 0, 0, -0.8820447, 0.4711659, 0, -0.4711659, -0.8820447, -37.07712, 1.8123443, 126.21923)
 spot_range = 50.397
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1606928159]

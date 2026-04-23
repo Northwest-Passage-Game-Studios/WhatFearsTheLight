@@ -12,8 +12,6 @@ var find_the_way_out_the_beach:int
 func _ready() -> void:
 	player.black_animator.stop()
 	await get_tree().create_timer(2).timeout
-=======
->>>>>>> Stashed changes
 	find_the_light_quest = Quest_Manger.add_new_quest("Search The Wreckage For supplies","N/A",QuestManger.Quest_Type.Smiple_Item_Fetch)
 	Quest_Manger.add_lone_item(find_the_light_quest,pickable)
 

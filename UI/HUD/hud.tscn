@@ -6,6 +6,42 @@
 [sub_resource type="LabelSettings" id="LabelSettings_ia7gp"]
 font_size = 26
 
+[sub_resource type="Animation" id="Animation_ing8j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fadeIn:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_te8l2"]
+resource_name = "fadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fadeIn:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qdh7y"]
+_data = {
+&"RESET": SubResource("Animation_ing8j"),
+&"fadeIn": SubResource("Animation_te8l2")
+}
+
 [node name="Hud" type="Control" unique_id=1507218794]
 layout_mode = 3
 anchors_preset = 15
@@ -48,3 +84,16 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("2_ing8j")
+
+[node name="fadeIn" type="ColorRect" parent="." unique_id=1326881781]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1567086625]
+libraries/ = SubResource("AnimationLibrary_qdh7y")
