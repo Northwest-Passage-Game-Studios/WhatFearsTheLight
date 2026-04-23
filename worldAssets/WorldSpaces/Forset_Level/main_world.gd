@@ -9,7 +9,7 @@ var grasse=preload("res://worldAssets/grass/WAVEYgrass.tscn")
 @onready var reference_point: Node3D = $referencePoint
 @onready var ground: MeshInstance3D = $Ground
 @onready var gate_static_body_3d: Door_Interact = $brick_wall_gate/StaticBody3D
-@onready var animation_player: AnimationPlayer = $Door_OpenSnece/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $Node3D2/Door_OpenSnece/AnimationPlayer
 
 
 @onready var navigation_region_3d: NavigationRegion3D = $NavigationRegion3D
@@ -70,7 +70,8 @@ func _ready() -> void:
 
 
 func _on_static_body_3d_opened() -> void:
-	animation_player.play("Door_Open")
+	if animation_player!=null:
+		animation_player.play("Door_Open")
 
 
 func _on_static_body_3d_tried_to_open() -> void:

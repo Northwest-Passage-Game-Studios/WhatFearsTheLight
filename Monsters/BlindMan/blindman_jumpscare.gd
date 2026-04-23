@@ -3,17 +3,18 @@ extends Node3D
 @onready var footstep_player: AudioStreamPlayer = $footstepPlayer
 @onready var cronch: AudioStreamPlayer = $cronch
 @onready var rustle: AudioStreamPlayer = $rustle
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-
-@onready var the_angel_reference_skeleton: Node3D = $the_angel_reference_skeleton
+@onready var animation_player: AnimationPlayer = $blindManModel/AnimationPlayer
+@onready var blind_man_model: Node3D = $blindManModel
+@onready var spot_light_3d: SpotLight3D = $SpotLight3D
+@onready var spot_light_3d_2: SpotLight3D = $SpotLight3D2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if animation_player!=null:
 		animation_player.pause()
-	rustle.playing=true
+	rustle.playing=false
 	await get_tree().create_timer(0.5).timeout
-	the_angel_reference_skeleton.visible=true
+	blind_man_model.visible=true
 
 	
 
@@ -26,14 +27,16 @@ func _process(delta: float) -> void:
 func _on_animation_player_2_animation_finished(anim_name: StringName) -> void:
 	if anim_name=="blackIn":
 		animation_player_2.play("cameraAnimation")
+		await get_tree().create_timer(1.0).timeout
+		
+		animation_player.play("thc4_arma|st_bite")
 		
 	elif anim_name!="bloodView":
-		animation_player.play()
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(0.35).timeout
 		cronch.play()
 		animation_player_2.play("bloodView")
 	else:
-		get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/Forset_Level/main_world.tscn")
+		get_tree().change_scene_to_file("res://Debug/monster_debug_BlindMan.tscn")
 	
 
 

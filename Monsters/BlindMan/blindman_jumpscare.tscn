@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://8xgbvvkckm8b"]
 
-[ext_resource type="Script" uid="uid://d2rmbeb7omfr6" path="res://Monsters/Wendigo/wendigo_jumpscare.gd" id="1_ya5k6"]
+[ext_resource type="Script" uid="uid://qpqyrqoukk4s" path="res://Monsters/BlindMan/blindman_jumpscare.gd" id="1_2wdat"]
 [ext_resource type="Material" uid="uid://bra6ug2wjmj0j" path="res://worldAssets/grass/src/materials/grass_01/grass_ground_01.tres" id="2_svn5v"]
 [ext_resource type="Material" uid="uid://c2to67v55oatp" path="res://worldAssets/grass/src/materials/grass_01/grass_01.tres" id="3_3xikb"]
 [ext_resource type="PackedScene" uid="uid://ccy8a5upwblfi" path="res://Monsters/BlindMan/blindmanAssets/blind_man_model.tscn" id="4_2wdat"]
@@ -301,7 +301,7 @@ adjustment_enabled = true
 adjustment_brightness = 1.67
 
 [node name="blindmanJumpscare" type="Node3D" unique_id=397524404]
-script = ExtResource("1_ya5k6")
+script = ExtResource("1_2wdat")
 
 [node name="Ground" type="MeshInstance3D" parent="." unique_id=620507283]
 material_override = ExtResource("2_svn5v")
@@ -318,6 +318,7 @@ multimesh = SubResource("MultiMesh_dlxqj")
 
 [node name="blindManModel" parent="." unique_id=939725185 instance=ExtResource("4_2wdat")]
 transform = Transform3D(-1.35, 0, -2.0384434e-07, 0, 1.35, 0, 2.0384434e-07, 0, -1.35, 0, 0, 4.2661495)
+visible = false
 
 [node name="Skeleton3D" parent="blindManModel/thc4_arma" parent_id_path=PackedInt32Array(939725185, 1499133816) index="0" unique_id=965068836]
 bones/1/position = Vector3(0.00017926941, 1.1662157, -0.11426572)
