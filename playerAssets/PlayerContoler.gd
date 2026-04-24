@@ -23,6 +23,7 @@ class_name player_body extends CharacterBody3D
 @onready var item_pickable: RayCast3D = $Neck/Camera3D/ItemPickable
 @onready var footstep_player: AudioStreamPlayer = $footstepPlayer
 @onready var color_rect: ColorRect = $CanvasLayer/ColorRect
+@onready var hud: Control = $CanvasLayer/Hud
 
 
 @export_category("Walk Settings")
@@ -258,7 +259,7 @@ func murdered(thing : String)->void:
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and Manager.allow_looking==true:
 		neck.rotate_y(-event.relative.x*0.2*get_process_delta_time())
 		var pitch_rotate = neck.rotation_degrees.x - event.relative.y* mous_sen*get_process_delta_time()
 		var new_pitch = clampf(pitch_rotate,-80,80)

@@ -10,3 +10,6 @@ class_name Quest_Object_Info extends Resource
 @export_category("Key")
 @export var is_key:=false
 @export var key_id:=0
+@export_category("Note")
+@export var is_note:=false
+@export var note_texture:Texture2D

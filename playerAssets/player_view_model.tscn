@@ -2277,5 +2277,6 @@ volume_db = -15.0
 libraries/ = SubResource("AnimationLibrary_eatdm")
 
 [connection signal="can_pick_up" from="." to="CanvasLayer/Hud" method="can_intercat"]
+[connection signal="note_added" from="Armature/Skeleton3D/Item_Bone_Anchor" to="CanvasLayer/Hud" method="_on_item_bone_anchor_note_added"]
 [connection signal="animation_changed" from="Armature/AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="animation_finished" from="Armature/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -10,8 +10,12 @@ var quest_label_display_pos:Vector2
 @export_category("Crosshair_Textures")
 @export var normal_state_texture:Texture2D
 @export var intercat_texture:Texture2D
+@onready var paper: TextureRect = $Paper
 
-
+func load_note(note_texture):
+	print(note_texture)
+	paper.texture=note_texture
+	Manager.allow_looking=false
 
 func _on_quest_load(quest:Dictionary):
 	quest_show_label.show()
@@ -57,3 +61,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_item_bone_anchor_note_added(note_texture: Texture2D) -> void:
+	load_note(note_texture)
+	
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if paper.texture!=null:
+			paper.texture=null
+			Manager.allow_looking=true

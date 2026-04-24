@@ -11,6 +11,7 @@ var quest_objects:Array[Item]
 var key_rings:Array[int]=[]
 
 signal quest_item_add(ref_id:int)
+signal note_added(note_texture:Texture2D)
 
 var current_item:Item:
 	set(new_item):
@@ -75,7 +76,9 @@ func pick_up_object(tool_model:PackedScene,object_info:Quest_Object_Info=Quest_O
 	new_tool.queue_free()
 	
 	return
-	
+
+func load_note(note_texture:Texture2D):
+	note_added.emit(note_texture)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("R-Equp") and animation_player.is_playing()==false:

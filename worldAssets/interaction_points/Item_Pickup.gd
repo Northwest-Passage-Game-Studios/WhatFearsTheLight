@@ -3,7 +3,7 @@ class_name Object_PickUp_Point extends Node3D
 enum Types_Of_Pick {
 	Tools,
 	Items,
-	
+	Paper,
 }
 
 
@@ -36,6 +36,8 @@ func call_pick_up(player_ref:player_body):
 		#await player_ref.tool_handler.pick_up_item(real_item)
 		await get_tree().create_timer(0.75).timeout
 		queue_free()
+	elif type_of_item == Types_Of_Pick.Paper:
+		player_ref.tool_handler.load_note(Quest_item_info.note_texture)
 	Picked_Up.emit()
 
 func show_outline():
