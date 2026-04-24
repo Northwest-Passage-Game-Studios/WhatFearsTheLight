@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://31yyqberi8y7" path="res://worldAssets/beachStuff/boxes/Wooden Crate/Textures/2048/Wooden Crate_Crate_BaseColor.png" id="27_45o47"]
 [ext_resource type="Texture2D" uid="uid://wimqjeqrlgdu" path="res://worldAssets/beachStuff/boxes/Wooden Crate/Textures/2048/Wooden Crate_Crate_Normal.png" id="28_seswe"]
 [ext_resource type="Texture2D" uid="uid://ck3nbm02fdjxd" path="res://worldAssets/beachStuff/boxes/Wooden Crate/Textures/1024/Wooden Crate_Crate_BaseColor.png" id="29_seswe"]
+[ext_resource type="Texture2D" uid="uid://7yji4kcvhgih" path="res://worldAssets/beachStuff/lighthouse.png" id="33_46map"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3rti2"]
 sky_horizon_color = Color(0.385, 0.454, 0.55, 1)
@@ -51,7 +52,7 @@ sky = SubResource("Sky_rb0vb")
 ambient_light_source = 1
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.0
-ambient_light_energy = 0.28
+ambient_light_energy = 0.44
 tonemap_mode = 2
 glow_enabled = true
 volumetric_fog_enabled = true
@@ -1134,11 +1135,16 @@ transform = Transform3D(1.0000001, -4.8428774e-08, 0, -2.8312206e-07, 1, 0, -5.0
 shape = SubResource("BoxShape3D_xnhl1")
 
 [node name="YouCantGoThatWay" type="StaticBody3D" parent="." unique_id=1360373468]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -64.48877)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -49.74652)
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="YouCantGoThatWay" unique_id=2094176304]
 shape = SubResource("BoxShape3D_d7nan")
+
+[node name="lighthousePNG" type="Sprite3D" parent="." unique_id=987183014]
+transform = Transform3D(10.765, 0, 0, 0, 10.765, 0, 0, 0, 10.765, 18.440828, 71.31444, -155.19864)
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("33_46map")
 
 [connection signal="timeout" from="12219BoatV2L2/Timer" to="12219BoatV2L2" method="_on_timer_timeout"]
 [connection signal="timeout" from="12219BoatV2L2/flickerTimer" to="12219BoatV2L2" method="_on_flicker_timer_timeout"]
