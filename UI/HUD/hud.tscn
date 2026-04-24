@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bnf8wptrqe4hs" path="res://UI/HUD/hud.gd" id="1_ia7gp"]
 [ext_resource type="Script" uid="uid://dgjnxyyasaw1x" path="res://UI/FrameRateCounter/frameRate.gd" id="2_ing8j"]
+[ext_resource type="Texture2D" uid="uid://cqg2flctt0g08" path="res://worldAssets/paper/poster-basic-low-poly/textures/wanted_poster_blank.png" id="3_te8l2"]
+[ext_resource type="AudioStream" uid="uid://c08raxsaced86" path="res://Sounds/SoundEffects/561145__fmaudio__crumpling-piece-of-paper.wav" id="4_qdh7y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ia7gp"]
 font_size = 26
@@ -98,7 +100,8 @@ color = Color(0, 0, 0, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1567086625]
 libraries/ = SubResource("AnimationLibrary_qdh7y")
 
-[node name="Paper" type="TextureRect" parent="." unique_id=921855353]
+[node name="paperBack" type="TextureRect" parent="." unique_id=1374177356]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -111,4 +114,24 @@ offset_right = 196.0
 offset_bottom = 277.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_te8l2")
 expand_mode = 5
+
+[node name="Paper" type="TextureRect" parent="." unique_id=921855353]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -221.0
+offset_right = 294.0
+offset_bottom = 333.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=525597793]
+stream = ExtResource("4_qdh7y")
+max_polyphony = 10

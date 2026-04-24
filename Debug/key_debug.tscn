@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bbpbqo4cr83pm" path="res://worldAssets/interaction_points/Item_Pickup.gd" id="2_4k67u"]
 [ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="2_rw2kb"]
+[ext_resource type="Texture2D" uid="uid://cb7fei41b5ux2" path="res://worldAssets/paper/flashlightExplanation.png" id="3_446vs"]
 [ext_resource type="Script" uid="uid://b1xhtytlf50pm" path="res://Objects/Items/Quest_Item_Config.gd" id="4_446vs"]
 [ext_resource type="Texture2D" uid="uid://barfo2yoxinaa" path="res://Objects/Items/Key/textures/padlock_Padlock_BaseColor.png" id="4_sfa6r"]
 
@@ -30,9 +31,10 @@ polygons = [PackedInt32Array(0, 1, 2), PackedInt32Array(1, 3, 2)]
 [sub_resource type="Resource" id="Resource_4k67u"]
 script = ExtResource("4_446vs")
 is_note = true
+note_texture = ExtResource("3_446vs")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bac0b"]
-size = Vector3(0.021728516, 0.001, 0.026000977)
+size = Vector3(0.05935669, 0.007458008, 0.046173096)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gtupe"]
 resource_name = "Paper Material"
@@ -309,7 +311,7 @@ Quest_item_info = SubResource("Resource_4k67u")
 mesh = NodePath("poster assembled/Paper")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="key" unique_id=636550699]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0.018615723)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.0077056885, 0.01614499, -0.00022888184)
 shape = SubResource("BoxShape3D_bac0b")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="key" unique_id=107999807]

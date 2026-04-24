@@ -3,9 +3,11 @@ extends Control
 @onready var debug_pannel: Panel = $DebugPannel
 @onready var fade_in: ColorRect = $fadeIn
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var quest_label_display_pos:Vector2
 @onready var cross_hair: TextureRect = $TextureRect
+@onready var paper_back: TextureRect = $paperBack
 
 @export_category("Crosshair_Textures")
 @export var normal_state_texture:Texture2D
@@ -15,7 +17,10 @@ var quest_label_display_pos:Vector2
 func load_note(note_texture):
 	print(note_texture)
 	paper.texture=note_texture
+	paper_back.visible=true
 	Manager.allow_looking=false
+	audio_stream_player.pitch_scale=randf_range(0.8,1.5)
+	audio_stream_player.play()
 
 func _on_quest_load(quest:Dictionary):
 	quest_show_label.show()
@@ -70,4 +75,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if paper.texture!=null:
 			paper.texture=null
+			paper_back.visible=false
 			Manager.allow_looking=true
+			audio_stream_player.pitch_scale=randf_range(0.5,0.8)
+			audio_stream_player.play()
