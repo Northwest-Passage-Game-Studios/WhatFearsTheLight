@@ -89,8 +89,6 @@ emission_sphere_radius = 0.25
 angle_min = -543.7
 angle_max = 146.70001
 gravity = Vector3(0.5, 1, 0)
-scale_min = 0.25
-scale_max = 0.25
 scale_curve = SubResource("CurveTexture_wxifh")
 alpha_curve = SubResource("CurveTexture_acbqd")
 hue_variation_min = -2.2351742e-08
@@ -182,6 +180,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("GradientTexture1D_p46oc")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1216694780]
@@ -194,11 +193,11 @@ layers = 2
 mesh = ExtResource("1_ro24h")
 
 [node name="Smoke" type="GPUParticles3D" parent="12219BoatV2L2" unique_id=1867814371]
-transform = Transform3D(0.8133851, 2.5428054e-08, -0.5817256, -2.5428037e-08, 1, 8.157208e-09, 0.5817256, 8.157187e-09, 0.8133851, 157.06163, -20.46934, 787.8629)
+transform = Transform3D(1.3570176, -3.5081382e-09, -1.1253581, -4.2423064e-08, -0.1379633, 1.5780273e-08, 0.9705266, -1.1253913e-09, 1.5735075, 157.06163, -20.469341, 749.37695)
 material_override = SubResource("ShaderMaterial_sw7kw")
 cast_shadow = 0
 amount = 24
-lifetime = 3.0
+lifetime = 4.31
 preprocess = 10.0
 speed_scale = 1.47
 randomness = 1.0
