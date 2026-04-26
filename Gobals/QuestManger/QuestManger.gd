@@ -165,6 +165,8 @@ func mark_quest_completed(Ref_ID:int):
 	if quest_to_mark=={}:
 		push_error("Quest No Exist")
 		return
+	if quest_to_mark["Type"]==Quest_Type.Smiple_Marker:
+		quest_to_mark["Is_Completed"]=true
 	if quest_to_mark["Type"]==Quest_Type.Mutiple_Item_Fetch:
 		quest_to_mark["Is_Completed"]=true
 	if quest_to_mark["Type"]==Quest_Type.Smiple_Item_Fetch:

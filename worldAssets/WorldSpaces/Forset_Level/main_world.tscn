@@ -4680,10 +4680,8 @@ collide_with_areas = true
 
 [node name="playersAmbientLight" type="SpotLight3D" parent="Node3D2/Door_OpenSnece/Player/Neck" unique_id=1402063091]
 transform = Transform3D(-0.808168, 0.58631796, 0.055640224, -0.58715016, -0.7947074, -0.1539314, -0.046035033, -0.15707159, 0.98651373, -0.014953464, -0.109612346, -0.014523268)
-light_energy = 40.49
 light_volumetric_fog_energy = 16.0
 distance_fade_enabled = true
-spot_range = 4096.0
 spot_attenuation = 0.0
 spot_angle = 108.95
 
@@ -5012,6 +5010,7 @@ transform = Transform3D(1, 2.220446e-14, 1.4210855e-14, -2.8925768e-29, 1, -7.54
 collision_layer = 17
 script = ExtResource("18_byclw")
 door_mesh = NodePath("../brick_wall_gate2")
+use_key = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/brick_wall_gate/StaticBody3D" unique_id=189268837]
 transform = Transform3D(1, 0, 0, 0, 1, 1.4425273e-22, 0, -4.0077996e-22, 1, 0.73848057, 0.9628797, 0.032951355)
