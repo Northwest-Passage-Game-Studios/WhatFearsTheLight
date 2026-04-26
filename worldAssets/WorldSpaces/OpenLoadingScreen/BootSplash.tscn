@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://ca1lv7dkntpm0" path="res://Logos/Northwest_Passage_Game_Studio1_2.png" id="1_sukq7"]
 [ext_resource type="Texture2D" uid="uid://dlu4lfi1b8wp7" path="res://Logos/godot.png" id="3_1eilh"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_1eilh"]
+font_size = 32
+font_color = Color(0.63529414, 0.011764706, 0, 1)
+
 [node name="BootSplash" type="Node2D" unique_id=2132218989]
 script = ExtResource("1_4f0s1")
 starting_mod = Color(1, 1, 1, 0)
@@ -52,3 +56,50 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_1eilh")
 expand_mode = 5
+
+[node name="FlashingLightWarning" type="Panel" parent="CanvasLayer/Control" unique_id=915260398]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -145.0
+offset_right = 250.0
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BottomWarning" type="Label" parent="CanvasLayer/Control/FlashingLightWarning" unique_id=1157879080]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -43.0
+offset_right = 228.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "WARNING: This game contains flashing lights and high-contrast visual effects that may not be suitable for people with photosensitive epilepsy or other sensory sensitivities. Player discretion is advised"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TopPart" type="Label" parent="CanvasLayer/Control/FlashingLightWarning" unique_id=369036796]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_right = 152.0
+offset_bottom = 65.0
+grow_horizontal = 2
+text = "WARNING"
+label_settings = SubResource("LabelSettings_1eilh")
+horizontal_alignment = 1
+vertical_alignment = 1

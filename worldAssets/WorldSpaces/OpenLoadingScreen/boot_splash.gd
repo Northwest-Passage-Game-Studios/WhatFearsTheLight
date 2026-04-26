@@ -14,7 +14,7 @@ func _ready() -> void:
 			var color_tween_in = create_tween()
 			color_tween_in.tween_property(child,"modulate",ending_mod,1)
 			await color_tween_in.finished
-			await get_tree().create_timer(1).timeout
+			await get_tree().create_timer(2).timeout
 			var color_tween_out = create_tween()
 			color_tween_out.tween_property(child,"modulate",starting_mod,1)
 			await color_tween_out.finished
