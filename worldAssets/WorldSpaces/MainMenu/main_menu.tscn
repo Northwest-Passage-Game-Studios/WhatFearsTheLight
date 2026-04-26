@@ -1,8 +1,100 @@
 [gd_scene format=3 uid="uid://cwb4rcuadglon"]
 
+[ext_resource type="Script" uid="uid://ban8t2dyewuun" path="res://worldAssets/WorldSpaces/MainMenu/main_menu.gd" id="1_aw34y"]
 [ext_resource type="ArrayMesh" uid="uid://um0pm5m3w7p7" path="res://worldAssets/beachStuff/boat/12219_boat_v2_L2.obj" id="1_ro24h"]
+[ext_resource type="Shader" uid="uid://byk3dfkudeyxo" path="res://Shaders/Smoke/Stylized_Smoke_Shader.gdshader" id="2_h88mj"]
 [ext_resource type="Shader" uid="uid://cd8f0ax8mc6h5" path="res://worldAssets/water/pSXWater/ocean_surface/ocean_surface.gdshader" id="2_k06bs"]
 [ext_resource type="Texture2D" uid="uid://cpqiiurdc062b" path="res://worldAssets/water/pSXWater/ocean_surface/waterTileabke.jpg" id="3_5n05f"]
+[ext_resource type="ArrayMesh" uid="uid://i6imfkqn5vy8" path="res://Shaders/Smoke/Mesh.tres" id="3_aw34y"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k06bs"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_5n05f"]
+sky_material = SubResource("ProceduralSkyMaterial_k06bs")
+
+[sub_resource type="Environment" id="Environment_h88mj"]
+background_mode = 2
+sky = SubResource("Sky_5n05f")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_h88mj"]
+font_size = 36
+
+[sub_resource type="Curve" id="Curve_p46oc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9073359, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_b5hk4"]
+curve = SubResource("Curve_p46oc")
+
+[sub_resource type="Gradient" id="Gradient_vsltj"]
+offsets = PackedFloat32Array(0.21459228, 1)
+colors = PackedColorArray(0.24115604, 0.24115604, 0.24115604, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b66gd"]
+gradient = SubResource("Gradient_vsltj")
+
+[sub_resource type="Gradient" id="Gradient_uhi3m"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vlnf4"]
+noise_type = 2
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b66gd"]
+noise = SubResource("FastNoiseLite_vlnf4")
+color_ramp = SubResource("Gradient_uhi3m")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sw7kw"]
+render_priority = 0
+shader = ExtResource("2_h88mj")
+shader_parameter/Color = Color(1, 1, 1, 1)
+shader_parameter/Color_Gradiant = SubResource("GradientTexture1D_b66gd")
+shader_parameter/Vor_Noise = SubResource("NoiseTexture2D_b66gd")
+shader_parameter/Alpha_Curve = SubResource("CurveTexture_b5hk4")
+shader_parameter/Fernal_Power = 1.0
+shader_parameter/Vor_Scale = 0.8
+shader_parameter/Vor_Speed = 0.2
+shader_parameter/Emmision_Power = 1.0
+shader_parameter/Alpha_Clip = 0.0
+
+[sub_resource type="Curve" id="Curve_cd0hh"]
+_data = [Vector2(0, 0), 0.0, 1.0236398, 0, 0, Vector2(1, 1), 0.97106856, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_acbqd"]
+texture_mode = 1
+curve = SubResource("Curve_cd0hh")
+
+[sub_resource type="Curve" id="Curve_yye27"]
+_data = [Vector2(0, 0.27411175), 0.0, 0.0, 0, 0, Vector2(0.7670157, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wxifh"]
+curve = SubResource("Curve_yye27")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g6kxn"]
+particle_flag_rotate_y = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 0.25
+angle_min = -543.7
+angle_max = 146.70001
+gravity = Vector3(0.5, 1, 0)
+scale_min = 0.25
+scale_max = 0.25
+scale_curve = SubResource("CurveTexture_wxifh")
+alpha_curve = SubResource("CurveTexture_acbqd")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.019999977
+turbulence_noise_strength = 0.05
+turbulence_noise_scale = 0.1
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+collision_use_scale = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nayo1"]
 shading_mode = 0
@@ -10,7 +102,7 @@ shading_mode = 0
 [sub_resource type="PlaneMesh" id="PlaneMesh_ro24h"]
 lightmap_size_hint = Vector2i(1002, 1002)
 material = SubResource("StandardMaterial3D_nayo1")
-size = Vector2(500, 500)
+size = Vector2(1000, 1000)
 subdivide_width = 100
 subdivide_depth = 100
 
@@ -29,7 +121,14 @@ shader_parameter/wave_strength = 0.1
 shader_parameter/wave_scale = 0.02
 shader_parameter/pixelation_level = 56
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_oqeu1"]
+size = Vector3(44.063477, 23.75415, 21.80664)
+
 [node name="MainMenu" type="Node3D" unique_id=1717556023]
+script = ExtResource("1_aw34y")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=186018025]
+environment = SubResource("Environment_h88mj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2032906591]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -45,6 +144,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=614039240]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "What Fears The Light"
+label_settings = SubResource("LabelSettings_h88mj")
+
+[node name="Play" type="Button" parent="CanvasLayer/Control" unique_id=1269777673]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -38.0
+offset_right = 116.0
+offset_bottom = 42.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "Play"
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1216694780]
 transform = Transform3D(0.8231337, -0.08072765, 0.56208, 0.003944274, 0.99063206, 0.13650142, -0.567834, -0.11014193, 0.81574106, 6.5393686, 5.607688, 9.518441)
 fov = 65.35576
@@ -53,6 +176,18 @@ fov = 65.35576
 transform = Transform3D(0.01, 0, 0, 0, -4.3711387e-10, 0.01, 0, -0.01, -4.3711387e-10, 0, -1.594956, 6.971776e-08)
 layers = 2
 mesh = ExtResource("1_ro24h")
+
+[node name="Smoke" type="GPUParticles3D" parent="12219BoatV2L2" unique_id=1867814371]
+transform = Transform3D(0.8133851, 2.5428054e-08, -0.5817256, -2.5428037e-08, 1, 8.157208e-09, 0.5817256, 8.157187e-09, 0.8133851, 157.06163, -20.46934, 787.8629)
+material_override = SubResource("ShaderMaterial_sw7kw")
+cast_shadow = 0
+amount = 24
+lifetime = 3.0
+speed_scale = 1.47
+randomness = 1.0
+trail_lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_g6kxn")
+draw_pass_1 = ExtResource("3_aw34y")
 
 [node name="OceanSurface" type="MeshInstance3D" parent="." unique_id=1891312276]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7115488, 0)
@@ -65,3 +200,11 @@ surface_material_override/0 = SubResource("ShaderMaterial_aw34y")
 [node name="WaterCam" type="Camera3D" parent="SubViewport" unique_id=1628282637]
 transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, 1, 0, -1, -4.3711392e-08, 0, 21.321465, -1.1368684e-13)
 cull_mask = 1048573
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1427158311]
+wind_force_magnitude = 4.32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=621458448]
+shape = SubResource("BoxShape3D_oqeu1")
+
+[connection signal="pressed" from="CanvasLayer/Control/Play" to="." method="_on_play_pressed"]
