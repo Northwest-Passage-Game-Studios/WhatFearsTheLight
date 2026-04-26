@@ -8,3 +8,4 @@ https://flakdeau19.itch.io/low-poly-asset-pack
 https://ambientcg.com/view?id=Ground103
 https://ambientcg.com/view?id=CorrugatedSteel007C
 https://ambientcg.com/view?id=Tiles133D
+https://godotshaders.com/shader/stylized-smoke-shader/

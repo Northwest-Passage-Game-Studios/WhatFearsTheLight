@@ -23,6 +23,12 @@ glow_enabled = true
 [sub_resource type="LabelSettings" id="LabelSettings_h88mj"]
 font_size = 36
 
+[sub_resource type="Gradient" id="Gradient_aw34y"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p46oc"]
+gradient = SubResource("Gradient_aw34y")
+
 [sub_resource type="Curve" id="Curve_p46oc"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9073359, 0), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -126,6 +132,7 @@ size = Vector3(44.063477, 23.75415, 21.80664)
 
 [node name="MainMenu" type="Node3D" unique_id=1717556023]
 script = ExtResource("1_aw34y")
+end_color = Color(1, 1, 1, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=186018025]
 environment = SubResource("Environment_h88mj")
@@ -168,6 +175,15 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 36
 text = "Play"
 
+[node name="Black" type="TextureRect" parent="CanvasLayer/Control" unique_id=1827374432]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_p46oc")
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1216694780]
 transform = Transform3D(0.8231337, -0.08072765, 0.56208, 0.003944274, 0.99063206, 0.13650142, -0.567834, -0.11014193, 0.81574106, 6.5393686, 5.607688, 9.518441)
 fov = 65.35576
@@ -183,6 +199,7 @@ material_override = SubResource("ShaderMaterial_sw7kw")
 cast_shadow = 0
 amount = 24
 lifetime = 3.0
+preprocess = 10.0
 speed_scale = 1.47
 randomness = 1.0
 trail_lifetime = 0.2

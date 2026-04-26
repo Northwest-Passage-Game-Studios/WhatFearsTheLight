@@ -7,7 +7,7 @@ font_size = 36
 
 [node name="MainSence" type="Node2D" unique_id=1458418922]
 script = ExtResource("1_qsark")
-data_file = "res://worldAssets/WorldSpaces/Open_Scene/JokeOpening.txt"
+data_file = "res://worldAssets/WorldSpaces/Open_Scene/RealOpening.txt"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1659087158]
 
