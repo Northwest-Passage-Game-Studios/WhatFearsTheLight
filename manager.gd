@@ -8,3 +8,5 @@ extends Node
 @export var running:=false
 @export var moving:=false
 @export var allow_looking:=true
+@export var infiniStamina:=false
+@export var infiniFlash:=false

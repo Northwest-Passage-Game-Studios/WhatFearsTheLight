@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	Manager.flashlightOn=spot_light_3d.visible
 	if _is_on:
 		spot_light_3d.visible=true
-		if flashlightDurability>-1:
+		if flashlightDurability>-1 && !Manager.infiniFlash:
 			flashlightDurability-=1*delta
 		if int(flashlightDurability)==25||int(flashlightDurability)==28||int(flashlightDurability)==34:
 				spot_light_3d.light_energy=randi_range(8,13)

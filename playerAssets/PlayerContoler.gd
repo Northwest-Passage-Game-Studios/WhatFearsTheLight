@@ -30,7 +30,7 @@ class_name player_body extends CharacterBody3D
 @export var baseSpeed:=2.5
 @export var crouchSpeed:=0.75
 @export var sprintSpeed:=5.5
-@export var staminaMax:=6.0
+@export var staminaMax:=30.0
 @export_category("Jumping & Gravity")
 @export var jumpStrength:=7.0
 @export var gravity:=0.4
@@ -43,7 +43,8 @@ class_name player_body extends CharacterBody3D
 @onready var shape_cast_3d: ShapeCast3D = $Neck/Camera3D/ShapeCast3D
 @onready var animation_player: AnimationPlayer = $Armature/AnimationPlayer
 @onready var black_animator: AnimationPlayer = $blackAnimator
-
+@export var permaSprint:=false
+@export var permaFlash:=false
 
 #Hidden Settings
 var canStand:=true
@@ -116,6 +117,8 @@ func _process(delta: float) -> void:
 	rotate_head(delta)
 	_pick_up_check()
 func _physics_process(delta: float) -> void:
+	Manager.infiniStamina=permaSprint
+	Manager.infiniFlash=permaFlash
 	Manager.moving=velocity!=Vector3.ZERO
 	Manager.running=sprinting
 	Manager.crouching=crouching
@@ -138,13 +141,13 @@ func _physics_process(delta: float) -> void:
 		if stamina<staminaMax:
 			stamina+=1*delta
 			if exhausted:
-				stamina+=0.25*delta
+				stamina+=3*delta
 		else:
 			exhausted=false
 			baseSpeed=1.75
 			crouchSpeed=0.75
 	if sprinting && crouchTweening==0:
-		if stamina>0:
+		if stamina>0 && !permaSprint:
 			stamina-=1*delta
 	
 	
@@ -163,12 +166,14 @@ func _physics_process(delta: float) -> void:
 	#Jump code, not sure if I want to keep it or not. :/
 	if Input.is_action_just_pressed("jump") && is_on_floor() && crouchTweening==0 && jumpStrength>3 && stamina>1.5 && !exhausted:
 		velocity.y+=int(jumpStrength)+1
-		stamina-=1
+		if !permaSprint:
+			stamina-=1
 		if sprinting:
 			await get_tree().create_timer(0.02).timeout
 			velocity.x*=1.5+stamina/10
 			velocity.z*=1.5+stamina/10
-			stamina-=0.5
+			if !permaSprint:
+				stamina-=0.5
 		if jumpStrength>1:
 			jumpStrength-=2
 		else:
