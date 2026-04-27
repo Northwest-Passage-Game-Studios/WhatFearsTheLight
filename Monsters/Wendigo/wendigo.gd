@@ -153,7 +153,7 @@ func spook():
 		skeleton_3d.set_bone_pose_rotation(upper,Quaternion(uprotation,uprotation+rotation.x,uprotation+rotation.y,uprotation+rotation.z+(4*PI)))
 	if !kill_timer.is_stopped():
 		if ready4SpookyTimes:
-			kill_timer.start(0.7)
+			kill_timer.start(2.5)
 	if is_chasing==false and kill_timer.is_stopped()==false and is_spooked==false && anxiety<0:
 		if !is_red_eye:
 			footstep_interval.start()

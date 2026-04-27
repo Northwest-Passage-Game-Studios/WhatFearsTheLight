@@ -719,7 +719,7 @@ shape = SubResource("BoxShape3D_i88gt")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=2105632837]
 stream = ExtResource("3_x81h2")
-volume_db = -10.237
+volume_db = 2.0
 unit_size = 46.74
 max_db = -6.737
 pitch_scale = 1.29
