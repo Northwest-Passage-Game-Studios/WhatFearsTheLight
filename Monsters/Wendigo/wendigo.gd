@@ -67,7 +67,7 @@ func _ready() -> void:
 	if debug_target!=null:
 		target=debug_target
 	if not is_red_eye:
-		kill_timer.start(5.0)
+		kill_timer.start(10.0)
 		csg_sphere_3d.material=white_eye_mat
 		csg_sphere_3d_2.material=white_eye_mat
 		left_eye_light.light_color=Color.WHITE
@@ -77,7 +77,7 @@ func _ready() -> void:
 		csg_sphere_3d_2.material=red_eye_mat
 		left_eye_light.light_color=Color.RED
 		right_eye_light.light_color=Color.RED
-		kill_timer.start(7.0)
+		kill_timer.start(6.0)
 	await get_tree().create_timer(1.0).timeout
 	ready4SpookyTimes=true
 func way_point_reached():

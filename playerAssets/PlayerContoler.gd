@@ -43,7 +43,7 @@ class_name player_body extends CharacterBody3D
 @onready var shape_cast_3d: ShapeCast3D = $Neck/Camera3D/ShapeCast3D
 @onready var animation_player: AnimationPlayer = $Armature/AnimationPlayer
 @onready var black_animator: AnimationPlayer = $blackAnimator
-@export var permaSprint:=false
+@export var permaSprint:=true
 @export var permaFlash:=false
 
 #Hidden Settings

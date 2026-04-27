@@ -626,37 +626,37 @@ shadow_mesh = SubResource("ArrayMesh_tjig3")
 
 [node name="doorStorage" unique_id=899351131 instance=ExtResource("1_8xmik")]
 
-[node name="Worn Door_001" parent="." index="0" unique_id=213131228]
+[node name="Worn Door_001" parent="." index="0" unique_id=1036738207]
 material_override = SubResource("StandardMaterial3D_f7l6d")
 
-[node name="Worn Door_002" parent="." index="1" unique_id=2067817434]
+[node name="Worn Door_002" parent="." index="1" unique_id=1742570091]
 material_override = SubResource("StandardMaterial3D_b04i5")
 
-[node name="Worn Door_004" parent="." index="2" unique_id=1509619673]
+[node name="Worn Door_004" parent="." index="2" unique_id=1641729184]
 material_override = SubResource("StandardMaterial3D_k4ts4")
 
-[node name="Door Handle_009" parent="Worn Door_004" index="0" unique_id=1911103505]
+[node name="Door Handle_009" parent="Worn Door_004" index="0" unique_id=617107659]
 surface_material_override/0 = SubResource("StandardMaterial3D_n84rc")
 
-[node name="Worn Door_005" parent="." index="3" unique_id=187081606]
+[node name="Worn Door_005" parent="." index="3" unique_id=1024523472]
 material_override = SubResource("StandardMaterial3D_wrnc0")
 
-[node name="Door Handle_008" parent="Worn Door_005" index="0" unique_id=928658782]
+[node name="Door Handle_008" parent="Worn Door_005" index="0" unique_id=8245532]
 surface_material_override/0 = SubResource("StandardMaterial3D_rgw30")
 
-[node name="Worn Door_006" parent="." index="4" unique_id=1462989182]
+[node name="Worn Door_006" parent="." index="4" unique_id=253550372]
 material_override = SubResource("StandardMaterial3D_8thwk")
 
-[node name="Door Handle_005" parent="Worn Door_006" index="0" unique_id=720298889]
+[node name="Door Handle_005" parent="Worn Door_006" index="0" unique_id=1602663025]
 surface_material_override/0 = SubResource("StandardMaterial3D_gek0l")
 
-[node name="Worn Doorframe_004" parent="." index="5" unique_id=839076613]
+[node name="Worn Doorframe_004" parent="." index="5" unique_id=2028177113]
 material_override = SubResource("StandardMaterial3D_mshiq")
 
-[node name="Worn Doorframe_005" parent="." index="6" unique_id=609197322]
+[node name="Worn Doorframe_005" parent="." index="6" unique_id=2064171786]
 material_override = SubResource("StandardMaterial3D_yhdt6")
 
-[node name="Worn Doorframe_006" parent="." index="7" unique_id=1862251371]
+[node name="Worn Doorframe_006" parent="." index="7" unique_id=1445638558]
 material_override = SubResource("StandardMaterial3D_sr4li")
 
 [node name="Pack 5 Metal Doors" type="Node3D" parent="." index="8" unique_id=1852823246]
