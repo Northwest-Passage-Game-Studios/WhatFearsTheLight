@@ -170,8 +170,9 @@ func _physics_process(delta: float) -> void:
 			stamina-=1
 		if sprinting:
 			await get_tree().create_timer(0.02).timeout
-			velocity.x*=1.5+stamina/10
-			velocity.z*=1.5+stamina/10
+			velocity.x*=2.0
+			velocity.y-=1
+			velocity.z*=2.0
 			if !permaSprint:
 				stamina-=0.5
 		if jumpStrength>1:

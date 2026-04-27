@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ck3vmnkl8i53f"
+path="res://.godot/imported/20348_Receiver_radio_v1_Texture.obj-5b83b3ae108b72558713cad16c441f5c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/20348_Receiver_radio_v1_Texture.obj-5b83b3ae108b72558713cad16c441f5c.mesh"]
+
+source_file="res://worldAssets/beachStuff/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/20348_Receiver_radio_v1_Texture.obj"
+dest_files=["res://.godot/imported/20348_Receiver_radio_v1_Texture.obj-5b83b3ae108b72558713cad16c441f5c.mesh", "res://.godot/imported/20348_Receiver_radio_v1_Texture.obj-5b83b3ae108b72558713cad16c441f5c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

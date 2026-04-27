@@ -34,6 +34,9 @@
 [ext_resource type="Texture2D" uid="uid://wimqjeqrlgdu" path="res://worldAssets/beachStuff/boxes/Wooden Crate/Textures/2048/Wooden Crate_Crate_Normal.png" id="28_seswe"]
 [ext_resource type="Texture2D" uid="uid://ck3nbm02fdjxd" path="res://worldAssets/beachStuff/boxes/Wooden Crate/Textures/1024/Wooden Crate_Crate_BaseColor.png" id="29_seswe"]
 [ext_resource type="Texture2D" uid="uid://7yji4kcvhgih" path="res://worldAssets/beachStuff/lighthouse.png" id="33_46map"]
+[ext_resource type="ArrayMesh" uid="uid://ck3vmnkl8i53f" path="res://worldAssets/beachStuff/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/20348_Receiver_radio_v1_Texture.obj" id="35_nuggl"]
+[ext_resource type="Script" uid="uid://b8o8jjk2dbdif" path="res://worldAssets/WorldSpaces/Beach_Level/20348_receiver_radio_v_1_texture.gd" id="36_lpeck"]
+[ext_resource type="AudioStream" uid="uid://dtlo3sk7v3scf" path="res://Sounds/SoundEffects/videoplayback (1).mp3" id="37_lpeck"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3rti2"]
 sky_horizon_color = Color(0.385, 0.454, 0.55, 1)
@@ -44,12 +47,12 @@ sky_cover_modulate = Color(1.1008143, 1.1008143, 1.1008143, 1)
 ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Sky" id="Sky_rb0vb"]
+[sub_resource type="Sky" id="Sky_3tdmf"]
 sky_material = SubResource("ProceduralSkyMaterial_3rti2")
 
 [sub_resource type="Environment" id="Environment_mmw58"]
 background_mode = 2
-sky = SubResource("Sky_rb0vb")
+sky = SubResource("Sky_3tdmf")
 ambient_light_source = 1
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.0
@@ -586,6 +589,13 @@ size = Vector3(0.8651123, 0.64404297, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_d7nan"]
 size = Vector3(56.648193, 38.24707, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3s3e"]
+transparency = 1
+albedo_color = Color(3.003151, 3.003151, 0, 0.06666667)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 3.53
+
 [node name="beachScene" type="Node3D" unique_id=159205370]
 script = ExtResource("1_xnhl1")
 
@@ -686,7 +696,6 @@ size = Vector3(100, 117.99574, 7.9936523)
 
 [node name="Player" parent="." unique_id=827342177 instance=ExtResource("2_pryur")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.619748, 2.6275883, -33.255066)
-permaSprint = true
 permaFlash = true
 
 [node name="12219BoatV2L2" type="MeshInstance3D" parent="." unique_id=1750983583]
@@ -1318,10 +1327,31 @@ transform = Transform3D(10.765, 0, 0, 0, 10.765, 0, 0, 0, 10.765, 18.440828, 71.
 modulate = Color(0, 0, 0, 1)
 texture = ExtResource("33_46map")
 
+[node name="20348ReceiverRadioV1Texture" type="MeshInstance3D" parent="." unique_id=313173254]
+transform = Transform3D(-0.0015104668, -0.0019831294, -0.00760169, -0.0009492962, -0.0076381247, 0.002181261, -0.0077985474, 0.001313872, 0.0012068192, -7.248749, 0.8668994, -35.083733)
+mesh = ExtResource("35_nuggl")
+script = ExtResource("36_lpeck")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="20348ReceiverRadioV1Texture" unique_id=338660196]
+transform = Transform3D(1.000006, -2.0861626e-07, -1.9967556e-06, 1.937151e-07, 1.0000018, 4.6938658e-07, -1.4901161e-07, -8.195639e-08, 1.0000012, -0.027832031, -19.635254, 52.172424)
+size = Vector3(36.886368, 1, 24.85794)
+material = SubResource("StandardMaterial3D_f3s3e")
+
+[node name="Timer" type="Timer" parent="20348ReceiverRadioV1Texture" unique_id=743730395]
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="20348ReceiverRadioV1Texture" unique_id=216039061]
+transform = Transform3D(125, -3.8146973e-06, -3.8146973e-06, 0, 125.00001, 5.2452087e-06, 0, 1.4305115e-06, 125, 4.89209, -16.546753, 49.633667)
+stream = ExtResource("37_lpeck")
+unit_size = 2.66
+autoplay = true
+
 [connection signal="timeout" from="12219BoatV2L2/Timer" to="12219BoatV2L2" method="_on_timer_timeout"]
 [connection signal="timeout" from="12219BoatV2L2/flickerTimer" to="12219BoatV2L2" method="_on_flicker_timer_timeout"]
 [connection signal="teleport_signal" from="Door_Interact" to="." method="_on_door_interact_teleport_signal"]
 [connection signal="Picked_Up" from="Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="timeout" from="20348ReceiverRadioV1Texture/Timer" to="20348ReceiverRadioV1Texture" method="_on_timer_timeout"]
 
 [editable path="Node3D/Rock22"]
 [editable path="Node3D/Rock23"]
