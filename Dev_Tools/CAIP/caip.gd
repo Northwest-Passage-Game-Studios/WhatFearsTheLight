@@ -22,6 +22,11 @@ class_name CAIP extends Node3D
 @export_tool_button("Gen World","Tools")
 var gen_world_button = gen_world
 
+func _check_if_allowed_to_spawn(pos:Vector3):
+	for nodes in get_tree().get_nodes_in_group(""):
+		pass
+	
+
 func _sort_world_objects(a:Object_Config,b:Object_Config):
 	return a.chance_to_spawn<b.chance_to_spawn
 

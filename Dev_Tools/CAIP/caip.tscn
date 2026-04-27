@@ -4,4 +4,3 @@
 
 [node name="CAIP" type="Node3D" unique_id=520449822]
 script = ExtResource("1_qrj0s")
-gen_steps = null
