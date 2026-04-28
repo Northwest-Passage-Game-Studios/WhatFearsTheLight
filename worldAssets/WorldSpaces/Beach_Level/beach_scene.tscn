@@ -591,7 +591,7 @@ size = Vector3(56.648193, 38.24707, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3s3e"]
 transparency = 1
-albedo_color = Color(3.003151, 3.003151, 0, 0.06666667)
+albedo_color = Color(3.003151, 3.003151, 0, 0.007843138)
 emission_enabled = true
 emission = Color(1, 1, 0, 1)
 emission_energy_multiplier = 3.53
@@ -1337,14 +1337,46 @@ transform = Transform3D(1.000006, -2.0861626e-07, -1.9967556e-06, 1.937151e-07, 
 size = Vector3(36.886368, 1, 24.85794)
 material = SubResource("StandardMaterial3D_f3s3e")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="20348ReceiverRadioV1Texture/CSGBox3D" unique_id=60170419]
+transform = Transform3D(124.99925, 2.4795532e-05, 0.00025367737, -2.2888184e-05, 124.99977, -4.2438507e-05, 1.1444092e-05, 7.1525574e-07, 124.999855, -10.413574, -2.8868408, -1.7023926)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.314
+spot_range = 0.135
+spot_attenuation = 1.52
+spot_angle = 180.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="20348ReceiverRadioV1Texture/CSGBox3D" unique_id=959049885]
+transform = Transform3D(124.999245, 2.0980835e-05, 0.00026130676, -2.2888184e-05, 124.99977, -3.7908554e-05, 5.722046e-06, -2.861023e-06, 124.99986, -10.423828, -2.454956, 8.978516)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.314
+spot_range = 0.135
+spot_attenuation = 1.52
+spot_angle = 180.0
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="20348ReceiverRadioV1Texture/CSGBox3D" unique_id=1311607694]
+transform = Transform3D(124.99925, 2.2888184e-05, 0.0002593994, -2.2888184e-05, 124.99977, -3.9577484e-05, 7.6293945e-06, -1.1920929e-06, 124.999855, 9.70166, -6.275818, -4.8152466)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.314
+spot_range = 0.135
+spot_attenuation = 1.52
+spot_angle = 180.0
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="20348ReceiverRadioV1Texture/CSGBox3D" unique_id=1744291503]
+transform = Transform3D(124.999245, 2.2888184e-05, 0.00026512146, -2.2888184e-05, 124.99977, -3.862381e-05, 0, -5.00679e-06, 124.99986, 9.691895, -5.843872, 5.8657227)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.314
+spot_range = 0.135
+spot_attenuation = 1.52
+spot_angle = 180.0
+
 [node name="Timer" type="Timer" parent="20348ReceiverRadioV1Texture" unique_id=743730395]
 one_shot = true
-autostart = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="20348ReceiverRadioV1Texture" unique_id=216039061]
 transform = Transform3D(125, -3.8146973e-06, -3.8146973e-06, 0, 125.00001, 5.2452087e-06, 0, 1.4305115e-06, 125, 4.89209, -16.546753, 49.633667)
 stream = ExtResource("37_lpeck")
-unit_size = 2.66
+volume_db = -40.0
+unit_size = 3.6
 autoplay = true
 
 [connection signal="timeout" from="12219BoatV2L2/Timer" to="12219BoatV2L2" method="_on_timer_timeout"]

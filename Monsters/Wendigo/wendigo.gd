@@ -80,6 +80,8 @@ func _ready() -> void:
 		kill_timer.start(6.0)
 	await get_tree().create_timer(1.0).timeout
 	ready4SpookyTimes=true
+	await get_tree().create_timer(20.0).timeout
+	queue_free()
 func way_point_reached():
 	var new_velocity: Vector3
 	var next_pos=navigation_agent_3d.get_next_path_position()

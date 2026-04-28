@@ -4403,13 +4403,13 @@ transform = Transform3D(-0.10452851, 0, 0.9945219, 0, 1, 0, -0.9945219, 0, -0.10
 navigation_mesh = SubResource("NavigationMesh_sl3aq")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Node3D2" unique_id=264292193]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -114.5, 22.5, 25)
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -129.48438, 22.5, 21.348967)
 material_override = SubResource("StandardMaterial3D_kpegf")
 use_collision = true
-size = Vector3(76, 10, 35)
+size = Vector3(71.71875, 10, 29.335876)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Node3D2/CSGBox3D" unique_id=479483785]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4672852, 4, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3266602, 4, 0.021576166)
 operation = 2
 size = Vector3(74.06543, 18, 29)
 
