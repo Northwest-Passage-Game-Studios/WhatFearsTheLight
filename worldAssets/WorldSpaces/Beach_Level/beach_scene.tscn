@@ -1380,10 +1380,10 @@ volume_db = -40.0
 unit_size = 3.6
 autoplay = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="." unique_id=727877528]
+[node name="beachSounds" type="AudioStreamPlayer3D" parent="." unique_id=727877528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.043581, 0, -25.521479)
 stream = ExtResource("38_3tdmf")
-volume_db = -20.853
+volume_db = -40.0
 unit_size = 45.1
 autoplay = true
 

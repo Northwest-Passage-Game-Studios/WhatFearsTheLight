@@ -24,6 +24,9 @@
 [ext_resource type="Texture2D" uid="uid://biot6xoobfxod" path="res://playerAssets/psx-first-person-arms-free-game-assets/arms.png" id="20_b3h8v"]
 [ext_resource type="AudioStream" uid="uid://bw8s5fa5sswtb" path="res://Sounds/SoundEffects/188288__willstepp__wind-in-the-trees.ogg" id="20_ndwlv"]
 [ext_resource type="Texture2D" uid="uid://dhwr4frbotysc" path="res://worldAssets/doors/low-poly-psx-style-worn-wooden-doors-pack/textures/doors.png" id="23_b3h8v"]
+[ext_resource type="ArrayMesh" uid="uid://ck3vmnkl8i53f" path="res://worldAssets/beachStuff/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/20348_Receiver_radio_v1_Texture.obj" id="25_0tqwv"]
+[ext_resource type="Script" uid="uid://dhvrw0likmjih" path="res://worldAssets/WorldSpaces/Forset_Level/20348_receiver_radio_v_1_texture.gd" id="26_1ww55"]
+[ext_resource type="AudioStream" uid="uid://dtlo3sk7v3scf" path="res://Sounds/SoundEffects/videoplayback (1).mp3" id="27_2amy5"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mqh1b"]
 size = Vector2(1000, 1000)
@@ -1642,6 +1645,13 @@ volumetric_fog_length = 263.55
 volumetric_fog_temporal_reprojection_enabled = false
 volumetric_fog_temporal_reprojection_amount = 0.5
 adjustment_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q41tb"]
+transparency = 1
+albedo_color = Color(3.003151, 3.003151, 0, 0.007843138)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 3.53
 
 [node name="mainWorld" type="Node3D" unique_id=234071416]
 script = ExtResource("1_3r06u")
@@ -4983,7 +4993,7 @@ bone_name = "Bone.005.R"
 bone_idx = 24
 
 [node name="Animation_Node" type="Node3D" parent="Node3D2/Door_OpenSnece/Player/Armature/Skeleton3D/Item_Bone_Anchor" unique_id=2115404357]
-transform = Transform3D(0.9105392, 1.4901161e-08, -0.41342223, 0.1723162, 0.9089962, 0.37951678, 0.37579924, -0.4168044, 0.8276767, -0.02118873, -0.009946845, 0.104626484)
+transform = Transform3D(0.91053915, 1.4901161e-08, -0.41342223, 0.17231618, 0.9089962, 0.37951678, 0.3757992, -0.4168044, 0.8276767, -0.02118873, -0.009946845, 0.104626484)
 
 [node name="Key" type="Node3D" parent="Node3D2/Door_OpenSnece/Player/Armature/Skeleton3D/Item_Bone_Anchor/Animation_Node" unique_id=818561822]
 transform = Transform3D(0.99999964, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999994, 0, 0, 0)
@@ -5071,8 +5081,63 @@ aabb = AABB(-5, -5, -5, 10, 10, 10)
 stream = ExtResource("20_ndwlv")
 autoplay = true
 
+[node name="decorations" type="Node3D" parent="." unique_id=1615554333]
+
+[node name="20348ReceiverRadioV1Texture" type="MeshInstance3D" parent="decorations" unique_id=530874979]
+transform = Transform3D(-3.4969116e-10, -0.008, -3.496911e-10, 0, -3.496911e-10, 0.008, -0.008000001, 3.496911e-10, 1.5285484e-17, -61.99079, 0.1552318, 10.981159)
+mesh = ExtResource("25_0tqwv")
+script = ExtResource("26_1ww55")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="decorations/20348ReceiverRadioV1Texture" unique_id=1151468077]
+transform = Transform3D(1.000006, -2.0861626e-07, -1.9967556e-06, 1.937151e-07, 1.0000018, 4.6938658e-07, -1.4901161e-07, -8.195639e-08, 1.0000012, -0.027832031, -19.635254, 52.172424)
+size = Vector3(36.886368, 1, 24.85794)
+material = SubResource("StandardMaterial3D_q41tb")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="decorations/20348ReceiverRadioV1Texture/CSGBox3D" unique_id=2137184941]
+transform = Transform3D(124.99925, 2.4795532e-05, 0.00025367737, -2.2888184e-05, 124.99977, -4.2438507e-05, 1.1444092e-05, 7.1525574e-07, 124.999855, -10.413574, -2.8868408, -1.7023926)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.314
+spot_range = 0.135
+spot_attenuation = 1.52
+spot_angle = 180.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="decorations/20348ReceiverRadioV1Texture/CSGBox3D" unique_id=1447695387]
+transform = Transform3D(124.999245, 2.0980835e-05, 0.00026130676, -2.2888184e-05, 124.99977, -3.7908554e-05, 5.722046e-06, -2.861023e-06, 124.99986, -10.423828, -2.454956, 8.978516)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.314
+spot_range = 0.135
+spot_attenuation = 1.52
+spot_angle = 180.0
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="decorations/20348ReceiverRadioV1Texture/CSGBox3D" unique_id=1700365080]
+transform = Transform3D(124.99925, 2.2888184e-05, 0.0002593994, -2.2888184e-05, 124.99977, -3.9577484e-05, 7.6293945e-06, -1.1920929e-06, 124.999855, 9.70166, -6.275818, -4.8152466)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.314
+spot_range = 0.135
+spot_attenuation = 1.52
+spot_angle = 180.0
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="decorations/20348ReceiverRadioV1Texture/CSGBox3D" unique_id=863624434]
+transform = Transform3D(124.999245, 2.2888184e-05, 0.00026512146, -2.2888184e-05, 124.99977, -3.862381e-05, 0, -5.00679e-06, 124.99986, 9.691895, -5.843872, 5.8657227)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.314
+spot_range = 0.135
+spot_attenuation = 1.52
+spot_angle = 180.0
+
+[node name="Timer" type="Timer" parent="decorations/20348ReceiverRadioV1Texture" unique_id=1974255258]
+one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="decorations/20348ReceiverRadioV1Texture" unique_id=1814133215]
+transform = Transform3D(125, -3.8146973e-06, -3.8146973e-06, 0, 125.00001, 5.2452087e-06, 0, 1.4305115e-06, 125, 4.89209, -16.546753, 49.633667)
+stream = ExtResource("27_2amy5")
+volume_db = -40.0
+unit_size = 2.0
+autoplay = true
+
 [connection signal="Picked_Up" from="Node3D2/Key_1/gate_key" to="." method="_on_gate_key_picked_up"]
 [connection signal="opened" from="Node3D2/brick_wall_gate/StaticBody3D" to="." method="_on_static_body_3d_opened"]
 [connection signal="tried_to_open" from="Node3D2/brick_wall_gate/StaticBody3D" to="." method="_on_static_body_3d_tried_to_open"]
 [connection signal="timeout" from="wendigoSpawner" to="wendigoSpawner" method="_on_timeout"]
 [connection signal="screen_entered" from="enemyspawnchecker" to="wendigoSpawner" method="_on_enemyspawnchecker_screen_entered"]
+[connection signal="timeout" from="decorations/20348ReceiverRadioV1Texture/Timer" to="decorations/20348ReceiverRadioV1Texture" method="_on_timer_timeout"]

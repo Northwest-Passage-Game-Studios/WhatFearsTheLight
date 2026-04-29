@@ -26,11 +26,11 @@ func _on_timeout() -> void:
 		
 		if abs(displaceX)+abs(displaceZ)<6:
 			if randi_range(0,1)==1:
-				displaceX=randi_range(6,9)
+				displaceX=randi_range(4,7)
 				if randi_range(0,1)==1:
 					displaceX*=-1
 			else:
-				displaceZ=randi_range(6,9)
+				displaceZ=randi_range(4,7)
 				if randi_range(0,1)==1:
 					displaceZ*=-1
 		print(str(displaceX)+"X and  "+str(displaceZ)+"Z")
