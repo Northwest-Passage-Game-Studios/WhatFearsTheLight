@@ -37,6 +37,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ck3vmnkl8i53f" path="res://worldAssets/beachStuff/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/20348_Receiver_radio_v1_Texture.obj" id="35_nuggl"]
 [ext_resource type="Script" uid="uid://b8o8jjk2dbdif" path="res://worldAssets/WorldSpaces/Beach_Level/20348_receiver_radio_v_1_texture.gd" id="36_lpeck"]
 [ext_resource type="AudioStream" uid="uid://dtlo3sk7v3scf" path="res://Sounds/SoundEffects/videoplayback (1).mp3" id="37_lpeck"]
+[ext_resource type="AudioStream" uid="uid://dguicfpivaqo2" path="res://Sounds/830254__nicktayloe__closer-ocean-waves-on-pebbly-beach-iceland-loop.mp3" id="38_3tdmf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3rti2"]
 sky_horizon_color = Color(0.385, 0.454, 0.55, 1)
@@ -1377,6 +1378,13 @@ transform = Transform3D(125, -3.8146973e-06, -3.8146973e-06, 0, 125.00001, 5.245
 stream = ExtResource("37_lpeck")
 volume_db = -40.0
 unit_size = 3.6
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="." unique_id=727877528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.043581, 0, -25.521479)
+stream = ExtResource("38_3tdmf")
+volume_db = -20.853
+unit_size = 45.1
 autoplay = true
 
 [connection signal="timeout" from="12219BoatV2L2/Timer" to="12219BoatV2L2" method="_on_timer_timeout"]
