@@ -19,3 +19,6 @@ func _ready() -> void:
 		
 	get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/Beach_Level/beach_scene.tscn")	
 	
+func _input(event: InputEvent) -> void:
+	if event.is_action("jump"):
+		get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/Beach_Level/beach_scene.tscn")	

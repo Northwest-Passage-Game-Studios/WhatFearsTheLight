@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://jxgoyu04p3vw"]
+
+[ext_resource type="AudioStream" uid="uid://brfxfe46vhvn8" path="res://Gobals/RadioSignal/Songs.tres" id="1_be0hm"]
+
+[node name="RadioStation" type="Node" unique_id=1437736124]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1110586496]
+stream = ExtResource("1_be0hm")

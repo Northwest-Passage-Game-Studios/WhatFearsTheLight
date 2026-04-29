@@ -19,3 +19,7 @@ func _ready() -> void:
 			color_tween_out.tween_property(child,"modulate",starting_mod,1)
 			await color_tween_out.finished
 	get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/MainMenu/main_menu.tscn")
+
+func _input(event: InputEvent) -> void:
+	if event.is_action("jump"):
+		get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/MainMenu/main_menu.tscn")
