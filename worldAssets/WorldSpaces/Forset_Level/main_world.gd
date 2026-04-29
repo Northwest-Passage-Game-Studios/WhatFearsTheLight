@@ -3,7 +3,7 @@ extends Node3D
 var grasse=preload("res://worldAssets/grass/WAVEYgrass.tscn")
 
 @onready var player: player_body = $Player
-@onready var key: Object_PickUp_Point = $Key_1/gate_key
+@onready var key: Object_PickUp_Point = $Node3D2/Key_1/gate_key
 @onready var grass_contair: Node3D = $grassContair
 @onready var tree_container: Node3D = $treeContainer
 @onready var reference_point: Node3D = $referencePoint

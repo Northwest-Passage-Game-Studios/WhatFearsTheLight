@@ -75,7 +75,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DebugPannel" type="Panel" parent="." unique_id=1868838487]
-visible = false
 layout_mode = 0
 offset_left = 990.0
 offset_right = 1155.0
@@ -85,6 +84,7 @@ offset_bottom = 165.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+text = "Debug"
 script = ExtResource("2_ing8j")
 
 [node name="fadeIn" type="ColorRect" parent="." unique_id=1326881781]
