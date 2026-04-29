@@ -21,16 +21,16 @@ func _process(delta: float) -> void:
 
 func _on_timeout() -> void:
 	if wendigo_container.get_child_count()==0:
-		displaceX=randi_range(-10,10)
-		displaceZ=randi_range(-10,10)
+		displaceX=randi_range(-6,6)
+		displaceZ=randi_range(-6,6)
 		
-		if abs(displaceX)+abs(displaceZ)<10:
+		if abs(displaceX)+abs(displaceZ)<6:
 			if randi_range(0,1)==1:
-				displaceX=randi_range(10,15)
+				displaceX=randi_range(6,9)
 				if randi_range(0,1)==1:
 					displaceX*=-1
 			else:
-				displaceZ=randi_range(10,15)
+				displaceZ=randi_range(6,9)
 				if randi_range(0,1)==1:
 					displaceZ*=-1
 		print(str(displaceX)+"X and  "+str(displaceZ)+"Z")
