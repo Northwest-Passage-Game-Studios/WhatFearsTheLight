@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://b0mtbn0tr08jq"]
+
+[ext_resource type="Script" uid="uid://c0xndraygyqm6" path="res://worldAssets/lamps/lamp.gd" id="1_2j8xn"]
+[ext_resource type="ArrayMesh" uid="uid://5btoki320edk" path="res://worldAssets/lamps/73-street-lamp/Street Lamp.obj" id="1_peck2"]
+[ext_resource type="AudioStream" uid="uid://bwl6remj4cvsm" path="res://Sounds/SoundEffects/322602__natty23__small-glass-break.mp3" id="3_jn5pu"]
+[ext_resource type="AudioStream" uid="uid://bt2o37gf7unlm" path="res://Sounds/SoundEffects/682640__jamgrif__lightbulbhum.mp3" id="4_886jm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_peck2"]
+albedo_color = Color(0.7001018, 0.7001018, 0.7001018, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q41tb"]
+shading_mode = 0
+albedo_color = Color(1.353256, 1.353256, 1.353256, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jn5pu"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2j8xn"]
+size = Vector3(2.6923828, 2.9432373, 3.0668335)
+
+[sub_resource type="Animation" id="Animation_3nmtv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("buzz:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StreetLamp/light/SpotLight3D:spot_attenuation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.4]
+}
+
+[sub_resource type="Animation" id="Animation_73e68"]
+resource_name = "lightBreak"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("buzz:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.46666667),
+"transitions": PackedFloat32Array(4.141063, 1),
+"update": 0,
+"values": [0.0, 80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StreetLamp/light/SpotLight3D:spot_attenuation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.4, -3.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eqmxg"]
+_data = {
+&"RESET": SubResource("Animation_3nmtv"),
+&"lightBreak": SubResource("Animation_73e68")
+}
+
+[node name="lamp" type="Node3D" unique_id=1693053798]
+script = ExtResource("1_2j8xn")
+
+[node name="StreetLamp" type="MeshInstance3D" parent="." unique_id=2046975625]
+transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0, 0)
+visibility_range_end = 25.0
+mesh = ExtResource("1_peck2")
+skeleton = NodePath("../..")
+surface_material_override/3 = SubResource("StandardMaterial3D_peck2")
+
+[node name="light" type="Node3D" parent="StreetLamp" unique_id=701341390]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="StreetLamp/light" unique_id=446041411]
+transform = Transform3D(333.33334, 0, 0, 0, -1.4570464e-05, 333.33334, 0, -333.33334, -1.4570464e-05, 408.21487, 1097.9993, 0)
+light_energy = 1.47
+light_volumetric_fog_energy = 3.941
+light_specular = 0.0
+spot_attenuation = -1.4
+spot_angle = 17.64
+
+[node name="whitesphere" type="CSGSphere3D" parent="StreetLamp/light" unique_id=1843792289]
+transform = Transform3D(1.75, 0, 0, 0, 1, 0, 0, 0, 1, 417.70218, 1109.7528, 0)
+radius = 34.149
+rings = 10
+material = SubResource("StandardMaterial3D_q41tb")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="StreetLamp" unique_id=708633943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -123.77051, 141.00757, 0)
+visible = false
+use_collision = true
+radius = 85.105
+height = 1000.0
+
+[node name="whitesphere2" type="CSGSphere3D" parent="StreetLamp" unique_id=1100801762]
+transform = Transform3D(1.75, 0, 0, 0, 1, 0, 0, 0, 1, 417.7022, 1109.7528, 0)
+radius = 34.0
+rings = 10
+material = SubResource("StandardMaterial3D_jn5pu")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=526473022]
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1189513483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9639379, 0.28460693, -0.035491943)
+shape = SubResource("BoxShape3D_2j8xn")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1109554104]
+stream = ExtResource("3_jn5pu")
+unit_size = 3.0
+
+[node name="buzz" type="AudioStreamPlayer3D" parent="." unique_id=1119108593]
+stream = ExtResource("4_886jm")
+unit_size = 3.0
+pitch_scale = 0.1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1444628599]
+libraries/ = SubResource("AnimationLibrary_eqmxg")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

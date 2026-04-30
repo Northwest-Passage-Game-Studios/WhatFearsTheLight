@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		
 	else:
 		csg_box_3d.visible=true
-		audio_stream_player_3d.pitch_scale=0.9
+		audio_stream_player_3d.pitch_scale=randf_range(0.95,0.98)
 
 func _on_timer_timeout() -> void:
 	flickering=true
@@ -33,4 +33,4 @@ func _on_timer_timeout() -> void:
 	audio_stream_player_3d.volume_db=0
 	var unglitchtween = get_tree().create_tween()
 	unglitchtween.tween_property(audio_stream_player_3d, "pitch_scale", 1.0, 1.0).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
-	timer.start(randf_range(0.6,1.0))
+	timer.start(randf_range(1.0,2.0))

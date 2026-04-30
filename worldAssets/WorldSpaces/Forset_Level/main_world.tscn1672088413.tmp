@@ -27,7 +27,6 @@
 [ext_resource type="ArrayMesh" uid="uid://ck3vmnkl8i53f" path="res://worldAssets/beachStuff/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/20348_Receiver_radio_v1_Texture.obj" id="25_0tqwv"]
 [ext_resource type="Script" uid="uid://dhvrw0likmjih" path="res://worldAssets/WorldSpaces/Forset_Level/20348_receiver_radio_v_1_texture.gd" id="26_1ww55"]
 [ext_resource type="AudioStream" uid="uid://dtlo3sk7v3scf" path="res://Sounds/SoundEffects/videoplayback (1).mp3" id="27_2amy5"]
-[ext_resource type="PackedScene" uid="uid://b0mtbn0tr08jq" path="res://worldAssets/lamps/lamp.tscn" id="28_1ww55"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mqh1b"]
 size = Vector2(1000, 1000)
@@ -4414,7 +4413,7 @@ transform = Transform3D(-0.10452851, 0, 0.9945219, 0, 1, 0, -0.9945219, 0, -0.10
 navigation_mesh = SubResource("NavigationMesh_sl3aq")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Node3D2" unique_id=264292193]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -129.7475, 22.5, 21.107008)
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -129.48438, 22.5, 21.348967)
 material_override = SubResource("StandardMaterial3D_kpegf")
 use_collision = true
 size = Vector3(71.71875, 10, 29.335876)
@@ -4994,7 +4993,7 @@ bone_name = "Bone.005.R"
 bone_idx = 24
 
 [node name="Animation_Node" type="Node3D" parent="Node3D2/Door_OpenSnece/Player/Armature/Skeleton3D/Item_Bone_Anchor" unique_id=2115404357]
-transform = Transform3D(0.91053915, 1.4901161e-08, -0.41342223, 0.17231618, 0.9089962, 0.37951678, 0.3757992, -0.4168044, 0.8276767, -0.02118873, -0.009946845, 0.104626484)
+transform = Transform3D(0.9105392, 1.4901161e-08, -0.41342223, 0.1723162, 0.9089962, 0.37951678, 0.37579924, -0.4168044, 0.8276767, -0.02118873, -0.009946845, 0.104626484)
 
 [node name="Key" type="Node3D" parent="Node3D2/Door_OpenSnece/Player/Armature/Skeleton3D/Item_Bone_Anchor/Animation_Node" unique_id=818561822]
 transform = Transform3D(0.99999964, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999994, 0, 0, 0)
@@ -5085,7 +5084,7 @@ autoplay = true
 [node name="Node3D" type="Node3D" parent="." unique_id=61715667]
 
 [node name="20348ReceiverRadioV1Texture" type="MeshInstance3D" parent="Node3D" unique_id=1153734782]
-transform = Transform3D(0.0038784773, -0.006996958, -3.0584674e-10, 0, -3.496911e-10, 0.008, -0.006996959, -0.0038784768, -1.695336e-10, -36.9408, 0.120491445, 12.030552)
+transform = Transform3D(0.0038784773, -0.006996958, -3.0584674e-10, 0, -3.496911e-10, 0.008, -0.006996959, -0.0038784768, -1.695336e-10, -50.339413, 0.120491445, 104.910095)
 mesh = ExtResource("25_0tqwv")
 script = ExtResource("26_1ww55")
 
@@ -5099,7 +5098,7 @@ transform = Transform3D(124.99925, 2.2888278e-05, -1.1444143e-05, -2.2888184e-05
 light_color = Color(1, 1, 0, 1)
 light_energy = 0.314
 spot_range = 0.767
-spot_attenuation = 0.2
+spot_attenuation = 1.85
 spot_angle = 180.0
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Node3D/20348ReceiverRadioV1Texture/CSGBox3D" unique_id=194612883]
@@ -5107,7 +5106,7 @@ transform = Transform3D(124.999245, 2.0980835e-05, 0.00026130676, -2.2888184e-05
 light_color = Color(1, 1, 0, 1)
 light_energy = 0.314
 spot_range = 0.767
-spot_attenuation = 0.2
+spot_attenuation = 1.85
 spot_angle = 180.0
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Node3D/20348ReceiverRadioV1Texture/CSGBox3D" unique_id=1835837408]
@@ -5115,7 +5114,7 @@ transform = Transform3D(124.99925, 2.2888184e-05, 0.0002593994, -2.2888184e-05, 
 light_color = Color(1, 1, 0, 1)
 light_energy = 0.314
 spot_range = 0.767
-spot_attenuation = 0.2
+spot_attenuation = 1.85
 spot_angle = 180.0
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="Node3D/20348ReceiverRadioV1Texture/CSGBox3D" unique_id=1522175230]
@@ -5123,7 +5122,7 @@ transform = Transform3D(124.999245, 2.2888184e-05, 0.00026512146, -2.2888184e-05
 light_color = Color(1, 1, 0, 1)
 light_energy = 0.314
 spot_range = 0.767
-spot_attenuation = 0.2
+spot_attenuation = 1.85
 spot_angle = 180.0
 
 [node name="Timer" type="Timer" parent="Node3D/20348ReceiverRadioV1Texture" unique_id=886059608]
@@ -5133,82 +5132,8 @@ one_shot = true
 transform = Transform3D(125, -3.8146973e-06, -3.8146973e-06, 0, 125.00001, 5.2452087e-06, 0, 1.4305115e-06, 125, 4.89209, -16.546753, 49.633667)
 stream = ExtResource("27_2amy5")
 volume_db = -40.0
-unit_size = 1.5
+unit_size = 3.6
 autoplay = true
-
-[node name="Node3D3" type="Node3D" parent="." unique_id=1918270141]
-
-[node name="lamp" parent="Node3D3" unique_id=1693053798 instance=ExtResource("28_1ww55")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.623993, 1.6231036, 83.68998)
-
-[node name="lamp2" parent="Node3D3" unique_id=795837225 instance=ExtResource("28_1ww55")]
-transform = Transform3D(0.809017, 0, -0.58778524, 0, 1, 0, 0.58778524, 0, 0.809017, -48.84023, 1.6231036, 70.83814)
-
-[node name="lamp3" parent="Node3D3" unique_id=531726419 instance=ExtResource("28_1ww55")]
-transform = Transform3D(-0.5269557, 0, -0.84989274, 0, 1, 0, 0.84989274, 0, -0.5269557, -51.548798, 1.6231036, 53.97679)
-
-[node name="lamp4" parent="Node3D3" unique_id=909888254 instance=ExtResource("28_1ww55")]
-transform = Transform3D(0.263873, 0, -0.9645574, 0, 1, 0, 0.9645574, 0, 0.263873, -40.304276, 1.6231036, 43.06406)
-
-[node name="lamp5" parent="Node3D3" unique_id=402227371 instance=ExtResource("28_1ww55")]
-transform = Transform3D(-0.6819983, 0, 0.73135364, 0, 1, 0, -0.73135364, 0, -0.6819983, -27.08334, 1.6231036, 34.813786)
-
-[node name="lamp6" parent="Node3D3" unique_id=849457529 instance=ExtResource("28_1ww55")]
-transform = Transform3D(-0.99999833, 0, -0.0017453103, 0, 1, 0, 0.0017453103, 0, -0.99999833, -13.180748, 1.6231036, 20.06528)
-
-[node name="lamp7" parent="Node3D3" unique_id=1204544648 instance=ExtResource("28_1ww55")]
-transform = Transform3D(0.21814324, 0, -0.97591656, 0, 1, 0, 0.97591656, 0, 0.21814324, -15.051136, 1.6231036, 5.1957664)
-
-[node name="lamp8" parent="Node3D3" unique_id=106346690 instance=ExtResource("28_1ww55")]
-transform = Transform3D(-0.77824306, 0, -0.62796295, 0, 1, 0, 0.62796295, 0, -0.77824306, -26.197218, 1.6231036, 0.5790067)
-
-[node name="lamp9" parent="Node3D3" unique_id=918900246 instance=ExtResource("28_1ww55")]
-transform = Transform3D(0.83484775, 0, 0.55048066, 0, 1, 0, -0.55048066, 0, 0.83484775, -38.076107, 1.6231036, -2.6998334)
-
-[node name="lamp10" parent="Node3D3" unique_id=523506458 instance=ExtResource("28_1ww55")]
-transform = Transform3D(-0.4832824, 0, -0.8754644, 0, 1, 0, 0.8754644, 0, -0.4832824, -43.46298, 1.6231036, -13.539426)
-
-[node name="lamp11" parent="Node3D3" unique_id=1495835127 instance=ExtResource("28_1ww55")]
-transform = Transform3D(0.98061454, 0, 0.19594611, 0, 1, 0, -0.19594611, 0, 0.98061454, -57.789787, 1.6231036, -13.539426)
-
-[node name="lamp12" parent="Node3D3" unique_id=122370700 instance=ExtResource("28_1ww55")]
-transform = Transform3D(0.44619772, 0, -0.89493424, 0, 1, 0, 0.89493424, 0, 0.44619772, -57.789787, 1.6231036, -28.283484)
-
-[node name="lamp13" parent="Node3D3" unique_id=33363427 instance=ExtResource("28_1ww55")]
-transform = Transform3D(-0.25881898, 0, -0.96592563, 0, 1, 0, 0.96592563, 0, -0.25881898, -50.41861, 1.6231036, -38.65088)
-
-[node name="lamp14" parent="Node3D3" unique_id=110379864 instance=ExtResource("28_1ww55")]
-transform = Transform3D(0.83867043, 0, -0.5446388, 0, 1, 0, 0.5446388, 0, 0.83867043, -46.422836, 1.6231036, 94.5137)
-
-[node name="lamp15" parent="Node3D3" unique_id=579723279 instance=ExtResource("28_1ww55")]
-transform = Transform3D(0.83867043, 0, -0.5446388, 0, 1, 0, 0.5446388, 0, 0.83867043, -37.42595, 1.6231036, -46.900505)
-
-[node name="lamp16" parent="Node3D3" unique_id=273352260 instance=ExtResource("28_1ww55")]
-transform = Transform3D(0.076718986, 0, -0.9970525, 0, 1, 0, 0.9970525, 0, 0.076718986, -28.994804, 1.6231036, -58.119354)
-
-[node name="lamp17" parent="Node3D3" unique_id=1850485850 instance=ExtResource("28_1ww55")]
-transform = Transform3D(0.076718986, 0, -0.9970525, 0, 1, 0, 0.9970525, 0, 0.076718986, -19.595974, 1.6231036, -69.56311)
-
-[node name="lamp18" parent="Node3D3" unique_id=1438502581 instance=ExtResource("28_1ww55")]
-transform = Transform3D(0.076718986, 0, -0.9970525, 0, 1, 0, 0.9970525, 0, 0.076718986, -6.1077833, 1.6231036, -76.309525)
-
-[node name="lamp19" parent="Node3D3" unique_id=1582686964 instance=ExtResource("28_1ww55")]
-transform = Transform3D(0.06801529, 0, 0.997684, 0, 1, 0, -0.997684, 0, 0.06801529, 2.084403, 1.6231036, -61.28002)
-
-[node name="lamp20" parent="Node3D3" unique_id=375783235 instance=ExtResource("28_1ww55")]
-transform = Transform3D(-0.90850794, 0, 0.41786686, 0, 1, 0, -0.41786686, 0, -0.90850794, 17.424995, 1.6231036, -56.108433)
-
-[node name="lamp21" parent="Node3D3" unique_id=1323930415 instance=ExtResource("28_1ww55")]
-transform = Transform3D(0.3502072, 0, 0.9366719, 0, 1, 0, -0.9366719, 0, 0.3502072, 10.735828, 1.6231036, -40.89638)
-
-[node name="lamp22" parent="Node3D3" unique_id=585094415 instance=ExtResource("28_1ww55")]
-transform = Transform3D(-0.5313984, 0, 0.84712166, 0, 1, 0, -0.84712166, 0, -0.5313984, 15.681915, 1.6231036, -25.261702)
-
-[node name="lamp23" parent="Node3D3" unique_id=1059181401 instance=ExtResource("28_1ww55")]
-transform = Transform3D(0.80901676, 0, 0.58778507, 0, 1, 0, -0.58778507, 0, 0.80901676, 2.5018768, 1.6231036, -18.99432)
-
-[node name="lamp24" parent="Node3D3" unique_id=1057464025 instance=ExtResource("28_1ww55")]
-transform = Transform3D(-0.52695566, 0, 0.84989244, 0, 1, 0, -0.84989244, 0, -0.52695566, 12.27228, 1.6231036, -5.4473305)
 
 [connection signal="Picked_Up" from="Node3D2/Key_1/gate_key" to="." method="_on_gate_key_picked_up"]
 [connection signal="opened" from="Node3D2/brick_wall_gate/StaticBody3D" to="." method="_on_static_body_3d_opened"]

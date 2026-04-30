@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b0mtbn0tr08jq"]
+
+[ext_resource type="Script" uid="uid://c0xndraygyqm6" path="res://worldAssets/lamps/lamp.gd" id="1_2j8xn"]
+[ext_resource type="ArrayMesh" uid="uid://5btoki320edk" path="res://worldAssets/lamps/73-street-lamp/Street Lamp.obj" id="1_peck2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_peck2"]
+albedo_color = Color(0.7001018, 0.7001018, 0.7001018, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q41tb"]
+shading_mode = 0
+albedo_color = Color(1.353256, 1.353256, 1.353256, 1)
+
+[node name="lamp" type="Node3D" unique_id=1693053798]
+script = ExtResource("1_2j8xn")
+
+[node name="StreetLamp" type="MeshInstance3D" parent="." unique_id=2046975625]
+transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0, 0)
+visibility_range_end = 25.0
+mesh = ExtResource("1_peck2")
+skeleton = NodePath("../..")
+surface_material_override/3 = SubResource("StandardMaterial3D_peck2")
+
+[node name="light" type="Node3D" parent="StreetLamp" unique_id=701341390]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="StreetLamp/light" unique_id=446041411]
+transform = Transform3D(333.33334, 0, 0, 0, -1.4570464e-05, 333.33334, 0, -333.33334, -1.4570464e-05, 408.21487, 1097.9993, 0)
+light_energy = 1.47
+light_volumetric_fog_energy = 3.941
+light_specular = 0.0
+spot_attenuation = -1.4
+spot_angle = 17.64
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="StreetLamp/light" unique_id=1843792289]
+transform = Transform3D(1.75, 0, 0, 0, 1, 0, 0, 0, 1, 417.70218, 1109.7528, 0)
+radius = 34.149
+rings = 10
+material = SubResource("StandardMaterial3D_q41tb")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="StreetLamp" unique_id=708633943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -123.77051, 141.00757, 0)
+visible = false
+use_collision = true
+radius = 85.105
+height = 1000.0
+
+[node name="Timer" type="Timer" parent="." unique_id=1197275015]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
