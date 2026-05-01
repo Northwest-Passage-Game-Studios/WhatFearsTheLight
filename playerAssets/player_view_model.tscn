@@ -2276,6 +2276,10 @@ volume_db = -15.0
 [node name="blackAnimator" type="AnimationPlayer" parent="." unique_id=22140373]
 libraries/ = SubResource("AnimationLibrary_eatdm")
 
+[node name="coyoteTime" type="Timer" parent="." unique_id=1180053422]
+wait_time = 0.25
+one_shot = true
+
 [connection signal="can_pick_up" from="." to="CanvasLayer/Hud" method="can_intercat"]
 [connection signal="note_added" from="Armature/Skeleton3D/Item_Bone_Anchor" to="CanvasLayer/Hud" method="_on_item_bone_anchor_note_added"]
 [connection signal="animation_changed" from="Armature/AnimationPlayer" to="." method="_on_animation_player_animation_changed"]

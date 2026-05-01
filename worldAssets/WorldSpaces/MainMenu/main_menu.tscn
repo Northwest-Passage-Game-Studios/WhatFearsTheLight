@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cpqiiurdc062b" path="res://worldAssets/water/pSXWater/ocean_surface/waterTileabke.jpg" id="3_5n05f"]
 [ext_resource type="ArrayMesh" uid="uid://i6imfkqn5vy8" path="res://Shaders/Smoke/Mesh.tres" id="3_aw34y"]
 [ext_resource type="Texture2D" uid="uid://cox5s051a157q" path="res://worldAssets/sky/mud_road_puresky_4k.exr" id="7_p46oc"]
+[ext_resource type="AudioStream" uid="uid://dtlo3sk7v3scf" path="res://Sounds/SoundEffects/videoplayback (1).mp3" id="8_vsltj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h88mj"]
 font_size = 36
@@ -271,5 +272,11 @@ shape = SubResource("BoxShape3D_oqeu1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1396252631]
 environment = SubResource("Environment_uhi3m")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=593065498]
+stream = ExtResource("8_vsltj")
+volume_db = -10.685
+pitch_scale = 0.93
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Control/Play" to="." method="_on_play_pressed"]

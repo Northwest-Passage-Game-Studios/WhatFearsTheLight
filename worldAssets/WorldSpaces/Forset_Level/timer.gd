@@ -37,11 +37,12 @@ func _on_timeout() -> void:
 		enemyspawnchecker.global_position.x=player.global_position.x+displaceX
 		enemyspawnchecker.global_position.z=player.global_position.z+displaceZ
 		enemyspawnchecker.visible=true
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.25).timeout
 		print("SPawned")
 		enemyspawnchecker.visible=false
 		var wendInst:wendigo=wendigoScene.instantiate()
 		wendigo_container.add_child(wendInst)
+		print(str(displaceX)+"X and  "+str(displaceZ)+"Z")
 		wendInst.global_position.y=reference_point.global_position.y
 		wendInst.global_position.x=player.global_position.x+displaceX
 		wendInst.global_position.z=player.global_position.z+displaceZ

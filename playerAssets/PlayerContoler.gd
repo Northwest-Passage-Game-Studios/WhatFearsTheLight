@@ -24,6 +24,7 @@ class_name player_body extends CharacterBody3D
 @onready var footstep_player: AudioStreamPlayer = $footstepPlayer
 @onready var color_rect: ColorRect = $CanvasLayer/ColorRect
 @onready var hud: Control = $CanvasLayer/Hud
+@onready var coyote_time: Timer = $coyoteTime
 
 
 @export_category("Walk Settings")
@@ -117,6 +118,8 @@ func _process(delta: float) -> void:
 	rotate_head(delta)
 	_pick_up_check()
 func _physics_process(delta: float) -> void:
+	if is_on_floor():
+		coyote_time.start()
 	Manager.infiniStamina=permaSprint
 	Manager.infiniFlash=permaFlash
 	Manager.moving=velocity!=Vector3.ZERO
@@ -164,23 +167,17 @@ func _physics_process(delta: float) -> void:
 		head_bobtime += delta*velocity.length()*float(is_on_floor())
 		neck.transform.origin=_head_bob(head_bobtime)-Vector3(0,0.65,0)
 	#Jump code, not sure if I want to keep it or not. :/
-	if Input.is_action_just_pressed("jump") && is_on_floor() && crouchTweening==0 && jumpStrength>3 && stamina>1.5 && !exhausted:
-		velocity.y+=int(jumpStrength)+1
+	if Input.is_action_just_pressed("jump") && !coyote_time.is_stopped() && crouchTweening==0 && jumpStrength>3 && stamina>1.5 && !exhausted:
+		coyote_time.stop()
+		velocity.y=int(jumpStrength)+1
 		if !permaSprint:
 			stamina-=1
-		if sprinting:
-			await get_tree().create_timer(0.02).timeout
-			velocity.x*=2.0
-			velocity.y-=1
-			velocity.z*=2.0
-			if !permaSprint:
-				stamina-=0.5
 		if jumpStrength>1:
 			jumpStrength-=2
 		else:
 			jumpStrength=1
-	if jumpStrength<7:
-		jumpStrength+=1.5*delta
+	if jumpStrength<7.0:
+		jumpStrength+=3.5*delta
 	
 	
 	if crouchTweening==2 && speed>crouchSpeed:
@@ -241,9 +238,8 @@ func _physics_process(delta: float) -> void:
 	if !crouch_delay.is_stopped():
 		if canStand:
 			Input.action_press("ctrl")
-	if is_on_floor() || !sprinting:
-		velocity.x = walkDir.x * speed
-		velocity.z = walkDir.z * speed
+	velocity.x = walkDir.x * speed
+	velocity.z = walkDir.z * speed
 	if !is_on_floor():
 		if velocity.y>-20:
 			velocity.y-=gravity

@@ -67,7 +67,7 @@ func _ready() -> void:
 	if debug_target!=null:
 		target=debug_target
 	if not is_red_eye:
-		kill_timer.start(10.0)
+		kill_timer.start(7.0)
 		csg_sphere_3d.material=white_eye_mat
 		csg_sphere_3d_2.material=white_eye_mat
 		left_eye_light.light_color=Color.WHITE
