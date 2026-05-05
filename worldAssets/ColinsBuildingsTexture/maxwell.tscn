@@ -364,8 +364,16 @@ _data = {
 [node name="maxwell" type="Node3D" unique_id=57271443]
 script = ExtResource("1_2nssb")
 
-[node name="Root Scene" parent="." unique_id=369192130 instance=ExtResource("1_6eso1")]
+[node name="Root Scene" parent="." unique_id=130003538 instance=ExtResource("1_6eso1")]
 transform = Transform3D(0.165, 0, 0, 0, 0.165, 0, 0, 0, 0.165, -0.059, 0, 0.13)
+
+[node name="Maxwell" parent="Root Scene/RootNode" parent_id_path=PackedInt32Array(130003538, 235675015) index="0" unique_id=871049246]
+layers = 524288
+gi_mode = 0
+
+[node name="whiskers" parent="Root Scene/RootNode" parent_id_path=PackedInt32Array(130003538, 235675015) index="1" unique_id=2079993537]
+layers = 524288
+gi_mode = 0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="Root Scene" unique_id=514806572]
 stream = ExtResource("3_g8sh0")
@@ -386,6 +394,90 @@ amount = 5
 lifetime = 8.82
 process_material = SubResource("ParticleProcessMaterial_vulmt")
 draw_pass_1 = SubResource("ArrayMesh_p08r6")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Root Scene" unique_id=2081753128]
+transform = Transform3D(6.060606, 0, 0, 0, 6.060606, 0, 0, 0, 6.060606, 0, 2.9468935, -0.30049482)
+layers = 524288
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_size = 16.0
+light_cull_mask = 4294443008
+spot_range = 0.664
+spot_attenuation = 0.0
+spot_angle = 180.0
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Root Scene" unique_id=916408472]
+transform = Transform3D(6.060606, 0, 0, 0, 6.060606, 0, 0, 0, 6.060606, -0.589098, 2.9468935, 1.5845273)
+layers = 524288
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_size = 16.0
+light_cull_mask = 4294443008
+spot_range = 0.664
+spot_attenuation = 0.0
+spot_angle = 180.0
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="Root Scene" unique_id=1806823999]
+transform = Transform3D(6.060606, 0, 0, 0, 6.060606, 0, 0, 0, 6.060606, -0.9252069, 1.9740305, -3.140801)
+layers = 524288
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_size = 16.0
+light_cull_mask = 4294443008
+spot_range = 0.664
+spot_attenuation = 0.0
+spot_angle = 180.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Root Scene" unique_id=1453823235]
+transform = Transform3D(6.060606, 0, 0, 0, 6.060606, 0, 0, 0, 6.060606, -2.4354632, 1.0803783, -0.30049482)
+layers = 524288
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_size = 16.0
+light_cull_mask = 4294443008
+spot_range = 0.664
+spot_attenuation = 0.0
+spot_angle = 180.0
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Root Scene" unique_id=939845538]
+transform = Transform3D(6.060606, 0, 0, 0, 6.060606, 0, 0, 0, 6.060606, 0.12867224, 1.0803783, 3.028174)
+layers = 524288
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_size = 16.0
+light_cull_mask = 4294443008
+spot_range = 0.664
+spot_attenuation = 0.0
+spot_angle = 180.0
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Root Scene" unique_id=1353618777]
+transform = Transform3D(6.060606, 0, 0, 0, 6.060606, 0, 0, 0, 6.060606, 2.5180168, 1.0803783, 0.07853216)
+layers = 524288
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_size = 16.0
+light_cull_mask = 4294443008
+spot_range = 0.664
+spot_attenuation = 0.0
+spot_angle = 180.0
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Root Scene" unique_id=183567616]
+transform = Transform3D(6.060606, 0, 0, 0, 6.060606, 0, 0, 0, 6.060606, 2.5180168, 1.0803783, -3.6994429)
+layers = 524288
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_size = 16.0
+light_cull_mask = 4294443008
+spot_range = 0.664
+spot_attenuation = 0.0
+spot_angle = 180.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=403867628]
 libraries/ = SubResource("AnimationLibrary_vulmt")
@@ -465,3 +557,5 @@ libraries/ = SubResource("AnimationLibrary_ibr3m")
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="flashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="animation_finished" from="lightsEffectsAnimator" to="." method="_on_lights_effects_animator_animation_finished"]
+
+[editable path="Root Scene"]

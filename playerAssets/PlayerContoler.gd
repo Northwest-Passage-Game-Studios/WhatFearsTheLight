@@ -255,6 +255,9 @@ func murdered(thing : String)->void:
 	if thing=="Wendigo":
 		await get_tree().create_timer(0.2).timeout
 		get_tree().change_scene_to_file("res://Monsters/Wendigo/wendigo_jumpscare.tscn")
+	if thing=="WendigoR":
+		await get_tree().create_timer(0.2).timeout
+		get_tree().change_scene_to_file("res://Monsters/Wendigo/wendigo_jumpscare_red.tscn")
 	if thing=="Blindman":
 		await get_tree().create_timer(0.2).timeout
 		get_tree().change_scene_to_file("res://Monsters/BlindMan/blindman_jumpscare.tscn")

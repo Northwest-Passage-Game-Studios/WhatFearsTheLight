@@ -13,6 +13,7 @@ extends Node3D
 var flashing:=false
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var ouiao:=false
+signal donezo
 var stops:=6
 @onready var gpu_particles_3d: GPUParticles3D = $"Root Scene/GPUParticles3D"
 @onready var gpu_particles_3d_2: GPUParticles3D = $"Root Scene/GPUParticles3D2"
@@ -87,4 +88,5 @@ func _on_flash_timer_timeout() -> void:
 
 
 func _on_audio_stream_player_3d_finished() -> void:
+	donezo.emit()
 	queue_free()

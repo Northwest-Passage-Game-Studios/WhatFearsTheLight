@@ -47,6 +47,7 @@ func _process(delta: float) -> void:
 				explode.play()
 				buzzing.stop()
 			is_broken=true
+			Manager.flashlightOn=false
 			spot_light_3d.light_energy=0
 			spot_light_3d.spot_range=0
 	else:

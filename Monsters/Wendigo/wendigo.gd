@@ -191,4 +191,7 @@ func _on_footstep_interval_timeout() -> void:
 
 func _on_player_kill_trigger_body_entered(body: Node3D) -> void:
 	if body is player_body:
-		body.murdered("Wendigo")
+		if is_red_eye:
+			body.murdered("WendigoR")
+		else:
+			body.murdered("Wendigo")

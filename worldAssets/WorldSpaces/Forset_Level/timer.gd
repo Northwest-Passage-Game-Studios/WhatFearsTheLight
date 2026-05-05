@@ -56,3 +56,15 @@ func _on_enemyspawnchecker_screen_entered() -> void:
 	print("FLipped")
 	displaceX*=-1
 	displaceZ*=-1
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	paused=true
+	player.permaFlash=true
+	var wendigos=wendigo_container.get_children()
+	if wendigos.size()!=0:
+		wendigos[0].queue_free()
+
+func _on_maxwell_donezo() -> void:
+	paused=false
+	player.permaFlash=false
