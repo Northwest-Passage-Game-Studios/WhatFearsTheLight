@@ -4,6 +4,7 @@ extends Node3D
 @export var end_color:Color
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/Open_Scene/Main_Sence.tscn")
+	Save_Handler.current_save_file=save_file.new()
 
 func _ready() -> void:
 	var fade_out_tween = create_tween()

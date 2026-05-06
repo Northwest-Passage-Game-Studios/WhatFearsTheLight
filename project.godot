@@ -29,6 +29,8 @@ config/icon="uid://hv4nofyrrkrx"
 
 Manager="*uid://cvmvt02xp02ld"
 Quest_Manger="*uid://b38wn8nj3n6h5"
+Save_Handler="*uid://b1783fwor3ncv"
+RadioStation="*uid://jxgoyu04p3vw"
 
 [display]
 

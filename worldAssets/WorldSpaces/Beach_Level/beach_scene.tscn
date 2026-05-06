@@ -34,9 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://wimqjeqrlgdu" path="res://worldAssets/beachStuff/boxes/Wooden Crate/Textures/2048/Wooden Crate_Crate_Normal.png" id="28_seswe"]
 [ext_resource type="Texture2D" uid="uid://ck3nbm02fdjxd" path="res://worldAssets/beachStuff/boxes/Wooden Crate/Textures/1024/Wooden Crate_Crate_BaseColor.png" id="29_seswe"]
 [ext_resource type="Texture2D" uid="uid://7yji4kcvhgih" path="res://worldAssets/beachStuff/lighthouse.png" id="33_46map"]
-[ext_resource type="ArrayMesh" uid="uid://ck3vmnkl8i53f" path="res://worldAssets/beachStuff/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/20348_Receiver_radio_v1_Texture.obj" id="35_nuggl"]
-[ext_resource type="Script" uid="uid://b8o8jjk2dbdif" path="res://worldAssets/WorldSpaces/Beach_Level/20348_receiver_radio_v_1_texture.gd" id="36_lpeck"]
-[ext_resource type="AudioStream" uid="uid://dtlo3sk7v3scf" path="res://Sounds/SoundEffects/videoplayback (1).mp3" id="37_lpeck"]
+[ext_resource type="PackedScene" uid="uid://bm5wwbqa05j0q" path="res://worldAssets/Radio/radio.tscn" id="35_nuggl"]
 [ext_resource type="AudioStream" uid="uid://dguicfpivaqo2" path="res://Sounds/830254__nicktayloe__closer-ocean-waves-on-pebbly-beach-iceland-loop.mp3" id="38_3tdmf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3rti2"]
@@ -590,13 +588,6 @@ size = Vector3(0.8651123, 0.64404297, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_d7nan"]
 size = Vector3(56.648193, 38.24707, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3s3e"]
-transparency = 1
-albedo_color = Color(3.003151, 3.003151, 0, 0.007843138)
-emission_enabled = true
-emission = Color(1, 1, 0, 1)
-emission_energy_multiplier = 3.53
-
 [node name="beachScene" type="Node3D" unique_id=159205370]
 script = ExtResource("1_xnhl1")
 
@@ -795,7 +786,7 @@ transform = Transform3D(0.5293835, 0, -1.8143464, 0, 1.89, 0, 1.8143464, 0, 0.52
 [node name="Rock22" parent="Node3D" unique_id=953305565 instance=ExtResource("15_57qcg")]
 transform = Transform3D(-0.8194677, 0, -0.35985774, 0, 0.895, 0, 0.35985774, 0, -0.8194677, 0.9927058, 2.0385308, -97.14975)
 
-[node name="Rock8" parent="Node3D/Rock22" index="0" unique_id=330910916]
+[node name="Rock8" parent="Node3D/Rock22" index="0" unique_id=1514517585]
 material_override = SubResource("StandardMaterial3D_aibvq")
 
 [node name="Label3D" type="Label3D" parent="Node3D/Rock22/Rock8" index="0" unique_id=22892954]
@@ -838,7 +829,7 @@ shape = SubResource("BoxShape3D_j4b3f")
 [node name="Rock23" parent="Node3D" unique_id=485673582 instance=ExtResource("15_57qcg")]
 transform = Transform3D(-1.4100338, -1.0002404e-08, -0.39001343, 0.09453606, 0.88450736, -0.13559686, 0.61193734, -0.13664447, -0.8777261, 0.9927058, 1.4628043, -103.27665)
 
-[node name="Rock8" parent="Node3D/Rock23" index="0" unique_id=330910916]
+[node name="Rock8" parent="Node3D/Rock23" index="0" unique_id=1514517585]
 transform = Transform3D(1.0000002, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1.0000002, 0, 0.46550477, 0)
 material_override = SubResource("StandardMaterial3D_aibvq")
 
@@ -882,7 +873,7 @@ shape = SubResource("BoxShape3D_fhhh3")
 [node name="Rock21" parent="Node3D" unique_id=1368774742 instance=ExtResource("15_57qcg")]
 transform = Transform3D(0.8045719, -0.02971485, 0.15550262, -0.04089503, -0.81710017, 0.055452336, 0.15294322, -0.062164236, -0.8032086, 0.02082777, 3.9426098, -90.33201)
 
-[node name="Rock8" parent="Node3D/Rock21" index="0" unique_id=330910916]
+[node name="Rock8" parent="Node3D/Rock21" index="0" unique_id=1514517585]
 material_override = null
 surface_material_override/0 = SubResource("StandardMaterial3D_ejrn3")
 
@@ -1328,57 +1319,8 @@ transform = Transform3D(10.765, 0, 0, 0, 10.765, 0, 0, 0, 10.765, 18.440828, 71.
 modulate = Color(0, 0, 0, 1)
 texture = ExtResource("33_46map")
 
-[node name="20348ReceiverRadioV1Texture" type="MeshInstance3D" parent="." unique_id=313173254]
-transform = Transform3D(-0.0015104668, -0.0019831294, -0.00760169, -0.0009492962, -0.0076381247, 0.002181261, -0.0077985474, 0.001313872, 0.0012068192, -7.248749, 0.8668994, -35.083733)
-mesh = ExtResource("35_nuggl")
-script = ExtResource("36_lpeck")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="20348ReceiverRadioV1Texture" unique_id=338660196]
-transform = Transform3D(1.000006, -2.0861626e-07, -1.9967556e-06, 1.937151e-07, 1.0000018, 4.6938658e-07, -1.4901161e-07, -8.195639e-08, 1.0000012, -0.027832031, -19.635254, 52.172424)
-size = Vector3(36.886368, 1, 24.85794)
-material = SubResource("StandardMaterial3D_f3s3e")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="20348ReceiverRadioV1Texture/CSGBox3D" unique_id=60170419]
-transform = Transform3D(124.99925, 2.4795532e-05, 0.00025367737, -2.2888184e-05, 124.99977, -4.2438507e-05, 1.1444092e-05, 7.1525574e-07, 124.999855, -10.413574, -2.8868408, -1.7023926)
-light_color = Color(1, 1, 0, 1)
-light_energy = 0.314
-spot_range = 0.135
-spot_attenuation = 1.52
-spot_angle = 180.0
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="20348ReceiverRadioV1Texture/CSGBox3D" unique_id=959049885]
-transform = Transform3D(124.999245, 2.0980835e-05, 0.00026130676, -2.2888184e-05, 124.99977, -3.7908554e-05, 5.722046e-06, -2.861023e-06, 124.99986, -10.423828, -2.454956, 8.978516)
-light_color = Color(1, 1, 0, 1)
-light_energy = 0.314
-spot_range = 0.135
-spot_attenuation = 1.52
-spot_angle = 180.0
-
-[node name="SpotLight3D3" type="SpotLight3D" parent="20348ReceiverRadioV1Texture/CSGBox3D" unique_id=1311607694]
-transform = Transform3D(124.99925, 2.2888184e-05, 0.0002593994, -2.2888184e-05, 124.99977, -3.9577484e-05, 7.6293945e-06, -1.1920929e-06, 124.999855, 9.70166, -6.275818, -4.8152466)
-light_color = Color(1, 1, 0, 1)
-light_energy = 0.314
-spot_range = 0.135
-spot_attenuation = 1.52
-spot_angle = 180.0
-
-[node name="SpotLight3D4" type="SpotLight3D" parent="20348ReceiverRadioV1Texture/CSGBox3D" unique_id=1744291503]
-transform = Transform3D(124.999245, 2.2888184e-05, 0.00026512146, -2.2888184e-05, 124.99977, -3.862381e-05, 0, -5.00679e-06, 124.99986, 9.691895, -5.843872, 5.8657227)
-light_color = Color(1, 1, 0, 1)
-light_energy = 0.314
-spot_range = 0.135
-spot_attenuation = 1.52
-spot_angle = 180.0
-
-[node name="Timer" type="Timer" parent="20348ReceiverRadioV1Texture" unique_id=743730395]
-one_shot = true
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="20348ReceiverRadioV1Texture" unique_id=216039061]
-transform = Transform3D(125, -3.8146973e-06, -3.8146973e-06, 0, 125.00001, 5.2452087e-06, 0, 1.4305115e-06, 125, 4.89209, -16.546753, 49.633667)
-stream = ExtResource("37_lpeck")
-volume_db = -40.0
-unit_size = 3.6
-autoplay = true
+[node name="20348ReceiverRadioV1Texture" parent="." unique_id=1742159539 instance=ExtResource("35_nuggl")]
+transform = Transform3D(-0.001510467, -0.0019831292, -0.0076016895, -0.000949297, -0.007638124, 0.0021812606, -0.007798547, 0.0013138729, 0.0012068192, -7.248749, 0.8668994, -35.083733)
 
 [node name="beachSounds" type="AudioStreamPlayer3D" parent="." unique_id=727877528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.043581, 0, -25.521479)
@@ -1391,7 +1333,6 @@ autoplay = true
 [connection signal="timeout" from="12219BoatV2L2/flickerTimer" to="12219BoatV2L2" method="_on_flicker_timer_timeout"]
 [connection signal="teleport_signal" from="Door_Interact" to="." method="_on_door_interact_teleport_signal"]
 [connection signal="Picked_Up" from="Pickable" to="." method="_on_pickable_picked_up"]
-[connection signal="timeout" from="20348ReceiverRadioV1Texture/Timer" to="20348ReceiverRadioV1Texture" method="_on_timer_timeout"]
 
 [editable path="Node3D/Rock22"]
 [editable path="Node3D/Rock23"]

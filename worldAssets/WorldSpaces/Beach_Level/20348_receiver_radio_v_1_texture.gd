@@ -1,12 +1,23 @@
-extends MeshInstance3D
+@icon("godot/editor/icons/AudioStreamOggVorbis.svg")
+class_name Radio extends MeshInstance3D
+
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var timer: Timer = $Timer
 var flickering:=false
 @onready var csg_box_3d: CSGBox3D = $CSGBox3D
 @onready var beach_sounds: AudioStreamPlayer3D = $"../beachSounds"
 
+
+@export var use_gobal_radio:=false
+@export var radio_audio_stream:AudioStream
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if use_gobal_radio:
+		audio_stream_player_3d.stream=RadioStation.audio_stream_player.stream
+	else:
+		audio_stream_player_3d.stream=radio_audio_stream
+		
 	var glitchtween = get_tree().create_tween()
 	glitchtween.tween_property(audio_stream_player_3d, "volume_db", 0, 2.5)
 	await get_tree().create_timer(2.5).timeout

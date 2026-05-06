@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c8ukrkmbiuhqu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pg2v3"]
+font_size = 8
+
+[node name="Save_File_UI" type="Panel" unique_id=1617600258]
+custom_minimum_size = Vector2(250, 40)
+
+[node name="Label" type="Label" parent="." unique_id=1190864643]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Save File Name"
+
+[node name="Label2" type="Label" parent="." unique_id=1455759240]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -12.0
+offset_right = 118.0
+grow_vertical = 0
+text = "Last Played"
+label_settings = SubResource("LabelSettings_pg2v3")

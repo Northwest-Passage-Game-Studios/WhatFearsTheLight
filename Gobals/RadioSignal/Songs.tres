@@ -1,3 +1,9 @@
 [gd_resource type="AudioStreamPlaylist" format=3 uid="uid://brfxfe46vhvn8"]
 
+[ext_resource type="AudioStream" uid="uid://6qwcm1rdhgq" path="res://Sounds/SoundEffects/SOS.wav" id="1_7ifn6"]
+[ext_resource type="AudioStream" uid="uid://bnms6jc8avnhb" path="res://Sounds/SoundEffects/587013__lewooz__kitchen-noises-microwave.mp3" id="2_l6id2"]
+
 [resource]
+stream_count = 2
+stream_0 = ExtResource("1_7ifn6")
+stream_1 = ExtResource("2_l6id2")

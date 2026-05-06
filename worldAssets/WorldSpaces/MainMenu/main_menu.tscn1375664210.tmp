@@ -208,6 +208,7 @@ theme_override_font_sizes/font_size = 36
 text = "Load"
 
 [node name="Black" type="TextureRect" parent="CanvasLayer/Control" unique_id=1827374432]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

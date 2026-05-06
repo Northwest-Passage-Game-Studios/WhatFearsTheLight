@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bm5wwbqa05j0q"]
+
+[ext_resource type="ArrayMesh" uid="uid://ck3vmnkl8i53f" path="res://worldAssets/beachStuff/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/20348_Receiver_radio_v1_Texture.obj" id="1_ueuva"]
+[ext_resource type="Script" uid="uid://b8o8jjk2dbdif" path="res://worldAssets/WorldSpaces/Beach_Level/20348_receiver_radio_v_1_texture.gd" id="2_ury7n"]
+[ext_resource type="AudioStream" uid="uid://dtlo3sk7v3scf" path="res://Sounds/SoundEffects/videoplayback (1).mp3" id="3_4eq4h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3s3e"]
+transparency = 1
+albedo_color = Color(3.003151, 3.003151, 0, 0.007843138)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 3.53
+
+[node name="20348ReceiverRadioV1Texture" type="MeshInstance3D" unique_id=1742159539]
+transform = Transform3D(-0.0015104668, -0.0019831294, -0.00760169, -0.0009492962, -0.0076381247, 0.002181261, -0.0077985474, 0.001313872, 0.0012068192, 0, 0, 0)
+mesh = ExtResource("1_ueuva")
+script = ExtResource("2_ury7n")
+radio_audio_stream = ExtResource("3_4eq4h")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=801506178]
+transform = Transform3D(1.000006, -2.0861626e-07, -1.9967556e-06, 1.937151e-07, 1.0000018, 4.6938658e-07, -1.4901161e-07, -8.195639e-08, 1.0000012, -0.027832031, -19.635254, 52.172424)
+size = Vector3(36.886368, 1, 24.85794)
+material = SubResource("StandardMaterial3D_f3s3e")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CSGBox3D" unique_id=161322150]
+transform = Transform3D(124.99925, 2.4795532e-05, 0.00025367737, -2.2888184e-05, 124.99977, -4.2438507e-05, 1.1444092e-05, 7.1525574e-07, 124.999855, -10.413574, -2.8868408, -1.7023926)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.314
+spot_range = 0.135
+spot_attenuation = 1.52
+spot_angle = 180.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="CSGBox3D" unique_id=1418787392]
+transform = Transform3D(124.999245, 2.0980835e-05, 0.00026130676, -2.2888184e-05, 124.99977, -3.7908554e-05, 5.722046e-06, -2.861023e-06, 124.99986, -10.423828, -2.454956, 8.978516)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.314
+spot_range = 0.135
+spot_attenuation = 1.52
+spot_angle = 180.0
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="CSGBox3D" unique_id=146546467]
+transform = Transform3D(124.99925, 2.2888184e-05, 0.0002593994, -2.2888184e-05, 124.99977, -3.9577484e-05, 7.6293945e-06, -1.1920929e-06, 124.999855, 9.70166, -6.275818, -4.8152466)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.314
+spot_range = 0.135
+spot_attenuation = 1.52
+spot_angle = 180.0
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="CSGBox3D" unique_id=1339720065]
+transform = Transform3D(124.999245, 2.2888184e-05, 0.00026512146, -2.2888184e-05, 124.99977, -3.862381e-05, 0, -5.00679e-06, 124.99986, 9.691895, -5.843872, 5.8657227)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.314
+spot_range = 0.135
+spot_attenuation = 1.52
+spot_angle = 180.0
+
+[node name="Timer" type="Timer" parent="." unique_id=1152618341]
+one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=844670632]
+transform = Transform3D(125, -3.8146973e-06, -3.8146973e-06, 0, 125.00001, 5.2452087e-06, 0, 1.4305115e-06, 125, 4.89209, -16.546753, 49.633667)
+stream = ExtResource("3_4eq4h")
+volume_db = -40.0
+unit_size = 3.6
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

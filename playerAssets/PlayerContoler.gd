@@ -66,7 +66,7 @@ signal can_pick_up(state:bool)
 
 func _ready() -> void:
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
-
+	Save_Handler.AutoSave.connect(_on_auto_save)
 
 
 func _head_bob(head_bobtime):
@@ -270,7 +270,12 @@ func _input(event: InputEvent) -> void:
 		var new_pitch = clampf(pitch_rotate,-80,80)
 
 		neck.rotation_degrees.x=new_pitch
-	if event.is_action("save"):
-		var packed_scene := PackedScene.new()
-		var result := packed_scene.pack(get_tree().current_scene)
-		var save_result := ResourceSaver.save(packed_scene, "user://world_temp.tscn")
+
+
+func _on_auto_save():
+	if Save_Handler.current_save_file!=null:
+		Save_Handler.current_save_file.player_pos=global_position
+		Save_Handler.current_save_file.current_sence=get_tree().current_scene.name
+		Save_Handler.current_save_file.player_items=self.tool_handler.items
+		Save_Handler.current_save_file.player_key_ring=self.tool_handler.key_rings
+		Save_Handler.current_save_file.player_quest_items=self.tool_handler.quest_objects
