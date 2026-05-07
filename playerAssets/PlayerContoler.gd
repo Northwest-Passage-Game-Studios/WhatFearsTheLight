@@ -275,7 +275,7 @@ func _input(event: InputEvent) -> void:
 func _on_auto_save():
 	if Save_Handler.current_save_file!=null:
 		Save_Handler.current_save_file.player_pos=global_position
-		Save_Handler.current_save_file.current_sence=get_tree().current_scene.name
+		Save_Handler.current_save_file.current_sence=get_tree().current_scene.scene_file_path
 		Save_Handler.current_save_file.player_items=self.tool_handler.items
 		Save_Handler.current_save_file.player_key_ring=self.tool_handler.key_rings
 		Save_Handler.current_save_file.player_quest_items=self.tool_handler.quest_objects

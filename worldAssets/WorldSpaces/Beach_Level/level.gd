@@ -1,9 +1,9 @@
-extends Node3D
+extends World_Spaces
 
 @onready var pickable: Object_PickUp_Point = $Pickable
 @onready var door_interact: Door_Interact = $Door_Interact
 @onready var you_cant_go_that_way: StaticBody3D = $YouCantGoThatWay
-@onready var player: player_body = $Player
+
 
 var find_the_light_quest :int
 var find_the_way_out_the_beach:int

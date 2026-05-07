@@ -1,12 +1,25 @@
 [gd_scene format=3 uid="uid://c8ukrkmbiuhqu"]
 
+[ext_resource type="Script" uid="uid://6egcwo2lnubj" path="res://worldAssets/WorldSpaces/MainMenu/save_file_ui.gd" id="1_dyong"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_pg2v3"]
 font_size = 8
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pg2v3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dyong"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bgakl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b5scf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pkr4o"]
+
 [node name="Save_File_UI" type="Panel" unique_id=1617600258]
 custom_minimum_size = Vector2(250, 40)
+script = ExtResource("1_dyong")
 
-[node name="Label" type="Label" parent="." unique_id=1190864643]
+[node name="Save_Title" type="Label" parent="." unique_id=1190864643]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -17,7 +30,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "Save File Name"
 
-[node name="Label2" type="Label" parent="." unique_id=1455759240]
+[node name="Last_Played" type="Label" parent="." unique_id=1455759240]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -27,3 +40,18 @@ offset_right = 118.0
 grow_vertical = 0
 text = "Last Played"
 label_settings = SubResource("LabelSettings_pg2v3")
+
+[node name="Button" type="Button" parent="." unique_id=1402146700]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pg2v3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dyong")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bgakl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_b5scf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pkr4o")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

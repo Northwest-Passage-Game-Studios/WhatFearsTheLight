@@ -1750,9 +1750,10 @@ albedo_texture = ExtResource("23_b3h8v")
 [sub_resource type="BoxShape3D" id="BoxShape3D_jt2al"]
 size = Vector3(3.300293, 1.730957, 3.4516296)
 
-[node name="mainWorld" type="Node3D" unique_id=234071416]
+[node name="mainWorld" type="Node3D" unique_id=234071416 node_paths=PackedStringArray("player")]
 script = ExtResource("1_3r06u")
 starting_tool = ExtResource("7_tbems")
+player = NodePath("Player")
 
 [node name="referencePoint" type="Node3D" parent="." unique_id=1397863416]
 
@@ -5090,7 +5091,7 @@ bone_name = "Bone.005.R"
 bone_idx = 24
 
 [node name="Animation_Node" type="Node3D" parent="Node3D2/Door_OpenSnece/Player/Armature/Skeleton3D/Item_Bone_Anchor" unique_id=2115404357]
-transform = Transform3D(0.9105391, 1.4901161e-08, -0.41342223, 0.17231618, 0.9089962, 0.37951678, 0.37579918, -0.4168044, 0.8276767, -0.02118873, -0.009946845, 0.104626484)
+transform = Transform3D(0.9105391, 1.4901161e-08, -0.41342223, 0.17231616, 0.9089962, 0.37951678, 0.37579915, -0.4168044, 0.8276767, -0.02118873, -0.009946845, 0.104626484)
 
 [node name="Key" type="Node3D" parent="Node3D2/Door_OpenSnece/Player/Armature/Skeleton3D/Item_Bone_Anchor/Animation_Node" unique_id=818561822]
 transform = Transform3D(0.99999964, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999994, 0, 0, 0)

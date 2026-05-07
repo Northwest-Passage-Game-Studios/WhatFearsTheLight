@@ -157,6 +157,9 @@ func get_quest(Ref_ID:int)->Dictionary:
 			return dict
 	return {}
 
+func load_quests(quest_dic:Array):
+	print(quest_dic)
+
 func get_all_quests()->Array[Dictionary]:
 	return all_quests
 	

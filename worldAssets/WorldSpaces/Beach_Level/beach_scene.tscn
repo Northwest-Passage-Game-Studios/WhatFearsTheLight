@@ -588,8 +588,9 @@ size = Vector3(0.8651123, 0.64404297, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_d7nan"]
 size = Vector3(56.648193, 38.24707, 1)
 
-[node name="beachScene" type="Node3D" unique_id=159205370]
+[node name="beachScene" type="Node3D" unique_id=159205370 node_paths=PackedStringArray("player")]
 script = ExtResource("1_xnhl1")
+player = NodePath("Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=457608894]
 environment = SubResource("Environment_mmw58")
