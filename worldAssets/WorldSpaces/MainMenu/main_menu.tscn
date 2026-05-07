@@ -311,6 +311,13 @@ grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture1D_p46oc")
 
+[node name="AcceptDialog" type="AcceptDialog" parent="CanvasLayer/Control" unique_id=313327453]
+oversampling_override = 1.0
+position = Vector2i(0, 36)
+size = Vector2i(481, 100)
+ok_button_text = "OK"
+dialog_text = "There Was a Error Loading the Data Please try different save"
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1216694780]
 transform = Transform3D(0.8231337, -0.08072765, 0.56208, 0.003944274, 0.99063206, 0.13650142, -0.567834, -0.11014193, 0.81574106, 6.5393686, 5.607688, 9.518441)
 fov = 65.35576

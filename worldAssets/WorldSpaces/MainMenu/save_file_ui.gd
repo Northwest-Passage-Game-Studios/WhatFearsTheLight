@@ -2,6 +2,8 @@ class_name save_slot_ui extends Panel
 @onready var save_title: Label = $Save_Title
 @onready var last_played: Label = $Last_Played
 
+signal error_on_load(error_type:Error)
+
 var current_save_file:save_file:
 	set(new_file):
 		current_save_file=new_file
@@ -19,4 +21,6 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	Save_Handler._load_save_file(self.current_save_file)
+	var save_return := Save_Handler._load_save_file(self.current_save_file)
+	if save_return != Error.OK:
+		error_on_load.emit(save_return)

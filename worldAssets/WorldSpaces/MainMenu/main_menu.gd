@@ -6,11 +6,13 @@ const SAVE_FILE_UI = preload("uid://c8ukrkmbiuhqu")
 @onready var text_edit: TextEdit = $CanvasLayer/Control/EnterName/TextEdit
 @onready var play: Button = $CanvasLayer/Control/Play
 @onready var load: Button = $CanvasLayer/Control/Load
+@onready var accept_dialog: AcceptDialog = $CanvasLayer/Control/AcceptDialog
 
 @onready var black: TextureRect = $CanvasLayer/Control/Black
 @export var end_color:Color
 func _on_play_pressed() -> void:
 	Save_Handler.current_save_file=save_file.new()
+	Save_Handler.current_save_file.save_ver=Save_Handler.current_save_verison
 	play.visible=false
 	load.visible=false
 	load_panel.visible=false
@@ -35,3 +37,8 @@ func _on_load_pressed() -> void:
 func _on_button_pressed() -> void:
 	Save_Handler.current_save_file.save_name=text_edit.text
 	get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/Open_Scene/Main_Sence.tscn")
+
+func _error_on_load(error:Error):
+	if error==Error.ERR_INVALID_DATA:
+		accept_dialog.popup_centered()
+		

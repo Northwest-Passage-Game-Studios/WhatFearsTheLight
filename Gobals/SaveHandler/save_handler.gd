@@ -5,7 +5,7 @@ class_name SaveHandler extends Node
 var save_file_path := "saves"
 var current_save_file:save_file
 var save_files = []
-
+var current_save_verison = 1
 signal AutoSave
 
 
@@ -29,16 +29,16 @@ func _ready() -> void:
 	find_all_save_files()
 
 
-func _load_save_file(save:save_file):
+func _load_save_file(save:save_file)->Error:
+	if save.save_ver!=current_save_verison:
+		return Error.ERR_INVALID_DATA
 	var changing_sence_load := load(save.current_sence)
 	var inst_of_new_sence = changing_sence_load.instantiate()
 	if inst_of_new_sence is World_Spaces:
 		inst_of_new_sence.player.global_position=save.player_pos
-		inst_of_new_sence.player.tool_handler.items=save.player_items
 	get_tree().change_scene_to_node(inst_of_new_sence)
 	current_save_file=save
-
-	pass
+	return Error.OK
 
 func _write_file():
 	if current_save_file:
