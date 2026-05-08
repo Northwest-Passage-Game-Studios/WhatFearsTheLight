@@ -61,7 +61,8 @@ var headPosNeg:=false
 var lowestheadPos:=100.0
 var last_look_at:Node3D
 signal can_pick_up(state:bool)
-
+@onready var book_container: Node3D = $Neck/Camera3D/bookContainer
+var bookScene=preload("res://Objects/Items/book/book.tscn")
 
 
 func _ready() -> void:
@@ -118,6 +119,9 @@ func _process(delta: float) -> void:
 	rotate_head(delta)
 	_pick_up_check()
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("escape"):
+		var bookInstance=bookScene.instantiate()
+		book_container.add_child(bookInstance)
 	if is_on_floor():
 		coyote_time.start()
 	Manager.infiniStamina=permaSprint
@@ -238,8 +242,13 @@ func _physics_process(delta: float) -> void:
 	if !crouch_delay.is_stopped():
 		if canStand:
 			Input.action_press("ctrl")
-	velocity.x = walkDir.x * speed
-	velocity.z = walkDir.z * speed
+	if Manager.allow_moving:
+		velocity.x = walkDir.x * speed
+		velocity.z = walkDir.z * speed
+	else:
+		if is_on_floor():
+			velocity.x=0
+			velocity.z=0
 	if !is_on_floor():
 		if velocity.y>-20:
 			velocity.y-=gravity

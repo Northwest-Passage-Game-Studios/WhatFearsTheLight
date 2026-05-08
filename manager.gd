@@ -10,3 +10,4 @@ extends Node
 @export var allow_looking:=true
 @export var infiniStamina:=false
 @export var infiniFlash:=false
+@export var allow_moving:=true

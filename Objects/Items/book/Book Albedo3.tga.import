@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqg2flctt0g08"
-path.s3tc="res://.godot/imported/wanted_poster_blank.png-d47d05119677750471382ea401d004ed.s3tc.ctex"
+uid="uid://bxgr5neqnp2dc"
+path.s3tc="res://.godot/imported/Book Albedo3.tga-4f87bc210243a4883703f3b8e8c267fe.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://worldAssets/paper/poster-basic-low-poly/textures/wanted_poster_blank.png"
-dest_files=["res://.godot/imported/wanted_poster_blank.png-d47d05119677750471382ea401d004ed.s3tc.ctex"]
+source_file="res://Objects/Items/book/Book Albedo3.tga"
+dest_files=["res://.godot/imported/Book Albedo3.tga-4f87bc210243a4883703f3b8e8c267fe.s3tc.ctex"]
 
 [params]
 

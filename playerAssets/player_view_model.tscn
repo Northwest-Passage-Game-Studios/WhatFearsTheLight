@@ -1830,6 +1830,9 @@ target_position = Vector3(0, -2, 0)
 collision_mask = 24
 collide_with_areas = true
 
+[node name="bookContainer" type="Node3D" parent="Neck/Camera3D" unique_id=1092776639]
+process_priority = 1000
+
 [node name="playersAmbientLight" type="SpotLight3D" parent="Neck" unique_id=1402063091]
 transform = Transform3D(-0.808168, 0.58631796, 0.055640224, -0.58715016, -0.7947074, -0.1539314, -0.046035033, -0.15707159, 0.98651373, -0.014953464, -0.109612346, -0.014523268)
 light_energy = 0.2
