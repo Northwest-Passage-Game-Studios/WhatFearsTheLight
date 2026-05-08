@@ -13,10 +13,7 @@ var flickering:=false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if use_gobal_radio:
-		audio_stream_player_3d.stream=RadioStation.audio_stream_player.stream
-	else:
-		audio_stream_player_3d.stream=radio_audio_stream
+
 		
 	var glitchtween = get_tree().create_tween()
 	glitchtween.tween_property(audio_stream_player_3d, "volume_db", 0, 2.5)

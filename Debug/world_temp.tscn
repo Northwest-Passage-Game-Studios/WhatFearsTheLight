@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bprx3w3vwsvla" path="res://Objects/Items/Flashlights/flash_light.tscn" id="2_eqsow"]
 [ext_resource type="Material" uid="uid://bra6ug2wjmj0j" path="res://worldAssets/grass/src/materials/grass_01/grass_ground_01.tres" id="3_mksir"]
 [ext_resource type="Script" uid="uid://dhkvcb11lumvg" path="res://worldAssets/WorldSpaces/Forset_Level/ground.gd" id="4_tmujn"]
-[ext_resource type="PackedScene" uid="uid://cx6djhr3cljtj" path="res://playerAssets/player_view_model.tscn" id="5_p4sst"]
 [ext_resource type="PackedScene" uid="uid://d4mvahmoqcyqj" path="res://worldAssets/water/pSXWater/ocean_surface/ocean_surface.tscn" id="7_s3yhq"]
 [ext_resource type="Shader" uid="uid://cd8f0ax8mc6h5" path="res://worldAssets/water/pSXWater/ocean_surface/ocean_surface.gdshader" id="8_b5nwj"]
 [ext_resource type="Texture2D" uid="uid://cpqiiurdc062b" path="res://worldAssets/water/pSXWater/ocean_surface/waterTileabke.jpg" id="9_xv3v6"]
@@ -96,9 +95,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -446.08002)
 material_override = ExtResource("3_mksir")
 mesh = SubResource("PlaneMesh_mqh1b")
 script = ExtResource("4_tmujn")
-
-[node name="Player" parent="." unique_id=827342177 instance=ExtResource("5_p4sst")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5027115, 1.2076072, 2.062193)
 
 [node name="OceanSurface" parent="." unique_id=1891312276 instance=ExtResource("7_s3yhq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9023199, 197.99762)

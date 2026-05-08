@@ -28,6 +28,7 @@ func _populate_load_screen():
 		var save_ui :save_slot_ui= SAVE_FILE_UI.instantiate()
 		save_box.add_child(save_ui)
 		save_ui.current_save_file=save
+		save_ui.error_on_load.connect(_error_on_load)
 
 
 func _on_load_pressed() -> void:
@@ -39,6 +40,7 @@ func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/Open_Scene/Main_Sence.tscn")
 
 func _error_on_load(error:Error):
-	if error==Error.ERR_INVALID_DATA:
+	
+	if error==30:
 		accept_dialog.popup_centered()
 		
