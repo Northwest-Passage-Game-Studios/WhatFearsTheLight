@@ -3,6 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ck3vmnkl8i53f" path="res://worldAssets/beachStuff/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/20348_Receiver_radio_v1_Texture.obj" id="1_ueuva"]
 [ext_resource type="Script" uid="uid://b8o8jjk2dbdif" path="res://worldAssets/WorldSpaces/Beach_Level/20348_receiver_radio_v_1_texture.gd" id="2_ury7n"]
 [ext_resource type="AudioStream" uid="uid://dtlo3sk7v3scf" path="res://Sounds/SoundEffects/videoplayback (1).mp3" id="3_4eq4h"]
+[ext_resource type="AudioStream" uid="uid://brfxfe46vhvn8" path="res://Gobals/RadioSignal/Songs.tres" id="4_ury7n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3s3e"]
 transparency = 1
@@ -15,6 +16,7 @@ emission_energy_multiplier = 3.53
 transform = Transform3D(-0.0015104668, -0.0019831294, -0.00760169, -0.0009492962, -0.0076381247, 0.002181261, -0.0077985474, 0.001313872, 0.0012068192, 0, 0, 0)
 mesh = ExtResource("1_ueuva")
 script = ExtResource("2_ury7n")
+use_gobal_radio = true
 radio_audio_stream = ExtResource("3_4eq4h")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=801506178]
@@ -59,8 +61,8 @@ one_shot = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=844670632]
 transform = Transform3D(125, -3.8146973e-06, -3.8146973e-06, 0, 125.00001, 5.2452087e-06, 0, 1.4305115e-06, 125, 4.89209, -16.546753, 49.633667)
-stream = ExtResource("3_4eq4h")
-volume_db = -40.0
+stream = ExtResource("4_ury7n")
+volume_db = 20.952
 unit_size = 3.6
 autoplay = true
 

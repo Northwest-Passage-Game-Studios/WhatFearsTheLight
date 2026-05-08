@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cb7fei41b5ux2" path="res://worldAssets/paper/flashlightExplanation.png" id="3_446vs"]
 [ext_resource type="Script" uid="uid://b1xhtytlf50pm" path="res://Objects/Items/Quest_Item_Config.gd" id="4_446vs"]
 [ext_resource type="Texture2D" uid="uid://barfo2yoxinaa" path="res://Objects/Items/Key/textures/padlock_Padlock_BaseColor.png" id="4_sfa6r"]
+[ext_resource type="PackedScene" uid="uid://d1yox6y5pvk3" path="res://worldAssets/skeleton/handmans_knot.tscn" id="6_4k67u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r1jlr"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -359,3 +360,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00673285, -2.7474015e-10, 0
 mesh = SubResource("ArrayMesh_2nynk")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_76d2s")
+
+[node name="Handmans_Knot" parent="." unique_id=770476579 instance=ExtResource("6_4k67u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.381672, 3, 5.015648)

@@ -158,7 +158,11 @@ func get_quest(Ref_ID:int)->Dictionary:
 	return {}
 
 func load_quests(quest_dic:Array):
-	print(quest_dic)
+	for quest in quest_dic:
+		print(quest)
+		if quest["Is_Completed"]==true:
+			all_quests.append(quest)
+	print(all_quests)
 
 func get_all_quests()->Array[Dictionary]:
 	return all_quests
@@ -179,4 +183,3 @@ func mark_quest_completed(Ref_ID:int):
 			quest_marker.queue_free() 
 	Quest_Completed.emit(quest_to_mark)
 	print(quest_to_mark)
-		
