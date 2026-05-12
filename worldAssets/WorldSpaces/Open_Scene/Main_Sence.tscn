@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cfwp615ye4iho"]
 
 [ext_resource type="Script" uid="uid://dj8ot1aowq10x" path="res://worldAssets/WorldSpaces/Open_Scene/main_sence.gd" id="1_qsark"]
+[ext_resource type="AudioStream" uid="uid://btntcpulfb45a" path="res://Sounds/Glitch Sound Effect.mp3" id="2_wetbg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_spt7d"]
 font_size = 36
@@ -36,3 +37,7 @@ text = "Debug"
 label_settings = SubResource("LabelSettings_spt7d")
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=416093865]
+stream = ExtResource("2_wetbg")
+volume_db = -10.0

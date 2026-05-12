@@ -25,6 +25,7 @@ class_name player_body extends CharacterBody3D
 @onready var color_rect: ColorRect = $CanvasLayer/ColorRect
 @onready var hud: Control = $CanvasLayer/Hud
 @onready var coyote_time: Timer = $coyoteTime
+@onready var book: Node3D = $Neck/Camera3D/Book
 
 
 @export_category("Walk Settings")
@@ -122,6 +123,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("escape"):
 		var bookInstance=bookScene.instantiate()
 		book_container.add_child(bookInstance)
+
 	if is_on_floor():
 		coyote_time.start()
 	Manager.infiniStamina=permaSprint

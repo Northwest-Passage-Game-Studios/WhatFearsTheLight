@@ -2,6 +2,7 @@ extends Node2D
 
 @export_file("*.json", "*.txt") var data_file: String
 @onready var text_label: Label = $CanvasLayer/Control/Text_Label
+@onready var asp: AudioStreamPlayer = $AudioStreamPlayer
 
 var texts:Array[String]=[]
 
@@ -14,6 +15,7 @@ func _ready() -> void:
 	for text in texts:
 		var text_change_tween = create_tween()
 		text_change_tween.tween_property(text_label,"text",text,2)
+		asp.play()
 		await text_change_tween.finished
 		await get_tree().create_timer(2).timeout
 		

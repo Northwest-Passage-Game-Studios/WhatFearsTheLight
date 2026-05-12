@@ -3,6 +3,7 @@ var currentSel:=""
 @onready var resume_label: Label3D = $topHalf/resumeLabel
 @onready var save_label: Label3D = $topHalf/saveLabel
 @onready var quit_label: Label3D = $topHalf/quitLabel
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,7 +17,8 @@ func _process(delta: float) -> void:
 	if currentSel=="res":
 		resume_label.outline_modulate=Color.YELLOW
 		if Input.is_action_just_pressed("pick_up"):
-			pass
+			game_resumed()
+			print("game resumed!")
 	if currentSel=="save":
 		save_label.outline_modulate=Color.YELLOW
 		if Input.is_action_just_pressed("pick_up"):
@@ -24,7 +26,7 @@ func _process(delta: float) -> void:
 	if currentSel=="quit":
 		quit_label.outline_modulate=Color.YELLOW
 		if Input.is_action_just_pressed("pick_up"):
-			pass
+			get_tree().quit()	
 
 
 func _on_resume_col_mouse_entered() -> void:
@@ -46,3 +48,6 @@ func _on_resume_col_mouse_exited() -> void:
 	quit_label.outline_modulate=Color(0.0, 0.0, 0.0, 0.0)
 	save_label.outline_modulate=Color(0.0, 0.0, 0.0, 0.0)
 	resume_label.outline_modulate=Color(0.0, 0.0, 0.0, 0.0)
+
+func game_resumed() -> void:
+	animation_player.play_backwards("openBook")
