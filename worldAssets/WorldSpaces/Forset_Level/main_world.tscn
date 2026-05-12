@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://cg64skrljgp5b" path="res://worldAssets/Buildings/70-woodhouse/WoodHouse/Diffuse.png" id="30_wbi32"]
 [ext_resource type="ArrayMesh" uid="uid://ctcugx7uwv5xf" path="res://worldAssets/Buildings/70-woodhouse/WoodHouse/WoodHouse.obj" id="31_jt2al"]
 [ext_resource type="AudioStream" uid="uid://bnms6jc8avnhb" path="res://Sounds/SoundEffects/587013__lewooz__kitchen-noises-microwave.mp3" id="32_jt2al"]
+[ext_resource type="PackedScene" uid="uid://cciro001rb1q1" path="res://worldAssets/Buildings/eyeball.tscn" id="33_on4wv"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mqh1b"]
 size = Vector2(1000, 1000)
@@ -5091,7 +5092,7 @@ bone_name = "Bone.005.R"
 bone_idx = 24
 
 [node name="Animation_Node" type="Node3D" parent="Node3D2/Door_OpenSnece/Player/Armature/Skeleton3D/Item_Bone_Anchor" unique_id=2115404357]
-transform = Transform3D(0.9105391, 1.4901161e-08, -0.41342223, 0.17231616, 0.9089962, 0.37951678, 0.37579915, -0.4168044, 0.8276767, -0.02118873, -0.009946845, 0.104626484)
+transform = Transform3D(0.9105391, 1.4901161e-08, -0.41342223, 0.17231618, 0.9089962, 0.37951678, 0.37579918, -0.4168044, 0.8276767, -0.02118873, -0.009946845, 0.104626484)
 
 [node name="Key" type="Node3D" parent="Node3D2/Door_OpenSnece/Player/Armature/Skeleton3D/Item_Bone_Anchor/Animation_Node" unique_id=818561822]
 transform = Transform3D(0.99999964, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999994, 0, 0, 0)
@@ -5391,6 +5392,9 @@ stream = ExtResource("32_jt2al")
 volume_db = -7.962
 unit_size = 2.0
 autoplay = true
+
+[node name="Node3D4" parent="." unique_id=1927972157 instance=ExtResource("33_on4wv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.594597, 7.217322, 114.69585)
 
 [connection signal="Picked_Up" from="Node3D2/Key_1/gate_key" to="." method="_on_gate_key_picked_up"]
 [connection signal="opened" from="Node3D2/brick_wall_gate/StaticBody3D" to="." method="_on_static_body_3d_opened"]
