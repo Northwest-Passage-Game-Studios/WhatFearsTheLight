@@ -152,7 +152,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 script = ExtResource("1_dfb67")
 
 [node name="topHalf" type="CSGCombiner3D" parent="." unique_id=852734196]
-transform = Transform3D(-0.004388057, 4.8263617, 1.306222, -4.999972, -2.185557e-07, -0.016795848, -0.016212508, -1.3062294, 4.826334, -0.019038111, 0, 0)
+transform = Transform3D(-0.004388057, 4.8263617, 1.3062218, -4.999972, -2.185557e-07, -0.016795846, -0.016212508, -1.3062294, 4.8263335, -0.019038111, 0, 0)
 
 [node name="Book_LP" type="CSGMesh3D" parent="topHalf" unique_id=327554176]
 transform = Transform3D(0.99999976, -1.4901159e-08, -1.9183443e-15, 1.4901163e-08, 0.99999976, 2.2822633e-11, -9.313238e-10, 1.47935e-11, 1, 0.016702006, -0.10693594, 0.032871403)
@@ -250,7 +250,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-mouse_filter = 1
 
 [node name="resumeCol" type="Area2D" parent="CanvasLayer/Control" unique_id=2015110752]
 
@@ -279,4 +278,5 @@ shape = SubResource("RectangleShape2D_ldt7e")
 [connection signal="mouse_entered" from="CanvasLayer/Control/saveCol" to="." method="_on_save_col_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/saveCol" to="." method="_on_resume_col_mouse_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/Control/quitCol" to="." method="_on_quit_col_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/quitCol" to="." method="_on_resume_col_mouse_exited"]
 [connection signal="property_list_changed" from="CanvasLayer/Control/quitCol" to="." method="_on_resume_col_mouse_exited"]
