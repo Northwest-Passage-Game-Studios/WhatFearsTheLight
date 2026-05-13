@@ -1,8 +1,7 @@
 extends Node3D
-var currentSel:=""
-@onready var resume_label: Label3D = $topHalf/resumeLabel
-@onready var save_label: Label3D = $topHalf/saveLabel
-@onready var quit_label: Label3D = $topHalf/quitLabel
+
+@onready var control: SubViewport = $Control
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,38 +10,23 @@ func _ready() -> void:
 	Manager.allow_moving=false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouse:
+		control.push_input(event,true)
+
 func _process(delta: float) -> void:
-	print(currentSel)
-	if currentSel=="res":
-		resume_label.outline_modulate=Color.YELLOW
-		if Input.is_action_just_pressed("pick_up"):
-			pass
-	if currentSel=="save":
-		save_label.outline_modulate=Color.YELLOW
-		if Input.is_action_just_pressed("pick_up"):
-			pass
-	if currentSel=="quit":
-		quit_label.outline_modulate=Color.YELLOW
-		if Input.is_action_just_pressed("pick_up"):
-			pass
+	pass
+func _on_resume_pressed() -> void:
+	print("Resume  ")
+	control.get_mouse_position()
+	
 
 
-func _on_resume_col_mouse_entered() -> void:
-	currentSel="res"
+func _on_save_pressed() -> void:
+	Save_Handler._on_timer_timeout()
+	
 
 
-
-func _on_save_col_mouse_entered() -> void:
-	currentSel="save"
-
-
-
-func _on_quit_col_mouse_entered() -> void:
-	currentSel="quit"
-
-
-func _on_resume_col_mouse_exited() -> void:
-	currentSel=""
-	quit_label.outline_modulate=Color(0.0, 0.0, 0.0, 0.0)
-	save_label.outline_modulate=Color(0.0, 0.0, 0.0, 0.0)
-	resume_label.outline_modulate=Color(0.0, 0.0, 0.0, 0.0)
+func _on_quit_pressed() -> void:
+	get_tree().quit()
