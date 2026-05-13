@@ -168,7 +168,7 @@ _data = {
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
-Button/colors/font_hover_color = Color(10.858301, 12.780913, 0, 1)
+Button/colors/font_hover_color = Color(0.8384838, 2.815649e-06, 9.62615e-07, 1)
 Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
@@ -192,7 +192,7 @@ Button/styles/pressed = SubResource("StyleBoxEmpty_j3mkf")
 
 [sub_resource type="LabelSettings" id="LabelSettings_dfb67"]
 font = ExtResource("3_dfb67")
-font_size = 128
+font_size = 64
 font_color = Color(0, 0, 0, 1)
 
 [node name="Book" type="Node3D" unique_id=1260285739]
@@ -236,7 +236,6 @@ material = SubResource("StandardMaterial3D_ldt7e")
 
 [node name="Label3D" type="Label3D" parent="bottomHalf" unique_id=1995509132]
 transform = Transform3D(-8.742281e-09, -0.19999963, -1.1641535e-10, -0.20000006, 8.742261e-09, 1.7484528e-08, -1.7484561e-08, 1.164161e-10, -0.19999968, -0.091747314, -0.12403335, 0.0018551392)
-visible = false
 modulate = Color(0, 0, 0, 1)
 text = "SETTINGS"
 font = ExtResource("3_dfb67")
@@ -245,7 +244,6 @@ outline_size = 0
 
 [node name="Label3D2" type="Label3D" parent="bottomHalf" unique_id=512554737]
 transform = Transform3D(-8.742281e-09, -0.19999962, -1.1641535e-10, -0.20000006, 8.742261e-09, 1.7484526e-08, -1.7484561e-08, 1.1641609e-10, -0.19999966, -0.081465945, -0.12403332, 0.0018896689)
-visible = false
 modulate = Color(0, 0, 0, 1)
 text = "_______"
 font = ExtResource("3_dfb67")
@@ -260,15 +258,11 @@ autoplay = &"openBook"
 
 [node name="Control" type="SubViewport" parent="." unique_id=541011778]
 transparent_bg = true
-snap_2d_transforms_to_pixel = true
-snap_2d_vertices_to_pixel = true
-gui_snap_controls_to_pixels = false
-size_2d_override_stretch = true
 script = ExtResource("5_ldt7e")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Control" unique_id=1434835853]
 
-[node name="Panel" type="Panel" parent="Control" unique_id=1232437991]
+[node name="Panel" type="Panel" parent="Control/CanvasLayer" unique_id=1232437991]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -277,7 +271,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_dfb67")
 
-[node name="Control" type="Control" parent="Control" unique_id=465842042]
+[node name="Control" type="Control" parent="Control/CanvasLayer" unique_id=465842042]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -286,20 +280,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_ybed8")
 
-[node name="Label" type="Label" parent="Control/Control" unique_id=67277394]
+[node name="Label" type="Label" parent="Control/CanvasLayer/Control" unique_id=67277394]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -192.0
-offset_top = 36.0
-offset_right = 193.0
-offset_bottom = 190.0
+offset_left = -96.0
+offset_right = 96.0
+offset_bottom = 78.0
 grow_horizontal = 2
 text = "Paused"
 label_settings = SubResource("LabelSettings_dfb67")
 
-[node name="Label2" type="Label" parent="Control/Control/Label" unique_id=494539483]
+[node name="Label2" type="Label" parent="Control/CanvasLayer/Control/Label" unique_id=494539483]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -312,7 +305,7 @@ grow_horizontal = 2
 text = "_______"
 label_settings = SubResource("LabelSettings_dfb67")
 
-[node name="VSeparator" type="VBoxContainer" parent="Control/Control" unique_id=1816222904]
+[node name="VSeparator" type="VBoxContainer" parent="Control/CanvasLayer/Control" unique_id=1816222904]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -320,30 +313,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -103.0
-offset_top = -69.0
-offset_right = 104.0
-offset_bottom = 231.0
+offset_left = -100.0
+offset_top = -150.0
+offset_right = 100.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Resume" type="Button" parent="Control/Control/VSeparator" unique_id=1333119189]
+[node name="Resume" type="Button" parent="Control/CanvasLayer/Control/VSeparator" unique_id=1333119189]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 text = "Resume"
 
-[node name="Save" type="Button" parent="Control/Control/VSeparator" unique_id=591058007]
+[node name="Save" type="Button" parent="Control/CanvasLayer/Control/VSeparator" unique_id=591058007]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 text = "Save"
 
-[node name="Quit" type="Button" parent="Control/Control/VSeparator" unique_id=1294725378]
+[node name="Quit" type="Button" parent="Control/CanvasLayer/Control/VSeparator" unique_id=1294725378]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 text = "Quit
 "
-
-[connection signal="pressed" from="Control/Control/VSeparator/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Control/Control/VSeparator/Save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="Control/Control/VSeparator/Quit" to="." method="_on_quit_pressed"]
