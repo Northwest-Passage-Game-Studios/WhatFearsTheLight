@@ -33,6 +33,8 @@
 [ext_resource type="ArrayMesh" uid="uid://ctcugx7uwv5xf" path="res://worldAssets/Buildings/70-woodhouse/WoodHouse/WoodHouse.obj" id="31_jt2al"]
 [ext_resource type="AudioStream" uid="uid://bnms6jc8avnhb" path="res://Sounds/SoundEffects/587013__lewooz__kitchen-noises-microwave.mp3" id="32_jt2al"]
 [ext_resource type="PackedScene" uid="uid://cciro001rb1q1" path="res://worldAssets/Buildings/eyeball.tscn" id="33_on4wv"]
+[ext_resource type="Material" uid="uid://d0secb5g7aw4f" path="res://worldAssets/ColinsBuildingsTexture/SemiDestoryedConcrete/Concrete042B_1K-PNG.tres" id="34_hqtt3"]
+[ext_resource type="ArrayMesh" uid="uid://bqaq7f7twj2fx" path="res://worldAssets/Buildings/lighthouseStatue/water_lighthouse.obj" id="35_yordq"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mqh1b"]
 size = Vector2(1000, 1000)
@@ -1751,6 +1753,10 @@ albedo_texture = ExtResource("23_b3h8v")
 [sub_resource type="BoxShape3D" id="BoxShape3D_jt2al"]
 size = Vector3(3.300293, 1.730957, 3.4516296)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twgty"]
+shading_mode = 0
+albedo_color = Color(18.892157, 0, 0, 1)
+
 [node name="mainWorld" type="Node3D" unique_id=234071416 node_paths=PackedStringArray("player")]
 script = ExtResource("1_3r06u")
 starting_tool = ExtResource("7_tbems")
@@ -1810,9 +1816,6 @@ transform = Transform3D(0.99254614, 0, 0.12186935, 0, 1, 0, -0.12186935, 0, 0.99
 
 [node name="@Node3D@60051" parent="Node3D2/CAIP" unique_id=250303741 instance=ExtResource("11_sl3aq")]
 transform = Transform3D(0.90630776, 0, 0.42261827, 0, 1, 0, -0.42261827, 0, 0.90630776, -47, 0, -36)
-
-[node name="@Node3D@60052" parent="Node3D2/CAIP" unique_id=65630910 instance=ExtResource("11_sl3aq")]
-transform = Transform3D(0.45399052, 0, 0.8910065, 0, 1, 0, -0.8910065, 0, 0.45399052, -47, 0, -43)
 
 [node name="@Node3D@60053" parent="Node3D2/CAIP" unique_id=249610605 instance=ExtResource("11_sl3aq")]
 transform = Transform3D(0.5591929, 0, 0.82903755, 0, 1, 0, -0.82903755, 0, 0.5591929, -71, 0, -6)
@@ -2861,9 +2864,6 @@ transform = Transform3D(-0.99939084, 0, 0.03489945, 0, 1, 0, -0.03489945, 0, -0.
 [node name="@Node3D@60405" parent="Node3D2/CAIP" unique_id=813246128 instance=ExtResource("11_sl3aq")]
 transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, 11, 0, 92)
 
-[node name="@Node3D@60406" parent="Node3D2/CAIP" unique_id=639665720 instance=ExtResource("11_sl3aq")]
-transform = Transform3D(-0.4539904, 0, 0.8910066, 0, 1, 0, -0.8910066, 0, -0.4539904, 12, 0, 106)
-
 [node name="@Node3D@60407" parent="Node3D2/CAIP" unique_id=239112277 instance=ExtResource("11_sl3aq")]
 transform = Transform3D(0.60181504, 0, 0.79863554, 0, 1, 0, -0.79863554, 0, 0.60181504, 18, 0, 73)
 
@@ -3209,9 +3209,6 @@ transform = Transform3D(0.99939084, 0, 0.034899496, 0, 1, 0, -0.034899496, 0, 0.
 [node name="@Node3D@60521" parent="Node3D2/CAIP" unique_id=1513750902 instance=ExtResource("11_sl3aq")]
 transform = Transform3D(-0.9998477, 0, 0.017452458, 0, 1, 0, -0.017452458, 0, -0.9998477, 10, 0, 86)
 
-[node name="@Node3D@60522" parent="Node3D2/CAIP" unique_id=244858547 instance=ExtResource("11_sl3aq")]
-transform = Transform3D(-0.9563047, 0, 0.29237184, 0, 1, 0, -0.29237184, 0, -0.9563047, 9, 0, 103)
-
 [node name="@Node3D@60523" parent="Node3D2/CAIP" unique_id=469691346 instance=ExtResource("11_sl3aq")]
 transform = Transform3D(0.809017, 0, 0.58778524, 0, 1, 0, -0.58778524, 0, 0.809017, 25, 0, 109)
 
@@ -3373,9 +3370,6 @@ transform = Transform3D(-0.13917308, 0, 0.99026805, 0, 1, 0, -0.99026805, 0, -0.
 
 [node name="@Node3D@60577" parent="Node3D2/CAIP" unique_id=123297989 instance=ExtResource("11_sl3aq")]
 transform = Transform3D(0.5591929, 0, 0.82903755, 0, 1, 0, -0.82903755, 0, 0.5591929, 23, 0, 54)
-
-[node name="@Node3D@60578" parent="Node3D2/CAIP" unique_id=1412481550 instance=ExtResource("11_sl3aq")]
-transform = Transform3D(0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, 0.81915206, 12, 0, 102)
 
 [node name="@Node3D@60579" parent="Node3D2/CAIP" unique_id=1734563661 instance=ExtResource("11_sl3aq")]
 transform = Transform3D(0.5150381, 0, 0.8571673, 0, 1, 0, -0.8571673, 0, 0.5150381, 47, 0, 83)
@@ -5092,7 +5086,7 @@ bone_name = "Bone.005.R"
 bone_idx = 24
 
 [node name="Animation_Node" type="Node3D" parent="Node3D2/Door_OpenSnece/Player/Armature/Skeleton3D/Item_Bone_Anchor" unique_id=2115404357]
-transform = Transform3D(0.9105391, 1.4901161e-08, -0.41342223, 0.17231618, 0.9089962, 0.37951678, 0.37579918, -0.4168044, 0.8276767, -0.02118873, -0.009946845, 0.104626484)
+transform = Transform3D(0.9105391, 1.4901161e-08, -0.41342223, 0.17231616, 0.9089962, 0.37951678, 0.37579915, -0.4168044, 0.8276767, -0.02118873, -0.009946845, 0.104626484)
 
 [node name="Key" type="Node3D" parent="Node3D2/Door_OpenSnece/Player/Armature/Skeleton3D/Item_Bone_Anchor/Animation_Node" unique_id=818561822]
 transform = Transform3D(0.99999964, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999994, 0, 0, 0)
@@ -5174,7 +5168,7 @@ script = ExtResource("7_3kala")
 
 [node name="enemyspawnchecker" type="VisibleOnScreenNotifier3D" parent="." unique_id=70219]
 visible = false
-aabb = AABB(-5, -5, -5, 10, 10, 10)
+aabb = AABB(-3, -3, -3, 6, 6, 6)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2027669428]
 stream = ExtResource("20_ndwlv")
@@ -5312,9 +5306,6 @@ transform = Transform3D(0.6200665, 0, -0.7845489, 0, 1, 0, 0.7845489, 0, 0.62006
 [node name="lamp38" parent="Node3D3" unique_id=1410308271 instance=ExtResource("28_1ww55")]
 transform = Transform3D(-0.92464566, 0, 0.3808282, 0, 1, 0, -0.3808282, 0, -0.92464566, 33.781403, 1.6231036, -32.90202)
 
-[node name="lamp39" parent="Node3D3" unique_id=999791291 instance=ExtResource("28_1ww55")]
-transform = Transform3D(0.3242971, 0, -0.94595504, 0, 1, 0, 0.94595504, 0, 0.3242971, 43.846073, 1.6231036, -45.310043)
-
 [node name="lamp22" parent="Node3D3" unique_id=585094415 instance=ExtResource("28_1ww55")]
 transform = Transform3D(-0.5313984, 0, 0.84712166, 0, 1, 0, -0.84712166, 0, -0.5313984, 15.681915, 1.6231036, -25.261702)
 
@@ -5394,7 +5385,31 @@ unit_size = 2.0
 autoplay = true
 
 [node name="Node3D4" parent="." unique_id=1927972157 instance=ExtResource("33_on4wv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.594597, 7.217322, 114.69585)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.77134, 8.437199, 14.858528)
+
+[node name="WaterLighthouse" type="MeshInstance3D" parent="." unique_id=324214712]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 43.049805, -0.017000198, -47.240704)
+material_override = ExtResource("34_hqtt3")
+mesh = ExtResource("35_yordq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WaterLighthouse" unique_id=1292903084]
+transform = Transform3D(66.66667, 0, 0, 0, 66.66667, 0, 0, 0, 66.66667, -0.4482422, 473.71466, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 7.863
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="WaterLighthouse" unique_id=1162629055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 385.82956, 0)
+radius = 26.05371
+height = 55.242798
+sides = 20
+material = SubResource("StandardMaterial3D_twgty")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="WaterLighthouse" unique_id=625801696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 276.57962, 0)
+visible = false
+use_collision = true
+radius = 77.421
+height = 500.0
 
 [connection signal="Picked_Up" from="Node3D2/Key_1/gate_key" to="." method="_on_gate_key_picked_up"]
 [connection signal="opened" from="Node3D2/brick_wall_gate/StaticBody3D" to="." method="_on_static_body_3d_opened"]

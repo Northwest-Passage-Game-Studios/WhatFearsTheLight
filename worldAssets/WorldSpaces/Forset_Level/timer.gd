@@ -4,6 +4,7 @@ var wendigoScene=preload("res://Monsters/Wendigo/Wendigo.tscn")
 
 @onready var reference_point: Node3D = $"../referencePoint"
 
+
 @onready var enemyspawnchecker: VisibleOnScreenNotifier3D = $"../enemyspawnchecker"
 var displaceX:=0.0
 var displaceZ:=0.0
@@ -23,7 +24,6 @@ func _on_timeout() -> void:
 	if wendigo_container.get_child_count()==0:
 		displaceX=randi_range(-6,6)
 		displaceZ=randi_range(-6,6)
-		
 		if abs(displaceX)+abs(displaceZ)<6:
 			if randi_range(0,1)==1:
 				displaceX=randi_range(4,7)
@@ -37,7 +37,7 @@ func _on_timeout() -> void:
 		enemyspawnchecker.global_position.x=player.global_position.x+displaceX
 		enemyspawnchecker.global_position.z=player.global_position.z+displaceZ
 		enemyspawnchecker.visible=true
-		await get_tree().create_timer(0.25).timeout
+		await get_tree().create_timer(0.5).timeout
 		print("SPawned")
 		enemyspawnchecker.visible=false
 		var wendInst:wendigo=wendigoScene.instantiate()

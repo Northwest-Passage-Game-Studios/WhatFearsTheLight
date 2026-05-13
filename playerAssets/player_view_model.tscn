@@ -1815,7 +1815,7 @@ lag_speed = 30
 [node name="Camera3D" type="Camera3D" parent="Neck" unique_id=1944198835]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08341712, -0.01617223, 0.13094938)
 current = true
-fov = 79.27665
+fov = 80.0
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="Neck/Camera3D" unique_id=146584654]
 transform = Transform3D(1.5, 0, 0, 0, -6.556708e-08, -1.5, 0, 1.5, -6.556708e-08, 0, 0, -12.745)
