@@ -120,8 +120,9 @@ func _process(delta: float) -> void:
 	_pick_up_check()
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("escape"):
-		var bookInstance=bookScene.instantiate()
-		book_container.add_child(bookInstance)
+		if book_container.get_child_count()==0:
+			var bookInstance=bookScene.instantiate()
+			book_container.add_child(bookInstance)
 	if is_on_floor():
 		coyote_time.start()
 	Manager.infiniStamina=permaSprint

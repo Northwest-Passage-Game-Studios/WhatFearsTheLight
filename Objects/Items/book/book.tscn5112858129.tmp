@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bllwkor1bi3gi" path="res://Objects/Items/book/UI.gd" id="5_ldt7e"]
 [ext_resource type="Texture2D" uid="uid://bptweawpjb4x7" path="res://UI/HandCourrsor/real hands - normal select.png" id="6_lc4dy"]
 [ext_resource type="Texture2D" uid="uid://c4wkvidam6lrx" path="res://UI/HandCourrsor/real hands - move.png" id="7_qsphm"]
-[ext_resource type="Script" uid="uid://5wwssxcntgj1" path="res://Objects/Items/book/quest_panek.gd" id="8_j3mkf"]
+[ext_resource type="Script" path="res://Objects/Items/book/quest_panek.gd" id="8_j3mkf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ft5q"]
 albedo_texture = ExtResource("1_68i5v")

@@ -2,12 +2,12 @@ extends Viewport
 @onready var texture_button: AnimatedSprite2D = $Control/TextureButton
 
 @onready var v_separator: VBoxContainer = $Control/ScrollContainer/VSeparator
-const QUEST_LABEK = preload("uid://4yyoocmc61av")
+const QUEST_LABEL = preload("res://Objects/Items/book/Quest_Labek.tscn")
 
 func opened_book():
 	var quest = Quest_Manger.get_all_quests()
 	for dict in quest:
-		var new_label:Label = QUEST_LABEK.instantiate()
+		var new_label:Label = QUEST_LABEL.instantiate()
 		new_label.text=dict["Title"]
 		v_separator.add_child(new_label)
 		if dict["Is_Completed"]:
