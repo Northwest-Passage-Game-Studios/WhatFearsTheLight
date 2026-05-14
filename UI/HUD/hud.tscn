@@ -137,4 +137,5 @@ expand_mode = 5
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=525597793]
 stream = ExtResource("4_qdh7y")
+volume_db = -20.0
 max_polyphony = 10

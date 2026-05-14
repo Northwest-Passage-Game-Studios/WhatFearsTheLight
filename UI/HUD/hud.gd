@@ -13,14 +13,16 @@ var quest_label_display_pos:Vector2
 @export var normal_state_texture:Texture2D
 @export var intercat_texture:Texture2D
 @onready var paper: TextureRect = $Paper
+@export var genderman : Texture2D
 
 func load_note(note_texture):
 	print(note_texture)
-	paper.texture=note_texture
-	paper_back.visible=true
-	Manager.allow_looking=false
-	audio_stream_player.pitch_scale=randf_range(0.8,1.5)
-	audio_stream_player.play()
+	if paper.texture==null:
+		paper.texture=note_texture
+		paper_back.visible=true
+		Manager.allow_looking=false
+		audio_stream_player.pitch_scale=randf_range(0.8,1.5)
+		audio_stream_player.play()
 
 func _on_quest_load(quest:Dictionary):
 	quest_show_label.show()

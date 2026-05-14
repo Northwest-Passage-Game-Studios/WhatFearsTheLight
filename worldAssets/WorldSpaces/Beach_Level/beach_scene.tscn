@@ -488,6 +488,9 @@ shadow_mesh = SubResource("ArrayMesh_h87f2")
 [sub_resource type="BoxShape3D" id="BoxShape3D_8m7in"]
 size = Vector3(1.9060192, 5.153407, 1.2851362)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nuggl"]
+albedo_color = Color(18.892157, 18.892157, 18.892157, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5mxlm"]
 resource_name = "Material.001"
 transparency = 2
@@ -787,7 +790,7 @@ transform = Transform3D(0.5293835, 0, -1.8143464, 0, 1.89, 0, 1.8143464, 0, 0.52
 [node name="Rock22" parent="Node3D" unique_id=953305565 instance=ExtResource("15_57qcg")]
 transform = Transform3D(-0.8194677, 0, -0.35985774, 0, 0.895, 0, 0.35985774, 0, -0.8194677, 0.9927058, 2.0385308, -97.14975)
 
-[node name="Rock8" parent="Node3D/Rock22" index="0" unique_id=1514517585]
+[node name="Rock8" parent="Node3D/Rock22" index="0" unique_id=330910916]
 material_override = SubResource("StandardMaterial3D_aibvq")
 
 [node name="Label3D" type="Label3D" parent="Node3D/Rock22/Rock8" index="0" unique_id=22892954]
@@ -830,7 +833,7 @@ shape = SubResource("BoxShape3D_j4b3f")
 [node name="Rock23" parent="Node3D" unique_id=485673582 instance=ExtResource("15_57qcg")]
 transform = Transform3D(-1.4100338, -1.0002404e-08, -0.39001343, 0.09453606, 0.88450736, -0.13559686, 0.61193734, -0.13664447, -0.8777261, 0.9927058, 1.4628043, -103.27665)
 
-[node name="Rock8" parent="Node3D/Rock23" index="0" unique_id=1514517585]
+[node name="Rock8" parent="Node3D/Rock23" index="0" unique_id=330910916]
 transform = Transform3D(1.0000002, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1.0000002, 0, 0.46550477, 0)
 material_override = SubResource("StandardMaterial3D_aibvq")
 
@@ -874,7 +877,7 @@ shape = SubResource("BoxShape3D_fhhh3")
 [node name="Rock21" parent="Node3D" unique_id=1368774742 instance=ExtResource("15_57qcg")]
 transform = Transform3D(0.8045719, -0.02971485, 0.15550262, -0.04089503, -0.81710017, 0.055452336, 0.15294322, -0.062164236, -0.8032086, 0.02082777, 3.9426098, -90.33201)
 
-[node name="Rock8" parent="Node3D/Rock21" index="0" unique_id=1514517585]
+[node name="Rock8" parent="Node3D/Rock21" index="0" unique_id=330910916]
 material_override = null
 surface_material_override/0 = SubResource("StandardMaterial3D_ejrn3")
 
@@ -1088,6 +1091,12 @@ spot_angle_attenuation = 1.8660663
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Pickable" unique_id=788863589]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.0018055439, 0.033979535, 0)
 shape = SubResource("BoxShape3D_8m7in")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Pickable" unique_id=2086910465]
+transform = Transform3D(-0.14661926, -0.98918045, 0.0056455336, 0.9891809, -0.14658198, 0.0065438896, -0.005645537, 0.0065438533, 0.9999656, -0.045488358, 0.13132668, -0.00056254864)
+radius = 0.026855469
+height = 0.0033720694
+material = SubResource("StandardMaterial3D_nuggl")
 
 [node name="Wooden Crate" type="Node3D" parent="." unique_id=1586736541]
 transform = Transform3D(0.25672105, 0.053822666, -0.1114559, -0.06776306, 0.27588177, -0.022856694, 0.10357348, 0.04708908, 0.2613047, -2.7023811, 0.37108332, -34.952576)
@@ -1322,6 +1331,7 @@ texture = ExtResource("33_46map")
 
 [node name="20348ReceiverRadioV1Texture" parent="." unique_id=1742159539 instance=ExtResource("35_nuggl")]
 transform = Transform3D(-0.001510467, -0.0019831292, -0.0076016895, -0.000949297, -0.007638124, 0.0021812606, -0.007798547, 0.0013138729, 0.0012068192, -7.248749, 0.8668994, -35.083733)
+use_gobal_radio = false
 
 [node name="beachSounds" type="AudioStreamPlayer3D" parent="." unique_id=727877528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.043581, 0, -25.521479)

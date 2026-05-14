@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://bml7hv1twhwpv" path="res://worldAssets/WorldSpaces/Forset_Level/timer.gd" id="7_3kala"]
 [ext_resource type="PackedScene" uid="uid://ulu3elc8iyd0" path="res://Objects/Items/Key/key.tscn" id="7_bk25w"]
 [ext_resource type="PackedScene" uid="uid://bprx3w3vwsvla" path="res://Objects/Items/Flashlights/flash_light.tscn" id="7_tbems"]
+[ext_resource type="Texture2D" uid="uid://b6xehhmmu2ixn" path="res://worldAssets/paper/genderman.png" id="9_twgty"]
+[ext_resource type="Texture2D" uid="uid://c0uloyrwlpb1o" path="res://worldAssets/paper/spaced_clearGenderman (1).png" id="9_yordq"]
 [ext_resource type="Script" uid="uid://de18oqn5pa77d" path="res://Dev_Tools/CAIP/caip.gd" id="10_pb7lo"]
 [ext_resource type="Texture2D" uid="uid://bk1jc5fmyx8vb" path="res://worldAssets/paper/wendigoExplanation.png" id="11_gpyg0"]
 [ext_resource type="Script" uid="uid://b10rxjhdqr5wx" path="res://Dev_Tools/CAIP/BuildConfig.gd" id="11_iw8dy"]
@@ -51,7 +53,7 @@ metadata/_custom_type_script = "uid://b10rxjhdqr5wx"
 [sub_resource type="Resource" id="Resource_0tqwv"]
 script = ExtResource("15_t50r7")
 is_note = true
-note_texture = ExtResource("11_gpyg0")
+note_texture = ExtResource("9_yordq")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ww55"]
 size = Vector3(0.05935669, 0.007458008, 0.046173096)
@@ -1757,6 +1759,9 @@ size = Vector3(3.300293, 1.730957, 3.4516296)
 shading_mode = 0
 albedo_color = Color(18.892157, 0, 0, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hqtt3"]
+size = Vector3(229.74634, 5.3741455, 23.503418)
+
 [node name="mainWorld" type="Node3D" unique_id=234071416 node_paths=PackedStringArray("player")]
 script = ExtResource("1_3r06u")
 starting_tool = ExtResource("7_tbems")
@@ -3154,6 +3159,48 @@ transform = Transform3D(-0.99254614, 0, 0.12186928, 0, 1, 0, -0.12186928, 0, -0.
 
 [node name="@Node3D@60503" parent="Node3D2/CAIP" unique_id=10622046 instance=ExtResource("11_sl3aq")]
 transform = Transform3D(-0.1736482, 0, 0.9848077, 0, 1, 0, -0.9848077, 0, -0.1736482, 17, 0, -22)
+
+[node name="key" type="Area3D" parent="Node3D2/CAIP/@Node3D@60503" unique_id=153409114 node_paths=PackedStringArray("mesh")]
+transform = Transform3D(0.030903667, 0.09340393, 0.99514824, -0.9790946, 0.20308572, 0.01134364, -0.20104118, -0.97469515, 0.0977274, 0.060243607, 1.2527118, -0.42326736)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("13_byclw")
+type_of_item = 2
+Quest_item_info = SubResource("Resource_0tqwv")
+mesh = NodePath("poster assembled/Paper")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/CAIP/@Node3D@60503/key" unique_id=936275076]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.0077056885, 0.01614499, -0.00022888184)
+shape = SubResource("BoxShape3D_1ww55")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D2/CAIP/@Node3D@60503/key" unique_id=1778805977]
+transform = Transform3D(1.0000002, -3.5527137e-15, -2.1316282e-14, 0, 1.0000007, -2.1175824e-22, -1.0658141e-14, 0, 1.0000004, -0.0145254135, 0.090286255, 0.017799735)
+light_color = Color(1, 1, 0.654902, 1)
+light_energy = 0.1
+spot_range = 0.266
+spot_angle = 180.0
+
+[node name="poster assembled" type="Node3D" parent="Node3D2/CAIP/@Node3D@60503/key" unique_id=834152752]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Paper" type="MeshInstance3D" parent="Node3D2/CAIP/@Node3D@60503/key/poster assembled" unique_id=1765220551]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
+mesh = SubResource("ArrayMesh_q41tb")
+skeleton = NodePath("")
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D2/CAIP/@Node3D@60503/key/poster assembled/Paper" unique_id=302329277]
+transform = Transform3D(-8.321901e-05, -0.0039951736, 0.00017794555, 0.003995917, -7.5931595e-05, 0.00016396216, 0.0001603864, -0.00018117508, -0.003992675, 0.000711292, 0.0004014969, 0.0007606745)
+texture = ExtResource("9_twgty")
+
+[node name="Tape L" type="MeshInstance3D" parent="Node3D2/CAIP/@Node3D@60503/key/poster assembled" unique_id=163532797]
+transform = Transform3D(22.468332, 5.933451, -2.9802322e-06, 9.3870864e-07, 5.046328e-07, 99.99999, 22.074593, -6.039284, 0, -1.4634854, 0.0075308597, 1.0999525)
+mesh = SubResource("ArrayMesh_wbi32")
+skeleton = NodePath("")
+
+[node name="Tape R" type="MeshInstance3D" parent="Node3D2/CAIP/@Node3D@60503/key/poster assembled" unique_id=342095992]
+transform = Transform3D(-17.972816, 6.952764, -8.940697e-06, 9.387087e-07, 0, 100, 25.86681, 4.8309298, -1.1920929e-05, -1.4789848, 0.0075308597, -1.053784)
+mesh = SubResource("ArrayMesh_jt2al")
+skeleton = NodePath("")
 
 [node name="@Node3D@60504" parent="Node3D2/CAIP" unique_id=948873603 instance=ExtResource("11_sl3aq")]
 transform = Transform3D(-0.92050487, 0, 0.39073116, 0, 1, 0, -0.39073116, 0, -0.92050487, 40, 0, -19)
@@ -5086,7 +5133,7 @@ bone_name = "Bone.005.R"
 bone_idx = 24
 
 [node name="Animation_Node" type="Node3D" parent="Node3D2/Door_OpenSnece/Player/Armature/Skeleton3D/Item_Bone_Anchor" unique_id=2115404357]
-transform = Transform3D(0.9105391, 1.4901161e-08, -0.41342223, 0.17231616, 0.9089962, 0.37951678, 0.37579915, -0.4168044, 0.8276767, -0.02118873, -0.009946845, 0.104626484)
+transform = Transform3D(0.9105391, 1.4901161e-08, -0.41342223, 0.17231618, 0.9089962, 0.37951678, 0.37579918, -0.4168044, 0.8276767, -0.02118873, -0.009946845, 0.104626484)
 
 [node name="Key" type="Node3D" parent="Node3D2/Door_OpenSnece/Player/Armature/Skeleton3D/Item_Bone_Anchor/Animation_Node" unique_id=818561822]
 transform = Transform3D(0.99999964, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999994, 0, 0, 0)
@@ -5129,7 +5176,7 @@ skeleton = NodePath("")
 transform = Transform3D(-4.231784e-09, -0.08850908, 0, 0.09681193, -3.868855e-09, 0, 0, 0, 0.09681193, -77.228035, 1.1256487, 8.564191)
 
 [node name="Node3D" type="Node3D" parent="Node3D2" unique_id=1879996962]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 120.45413, 1.2763873, 37.487225)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 120.216286, 1.2763873, 37.487225)
 
 [node name="Worn Door_001" type="MeshInstance3D" parent="Node3D2/Node3D" unique_id=1283939118]
 transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 99.99999, 0, -100, -4.3711384e-06, 0, 0, 0)
@@ -5411,6 +5458,29 @@ use_collision = true
 radius = 77.421
 height = 500.0
 
+[node name="Area3D" type="Area3D" parent="." unique_id=954045570]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1133199234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.309204, 2.1870728, -89.25882)
+shape = SubResource("BoxShape3D_hqtt3")
+debug_color = Color(0.80613714, 4.1536838e-05, 0.37893307, 0.41960785)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=333608794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.309204, 2.1870728, 131.52798)
+shape = SubResource("BoxShape3D_hqtt3")
+debug_color = Color(0.80613714, 4.1536838e-05, 0.37893307, 0.41960785)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D" unique_id=648781133]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -132.9797, 2.1870728, 35.67862)
+shape = SubResource("BoxShape3D_hqtt3")
+debug_color = Color(0.80613714, 4.1536838e-05, 0.37893307, 0.41960785)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Area3D" unique_id=1729438533]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 90.868904, 2.1870728, 35.67862)
+shape = SubResource("BoxShape3D_hqtt3")
+debug_color = Color(0.80613714, 4.1536838e-05, 0.37893307, 0.41960785)
+
 [connection signal="Picked_Up" from="Node3D2/Key_1/gate_key" to="." method="_on_gate_key_picked_up"]
 [connection signal="opened" from="Node3D2/brick_wall_gate/StaticBody3D" to="." method="_on_static_body_3d_opened"]
 [connection signal="tried_to_open" from="Node3D2/brick_wall_gate/StaticBody3D" to="." method="_on_static_body_3d_tried_to_open"]
@@ -5419,6 +5489,7 @@ height = 500.0
 [connection signal="timeout" from="Node3D/20348ReceiverRadioV1Texture/Timer" to="Node3D/20348ReceiverRadioV1Texture" method="_on_timer_timeout"]
 [connection signal="donezo" from="maxwell" to="wendigoSpawner" method="_on_maxwell_donezo"]
 [connection signal="body_entered" from="maxwell/Area3D" to="wendigoSpawner" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 
 [editable path="maxwell"]
 [editable path="maxwell/Root Scene"]

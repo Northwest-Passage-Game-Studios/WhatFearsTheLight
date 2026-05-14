@@ -92,4 +92,8 @@ func _on_gate_key_picked_up() -> void:
 		Quest_Manger.mark_quest_completed(quest_stage_one_ref_id)
 		await get_tree().create_timer(4).timeout
 		quest_stage_three_ref_id=Quest_Manger.add_new_quest("Find the gate key","None",Quest_Manger.Quest_Type.Smiple_Marker)
-		Quest_Manger.set_quest_marker(quest_stage_three_ref_id,gate_static_body_3d.global_position)
+		#Quest_Manger.set_quest_marker(quest_stage_three_ref_id,gate_static_body_3d.global_position)
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	body.queue_free()
