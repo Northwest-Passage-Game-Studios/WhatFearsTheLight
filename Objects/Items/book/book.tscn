@@ -87,7 +87,7 @@ tracks/0/path = NodePath("topHalf:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.01),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.0033591758, 0.26431268, -1.5707964)]
@@ -99,7 +99,7 @@ tracks/1/path = NodePath("bottomHalf:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.01),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.0033591725, 2.8316572, -1.5707964)]
@@ -291,6 +291,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_j3mkf"]
+radius = 18.506756
+
 [node name="Book" type="Node3D" unique_id=1260285739]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 script = ExtResource("1_dfb67")
@@ -330,24 +333,6 @@ operation = 2
 size = Vector3(0.3555298, 0.26119614, 0.044433594)
 material = SubResource("StandardMaterial3D_ldt7e")
 
-[node name="Label3D" type="Label3D" parent="bottomHalf" unique_id=1995509132]
-transform = Transform3D(-8.742281e-09, -0.19999963, -1.1641535e-10, -0.20000006, 8.742261e-09, 1.7484528e-08, -1.7484561e-08, 1.164161e-10, -0.19999968, -0.091747314, -0.12403335, 0.0018551392)
-visible = false
-modulate = Color(0, 0, 0, 1)
-text = "SETTINGS"
-font = ExtResource("3_dfb67")
-font_size = 45
-outline_size = 0
-
-[node name="Label3D2" type="Label3D" parent="bottomHalf" unique_id=512554737]
-transform = Transform3D(-8.742281e-09, -0.19999962, -1.1641535e-10, -0.20000006, 8.742261e-09, 1.7484526e-08, -1.7484561e-08, 1.1641609e-10, -0.19999966, -0.081465945, -0.12403332, 0.0018896689)
-visible = false
-modulate = Color(0, 0, 0, 1)
-text = "_______"
-font = ExtResource("3_dfb67")
-font_size = 62
-outline_size = 0
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="bottomHalf" unique_id=142523619]
 transform = Transform3D(-1.0144919e-08, -0.34311104, 0, -0.23208869, 1.4997859e-08, 6.025125e-08, -2.0289837e-08, 1.3111546e-15, -0.68919396, 0.01810532, -0.10452406, 0.002739674)
 mesh = SubResource("QuadMesh_dfb67")
@@ -364,7 +349,6 @@ transparent_bg = true
 snap_2d_transforms_to_pixel = true
 snap_2d_vertices_to_pixel = true
 gui_snap_controls_to_pixels = false
-size_2d_override_stretch = true
 script = ExtResource("5_ldt7e")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PuaseMenu" unique_id=1434835853]
@@ -431,6 +415,7 @@ alignment = 1
 
 [node name="Resume" type="Button" parent="PuaseMenu/Control/VSeparator" unique_id=1333119189]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 64
 text = "Resume"
 
@@ -445,11 +430,25 @@ theme_override_font_sizes/font_size = 64
 text = "Quit
 "
 
-[node name="TextureButton" type="AnimatedSprite2D" parent="PuaseMenu/Control" unique_id=1417529112]
+[node name="StaticBody2D" type="CharacterBody2D" parent="PuaseMenu/Control" unique_id=1035097877]
+position = Vector2(343, 111)
+
+[node name="TextureButton" type="AnimatedSprite2D" parent="PuaseMenu/Control/StaticBody2D" unique_id=1417529112]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_inhnh")
 animation = &"move"
 autoplay = "move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuaseMenu/Control/StaticBody2D" unique_id=969079259]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_j3mkf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PuaseMenu" unique_id=1008467946]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuaseMenu/StaticBody2D" unique_id=1997022016]
+scale = Vector2(0.86795074, 1.0022683)
+build_mode = 1
+polygon = PackedVector2Array(-3, -3, -1, 648, 1151, 645, 1151, 0)
 
 [node name="Quest" type="SubViewport" parent="." unique_id=1266840815]
 transparent_bg = true
@@ -504,12 +503,6 @@ text = "______"
 label_settings = SubResource("LabelSettings_dfb67")
 horizontal_alignment = 1
 
-[node name="TextureButton" type="AnimatedSprite2D" parent="Quest/Control" unique_id=2069415885]
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_inhnh")
-animation = &"move"
-autoplay = "move"
-
 [node name="ScrollContainer" type="ScrollContainer" parent="Quest/Control" unique_id=1903740872]
 custom_minimum_size = Vector2(300, 250)
 layout_mode = 1
@@ -527,14 +520,18 @@ grow_vertical = 0
 [node name="VSeparator" type="VBoxContainer" parent="Quest/Control/ScrollContainer" unique_id=428388866]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+alignment = 2
+
+[node name="TextureButton" type="AnimatedSprite2D" parent="Quest/Control" unique_id=2069415885]
+visible = false
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_inhnh")
+animation = &"move"
+autoplay = "move"
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=2096758524]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="focus_entered" from="PuaseMenu/Control/VSeparator/Resume" to="PuaseMenu" method="_on_focus_entered"]
-[connection signal="focus_exited" from="PuaseMenu/Control/VSeparator/Resume" to="PuaseMenu" method="_on_focus_extied"]
 [connection signal="pressed" from="PuaseMenu/Control/VSeparator/Resume" to="." method="_on_resume_pressed"]
-[connection signal="focus_entered" from="PuaseMenu/Control/VSeparator/Save" to="PuaseMenu" method="_on_focus_entered"]
-[connection signal="focus_exited" from="PuaseMenu/Control/VSeparator/Save" to="PuaseMenu" method="_on_focus_extied"]
 [connection signal="pressed" from="PuaseMenu/Control/VSeparator/Save" to="." method="_on_save_pressed"]
-[connection signal="focus_entered" from="PuaseMenu/Control/VSeparator/Quit" to="PuaseMenu" method="_on_focus_entered"]
-[connection signal="focus_exited" from="PuaseMenu/Control/VSeparator/Quit" to="PuaseMenu" method="_on_focus_extied"]
 [connection signal="pressed" from="PuaseMenu/Control/VSeparator/Quit" to="." method="_on_quit_pressed"]
