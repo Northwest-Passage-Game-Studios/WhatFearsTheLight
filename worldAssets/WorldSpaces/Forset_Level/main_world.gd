@@ -23,6 +23,8 @@ var quest_stage_one_ref_id:int=-1# find the gate
 var quest_stage_two_ref_id:int=-1 # find the key for the gate
 var quest_stage_three_ref_id:int=-1 #Open the gate
 
+
+
 func _make_world() -> void:
 	for x in range(-25,25,1):
 		for z in range(-25,25,1):
@@ -65,6 +67,8 @@ func _ready() -> void:
 	#Starts_Forset_key_finding_Quest
 	quest_stage_one_ref_id=Quest_Manger.add_new_quest("Find the way out of the forset","None",Quest_Manger.Quest_Type.Just_Text)
 	player.tool_handler.equip()
+	Manager.allow_looking=true
+	Manager.allow_moving=true
 
 	
 
