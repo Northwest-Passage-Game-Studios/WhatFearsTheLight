@@ -2,17 +2,24 @@
 
 [ext_resource type="Script" uid="uid://ban8t2dyewuun" path="res://worldAssets/WorldSpaces/MainMenu/main_menu.gd" id="1_aw34y"]
 [ext_resource type="ArrayMesh" uid="uid://um0pm5m3w7p7" path="res://worldAssets/beachStuff/boat/12219_boat_v2_L2.obj" id="1_ro24h"]
+[ext_resource type="FontFile" uid="uid://swrd57gvrc8t" path="res://fomts/ProtestRevolution-Regular.ttf" id="2_cd0hh"]
 [ext_resource type="Shader" uid="uid://byk3dfkudeyxo" path="res://Shaders/Smoke/Stylized_Smoke_Shader.gdshader" id="2_h88mj"]
 [ext_resource type="Shader" uid="uid://cd8f0ax8mc6h5" path="res://worldAssets/water/pSXWater/ocean_surface/ocean_surface.gdshader" id="2_k06bs"]
+[ext_resource type="Texture2D" uid="uid://b78t6xbfj7ftf" path="res://UI/HandCourrsor/real hands - handwriting.png" id="2_sw7kw"]
+[ext_resource type="Texture2D" uid="uid://c4wkvidam6lrx" path="res://UI/HandCourrsor/real hands - move.png" id="2_vlnf4"]
+[ext_resource type="Theme" uid="uid://lxehoptwto0" path="res://UI/main_menu_theme.tres" id="2_yye27"]
 [ext_resource type="Texture2D" uid="uid://cpqiiurdc062b" path="res://worldAssets/water/pSXWater/ocean_surface/waterTileabke.jpg" id="3_5n05f"]
 [ext_resource type="ArrayMesh" uid="uid://i6imfkqn5vy8" path="res://Shaders/Smoke/Mesh.tres" id="3_aw34y"]
+[ext_resource type="Texture2D" uid="uid://bptweawpjb4x7" path="res://UI/HandCourrsor/real hands - normal select.png" id="3_sw7kw"]
 [ext_resource type="Texture2D" uid="uid://cox5s051a157q" path="res://worldAssets/sky/mud_road_puresky_4k.exr" id="7_p46oc"]
 [ext_resource type="AudioStream" uid="uid://dtlo3sk7v3scf" path="res://Sounds/SoundEffects/videoplayback (1).mp3" id="8_vsltj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h88mj"]
+font = ExtResource("2_cd0hh")
 font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_vsltj"]
+font = ExtResource("2_cd0hh")
 font_size = 32
 
 [sub_resource type="Gradient" id="Gradient_aw34y"]
@@ -20,6 +27,58 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_p46oc"]
 gradient = SubResource("Gradient_aw34y")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd0hh"]
+atlas = ExtResource("2_vlnf4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yye27"]
+atlas = ExtResource("2_vlnf4")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6kxn"]
+atlas = ExtResource("2_vlnf4")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqeu1"]
+atlas = ExtResource("2_vlnf4")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gk2mi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sw7kw")
+}],
+"loop": true,
+"name": &"input_text",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd0hh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yye27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6kxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqeu1")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sw7kw")
+}],
+"loop": true,
+"name": &"select",
+"speed": 5.0
+}]
 
 [sub_resource type="Curve" id="Curve_p46oc"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9073359, 0), 0.0, 0.0, 0, 0]
@@ -172,6 +231,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_yye27")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=614039240]
 layout_mode = 1
@@ -184,30 +244,6 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "What Fears The Light"
 label_settings = SubResource("LabelSettings_h88mj")
-
-[node name="Play" type="Button" parent="CanvasLayer/Control" unique_id=1269777673]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -38.0
-offset_right = 116.0
-offset_bottom = 42.0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 36
-text = "New Game"
-
-[node name="Load" type="Button" parent="CanvasLayer/Control" unique_id=945843393]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = 42.0
-offset_right = 197.0
-offset_bottom = 122.0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 36
-text = "Load"
 
 [node name="EnterName" type="Panel" parent="CanvasLayer/Control" unique_id=1074374550]
 visible = false
@@ -224,7 +260,7 @@ offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextEdit" type="TextEdit" parent="CanvasLayer/Control/EnterName" unique_id=1859116223]
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/Control/EnterName" unique_id=1859116223 groups=["is_focus_botton"]]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -236,7 +272,7 @@ offset_bottom = 34.0
 grow_horizontal = 2
 placeholder_text = "Enter Name Here"
 
-[node name="Button" type="Button" parent="CanvasLayer/Control/EnterName" unique_id=374224578]
+[node name="Button" type="Button" parent="CanvasLayer/Control/EnterName" unique_id=374224578 groups=["is_focus_botton"]]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -250,6 +286,37 @@ offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Enter"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=1855745016]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -60.0
+offset_right = 197.0
+offset_bottom = 60.0
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Play" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=1269777673 groups=["is_focus_botton"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "New Game"
+alignment = 0
+
+[node name="Load" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=945843393 groups=["is_focus_botton"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Load"
+alignment = 0
+
+[node name="Quit" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=91117026 groups=["is_focus_botton"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Quit"
+alignment = 0
 
 [node name="Load_Panel" type="Panel" parent="CanvasLayer/Control" unique_id=591048375]
 visible = false
@@ -265,6 +332,7 @@ offset_right = 154.0
 offset_bottom = 189.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_yye27")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/Load_Panel" unique_id=1584980476]
 custom_minimum_size = Vector2(250, 300)
@@ -317,6 +385,11 @@ position = Vector2i(0, 36)
 size = Vector2i(481, 100)
 ok_button_text = "OK"
 dialog_text = "There Was a Error Loading the Data Please try different save"
+
+[node name="Cursor" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=507622695]
+sprite_frames = SubResource("SpriteFrames_gk2mi")
+animation = &"input_text"
+autoplay = "move"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1216694780]
 transform = Transform3D(0.8231337, -0.08072765, 0.56208, 0.003944274, 0.99063206, 0.13650142, -0.567834, -0.11014193, 0.81574106, 6.5393686, 5.607688, 9.518441)
@@ -393,6 +466,7 @@ volume_db = -10.685
 pitch_scale = 0.93
 autoplay = true
 
-[connection signal="pressed" from="CanvasLayer/Control/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/EnterName/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

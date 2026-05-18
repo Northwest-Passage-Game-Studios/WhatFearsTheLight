@@ -1,6 +1,7 @@
 class_name save_slot_ui extends Panel
 @onready var save_title: Label = $Save_Title
 @onready var last_played: Label = $Last_Played
+@onready var button: Button = $Button
 
 signal error_on_load(error_type:Error)
 

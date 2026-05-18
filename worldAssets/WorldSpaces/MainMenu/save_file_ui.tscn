@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c8ukrkmbiuhqu"]
 
 [ext_resource type="Script" uid="uid://6egcwo2lnubj" path="res://worldAssets/WorldSpaces/MainMenu/save_file_ui.gd" id="1_dyong"]
+[ext_resource type="FontFile" uid="uid://swrd57gvrc8t" path="res://fomts/ProtestRevolution-Regular.ttf" id="2_bgakl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pg2v3"]
 font_size = 8
@@ -28,6 +29,7 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_bgakl")
 text = "Save File Name"
 
 [node name="Last_Played" type="Label" parent="." unique_id=1455759240]
@@ -38,6 +40,7 @@ anchor_bottom = 1.0
 offset_top = -12.0
 offset_right = 118.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_bgakl")
 text = "Last Played"
 label_settings = SubResource("LabelSettings_pg2v3")
 
@@ -48,6 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_bgakl")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_pg2v3")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_dyong")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_bgakl")
