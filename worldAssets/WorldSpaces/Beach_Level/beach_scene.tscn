@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://31yyqberi8y7" path="res://worldAssets/beachStuff/boxes/Wooden Crate/Textures/2048/Wooden Crate_Crate_BaseColor.png" id="27_45o47"]
 [ext_resource type="Texture2D" uid="uid://wimqjeqrlgdu" path="res://worldAssets/beachStuff/boxes/Wooden Crate/Textures/2048/Wooden Crate_Crate_Normal.png" id="28_seswe"]
 [ext_resource type="Texture2D" uid="uid://ck3nbm02fdjxd" path="res://worldAssets/beachStuff/boxes/Wooden Crate/Textures/1024/Wooden Crate_Crate_BaseColor.png" id="29_seswe"]
+[ext_resource type="PackedScene" uid="uid://cciro001rb1q1" path="res://worldAssets/Buildings/eyeball.tscn" id="31_lpeck"]
 [ext_resource type="Texture2D" uid="uid://7yji4kcvhgih" path="res://worldAssets/beachStuff/lighthouse.png" id="33_46map"]
 [ext_resource type="PackedScene" uid="uid://bm5wwbqa05j0q" path="res://worldAssets/Radio/radio.tscn" id="35_nuggl"]
 [ext_resource type="AudioStream" uid="uid://dguicfpivaqo2" path="res://Sounds/830254__nicktayloe__closer-ocean-waves-on-pebbly-beach-iceland-loop.mp3" id="38_3tdmf"]
@@ -1097,6 +1098,9 @@ transform = Transform3D(-0.14661926, -0.98918045, 0.0056455336, 0.9891809, -0.14
 radius = 0.026855469
 height = 0.0033720694
 material = SubResource("StandardMaterial3D_nuggl")
+
+[node name="Node3D" parent="Pickable" unique_id=1927972157 instance=ExtResource("31_lpeck")]
+transform = Transform3D(-0.6515293, 4.8419646e-10, -0.758624, -0.75861144, 0.005707188, 0.651519, 0.0043296013, 0.9999838, -0.0037183994, 4.0696545, 1.567213, 5.1685576)
 
 [node name="Wooden Crate" type="Node3D" parent="." unique_id=1586736541]
 transform = Transform3D(0.25672105, 0.053822666, -0.1114559, -0.06776306, 0.27588177, -0.022856694, 0.10357348, 0.04708908, 0.2613047, -2.7023811, 0.37108332, -34.952576)

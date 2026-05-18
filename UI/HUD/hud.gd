@@ -15,6 +15,7 @@ var quest_label_display_pos:Vector2
 @onready var paper: TextureRect = $Paper
 @export var genderman : Texture2D
 
+
 func load_note(note_texture):
 	print(note_texture)
 	if paper.texture==null:
@@ -28,11 +29,11 @@ func _on_quest_load(quest:Dictionary):
 	quest_show_label.show()
 	var text_to_set="Quest Added: "+quest["Title"]
 	var move_tween = create_tween()
-	move_tween.tween_property(quest_show_label,"text",text_to_set,1)
+	move_tween.tween_property(quest_show_label,"text",text_to_set,2)
 	await move_tween.finished
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(3).timeout
 	var hide_tween=create_tween()
-	hide_tween.tween_property(quest_show_label,"text","",1)
+	hide_tween.tween_property(quest_show_label,"text","",2)
 	await hide_tween.finished
 	quest_show_label.hide()
 	
@@ -42,7 +43,7 @@ func _on_quest_completed(quest:Dictionary):
 	var move_tween = create_tween()
 	move_tween.tween_property(quest_show_label,"text",text_to_set,1)
 	await move_tween.finished
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.0).timeout
 	var hide_tween=create_tween()
 	hide_tween.tween_property(quest_show_label,"text","",1)
 	await hide_tween.finished

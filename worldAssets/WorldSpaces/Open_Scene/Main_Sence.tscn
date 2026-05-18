@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cfwp615ye4iho"]
 
 [ext_resource type="Script" uid="uid://dj8ot1aowq10x" path="res://worldAssets/WorldSpaces/Open_Scene/main_sence.gd" id="1_qsark"]
+[ext_resource type="FontFile" uid="uid://bjxq30vac3n3w" path="res://fomts/SpecialElite.ttf" id="2_wetbg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_spt7d"]
+font = ExtResource("2_wetbg")
 font_size = 36
 
 [node name="MainSence" type="Node2D" unique_id=1458418922]

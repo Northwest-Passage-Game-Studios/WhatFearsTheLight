@@ -11,3 +11,4 @@ extends Node
 @export var infiniStamina:=false
 @export var infiniFlash:=false
 @export var allow_moving:=true
+@export var losingIt:=false

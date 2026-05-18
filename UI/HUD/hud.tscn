@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bnf8wptrqe4hs" path="res://UI/HUD/hud.gd" id="1_ia7gp"]
 [ext_resource type="Script" uid="uid://dgjnxyyasaw1x" path="res://UI/FrameRateCounter/frameRate.gd" id="2_ing8j"]
+[ext_resource type="FontFile" uid="uid://bjxq30vac3n3w" path="res://fomts/SpecialElite.ttf" id="2_radol"]
 [ext_resource type="Texture2D" uid="uid://cqg2flctt0g08" path="res://worldAssets/paper/poster-basic-low-poly/textures/wanted_poster_blank.png" id="3_te8l2"]
 [ext_resource type="AudioStream" uid="uid://c08raxsaced86" path="res://Sounds/SoundEffects/561145__fmaudio__crumpling-piece-of-paper.wav" id="4_qdh7y"]
+[ext_resource type="Script" uid="uid://o6c5tvu7g5xk" path="res://UI/HUD/hallucinations.gd" id="6_s83ig"]
+[ext_resource type="FontFile" uid="uid://swrd57gvrc8t" path="res://fomts/ProtestRevolution-Regular.ttf" id="7_db5ks"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ia7gp"]
+font = ExtResource("2_radol")
 font_size = 26
 
 [sub_resource type="Animation" id="Animation_ing8j"]
@@ -44,6 +48,10 @@ _data = {
 &"fadeIn": SubResource("Animation_te8l2")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_7sg86"]
+font = ExtResource("7_db5ks")
+font_size = 69
+
 [node name="Hud" type="Control" unique_id=1507218794]
 layout_mode = 3
 anchors_preset = 15
@@ -56,10 +64,14 @@ script = ExtResource("1_ia7gp")
 
 [node name="Quest_Show_Label" type="Label" parent="." unique_id=1511955420]
 layout_mode = 1
-offset_right = 210.0
-offset_bottom = 36.0
+offset_left = 423.0
+offset_top = 31.0
+offset_right = 743.0
+offset_bottom = 84.0
 text = "Quest Added:"
 label_settings = SubResource("LabelSettings_ia7gp")
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1000270159]
 layout_mode = 1
@@ -139,3 +151,27 @@ expand_mode = 5
 stream = ExtResource("4_qdh7y")
 volume_db = -20.0
 max_polyphony = 10
+
+[node name="hallucinations" type="CanvasLayer" parent="." unique_id=1571557334]
+script = ExtResource("6_s83ig")
+
+[node name="crazyLabel" type="Label" parent="hallucinations" unique_id=1232574523]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+text = "Find the light"
+label_settings = SubResource("LabelSettings_7sg86")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="hallucinations" unique_id=2062976038]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="hallucinations/Timer" to="hallucinations" method="_on_timer_timeout"]

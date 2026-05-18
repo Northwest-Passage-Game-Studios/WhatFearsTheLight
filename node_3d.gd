@@ -17,7 +17,8 @@ func lookAround()->void:
 	else:
 		look_around_timer.stop()
 		var oldRotation=self.rotation_degrees
-		look_at(player.global_position)
+		if player!=null:
+			look_at(player.global_position)
 		var newRotation=self.rotation_degrees
 		rotation_degrees=oldRotation
 		var looktween = create_tween()
@@ -39,8 +40,10 @@ func _on_look_around_timer_timeout() -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	gazing=true
+	Manager.losingIt=true
 
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	gazing=false
+	Manager.losingIt=false
 	look_around_timer.start(randf_range(2.0,4.0))

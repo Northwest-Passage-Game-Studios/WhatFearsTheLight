@@ -28,6 +28,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if static_body_3d.position.y==0:
+		Manager.losingIt=false
 	if ouiao:
 		if upDistance>0:
 			global_position.y+=0.25*delta
