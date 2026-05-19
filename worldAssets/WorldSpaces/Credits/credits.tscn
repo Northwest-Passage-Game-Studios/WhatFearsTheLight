@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://d11uwstxsmaxu"]
 
 [ext_resource type="ArrayMesh" uid="uid://um0pm5m3w7p7" path="res://worldAssets/beachStuff/boat/12219_boat_v2_L2.obj" id="1_5wcrf"]
+[ext_resource type="Script" uid="uid://bns1g2vc2m0ci" path="res://worldAssets/WorldSpaces/Credits/credits.gd" id="1_gntwg"]
 [ext_resource type="Shader" uid="uid://byk3dfkudeyxo" path="res://Shaders/Smoke/Stylized_Smoke_Shader.gdshader" id="2_xn0yy"]
 [ext_resource type="ArrayMesh" uid="uid://i6imfkqn5vy8" path="res://Shaders/Smoke/Mesh.tres" id="3_8q0if"]
 [ext_resource type="Shader" uid="uid://cd8f0ax8mc6h5" path="res://worldAssets/water/pSXWater/ocean_surface/ocean_surface.gdshader" id="4_gntwg"]
 [ext_resource type="Texture2D" uid="uid://cpqiiurdc062b" path="res://worldAssets/water/pSXWater/ocean_surface/waterTileabke.jpg" id="5_ct46q"]
 [ext_resource type="Texture2D" uid="uid://cox5s051a157q" path="res://worldAssets/sky/mud_road_puresky_4k.exr" id="6_8q0if"]
 [ext_resource type="AudioStream" uid="uid://dtlo3sk7v3scf" path="res://Sounds/SoundEffects/videoplayback (1).mp3" id="7_gntwg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8q0if"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p4uf7"]
 font_size = 32
@@ -166,29 +169,24 @@ volumetric_fog_detail_spread = 0.5
 
 [node name="Credits" type="Node3D" unique_id=101615143]
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1528488467]
-transform = Transform3D(-0.69523567, 6.3667605e-09, 0.71878195, 3.72529e-09, 1, -5.254454e-09, -0.71878195, -9.754124e-10, -0.69523567, -1.084166, 0.45900035, -0.8037623)
-fov = 49.38382
-
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=735249365]
 layer = 5
 
-[node name="Control" type="Control" parent="CanvasLayer2" unique_id=1340416547]
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=1340416547 node_paths=PackedStringArray("headers", "sub_header", "title_card", "start_below", "kill_point", "crew", "assest")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Panel" type="ColorRect" parent="CanvasLayer2/Control" unique_id=411285588]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+script = ExtResource("1_gntwg")
+headers = NodePath("Headers&Crew")
+sub_header = NodePath("Sub_header")
+title_card = NodePath("float")
+start_below = NodePath("start_below")
+kill_point = NodePath("kill_point")
+crew = NodePath("Headers&Crew")
+assest = NodePath("assets")
 
 [node name="float" type="Panel" parent="CanvasLayer2/Control" unique_id=1620524215]
 layout_mode = 1
@@ -197,12 +195,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -139.5
+offset_left = -187.0
 offset_top = -45.0
-offset_right = 139.5
+offset_right = 187.0
 offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8q0if")
 
 [node name="Title" type="Label" parent="CanvasLayer2/Control/float" unique_id=918628666]
 layout_mode = 1
@@ -217,7 +216,7 @@ offset_right = 113.5
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "SubArtic"
+text = "What Fears The Light"
 label_settings = SubResource("LabelSettings_p4uf7")
 horizontal_alignment = 1
 
@@ -235,6 +234,7 @@ offset_right = 139.5
 offset_bottom = -205.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8q0if")
 
 [node name="Title" type="Label" parent="CanvasLayer2/Control/assets" unique_id=552713021]
 layout_mode = 1
@@ -321,6 +321,7 @@ offset_right = 139.5
 offset_bottom = -251.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8q0if")
 
 [node name="Title" type="Label" parent="CanvasLayer2/Control/Headers&Crew" unique_id=1424418186]
 layout_mode = 1
@@ -355,6 +356,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
 size_flags_stretch_ratio = 0.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8q0if")
 
 [node name="Title" type="Label" parent="CanvasLayer2/Control/Sub_header" unique_id=1486433433]
 layout_mode = 1

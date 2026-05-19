@@ -1,0 +1,195 @@
+{
+	"Presented":{
+		"By":["Northwest Passage Game Studios"]
+	},
+  "The Team":{
+		"Lead Progmamer":[
+			"Colin 'TheAmericanEmu' Harrington-Ding",
+			"Duncan 'BarbecuedWaffle' Casper"
+		],
+		"Voice Actors":["I FORGET TO PAY THEM"],
+		"Tech Help": ["Mr Prudy"],
+		"Emotinal Support":["Ben","Baeu"],
+		"Lord And Savoir":["Mathew Farah"]
+	},
+  "Game Assets": {
+	"Textures": [
+	  {
+		"name": "Soil 124",
+		"creator": "TextureLabs",
+		"license": "CC0",
+		"url": "https://texturelabs.org/textures/soil_124/"
+	  },
+	  {
+		"name": "Brick 169",
+		"creator": "TextureLabs",
+		"license": "CC0",
+		"url": "https://texturelabs.org/textures/brick_169/"
+	  },
+	  {
+		"name": "Metal 246",
+		"creator": "TextureLabs",
+		"license": "CC0",
+		"url": "https://texturelabs.org/textures/metal_246/"
+	  },
+	  {
+		"name": "Fabric 197",
+		"creator": "TextureLabs",
+		"license": "CC0",
+		"url": "https://texturelabs.org/textures/fabric_197/"
+	  },
+	  {
+		"name": "Metal 276",
+		"creator": "TextureLabs",
+		"license": "CC0",
+		"url": "https://texturelabs.org/textures/metal_276/"
+	  },
+	  {
+		"name": "Metal 268",
+		"creator": "TextureLabs",
+		"license": "CC0",
+		"url": "https://texturelabs.org/textures/metal_268/"
+	  },
+	  {
+		"name": "Metal 153",
+		"creator": "TextureLabs",
+		"license": "CC0",
+		"url": "https://texturelabs.org/textures/metal_153/"
+	  },
+	  {
+		"name": "Glass 150",
+		"creator": "TextureLabs",
+		"license": "CC0",
+		"url": "https://texturelabs.org/textures/glass_150/"
+	  },
+	  {
+		"name": "Paper 304",
+		"creator": "TextureLabs",
+		"license": "CC0",
+		"url": "https://texturelabs.org/textures/paper_304/"
+	  },
+	  {
+		"name": "Details 181",
+		"creator": "TextureLabs",
+		"license": "CC0",
+		"url": "http://texturelabs.org/textures/details_181/"
+	  },
+	  {
+		"name": "Stone 159",
+		"creator": "TextureLabs",
+		"license": "CC0",
+		"url": "http://texturelabs.org/textures/stone_159/"
+	  },
+	  {
+		"name": "Metal 294",
+		"creator": "TextureLabs",
+		"license": "CC0",
+		"url": "https://texturelabs.org/textures/metal_294/"
+	  }
+	],
+	"Audio": [
+	  {
+		"name": "2_Lift_ON.wav",
+		"creator": "ValentinPetiteau",
+		"license": "CC0",
+		"url": "https://freesound.org/s/564407/"
+	  },
+	  {
+		"name": "METLFric Metal Resonant Creaking",
+		"creator": "SoundDesignForYou",
+		"license": "CC0",
+		"url": "https://freesound.org/s/697741/"
+	  },
+	  {
+		"name": "Under Water Echo (Water SFX remixed)",
+		"creator": "a23spyro",
+		"license": "CC0",
+		"url": "https://freesound.org/s/344751/"
+	  },
+	  {
+		"name": "Industrial Lever",
+		"creator": "Autobot8299",
+		"license": "CC0",
+		"url": "https://freesound.org/s/835550/"
+	  },
+	  {
+		"name": "Underwater Impact",
+		"creator": "deleted_user_7709760",
+		"license": "CC-BY 3.0",
+		"url": "https://freesound.org/s/400793/"
+	  },
+	  {
+		"name": "Vibrations 02",
+		"creator": "LilMati",
+		"license": "CC0",
+		"url": "https://freesound.org/s/445353/"
+	  },
+	  {
+		"name": "SND Dive Alarm",
+		"creator": "Knochenschall",
+		"license": "CC0",
+		"url": "https://freesound.org/s/377770/"
+	  },
+	  {
+		"name": "Ship Engine",
+		"creator": "IsraGallo",
+		"license": "CC-BY 4.0",
+		"url": "https://freesound.org/s/514441/"
+	  }
+	],
+	"Shaders": [
+	  {
+		"name": "Spiraling Pattern Backdrop",
+		"creator": "GodotShaders",
+		"license": "Unknown",
+		"url": "https://godotshaders.com/shader/spiraling-pattern-backdrop/"
+	  },
+	  {
+		"name": "SimpleGodotCRTShader",
+		"creator": "henriquelalves",
+		"license": "MIT",
+		"url": "https://github.com/henriquelalves/SimpleGodotCRTShader"
+	  }
+	],
+	"Other Assets": [
+	  {
+		"name": "Animated Radar Assets",
+		"creator": "OpenGameArt",
+		"license": "Varies",
+		"url": "https://opengameart.org/content/animated-radar-assets"
+	  },
+	  {
+		"name": "Empty Black Keyboard",
+		"creator": "OpenGameArt",
+		"license": "Varies",
+		"url": "https://opengameart.org/content/empty-black-keyboard"
+	  }
+	],
+	"Tools Used":[
+	  {
+		"name": "Audacity",
+		"creator": "The Audacity Team",
+		"license": "GNU General Public License",
+		"url": "https://www.audacityteam.org/"
+	  },
+	  {
+		"name": "Godot 4.6",
+		"creator": "Juan Linietsky, Ariel Manzur & Godot Engine contributors",
+		"license": "MIT",
+		"url": "https://godotengine.org/"
+	  },
+	  {
+		"name": "GIMP",
+		"creator": "GIMP Development Team",
+		"license": "GNU GENERAL PUBLIC LICENSE",
+		"url": "https://www.gimp.org/"
+	  },
+		{
+		"name": "AI Discolures",
+		"creator": "No Art Story Elements Was Created With AI",
+		"license": "AI Was used with General Debuging",
+		"url": "Spell Checking and In Writing this JSON File"
+	  }
+	]
+  }
+}

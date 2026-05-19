@@ -3,8 +3,20 @@
 [ext_resource type="Script" uid="uid://6egcwo2lnubj" path="res://worldAssets/WorldSpaces/MainMenu/save_file_ui.gd" id="1_dyong"]
 [ext_resource type="FontFile" uid="uid://swrd57gvrc8t" path="res://fomts/ProtestRevolution-Regular.ttf" id="2_bgakl"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgakl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bgakl"]
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_pg2v3"]
 font_size = 8
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pg2v3"]
 
@@ -18,6 +30,7 @@ font_size = 8
 
 [node name="Save_File_UI" type="Panel" unique_id=1617600258]
 custom_minimum_size = Vector2(250, 40)
+theme_override_styles/panel = SubResource("StyleBoxFlat_bgakl")
 script = ExtResource("1_dyong")
 
 [node name="Save_Title" type="Label" parent="." unique_id=1190864643]
@@ -31,14 +44,17 @@ offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_bgakl")
 text = "Save File Name"
+label_settings = SubResource("LabelSettings_bgakl")
 
 [node name="Last_Played" type="Label" parent="." unique_id=1455759240]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -12.0
-offset_right = 118.0
+offset_left = 5.0
+offset_top = -16.0
+offset_right = 123.0
+offset_bottom = -4.0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_bgakl")
 text = "Last Played"

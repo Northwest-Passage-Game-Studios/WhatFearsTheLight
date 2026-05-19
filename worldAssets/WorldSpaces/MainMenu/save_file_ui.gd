@@ -9,7 +9,7 @@ var current_save_file:save_file:
 	set(new_file):
 		current_save_file=new_file
 		save_title.text=current_save_file.save_name
-		last_played.text+=Time.get_datetime_string_from_unix_time(current_save_file.last_played)
+		last_played.text+=":  " +  Time.get_datetime_string_from_unix_time(current_save_file.last_played)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

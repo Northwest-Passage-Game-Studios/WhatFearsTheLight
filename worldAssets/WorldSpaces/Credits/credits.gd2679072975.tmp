@@ -1,7 +1,7 @@
 extends Control
 
 # Load credits.json once and parse
-var credits_dict :Dictionary= JSON.parse_string(FileAccess.open("res://worldAssets/WorldSpaces/Credits/Credits.json", FileAccess.READ).get_as_text())
+@onready var credits_dict: Dictionary = JSON.parse_string(FileAccess.open("res://worldAssets/WorldSpaces/Credits/credits.gd", FileAccess.READ).get_as_text())
 
 # Exported references to template panels
 @export var headers: Panel
@@ -95,34 +95,32 @@ func create_assets_label(dict:Dictionary):
 
 func _input(event: InputEvent) -> void:
 	if(event.is_action("escape")):
-		get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/MainMenu/main_menu.tscn")
+		get_tree().change_scene_to_file("res://Data/Scences/main_menu.tscn")
 	
 
 func _ready() -> void:
-	print(credits_dict)
 	start_below.button_down.connect(func ():
 		print("shoot")
-		get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/MainMenu/main_menu.tscn")
+		get_tree().change_scene_to_file("res://Data/Scences/main_menu.tscn")
 		)
 	all_movers.append(title_card)
 	next_y= start_below.position.y+100
-	if credits_dict is Dictionary:
-		for cat in credits_dict.keys():
-			new_header(cat)
-			for sub_cat in credits_dict[cat].keys():
-				var sub_cat_header:Panel = await new_sub_header(sub_cat)
-				for item in credits_dict[cat][sub_cat]:
+	for cat in credits_dict.keys():
+		new_header(cat)
+		for sub_cat in credits_dict[cat].keys():
+			var sub_cat_header:Panel = await new_sub_header(sub_cat)
+			for item in credits_dict[cat][sub_cat]:
 
-					if(cat=="Game Assets"):
-						await create_assets_label(item)
-					else:
-						var item_panel:Panel = await new_sub_header(item)
-						var label:Label= item_panel.get_child(0)
-		for mover in all_movers:
-			mover.show()
-		if(OS.has_feature("mobile")):
-			start_below.show()
-		ready_move=true
+				if(cat=="Game Assets"):
+					await create_assets_label(item)
+				else:
+					var item_panel:Panel = await new_sub_header(item)
+					var label:Label= item_panel.get_child(0)
+	for mover in all_movers:
+		mover.show()
+	if(OS.has_feature("mobile")):
+		start_below.show()
+	ready_move=true
 
 var have_finshed=0
 func _process(delta: float) -> void:

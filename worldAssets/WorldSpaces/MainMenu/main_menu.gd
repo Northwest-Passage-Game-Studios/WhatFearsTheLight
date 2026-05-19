@@ -9,6 +9,7 @@ const SAVE_FILE_UI = preload("uid://c8ukrkmbiuhqu")
 @onready var accept_dialog: AcceptDialog = $CanvasLayer/Control/AcceptDialog
 @onready var button_contanor: VBoxContainer = $CanvasLayer/Control/VBoxContainer
 @onready var cursor: AnimatedSprite2D = $CanvasLayer/Cursor
+@onready var settings: Panel = $CanvasLayer/Control/Settings
 
 @onready var black: TextureRect = $CanvasLayer/Control/Black
 @export var end_color:Color
@@ -58,6 +59,7 @@ func _on_input_enter():
 	Input.set_custom_mouse_cursor(empty_cursor_texture,Input.CURSOR_IBEAM)
 	cursor.play("input_text")
 func _on_load_pressed() -> void:
+	settings.visible=false
 	load_panel.visible=!load_panel.visible
 
 
@@ -74,3 +76,12 @@ func _error_on_load(error:Error):
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_settings_pressed() -> void:
+	load_panel.visible=false
+	settings.visible=!load_panel.visible
+
+
+func _on_credits_pressed() -> void:
+	get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/Credits/credits.tscn")

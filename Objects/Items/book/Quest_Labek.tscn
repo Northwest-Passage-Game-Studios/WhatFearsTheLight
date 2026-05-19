@@ -1,14 +1,8 @@
 [gd_scene format=3 uid="uid://4yyoocmc61av"]
 
-[ext_resource type="FontFile" uid="uid://swrd57gvrc8t" path="res://fomts/ProtestRevolution-Regular.ttf" id="1_srbwe"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_j3mkf"]
-font = ExtResource("1_srbwe")
-font_size = 32
-font_color = Color(0, 0, 0, 1)
-
-[node name="Label" type="Label" unique_id=771668796]
+[node name="Label" type="RichTextLabel" unique_id=485844887]
+offset_right = 1.0
+offset_bottom = 39.0
 text = "Quest"
-label_settings = SubResource("LabelSettings_j3mkf")
-horizontal_alignment = 1
 autowrap_mode = 2
+horizontal_alignment = 1
