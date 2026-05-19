@@ -119,10 +119,7 @@ func _process(delta: float) -> void:
 	rotate_head(delta)
 	_pick_up_check()
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("escape"):
-		if book_container.get_child_count()==0:
-			var bookInstance=bookScene.instantiate()
-			book_container.add_child(bookInstance)
+
 	if is_on_floor():
 		coyote_time.start()
 	Manager.infiniStamina=permaSprint
@@ -280,7 +277,10 @@ func _input(event: InputEvent) -> void:
 		var new_pitch = clampf(pitch_rotate,-80,80)
 
 		neck.rotation_degrees.x=new_pitch
-
+	if event.is_action_pressed("escape"):
+		if book_container.get_child_count()==0:
+			var bookInstance=bookScene.instantiate()
+			book_container.add_child(bookInstance)
 
 func _on_auto_save():
 	if Save_Handler.current_save_file!=null:
