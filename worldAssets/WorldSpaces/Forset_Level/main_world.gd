@@ -48,7 +48,7 @@ func _make_world() -> void:
 func _handle_quest(quest:Dictionary):
 	if quest["Ref_ID"]==quest_stage_two_ref_id  :
 		await get_tree().create_timer(4).timeout
-		quest_stage_three_ref_id=Quest_Manger.add_new_quest("Find the gate key","None",Quest_Manger.Quest_Type.Smiple_Marker)
+		quest_stage_three_ref_id=Quest_Manger.add_new_quest("Find the key to the gate","None",Quest_Manger.Quest_Type.Smiple_Marker)
 		Quest_Manger.set_quest_marker(quest_stage_three_ref_id,gate_static_body_3d.global_position)
 		
 
@@ -65,7 +65,7 @@ func _ready() -> void:
 	player.tool_handler.pick_up_item(starting_tool,false)
 	Quest_Manger.Quest_Completed.connect(_handle_quest)
 	#Starts_Forset_key_finding_Quest
-	quest_stage_one_ref_id=Quest_Manger.add_new_quest("Find the way out of the forset","None",Quest_Manger.Quest_Type.Just_Text)
+	quest_stage_one_ref_id=Quest_Manger.add_new_quest("Find a way out of the forest","None",Quest_Manger.Quest_Type.Just_Text)
 	player.tool_handler.equip()
 	Manager.allow_looking=true
 	Manager.allow_moving=true

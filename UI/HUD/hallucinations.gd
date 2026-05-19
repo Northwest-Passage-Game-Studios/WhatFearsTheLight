@@ -24,7 +24,6 @@ func _process(delta: float) -> void:
 		color_rect.color.a+=0.01
 		if color_rect.color.a>0.99:
 			get_tree().reload_current_scene()
-	print(hallucount)
 	crazy_label.position.x=centerX+randi_range(-30-hallucount*10,30+hallucount*10)
 	crazy_label.position.y=centerY+randi_range(-20-hallucount*10,20+hallucount*10)
 	if Manager.losingIt:

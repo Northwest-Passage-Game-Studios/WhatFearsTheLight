@@ -34,7 +34,9 @@
 [ext_resource type="Texture2D" uid="uid://wimqjeqrlgdu" path="res://worldAssets/beachStuff/boxes/Wooden Crate/Textures/2048/Wooden Crate_Crate_Normal.png" id="28_seswe"]
 [ext_resource type="Texture2D" uid="uid://ck3nbm02fdjxd" path="res://worldAssets/beachStuff/boxes/Wooden Crate/Textures/1024/Wooden Crate_Crate_BaseColor.png" id="29_seswe"]
 [ext_resource type="Texture2D" uid="uid://7yji4kcvhgih" path="res://worldAssets/beachStuff/lighthouse.png" id="33_46map"]
+[ext_resource type="Script" uid="uid://c8fbqj0c11ker" path="res://worldAssets/WorldSpaces/Beach_Level/lighthouse_png.gd" id="35_3tdmf"]
 [ext_resource type="PackedScene" uid="uid://bm5wwbqa05j0q" path="res://worldAssets/Radio/radio.tscn" id="35_nuggl"]
+[ext_resource type="Texture2D" uid="uid://d04lqs545oeqr" path="res://worldAssets/paper/New Piskel (1).png" id="37_lpeck"]
 [ext_resource type="AudioStream" uid="uid://dguicfpivaqo2" path="res://Sounds/830254__nicktayloe__closer-ocean-waves-on-pebbly-beach-iceland-loop.mp3" id="38_3tdmf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3rti2"]
@@ -591,6 +593,16 @@ size = Vector3(0.8651123, 0.64404297, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_d7nan"]
 size = Vector3(56.648193, 38.24707, 1)
 
+[sub_resource type="FogMaterial" id="FogMaterial_lpeck"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpeck"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3tdmf"]
+shading_mode = 0
+albedo_color = Color(18.892157, 18.892157, 18.892157, 1)
+
 [node name="beachScene" type="Node3D" unique_id=159205370 node_paths=PackedStringArray("player")]
 script = ExtResource("1_xnhl1")
 player = NodePath("Player")
@@ -790,7 +802,7 @@ transform = Transform3D(0.5293835, 0, -1.8143464, 0, 1.89, 0, 1.8143464, 0, 0.52
 [node name="Rock22" parent="Node3D" unique_id=953305565 instance=ExtResource("15_57qcg")]
 transform = Transform3D(-0.8194677, 0, -0.35985774, 0, 0.895, 0, 0.35985774, 0, -0.8194677, 0.9927058, 2.0385308, -97.14975)
 
-[node name="Rock8" parent="Node3D/Rock22" index="0" unique_id=1514517585]
+[node name="Rock8" parent="Node3D/Rock22" index="0" unique_id=330910916]
 material_override = SubResource("StandardMaterial3D_aibvq")
 
 [node name="Label3D" type="Label3D" parent="Node3D/Rock22/Rock8" index="0" unique_id=22892954]
@@ -833,7 +845,7 @@ shape = SubResource("BoxShape3D_j4b3f")
 [node name="Rock23" parent="Node3D" unique_id=485673582 instance=ExtResource("15_57qcg")]
 transform = Transform3D(-1.4100338, -1.0002404e-08, -0.39001343, 0.09453606, 0.88450736, -0.13559686, 0.61193734, -0.13664447, -0.8777261, 0.9927058, 1.4628043, -103.27665)
 
-[node name="Rock8" parent="Node3D/Rock23" index="0" unique_id=1514517585]
+[node name="Rock8" parent="Node3D/Rock23" index="0" unique_id=330910916]
 transform = Transform3D(1.0000002, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1.0000002, 0, 0.46550477, 0)
 material_override = SubResource("StandardMaterial3D_aibvq")
 
@@ -877,7 +889,7 @@ shape = SubResource("BoxShape3D_fhhh3")
 [node name="Rock21" parent="Node3D" unique_id=1368774742 instance=ExtResource("15_57qcg")]
 transform = Transform3D(0.8045719, -0.02971485, 0.15550262, -0.04089503, -0.81710017, 0.055452336, 0.15294322, -0.062164236, -0.8032086, 0.02082777, 3.9426098, -90.33201)
 
-[node name="Rock8" parent="Node3D/Rock21" index="0" unique_id=1514517585]
+[node name="Rock8" parent="Node3D/Rock21" index="0" unique_id=330910916]
 material_override = null
 surface_material_override/0 = SubResource("StandardMaterial3D_ejrn3")
 
@@ -1331,6 +1343,34 @@ shape = SubResource("BoxShape3D_d7nan")
 transform = Transform3D(10.765, 0, 0, 0, 10.765, 0, 0, 0, 10.765, 18.440828, 71.31444, -155.19864)
 modulate = Color(0, 0, 0, 1)
 texture = ExtResource("33_46map")
+script = ExtResource("35_3tdmf")
+
+[node name="FogVolume" type="FogVolume" parent="lighthousePNG" unique_id=93409246]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -0.5571456, 4.215243, 0)
+size = Vector3(10, 10, 10)
+shape = 1
+material = SubResource("FogMaterial_lpeck")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="lighthousePNG" unique_id=1541317038]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -0.40944457, 4.277148, -0.05066967)
+radius = 0.16601563
+height = 0.5
+sides = 41
+material = SubResource("StandardMaterial3D_lpeck")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="lighthousePNG/CSGCylinder3D2" unique_id=1287854311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.13870907)
+radius = 0.1
+height = 0.5
+sides = 41
+material = SubResource("StandardMaterial3D_3tdmf")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="lighthousePNG/CSGCylinder3D2" unique_id=2019963877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.13424969)
+radius = 0.1
+height = 0.5
+sides = 41
+material = SubResource("StandardMaterial3D_3tdmf")
 
 [node name="20348ReceiverRadioV1Texture" parent="." unique_id=1742159539 instance=ExtResource("35_nuggl")]
 transform = Transform3D(-0.001510467, -0.0019831292, -0.0076016895, -0.000949297, -0.007638124, 0.0021812606, -0.007798547, 0.0013138729, 0.0012068192, -7.248749, 0.8668994, -35.083733)
@@ -1342,6 +1382,14 @@ stream = ExtResource("38_3tdmf")
 volume_db = -40.0
 unit_size = 45.1
 autoplay = true
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2024443825]
+transform = Transform3D(0.305, 0, 0, 0, 0.305, 0, 0, 0, 0.305, 0.23830509, 5.570397, -105.92419)
+cast_shadow = 0
+gi_mode = 0
+modulate = Color(1, 1, 1, 0.8)
+shaded = true
+texture = ExtResource("37_lpeck")
 
 [connection signal="timeout" from="12219BoatV2L2/Timer" to="12219BoatV2L2" method="_on_timer_timeout"]
 [connection signal="timeout" from="12219BoatV2L2/flickerTimer" to="12219BoatV2L2" method="_on_flicker_timer_timeout"]
