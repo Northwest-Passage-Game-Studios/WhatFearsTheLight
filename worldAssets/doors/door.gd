@@ -39,7 +39,7 @@ signal closed
 signal teleport_signal
 
 var is_open:=false
-
+var is_doing_logic:=false
 func _teleport_helper():
 	print("Hello")
 	if teleport_type!=Teleport_Type.Disabled:
@@ -84,8 +84,8 @@ func _open():
 					_teleport_helper()
 				)
 			is_open=false
-		
-
+	is_doing_logic=false
+	
 func _tried_to_open():
 	tried_to_open.emit()
 
@@ -96,13 +96,17 @@ func _check_if_open(key_rings:Array[int])->bool:
 	return false
 
 func try_to_open(key_rings:Array[int]):
+	if is_doing_logic==true:
+		return
 	if use_key:
 		if _check_if_open(key_rings):
 			_open()
+			is_doing_logic=true
 		else:
 			tried_to_open.emit()
 	else:
 		_open()
+		is_doing_logic=true
 	
 	
 func show_outline():

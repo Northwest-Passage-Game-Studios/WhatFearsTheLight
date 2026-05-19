@@ -84,14 +84,14 @@ animations = [{
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9073359, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_b5hk4"]
+[sub_resource type="CurveTexture" id="CurveTexture_yye27"]
 curve = SubResource("Curve_p46oc")
 
 [sub_resource type="Gradient" id="Gradient_vsltj"]
 offsets = PackedFloat32Array(0.21459228, 1)
 colors = PackedColorArray(0.24115604, 0.24115604, 0.24115604, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_b66gd"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g6kxn"]
 gradient = SubResource("Gradient_vsltj")
 
 [sub_resource type="Gradient" id="Gradient_uhi3m"]
@@ -100,7 +100,7 @@ gradient = SubResource("Gradient_vsltj")
 noise_type = 2
 fractal_type = 0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b66gd"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oqeu1"]
 noise = SubResource("FastNoiseLite_vlnf4")
 color_ramp = SubResource("Gradient_uhi3m")
 
@@ -108,9 +108,9 @@ color_ramp = SubResource("Gradient_uhi3m")
 render_priority = 0
 shader = ExtResource("2_h88mj")
 shader_parameter/Color = Color(1, 1, 1, 1)
-shader_parameter/Color_Gradiant = SubResource("GradientTexture1D_b66gd")
-shader_parameter/Vor_Noise = SubResource("NoiseTexture2D_b66gd")
-shader_parameter/Alpha_Curve = SubResource("CurveTexture_b5hk4")
+shader_parameter/Color_Gradiant = SubResource("GradientTexture1D_g6kxn")
+shader_parameter/Vor_Noise = SubResource("NoiseTexture2D_oqeu1")
+shader_parameter/Alpha_Curve = SubResource("CurveTexture_yye27")
 shader_parameter/Fernal_Power = 1.0
 shader_parameter/Vor_Scale = 0.8
 shader_parameter/Vor_Speed = 0.2
@@ -121,7 +121,7 @@ shader_parameter/Alpha_Clip = 0.0
 _data = [Vector2(0, 0), 0.0, 1.0236398, 0, 0, Vector2(1, 1), 0.97106856, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_acbqd"]
+[sub_resource type="CurveTexture" id="CurveTexture_gk2mi"]
 texture_mode = 1
 curve = SubResource("Curve_cd0hh")
 
@@ -129,7 +129,7 @@ curve = SubResource("Curve_cd0hh")
 _data = [Vector2(0, 0.27411175), 0.0, 0.0, 0, 0, Vector2(0.7670157, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_wxifh"]
+[sub_resource type="CurveTexture" id="CurveTexture_uhvo3"]
 curve = SubResource("Curve_yye27")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g6kxn"]
@@ -140,8 +140,8 @@ emission_sphere_radius = 0.25
 angle_min = -543.7
 angle_max = 146.70001
 gravity = Vector3(0.5, 1, 0)
-scale_curve = SubResource("CurveTexture_wxifh")
-alpha_curve = SubResource("CurveTexture_acbqd")
+scale_curve = SubResource("CurveTexture_uhvo3")
+alpha_curve = SubResource("CurveTexture_gk2mi")
 hue_variation_min = -2.2351742e-08
 hue_variation_max = 0.019999977
 turbulence_noise_strength = 0.05
@@ -159,12 +159,12 @@ albedo_color = Color(18.892157, 18.892157, 7.7643785, 1)
 shading_mode = 0
 albedo_color = Color(4.087714, 4.087714, 1.6546733, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nayo1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tam20"]
 shading_mode = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ro24h"]
 lightmap_size_hint = Vector2i(1002, 1002)
-material = SubResource("StandardMaterial3D_nayo1")
+material = SubResource("StandardMaterial3D_tam20")
 size = Vector2(1000, 1000)
 subdivide_width = 100
 subdivide_depth = 100
@@ -196,12 +196,12 @@ sky_cover_modulate = Color(1.1008143, 1.1008143, 1.1008143, 1)
 ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Sky" id="Sky_rb0vb"]
+[sub_resource type="Sky" id="Sky_68xqm"]
 sky_material = SubResource("ProceduralSkyMaterial_vsltj")
 
 [sub_resource type="Environment" id="Environment_uhi3m"]
 background_mode = 2
-sky = SubResource("Sky_rb0vb")
+sky = SubResource("Sky_68xqm")
 ambient_light_source = 1
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.0
