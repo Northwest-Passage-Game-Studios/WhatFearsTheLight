@@ -1,7 +1,7 @@
 extends World_Spaces
 
 @onready var pickable: Object_PickUp_Point = $Pickable
-@onready var door_interact: Door_Interact = $Door_Interact
+@onready var door_interact: Marker3D = $Door_Interact/DoorMaker
 @onready var you_cant_go_that_way: StaticBody3D = $YouCantGoThatWay
 
 
@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 func _on_pickable_picked_up() -> void:
 	await get_tree().create_timer(4).timeout
 	find_the_way_out_the_beach = Quest_Manger.add_new_quest("Search For a way out of the cove","N/A",QuestManger.Quest_Type.Smiple_Marker)
-	Quest_Manger.set_quest_marker(find_the_way_out_the_beach,door_interact.position)
+	Quest_Manger.set_quest_marker(find_the_way_out_the_beach,door_interact.global_position)
 	you_cant_go_that_way.queue_free()
 
 
