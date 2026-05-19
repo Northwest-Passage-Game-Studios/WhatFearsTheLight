@@ -155,6 +155,14 @@ max_polyphony = 10
 [node name="hallucinations" type="CanvasLayer" parent="." unique_id=1571557334]
 script = ExtResource("6_s83ig")
 
+[node name="ColorRect" type="ColorRect" parent="hallucinations" unique_id=517171070]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
 [node name="crazyLabel" type="Label" parent="hallucinations" unique_id=1232574523]
 visible = false
 anchors_preset = 15
@@ -170,7 +178,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="hallucinations" unique_id=2062976038]
-wait_time = 5.0
+wait_time = 50.0
 one_shot = true
 autostart = true
 

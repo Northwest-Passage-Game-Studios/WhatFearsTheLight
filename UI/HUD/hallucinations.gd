@@ -5,6 +5,7 @@ var crazyThings:=["Find the light","Restore the beacon","Don't let the darkness 
 var centerX=0
 var centerY=0
 var hallucount:=0.0
+@onready var color_rect: ColorRect = $ColorRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,6 +21,9 @@ func _process(delta: float) -> void:
 		crazy_label.modulate=Color.WHITE
 	if hallucount>8:
 		hallucount=8
+		color_rect.color.a+=0.01
+		if color_rect.color.a>0.99:
+			get_tree().reload_current_scene()
 	print(hallucount)
 	crazy_label.position.x=centerX+randi_range(-30-hallucount*10,30+hallucount*10)
 	crazy_label.position.y=centerY+randi_range(-20-hallucount*10,20+hallucount*10)
@@ -34,6 +38,8 @@ func _process(delta: float) -> void:
 	else:
 		crazy_label.visible=false
 		hallucount=0
+		if color_rect.color.a>0:
+			color_rect.color.a-=0.01
 	
 
 func _on_timer_timeout() -> void:

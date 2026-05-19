@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://ulu3elc8iyd0" path="res://Objects/Items/Key/key.tscn" id="7_bk25w"]
 [ext_resource type="PackedScene" uid="uid://bprx3w3vwsvla" path="res://Objects/Items/Flashlights/flash_light.tscn" id="7_tbems"]
 [ext_resource type="Texture2D" uid="uid://b6xehhmmu2ixn" path="res://worldAssets/paper/genderman.png" id="9_twgty"]
-[ext_resource type="Texture2D" uid="uid://c0uloyrwlpb1o" path="res://worldAssets/paper/spaced_clearGenderman (1).png" id="9_yordq"]
 [ext_resource type="Script" uid="uid://de18oqn5pa77d" path="res://Dev_Tools/CAIP/caip.gd" id="10_pb7lo"]
 [ext_resource type="Texture2D" uid="uid://bk1jc5fmyx8vb" path="res://worldAssets/paper/wendigoExplanation.png" id="11_gpyg0"]
 [ext_resource type="Script" uid="uid://b10rxjhdqr5wx" path="res://Dev_Tools/CAIP/BuildConfig.gd" id="11_iw8dy"]
@@ -55,7 +54,7 @@ metadata/_custom_type_script = "uid://b10rxjhdqr5wx"
 [sub_resource type="Resource" id="Resource_0tqwv"]
 script = ExtResource("15_t50r7")
 is_note = true
-note_texture = ExtResource("9_yordq")
+note_texture = ExtResource("11_gpyg0")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ww55"]
 size = Vector3(0.05935669, 0.007458008, 0.046173096)
@@ -4878,7 +4877,7 @@ update_rotation = false
 update_scale = false
 
 [node name="Armature" type="Node3D" parent="Node3D2/Door_OpenSnece/Player" unique_id=1684849325]
-transform = Transform3D(1.000029, 0, 3.874302e-07, 0, 1, 0, -3.874302e-07, 0, 1.000029, 0, -1.116628, -0.05709839)
+transform = Transform3D(1.000029, 0, 3.874302e-07, 0, 1, 0, -3.874302e-07, 0, 1.000029, 3.8146973e-06, -1.116628, -0.05708313)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Node3D2/Door_OpenSnece/Player/Armature" unique_id=1754835862]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
