@@ -8,8 +8,9 @@ var grasse=preload("res://worldAssets/grass/WAVEYgrass.tscn")
 @onready var tree_container: Node3D = $treeContainer
 @onready var reference_point: Node3D = $referencePoint
 @onready var ground: MeshInstance3D = $Ground
-@onready var gate_static_body_3d: Door_Interact = $brick_wall_gate/StaticBody3D
+
 @onready var animation_player: AnimationPlayer = $Node3D2/Door_OpenSnece/AnimationPlayer
+@onready var gate_static_body_3d: Door_Interact = $Node3D2/brick_wall_gate/StaticBody3D
 
 
 @onready var navigation_region_3d: NavigationRegion3D = $NavigationRegion3D
@@ -94,7 +95,7 @@ func _player_died(thing:String):
 	super(thing)
 
 func _on_static_body_3d_tried_to_open() -> void:
-	if Quest_Manger.get_quest(quest_stage_one_ref_id)["Is_Completed"]==false:
+	if Quest_Manger.get_quest(quest_stage_one_ref_id)["Is_Completed"]==false and quest_stage_two_ref_id!=-1 :
 		Quest_Manger.mark_quest_completed(quest_stage_one_ref_id)
 		await get_tree().create_timer(4).timeout
 		quest_stage_two_ref_id=Quest_Manger.add_new_quest("Find the gate key","None",Quest_Manger.Quest_Type.Smiple_Item_Fetch)
@@ -106,7 +107,7 @@ func _on_gate_key_picked_up() -> void:
 		Quest_Manger.mark_quest_completed(quest_stage_one_ref_id)
 		await get_tree().create_timer(4).timeout
 		quest_stage_three_ref_id=Quest_Manger.add_new_quest("Find the gate key","None",Quest_Manger.Quest_Type.Smiple_Marker)
-		#Quest_Manger.set_quest_marker(quest_stage_three_ref_id,gate_static_body_3d.global_position)
+		Quest_Manger.set_quest_marker(quest_stage_three_ref_id,gate_static_body_3d.global_position)
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
