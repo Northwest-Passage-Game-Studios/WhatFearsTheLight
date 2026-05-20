@@ -89,14 +89,16 @@ func _start_save_spin():
 	start_save_spin.modulate=Color.WHITE
 	text_spin.play("save_show")
 func _stop_save_spin(error:Error):
-
+	var word_tween = create_tween()
 	if error:
 		text_spin.stop(true)
 		start_save_spin.modulate=Color.RED
+		word_tween.tween_property(start_save_spin,"text","Save Failed!",0.2)
 		await get_tree().create_timer(0.5).timeout
 	else:
 		text_spin.stop(true)
 		start_save_spin.modulate=Color.GOLD
+		word_tween.tween_property(start_save_spin,"text","Save Success!",0.2)
 		await get_tree().create_timer(0.5).timeout
 	var reset_tween = create_tween()
 	reset_tween.tween_property(start_save_spin,"text","",0.2)
