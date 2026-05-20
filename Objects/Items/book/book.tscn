@@ -420,6 +420,7 @@ theme_override_font_sizes/font_size = 64
 text = "Resume"
 
 [node name="Save" type="Button" parent="PuaseMenu/Control/VSeparator" unique_id=591058007]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Save"

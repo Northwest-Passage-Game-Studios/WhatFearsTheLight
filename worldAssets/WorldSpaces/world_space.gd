@@ -3,7 +3,7 @@ class_name World_Spaces extends Node3D
 @export var player:player_body
 
 func _ready() -> void:
-	Save_Handler._write_file()
+	Save_Handler._on_timer_timeout()
 	player.played_died.connect(_player_died)
 
 func _player_died(thing:String):
