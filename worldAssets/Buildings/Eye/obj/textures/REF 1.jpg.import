@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c02iaxr3q4oh0"
-path.s3tc="res://.godot/imported/Eye_D.jpg-8629645dd8a061bda205405d6b8831d9.s3tc.ctex"
+uid="uid://jflpegt3tlru"
+path.s3tc="res://.godot/imported/REF 1.jpg-6490aa203da00165789a79a44f8df1c5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://worldAssets/Buildings/66-obj/obj/textures/Eye_D.jpg"
-dest_files=["res://.godot/imported/Eye_D.jpg-8629645dd8a061bda205405d6b8831d9.s3tc.ctex"]
+source_file="res://worldAssets/Buildings/Eye/obj/textures/REF 1.jpg"
+dest_files=["res://.godot/imported/REF 1.jpg-6490aa203da00165789a79a44f8df1c5.s3tc.ctex"]
 
 [params]
 

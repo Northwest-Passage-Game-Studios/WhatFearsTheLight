@@ -450,14 +450,13 @@ scale = Vector2(0.86795074, 1.0022683)
 build_mode = 1
 polygon = PackedVector2Array(-3, -3, -1, 648, 1151, 645, 1151, 0)
 
-[node name="Quest" type="SubViewport" parent="." unique_id=1266840815]
+[node name="Quest" type="SubViewport" parent="." unique_id=1356463337]
 transparent_bg = true
-handle_input_locally = false
 script = ExtResource("8_j3mkf")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Quest" unique_id=346064341]
+[node name="CanvasLayer2" type="CanvasLayer" parent="Quest" unique_id=2096758524]
 
-[node name="Panel" type="Panel" parent="Quest" unique_id=744413561]
+[node name="Panel" type="Panel" parent="Quest/CanvasLayer2" unique_id=744413561]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -466,7 +465,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_dfb67")
 
-[node name="Control" type="Control" parent="Quest" unique_id=1730794862]
+[node name="Control" type="Control" parent="Quest/CanvasLayer2" unique_id=1730794862]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -475,7 +474,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_ybed8")
 
-[node name="Label" type="Label" parent="Quest/Control" unique_id=427959379]
+[node name="Label" type="Label" parent="Quest/CanvasLayer2/Control" unique_id=427959379]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -489,7 +488,7 @@ text = "Quest"
 label_settings = SubResource("LabelSettings_dfb67")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Quest/Control/Label" unique_id=1194542351]
+[node name="Label2" type="Label" parent="Quest/CanvasLayer2/Control/Label" unique_id=1194542351]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -503,33 +502,31 @@ text = "______"
 label_settings = SubResource("LabelSettings_dfb67")
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Quest/Control" unique_id=1903740872]
+[node name="ScrollContainer" type="ScrollContainer" parent="Quest/CanvasLayer2/Control" unique_id=1903740872]
 custom_minimum_size = Vector2(300, 250)
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = -250.0
+offset_top = -121.0
 offset_right = 150.0
+offset_bottom = 325.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
-[node name="VSeparator" type="VBoxContainer" parent="Quest/Control/ScrollContainer" unique_id=428388866]
+[node name="VSeparator" type="VBoxContainer" parent="Quest/CanvasLayer2/Control/ScrollContainer" unique_id=428388866]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-alignment = 2
 
-[node name="TextureButton" type="AnimatedSprite2D" parent="Quest/Control" unique_id=2069415885]
+[node name="TextureButton" type="AnimatedSprite2D" parent="Quest/CanvasLayer2/Control" unique_id=2069415885]
 visible = false
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_inhnh")
 animation = &"move"
 autoplay = "move"
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=2096758524]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="PuaseMenu/Control/VSeparator/Resume" to="." method="_on_resume_pressed"]

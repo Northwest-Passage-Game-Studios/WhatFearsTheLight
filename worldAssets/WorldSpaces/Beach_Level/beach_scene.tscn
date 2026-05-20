@@ -802,7 +802,7 @@ transform = Transform3D(0.5293835, 0, -1.8143464, 0, 1.89, 0, 1.8143464, 0, 0.52
 [node name="Rock22" parent="Node3D" unique_id=953305565 instance=ExtResource("15_57qcg")]
 transform = Transform3D(-0.8194677, 0, -0.35985774, 0, 0.895, 0, 0.35985774, 0, -0.8194677, 0.9927058, 2.0385308, -97.14975)
 
-[node name="Rock8" parent="Node3D/Rock22" index="0" unique_id=330910916]
+[node name="Rock8" parent="Node3D/Rock22" index="0" unique_id=1908398840]
 material_override = SubResource("StandardMaterial3D_aibvq")
 
 [node name="Label3D" type="Label3D" parent="Node3D/Rock22/Rock8" index="0" unique_id=22892954]
@@ -845,7 +845,7 @@ shape = SubResource("BoxShape3D_j4b3f")
 [node name="Rock23" parent="Node3D" unique_id=485673582 instance=ExtResource("15_57qcg")]
 transform = Transform3D(-1.4100338, -1.0002404e-08, -0.39001343, 0.09453606, 0.88450736, -0.13559686, 0.61193734, -0.13664447, -0.8777261, 0.9927058, 1.4628043, -103.27665)
 
-[node name="Rock8" parent="Node3D/Rock23" index="0" unique_id=330910916]
+[node name="Rock8" parent="Node3D/Rock23" index="0" unique_id=1908398840]
 transform = Transform3D(1.0000002, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1.0000002, 0, 0.46550477, 0)
 material_override = SubResource("StandardMaterial3D_aibvq")
 
@@ -889,7 +889,7 @@ shape = SubResource("BoxShape3D_fhhh3")
 [node name="Rock21" parent="Node3D" unique_id=1368774742 instance=ExtResource("15_57qcg")]
 transform = Transform3D(0.8045719, -0.02971485, 0.15550262, -0.04089503, -0.81710017, 0.055452336, 0.15294322, -0.062164236, -0.8032086, 0.02082777, 3.9426098, -90.33201)
 
-[node name="Rock8" parent="Node3D/Rock21" index="0" unique_id=330910916]
+[node name="Rock8" parent="Node3D/Rock21" index="0" unique_id=1908398840]
 material_override = null
 surface_material_override/0 = SubResource("StandardMaterial3D_ejrn3")
 

@@ -33,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cg64skrljgp5b" path="res://worldAssets/Buildings/70-woodhouse/WoodHouse/Diffuse.png" id="30_wbi32"]
 [ext_resource type="ArrayMesh" uid="uid://ctcugx7uwv5xf" path="res://worldAssets/Buildings/70-woodhouse/WoodHouse/WoodHouse.obj" id="31_jt2al"]
 [ext_resource type="AudioStream" uid="uid://bnms6jc8avnhb" path="res://Sounds/SoundEffects/587013__lewooz__kitchen-noises-microwave.mp3" id="32_jt2al"]
-[ext_resource type="PackedScene" uid="uid://cciro001rb1q1" path="res://worldAssets/Buildings/eyeball.tscn" id="33_on4wv"]
+[ext_resource type="PackedScene" uid="uid://cciro001rb1q1" path="res://worldAssets/Buildings/Eye/eyeball.tscn" id="33_on4wv"]
 [ext_resource type="Material" uid="uid://d0secb5g7aw4f" path="res://worldAssets/ColinsBuildingsTexture/SemiDestoryedConcrete/Concrete042B_1K-PNG.tres" id="34_hqtt3"]
 [ext_resource type="ArrayMesh" uid="uid://bqaq7f7twj2fx" path="res://worldAssets/Buildings/lighthouseStatue/water_lighthouse.obj" id="35_yordq"]
 [ext_resource type="PackedScene" uid="uid://bdccn8at2ugdg" path="res://playerAssets/psx-first-person-arms-free-game-assets/PSX_First_Person_Arms.glb" id="38_w6b6j"]
@@ -5530,7 +5530,7 @@ debug_color = Color(0.80613714, 4.1536838e-05, 0.37893307, 0.41960785)
 [node name="PSX_First_Person_Arms" parent="." unique_id=1394949179 instance=ExtResource("38_w6b6j")]
 transform = Transform3D(7.0529485, 10.549503, 0, -10.549503, 7.0529485, 0, 0, 0, 12.69, -122.68035, 8.021, 15.701)
 
-[node name="arms" parent="PSX_First_Person_Arms/arms_armature/Skeleton3D" parent_id_path=PackedInt32Array(1394949179, 1693027634) index="0" unique_id=857829180]
+[node name="arms" parent="PSX_First_Person_Arms/arms_armature/Skeleton3D" parent_id_path=PackedInt32Array(1394949179, 1784107092) index="0" unique_id=1817223309]
 surface_material_override/0 = ExtResource("39_dwrbj")
 
 [connection signal="Picked_Up" from="Node3D2/Key_1/gate_key" to="." method="_on_gate_key_picked_up"]

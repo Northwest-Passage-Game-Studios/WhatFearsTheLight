@@ -60,6 +60,7 @@ func bake_nav_mesh():
 	return nav_mesh
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super()
 	_make_world()
 	#Adds the Starting Tool
 	player.tool_handler.pick_up_item(starting_tool,false)

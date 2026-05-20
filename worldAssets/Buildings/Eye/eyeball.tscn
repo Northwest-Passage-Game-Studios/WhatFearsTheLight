@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cciro001rb1q1"]
 
-[ext_resource type="Script" uid="uid://dikmljoujr85x" path="res://node_3d.gd" id="1_m4rr6"]
-[ext_resource type="ArrayMesh" uid="uid://bylghjji8tnmb" path="res://worldAssets/Buildings/66-obj/obj/eyeball.obj" id="2_o21gs"]
+[ext_resource type="Script" uid="uid://dikmljoujr85x" path="res://worldAssets/Buildings/Eye/node_3d.gd" id="1_m4rr6"]
+[ext_resource type="ArrayMesh" uid="uid://bylghjji8tnmb" path="res://worldAssets/Buildings/Eye/obj/eyeball.obj" id="2_o21gs"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_m4rr6"]
 radius = 10.0

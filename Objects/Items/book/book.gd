@@ -1,4 +1,4 @@
-extends Node3D
+class_name Book extends Node3D
 
 @onready var quest: SubViewport = $Quest
 
@@ -6,6 +6,8 @@ extends Node3D
 const FAKE_CURSOR = preload("res://UI/fake_cursor.tres")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var canClose:=false
+
+signal closing
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -47,6 +49,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 		Manager.allow_looking=true
 		Manager.allow_moving=true
+		closing.emit()
 		queue_free()
 	if anim_name=="openBook":
 		canClose=true

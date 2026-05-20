@@ -10,6 +10,7 @@ var find_the_way_out_the_beach:int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super()
 	player.black_animator.stop()
 	await get_tree().create_timer(2).timeout
 	find_the_light_quest = Quest_Manger.add_new_quest("Search The Wreckage For supplies","N/A",QuestManger.Quest_Type.Smiple_Item_Fetch)

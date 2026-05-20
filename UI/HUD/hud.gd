@@ -1,19 +1,23 @@
-extends Control
+class_name HUD extends Control
 @onready var quest_show_label: Label = $Quest_Show_Label
 @onready var debug_pannel: Panel = $DebugPannel
 @onready var fade_in: ColorRect = $fadeIn
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var start_save_spin: Label = $Start_Save_Spin
 
 var quest_label_display_pos:Vector2
 @onready var cross_hair: TextureRect = $TextureRect
 @onready var paper_back: TextureRect = $paperBack
+@onready var text_spin: AnimationPlayer = $Text_Spin
+
 
 @export_category("Crosshair_Textures")
 @export var normal_state_texture:Texture2D
 @export var intercat_texture:Texture2D
 @onready var paper: TextureRect = $Paper
 @export var genderman : Texture2D
+
 
 
 func load_note(note_texture):
@@ -66,10 +70,30 @@ func _ready() -> void:
 	if OS.has_feature("debug"):
 		debug_pannel.show()
 	
+	Save_Handler.Save_Writing.connect(_start_save_spin)
+	Save_Handler.Save_Written.connect(_stop_save_spin)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
+func _start_save_spin():
+	start_save_spin.modulate=Color.WHITE
+	text_spin.play("save_show")
+func _stop_save_spin(error:Error):
+
+	if error:
+		text_spin.stop(true)
+		start_save_spin.modulate=Color.RED
+		await get_tree().create_timer(0.5).timeout
+	else:
+		text_spin.stop(true)
+		start_save_spin.modulate=Color.GOLD
+		await get_tree().create_timer(0.5).timeout
+	var reset_tween = create_tween()
+	reset_tween.tween_property(start_save_spin,"text","",0.2)
+	await reset_tween.finished
+	text_spin.play("RESET")
 
 func _on_item_bone_anchor_note_added(note_texture: Texture2D) -> void:
 	load_note(note_texture)

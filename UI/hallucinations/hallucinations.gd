@@ -1,7 +1,11 @@
 extends CanvasLayer
+@export_file("*.json", "*.txt") var data_file: String
+
 @onready var timer: Timer = $Timer
 @onready var crazy_label: Label = $crazyLabel
-var crazyThings:=["Find the light","Restore the beacon","Don't let the darkness win","You are here for a reason","You have a purpose","Such splendid purpose","It doesn't want you to succeed","Burn the dark","It hates the light","It fears the light","It waits in the dark","Don't you feel it?","It's watching you","Why are you here?","Where will you go?","What are you?","Do you remember?","What did you do?","The sirens call beyond the sea","You were expected","You were chosen","You were perfect","It is a gift","It binds and burns","It gnashes and rages","It wants out","You are the key","The key can't be lost","You are the torch","The torch can't burn out","The prison of The Depths","The kingdom of The Sky","The glaring gaze","It can see you","It can feel you","It can hear you","You can't leave","You aren't done","The creaking forest","The blind town","The watched tower","The forgotten island","Beyond the horizon","Play your part","It is all you can do"]
+
+
+var crazyThings:Array[String]=[]
 var centerX=0
 var centerY=0
 var hallucount:=0.0
@@ -11,7 +15,12 @@ var hallucount:=0.0
 func _ready() -> void:
 	centerX=crazy_label.global_position.x
 	centerY=crazy_label.global_position.y
-
+	
+	var loaded = FileAccess.get_file_as_string(data_file)
+	var packed_texts := loaded.split("\n")
+	for line in packed_texts:
+		crazyThings.append(line)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

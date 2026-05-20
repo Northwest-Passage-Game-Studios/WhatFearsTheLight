@@ -24,5 +24,6 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	var save_return := Save_Handler._load_save_file(self.current_save_file)
 
-	if save_return != 0:
+	if save_return != SaveHandler.Save_Return_Codes.Success:
+		print("hello")
 		error_on_load.emit(save_return)

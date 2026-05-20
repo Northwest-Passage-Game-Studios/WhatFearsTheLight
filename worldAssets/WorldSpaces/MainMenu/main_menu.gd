@@ -10,18 +10,20 @@ const SAVE_FILE_UI = preload("uid://c8ukrkmbiuhqu")
 @onready var button_contanor: VBoxContainer = $CanvasLayer/Control/VBoxContainer
 @onready var cursor: AnimatedSprite2D = $CanvasLayer/Cursor
 @onready var settings: Panel = $CanvasLayer/Control/Settings
+@onready var menu_buttons: VBoxContainer = $CanvasLayer/Control/VBoxContainer
 
 @onready var black: TextureRect = $CanvasLayer/Control/Black
 @export var end_color:Color
+@onready var error_message: Erorr_Box = $CanvasLayer/Control/Error_Message
 
 var empty_cursor_texture = preload("res://UI/fake_cursor.tres")
 
 func _on_play_pressed() -> void:
 	Save_Handler.current_save_file=save_file.new()
 	Save_Handler.current_save_file.save_ver=Save_Handler.current_save_verison
-	play.visible=false
-	load.visible=false
+	menu_buttons.visible=false
 	load_panel.visible=false
+	settings.visible=false
 	enter_name.visible=true
 
 func _ready() -> void:
@@ -67,11 +69,12 @@ func _on_button_pressed() -> void:
 	Save_Handler.current_save_file.save_name=text_edit.text
 	get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/Open_Scene/Main_Sence.tscn")
 
-func _error_on_load(error:Error):
-	
-	if error==30:
-		accept_dialog.popup_centered()
-		
+func _error_on_load(error:SaveHandler.Save_Return_Codes):
+	var random_chance=randi_range(0,1001)
+	if random_chance== 1:
+		error_message.body.text = "The Person who wrote this cant code so go complain to him"
+	error_message.code.text="Code: "+str(SaveHandler.Save_Return_Codes.find_key(error))
+	error_message.show() 
 
 
 func _on_quit_pressed() -> void:

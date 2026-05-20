@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://bjxq30vac3n3w" path="res://fomts/SpecialElite.ttf" id="2_radol"]
 [ext_resource type="Texture2D" uid="uid://cqg2flctt0g08" path="res://worldAssets/paper/poster-basic-low-poly/textures/wanted_poster_blank.png" id="3_te8l2"]
 [ext_resource type="AudioStream" uid="uid://c08raxsaced86" path="res://Sounds/SoundEffects/561145__fmaudio__crumpling-piece-of-paper.wav" id="4_qdh7y"]
-[ext_resource type="Script" uid="uid://o6c5tvu7g5xk" path="res://UI/HUD/hallucinations.gd" id="6_s83ig"]
+[ext_resource type="Script" uid="uid://o6c5tvu7g5xk" path="res://UI/hallucinations/hallucinations.gd" id="6_s83ig"]
 [ext_resource type="FontFile" uid="uid://swrd57gvrc8t" path="res://fomts/ProtestRevolution-Regular.ttf" id="7_db5ks"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ia7gp"]
@@ -51,6 +51,53 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_7sg86"]
 font = ExtResource("7_db5ks")
 font_size = 69
+
+[sub_resource type="Animation" id="Animation_s83ig"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
+[sub_resource type="Animation" id="Animation_db5ks"]
+resource_name = "save_show"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(0.55478567, 0.55478567, 0.55478567),
+"update": 0,
+"values": ["", "Saving...", ""]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7sg86"]
+_data = {
+&"RESET": SubResource("Animation_s83ig"),
+&"save_show": SubResource("Animation_db5ks")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_gxdqe"]
+font_size = 64
+
+[sub_resource type="Gradient" id="Gradient_7eeat"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vat4w"]
+gradient = SubResource("Gradient_7eeat")
 
 [node name="Hud" type="Control" unique_id=1507218794]
 layout_mode = 3
@@ -154,6 +201,7 @@ max_polyphony = 10
 
 [node name="hallucinations" type="CanvasLayer" parent="." unique_id=1571557334]
 script = ExtResource("6_s83ig")
+data_file = "res://UI/hallucinations/messages.txt"
 
 [node name="ColorRect" type="ColorRect" parent="hallucinations" unique_id=517171070]
 anchors_preset = 15
@@ -181,5 +229,27 @@ vertical_alignment = 1
 wait_time = 50.0
 one_shot = true
 autostart = true
+
+[node name="Text_Spin" type="AnimationPlayer" parent="." unique_id=659837292]
+root_node = NodePath("../Start_Save_Spin")
+libraries/ = SubResource("AnimationLibrary_7sg86")
+
+[node name="Start_Save_Spin" type="Label" parent="." unique_id=885572823]
+z_index = 1
+layout_mode = 1
+offset_right = 1.0
+offset_bottom = 23.0
+scale = Vector2(0.27999997, 0.27999997)
+label_settings = SubResource("LabelSettings_gxdqe")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=189417710]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_vat4w")
 
 [connection signal="timeout" from="hallucinations/Timer" to="hallucinations" method="_on_timer_timeout"]

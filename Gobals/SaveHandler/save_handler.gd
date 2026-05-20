@@ -7,7 +7,14 @@ var current_save_file:save_file
 var save_files = []
 var current_save_verison = 1
 signal AutoSave
-
+signal Save_Writing
+signal Save_Written(error:Error)
+enum Save_Return_Codes{
+	Success,
+	World_Space_Null,
+	Invaild_Save_Verison,
+	
+}
 
 
 func find_all_save_files():
@@ -29,23 +36,30 @@ func _ready() -> void:
 	find_all_save_files()
 
 
-func _load_save_file(save:save_file)->Error:
+func _load_save_file(save:save_file)->Save_Return_Codes:
 	if save.save_ver!=current_save_verison:
-		return Error.ERR_INVALID_DATA
+		return Save_Return_Codes.Invaild_Save_Verison
 	var changing_sence_load := load(save.current_sence)
+	if changing_sence_load==null:
+		return Save_Return_Codes.World_Space_Null
 	var inst_of_new_sence = changing_sence_load.instantiate()
 	get_tree().change_scene_to_node(inst_of_new_sence)
 	current_save_file=save
 
-	return Error.OK
+	return Save_Return_Codes.Success
 
 func _write_file():
 	if current_save_file:
 		var save_locate = "user://"+save_file_path+"/"+current_save_file.save_name+".tres"
 
 		print(save_locate)
-		ResourceSaver.save(current_save_file,save_locate)
-		print("writing")
+		Save_Writing.emit()
+		var error := ResourceSaver.save(current_save_file,save_locate)
+		await error
+		await get_tree().create_timer(2.5).timeout
+		print(error)
+		Save_Written.emit(error)
+		
 
 
 func _on_timer_timeout() -> void:

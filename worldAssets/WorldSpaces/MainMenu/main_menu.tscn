@@ -13,7 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://bptweawpjb4x7" path="res://UI/HandCourrsor/real hands - normal select.png" id="3_sw7kw"]
 [ext_resource type="Texture2D" uid="uid://d2sqcbiwvv2ac" path="res://UI/Load_menu/notebook_background.png" id="4_g6kxn"]
 [ext_resource type="Script" uid="uid://ct0ugyb0hg0ct" path="res://worldAssets/WorldSpaces/MainMenu/load_panel.gd" id="5_oqeu1"]
+[ext_resource type="Texture2D" uid="uid://cqg2flctt0g08" path="res://worldAssets/paper/poster-basic-low-poly/textures/wanted_poster_blank.png" id="6_uhvo3"]
+[ext_resource type="Script" uid="uid://d372wxmu033du" path="res://worldAssets/WorldSpaces/MainMenu/error.gd" id="7_68xqm"]
 [ext_resource type="Texture2D" uid="uid://cox5s051a157q" path="res://worldAssets/sky/mud_road_puresky_4k.exr" id="7_p46oc"]
+[ext_resource type="FontFile" uid="uid://bjxq30vac3n3w" path="res://fomts/SpecialElite.ttf" id="7_tam20"]
 [ext_resource type="AudioStream" uid="uid://dtlo3sk7v3scf" path="res://Sounds/SoundEffects/videoplayback (1).mp3" id="8_vsltj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h88mj"]
@@ -33,6 +36,15 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_p46oc"]
 gradient = SubResource("Gradient_aw34y")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tam20"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68xqm"]
+texture = ExtResource("6_uhvo3")
+
+[sub_resource type="LabelSettings" id="LabelSettings_qjey3"]
+font = ExtResource("7_tam20")
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cd0hh"]
 atlas = ExtResource("2_vlnf4")
@@ -471,12 +483,95 @@ grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture1D_p46oc")
 
-[node name="AcceptDialog" type="AcceptDialog" parent="CanvasLayer/Control" unique_id=313327453]
-oversampling_override = 1.0
-position = Vector2i(0, 36)
-size = Vector2i(481, 100)
-ok_button_text = "OK"
-dialog_text = "There Was a Error Loading the Data Please try different save"
+[node name="Error_Message" type="Panel" parent="CanvasLayer/Control" unique_id=1439817876]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tam20")
+script = ExtResource("7_68xqm")
+
+[node name="Error_Message" type="Panel" parent="CanvasLayer/Control/Error_Message" unique_id=1292076113]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -106.0
+offset_right = 142.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_68xqm")
+
+[node name="title" type="Label" parent="CanvasLayer/Control/Error_Message/Error_Message" unique_id=238428941]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.0
+offset_top = 9.0
+offset_right = 26.0
+offset_bottom = 32.0
+grow_horizontal = 2
+text = "Error!"
+label_settings = SubResource("LabelSettings_qjey3")
+horizontal_alignment = 1
+
+[node name="body" type="Label" parent="CanvasLayer/Control/Error_Message/Error_Message" unique_id=124413830]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -118.0
+offset_top = 30.0
+offset_right = 118.0
+offset_bottom = 127.0
+grow_horizontal = 2
+text = "There was a error when tring to load your file."
+label_settings = SubResource("LabelSettings_qjey3")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Code" type="Label" parent="CanvasLayer/Control/Error_Message/Error_Message" unique_id=648355500]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_top = 109.0
+offset_right = 42.0
+offset_bottom = 134.0
+grow_horizontal = 2
+text = "Code: "
+label_settings = SubResource("LabelSettings_qjey3")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/Error_Message/Error_Message" unique_id=2017339715 groups=["is_focus_botton"]]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1.2574322, 1.2281615, 0, 1)
+theme_override_colors/font_hover_color = Color(1.2574322, 1.2281615, 0, 1)
+theme_override_fonts/font = ExtResource("7_tam20")
+text = "Okay."
 
 [node name="Cursor" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=507622695]
 sprite_frames = SubResource("SpriteFrames_gk2mi")
@@ -564,3 +659,4 @@ autoplay = true
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Error_Message/Error_Message/Button" to="CanvasLayer/Control/Error_Message" method="_on_button_pressed"]

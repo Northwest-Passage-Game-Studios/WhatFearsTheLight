@@ -23,7 +23,7 @@ class_name player_body extends CharacterBody3D
 @onready var item_pickable: RayCast3D = $Neck/Camera3D/ItemPickable
 @onready var footstep_player: AudioStreamPlayer = $footstepPlayer
 @onready var color_rect: ColorRect = $CanvasLayer/ColorRect
-@onready var hud: Control = $CanvasLayer/Hud
+@onready var hud: HUD = $CanvasLayer/Hud
 @onready var coyote_time: Timer = $coyoteTime
 
 
@@ -279,7 +279,11 @@ func _input(event: InputEvent) -> void:
 		neck.rotation_degrees.x=new_pitch
 	if event.is_action_pressed("escape"):
 		if book_container.get_child_count()==0:
-			var bookInstance=bookScene.instantiate()
+			var bookInstance:Book=bookScene.instantiate()
+			hud.cross_hair.visible=false
+			bookInstance.closing.connect(func():
+				hud.cross_hair.visible=true
+				)
 			book_container.add_child(bookInstance)
 
 func _on_auto_save():
