@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://btasvdafxfoud"
 path.s3tc="res://.godot/imported/metalfence_one_side_topbar_TexturesCom_MetalVarious0026_1_seamless_S.png-80b291b9c62a80ed0790ccfa5f8981e1.s3tc.ctex"
+path.etc2="res://.godot/imported/metalfence_one_side_topbar_TexturesCom_MetalVarious0026_1_seamless_S.png-80b291b9c62a80ed0790ccfa5f8981e1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://worldAssets/Fences/metal_fence/metalfence_one_side_topbar_TexturesCom_MetalVarious0026_1_seamless_S.png"
-dest_files=["res://.godot/imported/metalfence_one_side_topbar_TexturesCom_MetalVarious0026_1_seamless_S.png-80b291b9c62a80ed0790ccfa5f8981e1.s3tc.ctex"]
+dest_files=["res://.godot/imported/metalfence_one_side_topbar_TexturesCom_MetalVarious0026_1_seamless_S.png-80b291b9c62a80ed0790ccfa5f8981e1.s3tc.ctex", "res://.godot/imported/metalfence_one_side_topbar_TexturesCom_MetalVarious0026_1_seamless_S.png-80b291b9c62a80ed0790ccfa5f8981e1.etc2.ctex"]
 
 [params]
 

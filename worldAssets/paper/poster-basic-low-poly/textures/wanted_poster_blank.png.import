@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqg2flctt0g08"
 path.s3tc="res://.godot/imported/wanted_poster_blank.png-d47d05119677750471382ea401d004ed.s3tc.ctex"
+path.etc2="res://.godot/imported/wanted_poster_blank.png-d47d05119677750471382ea401d004ed.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/paper/poster-basic-low-poly/textures/wanted_poster_blank.png"
-dest_files=["res://.godot/imported/wanted_poster_blank.png-d47d05119677750471382ea401d004ed.s3tc.ctex"]
+dest_files=["res://.godot/imported/wanted_poster_blank.png-d47d05119677750471382ea401d004ed.s3tc.ctex", "res://.godot/imported/wanted_poster_blank.png-d47d05119677750471382ea401d004ed.etc2.ctex"]
 
 [params]
 

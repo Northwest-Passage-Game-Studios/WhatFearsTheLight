@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccbrng7eef0xv"
 path.s3tc="res://.godot/imported/metal_doors.png-ba5747050c8db215dce7b558af56bb8f.s3tc.ctex"
+path.etc2="res://.godot/imported/metal_doors.png-ba5747050c8db215dce7b558af56bb8f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/doors/textures/metal_doors.png"
-dest_files=["res://.godot/imported/metal_doors.png-ba5747050c8db215dce7b558af56bb8f.s3tc.ctex"]
+dest_files=["res://.godot/imported/metal_doors.png-ba5747050c8db215dce7b558af56bb8f.s3tc.ctex", "res://.godot/imported/metal_doors.png-ba5747050c8db215dce7b558af56bb8f.etc2.ctex"]
 
 [params]
 

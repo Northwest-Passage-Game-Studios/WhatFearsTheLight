@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkyvjx2k3voln"
 path.s3tc="res://.godot/imported/Concrete042A_1K-PNG_Roughness.png-180d96116a525c4d1724c3f48a753b34.s3tc.ctex"
+path.etc2="res://.godot/imported/Concrete042A_1K-PNG_Roughness.png-180d96116a525c4d1724c3f48a753b34.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/ColinsBuildingsTexture/FullyEntactConcrete/Concrete042A_1K-PNG_Roughness.png"
-dest_files=["res://.godot/imported/Concrete042A_1K-PNG_Roughness.png-180d96116a525c4d1724c3f48a753b34.s3tc.ctex"]
+dest_files=["res://.godot/imported/Concrete042A_1K-PNG_Roughness.png-180d96116a525c4d1724c3f48a753b34.s3tc.ctex", "res://.godot/imported/Concrete042A_1K-PNG_Roughness.png-180d96116a525c4d1724c3f48a753b34.etc2.ctex"]
 
 [params]
 

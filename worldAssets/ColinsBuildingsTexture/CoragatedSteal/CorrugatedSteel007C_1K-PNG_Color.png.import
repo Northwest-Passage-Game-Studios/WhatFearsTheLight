@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://lyhvye1cj5k5"
 path.s3tc="res://.godot/imported/CorrugatedSteel007C_1K-PNG_Color.png-16f47e7e17ea3b25cc5207ace4b2ee83.s3tc.ctex"
+path.etc2="res://.godot/imported/CorrugatedSteel007C_1K-PNG_Color.png-16f47e7e17ea3b25cc5207ace4b2ee83.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/ColinsBuildingsTexture/CoragatedSteal/CorrugatedSteel007C_1K-PNG_Color.png"
-dest_files=["res://.godot/imported/CorrugatedSteel007C_1K-PNG_Color.png-16f47e7e17ea3b25cc5207ace4b2ee83.s3tc.ctex"]
+dest_files=["res://.godot/imported/CorrugatedSteel007C_1K-PNG_Color.png-16f47e7e17ea3b25cc5207ace4b2ee83.s3tc.ctex", "res://.godot/imported/CorrugatedSteel007C_1K-PNG_Color.png-16f47e7e17ea3b25cc5207ace4b2ee83.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1hth1ecugnu4"
 path.s3tc="res://.godot/imported/20348_Receiver_radio_diffuse.jpg-4d96eba5cca08e915f1930c42487a782.s3tc.ctex"
+path.etc2="res://.godot/imported/20348_Receiver_radio_diffuse.jpg-4d96eba5cca08e915f1930c42487a782.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/beachStuff/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/Receiver_radio_v1_L1.123ca9cfbdeb-7577-48bb-90c2-d4f259740fda/20348_Receiver_radio_diffuse.jpg"
-dest_files=["res://.godot/imported/20348_Receiver_radio_diffuse.jpg-4d96eba5cca08e915f1930c42487a782.s3tc.ctex"]
+dest_files=["res://.godot/imported/20348_Receiver_radio_diffuse.jpg-4d96eba5cca08e915f1930c42487a782.s3tc.ctex", "res://.godot/imported/20348_Receiver_radio_diffuse.jpg-4d96eba5cca08e915f1930c42487a782.etc2.ctex"]
 
 [params]
 

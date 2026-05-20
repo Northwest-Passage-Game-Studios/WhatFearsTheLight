@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://1dslt60oubqd"
 path.s3tc="res://.godot/imported/!Assets.png-adab7c78ed7eccbde4e4ee6f4bbd4f59.s3tc.ctex"
+path.etc2="res://.godot/imported/!Assets.png-adab7c78ed7eccbde4e4ee6f4bbd4f59.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/Markers/Assets/!Assets.png"
-dest_files=["res://.godot/imported/!Assets.png-adab7c78ed7eccbde4e4ee6f4bbd4f59.s3tc.ctex"]
+dest_files=["res://.godot/imported/!Assets.png-adab7c78ed7eccbde4e4ee6f4bbd4f59.s3tc.ctex", "res://.godot/imported/!Assets.png-adab7c78ed7eccbde4e4ee6f4bbd4f59.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ck3nbm02fdjxd"
 path.s3tc="res://.godot/imported/Wooden Crate_Crate_BaseColor.png-1131920c78926b6cfb29eb4769f83a56.s3tc.ctex"
+path.etc2="res://.godot/imported/Wooden Crate_Crate_BaseColor.png-1131920c78926b6cfb29eb4769f83a56.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/beachStuff/boxes/Wooden Crate/Textures/1024/Wooden Crate_Crate_BaseColor.png"
-dest_files=["res://.godot/imported/Wooden Crate_Crate_BaseColor.png-1131920c78926b6cfb29eb4769f83a56.s3tc.ctex"]
+dest_files=["res://.godot/imported/Wooden Crate_Crate_BaseColor.png-1131920c78926b6cfb29eb4769f83a56.s3tc.ctex", "res://.godot/imported/Wooden Crate_Crate_BaseColor.png-1131920c78926b6cfb29eb4769f83a56.etc2.ctex"]
 
 [params]
 

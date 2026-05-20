@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://06vtcamyi8vx"
 path.s3tc="res://.godot/imported/Leaves_diffuse.png-e5dd23a6c2a99f8734d58de800d793c4.s3tc.ctex"
+path.etc2="res://.godot/imported/Leaves_diffuse.png-e5dd23a6c2a99f8734d58de800d793c4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/treees/Tree/textures/Leaves_diffuse.png"
-dest_files=["res://.godot/imported/Leaves_diffuse.png-e5dd23a6c2a99f8734d58de800d793c4.s3tc.ctex"]
+dest_files=["res://.godot/imported/Leaves_diffuse.png-e5dd23a6c2a99f8734d58de800d793c4.s3tc.ctex", "res://.godot/imported/Leaves_diffuse.png-e5dd23a6c2a99f8734d58de800d793c4.etc2.ctex"]
 
 [params]
 

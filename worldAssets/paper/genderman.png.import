@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6xehhmmu2ixn"
 path.s3tc="res://.godot/imported/genderman.png-71fda14b32e878b76d6639125835fc1e.s3tc.ctex"
+path.etc2="res://.godot/imported/genderman.png-71fda14b32e878b76d6639125835fc1e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/paper/genderman.png"
-dest_files=["res://.godot/imported/genderman.png-71fda14b32e878b76d6639125835fc1e.s3tc.ctex"]
+dest_files=["res://.godot/imported/genderman.png-71fda14b32e878b76d6639125835fc1e.s3tc.ctex", "res://.godot/imported/genderman.png-71fda14b32e878b76d6639125835fc1e.etc2.ctex"]
 
 [params]
 

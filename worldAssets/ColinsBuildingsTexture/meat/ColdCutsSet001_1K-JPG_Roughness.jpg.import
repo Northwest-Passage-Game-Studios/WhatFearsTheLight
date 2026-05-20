@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bi74wbny3nwkd"
 path.s3tc="res://.godot/imported/ColdCutsSet001_1K-JPG_Roughness.jpg-2e2dbd44658dd10eaa68b5c4a2ba326c.s3tc.ctex"
+path.etc2="res://.godot/imported/ColdCutsSet001_1K-JPG_Roughness.jpg-2e2dbd44658dd10eaa68b5c4a2ba326c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/ColinsBuildingsTexture/meat/ColdCutsSet001_1K-JPG_Roughness.jpg"
-dest_files=["res://.godot/imported/ColdCutsSet001_1K-JPG_Roughness.jpg-2e2dbd44658dd10eaa68b5c4a2ba326c.s3tc.ctex"]
+dest_files=["res://.godot/imported/ColdCutsSet001_1K-JPG_Roughness.jpg-2e2dbd44658dd10eaa68b5c4a2ba326c.s3tc.ctex", "res://.godot/imported/ColdCutsSet001_1K-JPG_Roughness.jpg-2e2dbd44658dd10eaa68b5c4a2ba326c.etc2.ctex"]
 
 [params]
 

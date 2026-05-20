@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqosmn85v1vqw"
 path.s3tc="res://.godot/imported/brick_wall_pole_brick_wall.jpg-457c77e856526cd7ea0c2b2657a476d6.s3tc.ctex"
+path.etc2="res://.godot/imported/brick_wall_pole_brick_wall.jpg-457c77e856526cd7ea0c2b2657a476d6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://worldAssets/Fences/brick_fence/brick_wall_pole_brick_wall.jpg"
-dest_files=["res://.godot/imported/brick_wall_pole_brick_wall.jpg-457c77e856526cd7ea0c2b2657a476d6.s3tc.ctex"]
+dest_files=["res://.godot/imported/brick_wall_pole_brick_wall.jpg-457c77e856526cd7ea0c2b2657a476d6.s3tc.ctex", "res://.godot/imported/brick_wall_pole_brick_wall.jpg-457c77e856526cd7ea0c2b2657a476d6.etc2.ctex"]
 
 [params]
 

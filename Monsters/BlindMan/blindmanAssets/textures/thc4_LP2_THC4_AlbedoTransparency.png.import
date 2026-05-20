@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbnv6l48d2xgm"
 path.s3tc="res://.godot/imported/thc4_LP2_THC4_AlbedoTransparency.png-4556514308ef0c382929af7fdac7c800.s3tc.ctex"
+path.etc2="res://.godot/imported/thc4_LP2_THC4_AlbedoTransparency.png-4556514308ef0c382929af7fdac7c800.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Monsters/BlindMan/blindmanAssets/textures/thc4_LP2_THC4_AlbedoTransparency.png"
-dest_files=["res://.godot/imported/thc4_LP2_THC4_AlbedoTransparency.png-4556514308ef0c382929af7fdac7c800.s3tc.ctex"]
+dest_files=["res://.godot/imported/thc4_LP2_THC4_AlbedoTransparency.png-4556514308ef0c382929af7fdac7c800.s3tc.ctex", "res://.godot/imported/thc4_LP2_THC4_AlbedoTransparency.png-4556514308ef0c382929af7fdac7c800.etc2.ctex"]
 
 [params]
 

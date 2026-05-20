@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpqiiurdc062b"
 path.s3tc="res://.godot/imported/waterTileabke.jpg-11da7a4194e69b9d172c9e13d26da442.s3tc.ctex"
+path.etc2="res://.godot/imported/waterTileabke.jpg-11da7a4194e69b9d172c9e13d26da442.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/water/pSXWater/ocean_surface/waterTileabke.jpg"
-dest_files=["res://.godot/imported/waterTileabke.jpg-11da7a4194e69b9d172c9e13d26da442.s3tc.ctex"]
+dest_files=["res://.godot/imported/waterTileabke.jpg-11da7a4194e69b9d172c9e13d26da442.s3tc.ctex", "res://.godot/imported/waterTileabke.jpg-11da7a4194e69b9d172c9e13d26da442.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://7a7twjhtnhqw"
 path.s3tc="res://.godot/imported/Texturelabs_Details_157S.png-a2ac3092bb9113c25bb57ade0980520b.s3tc.ctex"
+path.etc2="res://.godot/imported/Texturelabs_Details_157S.png-a2ac3092bb9113c25bb57ade0980520b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/ColinsBuildingsTexture/Decals/Texturelabs_Details_157S.png"
-dest_files=["res://.godot/imported/Texturelabs_Details_157S.png-a2ac3092bb9113c25bb57ade0980520b.s3tc.ctex"]
+dest_files=["res://.godot/imported/Texturelabs_Details_157S.png-a2ac3092bb9113c25bb57ade0980520b.s3tc.ctex", "res://.godot/imported/Texturelabs_Details_157S.png-a2ac3092bb9113c25bb57ade0980520b.etc2.ctex"]
 
 [params]
 

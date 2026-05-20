@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://tf08u01ulg8g"
 path.s3tc="res://.godot/imported/Concrete042C_1K-PNG_AmbientOcclusion.png-089901a445d73dd454eef0b1b85e1a0c.s3tc.ctex"
+path.etc2="res://.godot/imported/Concrete042C_1K-PNG_AmbientOcclusion.png-089901a445d73dd454eef0b1b85e1a0c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/ColinsBuildingsTexture/DestroyedConcerte/Concrete042C_1K-PNG_AmbientOcclusion.png"
-dest_files=["res://.godot/imported/Concrete042C_1K-PNG_AmbientOcclusion.png-089901a445d73dd454eef0b1b85e1a0c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Concrete042C_1K-PNG_AmbientOcclusion.png-089901a445d73dd454eef0b1b85e1a0c.s3tc.ctex", "res://.godot/imported/Concrete042C_1K-PNG_AmbientOcclusion.png-089901a445d73dd454eef0b1b85e1a0c.etc2.ctex"]
 
 [params]
 

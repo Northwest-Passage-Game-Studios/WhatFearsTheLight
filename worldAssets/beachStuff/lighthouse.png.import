@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://7yji4kcvhgih"
 path.s3tc="res://.godot/imported/lighthouse.png-5df6ee95052d2cf8ced4947925b976ca.s3tc.ctex"
+path.etc2="res://.godot/imported/lighthouse.png-5df6ee95052d2cf8ced4947925b976ca.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/beachStuff/lighthouse.png"
-dest_files=["res://.godot/imported/lighthouse.png-5df6ee95052d2cf8ced4947925b976ca.s3tc.ctex"]
+dest_files=["res://.godot/imported/lighthouse.png-5df6ee95052d2cf8ced4947925b976ca.s3tc.ctex", "res://.godot/imported/lighthouse.png-5df6ee95052d2cf8ced4947925b976ca.etc2.ctex"]
 
 [params]
 

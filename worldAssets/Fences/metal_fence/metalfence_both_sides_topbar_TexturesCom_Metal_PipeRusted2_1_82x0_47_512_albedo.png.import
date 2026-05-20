@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://4eadw5bk5uro"
 path.s3tc="res://.godot/imported/metalfence_both_sides_topbar_TexturesCom_Metal_PipeRusted2_1_82x0_47_512_albedo.png-add0143cc63924508ce9d08b8a98d7f4.s3tc.ctex"
+path.etc2="res://.godot/imported/metalfence_both_sides_topbar_TexturesCom_Metal_PipeRusted2_1_82x0_47_512_albedo.png-add0143cc63924508ce9d08b8a98d7f4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://worldAssets/Fences/metal_fence/metalfence_both_sides_topbar_TexturesCom_Metal_PipeRusted2_1_82x0_47_512_albedo.png"
-dest_files=["res://.godot/imported/metalfence_both_sides_topbar_TexturesCom_Metal_PipeRusted2_1_82x0_47_512_albedo.png-add0143cc63924508ce9d08b8a98d7f4.s3tc.ctex"]
+dest_files=["res://.godot/imported/metalfence_both_sides_topbar_TexturesCom_Metal_PipeRusted2_1_82x0_47_512_albedo.png-add0143cc63924508ce9d08b8a98d7f4.s3tc.ctex", "res://.godot/imported/metalfence_both_sides_topbar_TexturesCom_Metal_PipeRusted2_1_82x0_47_512_albedo.png-add0143cc63924508ce9d08b8a98d7f4.etc2.ctex"]
 
 [params]
 

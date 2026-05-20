@@ -119,5 +119,6 @@ jolt_physics_3d/limits/max_bodies=100000
 
 [rendering]
 
+textures/vram_compression/import_etc2_astc=true
 textures/decals/filter=1
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)

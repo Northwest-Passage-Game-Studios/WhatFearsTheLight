@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyeopqnhj7fv6"
 path.s3tc="res://.godot/imported/Tiles133D_1K-PNG_Roughness.png-66c5860519d329540268947fed6405de.s3tc.ctex"
+path.etc2="res://.godot/imported/Tiles133D_1K-PNG_Roughness.png-66c5860519d329540268947fed6405de.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/ColinsBuildingsTexture/FloorTile/Tiles133D_1K-PNG_Roughness.png"
-dest_files=["res://.godot/imported/Tiles133D_1K-PNG_Roughness.png-66c5860519d329540268947fed6405de.s3tc.ctex"]
+dest_files=["res://.godot/imported/Tiles133D_1K-PNG_Roughness.png-66c5860519d329540268947fed6405de.s3tc.ctex", "res://.godot/imported/Tiles133D_1K-PNG_Roughness.png-66c5860519d329540268947fed6405de.etc2.ctex"]
 
 [params]
 

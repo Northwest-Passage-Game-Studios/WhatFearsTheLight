@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://sj3e12wyrc2j"
 path.s3tc="res://.godot/imported/Flashbound_Stalker_Roughness.png-26633b5026546b77ad44b574b69ca6bf.s3tc.ctex"
+path.etc2="res://.godot/imported/Flashbound_Stalker_Roughness.png-26633b5026546b77ad44b574b69ca6bf.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Monsters/Wendigo/Textures/Flashbound_Stalker_Roughness.png"
-dest_files=["res://.godot/imported/Flashbound_Stalker_Roughness.png-26633b5026546b77ad44b574b69ca6bf.s3tc.ctex"]
+dest_files=["res://.godot/imported/Flashbound_Stalker_Roughness.png-26633b5026546b77ad44b574b69ca6bf.s3tc.ctex", "res://.godot/imported/Flashbound_Stalker_Roughness.png-26633b5026546b77ad44b574b69ca6bf.etc2.ctex"]
 
 [params]
 

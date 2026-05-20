@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cf82838y4n6d2"
 path.s3tc="res://.godot/imported/PSX_First_Person_Arms_arms.png-023cce3e7d93503d1dbc340f8002b5e4.s3tc.ctex"
+path.etc2="res://.godot/imported/PSX_First_Person_Arms_arms.png-023cce3e7d93503d1dbc340f8002b5e4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://playerAssets/psx-first-person-arms-free-game-assets/PSX_First_Person_Arms_arms.png"
-dest_files=["res://.godot/imported/PSX_First_Person_Arms_arms.png-023cce3e7d93503d1dbc340f8002b5e4.s3tc.ctex"]
+dest_files=["res://.godot/imported/PSX_First_Person_Arms_arms.png-023cce3e7d93503d1dbc340f8002b5e4.s3tc.ctex", "res://.godot/imported/PSX_First_Person_Arms_arms.png-023cce3e7d93503d1dbc340f8002b5e4.etc2.ctex"]
 
 [params]
 

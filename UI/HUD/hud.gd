@@ -5,6 +5,7 @@ class_name HUD extends Control
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var start_save_spin: Label = $Start_Save_Spin
+const QUEST_SHOW_LABEL = preload("uid://dtejieuxnt83o")
 
 var quest_label_display_pos:Vector2
 @onready var cross_hair: TextureRect = $TextureRect
@@ -95,6 +96,7 @@ func _stop_save_spin(error:Error):
 	await reset_tween.finished
 	text_spin.play("RESET")
 
+#THATS NOT HOW THIS WORKS
 func _on_item_bone_anchor_note_added(note_texture: Texture2D) -> void:
 	load_note(note_texture)
 	

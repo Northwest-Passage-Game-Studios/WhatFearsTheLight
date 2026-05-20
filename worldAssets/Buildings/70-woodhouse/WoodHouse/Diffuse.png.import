@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cg64skrljgp5b"
 path.s3tc="res://.godot/imported/Diffuse.png-81036e05260ff908ada6a2c366f14cfb.s3tc.ctex"
+path.etc2="res://.godot/imported/Diffuse.png-81036e05260ff908ada6a2c366f14cfb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/Buildings/70-woodhouse/WoodHouse/Diffuse.png"
-dest_files=["res://.godot/imported/Diffuse.png-81036e05260ff908ada6a2c366f14cfb.s3tc.ctex"]
+dest_files=["res://.godot/imported/Diffuse.png-81036e05260ff908ada6a2c366f14cfb.s3tc.ctex", "res://.godot/imported/Diffuse.png-81036e05260ff908ada6a2c366f14cfb.etc2.ctex"]
 
 [params]
 

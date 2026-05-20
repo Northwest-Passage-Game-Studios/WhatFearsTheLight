@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmte81hrqskts"
 path.s3tc="res://.godot/imported/Run (32x32).png-ebdbc2550d999e8a84d6d312b190531c.s3tc.ctex"
+path.etc2="res://.godot/imported/Run (32x32).png-ebdbc2550d999e8a84d6d312b190531c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Debug/randomAssets/Run (32x32).png"
-dest_files=["res://.godot/imported/Run (32x32).png-ebdbc2550d999e8a84d6d312b190531c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Run (32x32).png-ebdbc2550d999e8a84d6d312b190531c.s3tc.ctex", "res://.godot/imported/Run (32x32).png-ebdbc2550d999e8a84d6d312b190531c.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfwmfjwy38tj0"
 path.s3tc="res://.godot/imported/Rock3_Diffuse.png-b5964d0684c14aecc083edf47d2fb711.s3tc.ctex"
+path.etc2="res://.godot/imported/Rock3_Diffuse.png-b5964d0684c14aecc083edf47d2fb711.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/beachStuff/rocks/Rocks/Textures/Rock3_Diffuse.png"
-dest_files=["res://.godot/imported/Rock3_Diffuse.png-b5964d0684c14aecc083edf47d2fb711.s3tc.ctex"]
+dest_files=["res://.godot/imported/Rock3_Diffuse.png-b5964d0684c14aecc083edf47d2fb711.s3tc.ctex", "res://.godot/imported/Rock3_Diffuse.png-b5964d0684c14aecc083edf47d2fb711.etc2.ctex"]
 
 [params]
 

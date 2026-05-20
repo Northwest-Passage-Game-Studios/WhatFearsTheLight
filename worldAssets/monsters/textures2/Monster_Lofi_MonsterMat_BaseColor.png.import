@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://k1q6lauieadm"
 path.s3tc="res://.godot/imported/Monster_Lofi_MonsterMat_BaseColor.png-d947a5b729e8db7bdb7a071bb3de035e.s3tc.ctex"
+path.etc2="res://.godot/imported/Monster_Lofi_MonsterMat_BaseColor.png-d947a5b729e8db7bdb7a071bb3de035e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/monsters/textures2/Monster_Lofi_MonsterMat_BaseColor.png"
-dest_files=["res://.godot/imported/Monster_Lofi_MonsterMat_BaseColor.png-d947a5b729e8db7bdb7a071bb3de035e.s3tc.ctex"]
+dest_files=["res://.godot/imported/Monster_Lofi_MonsterMat_BaseColor.png-d947a5b729e8db7bdb7a071bb3de035e.s3tc.ctex", "res://.godot/imported/Monster_Lofi_MonsterMat_BaseColor.png-d947a5b729e8db7bdb7a071bb3de035e.etc2.ctex"]
 
 [params]
 

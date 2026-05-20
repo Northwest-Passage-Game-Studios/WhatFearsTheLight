@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dtejieuxnt83o"]
+
+[ext_resource type="FontFile" uid="uid://bjxq30vac3n3w" path="res://fomts/SpecialElite.ttf" id="1_dlt1h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ia7gp"]
+font = ExtResource("1_dlt1h")
+font_size = 26
+
+[node name="Quest_Show_Label" type="Label" unique_id=628601483]
+custom_minimum_size = Vector2(20, 0)
+text = "Quest Added:"
+label_settings = SubResource("LabelSettings_ia7gp")
+horizontal_alignment = 1
+autowrap_mode = 3

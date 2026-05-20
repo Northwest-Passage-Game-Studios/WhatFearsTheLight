@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlakg1p6eoey7"
 path.s3tc="res://.godot/imported/padlock_Padlock_Roughness.png-46afbccf926779e5284b9d91cb841b73.s3tc.ctex"
+path.etc2="res://.godot/imported/padlock_Padlock_Roughness.png-46afbccf926779e5284b9d91cb841b73.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Objects/Items/Key/textures/padlock_Padlock_Roughness.png"
-dest_files=["res://.godot/imported/padlock_Padlock_Roughness.png-46afbccf926779e5284b9d91cb841b73.s3tc.ctex"]
+dest_files=["res://.godot/imported/padlock_Padlock_Roughness.png-46afbccf926779e5284b9d91cb841b73.s3tc.ctex", "res://.godot/imported/padlock_Padlock_Roughness.png-46afbccf926779e5284b9d91cb841b73.etc2.ctex"]
 
 [params]
 

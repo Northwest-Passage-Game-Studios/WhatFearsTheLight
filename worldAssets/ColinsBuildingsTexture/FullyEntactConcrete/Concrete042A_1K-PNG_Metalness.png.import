@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0bl3220qbq5n"
 path.s3tc="res://.godot/imported/Concrete042A_1K-PNG_Metalness.png-c12ad4289512f5b5f1add9058762e156.s3tc.ctex"
+path.etc2="res://.godot/imported/Concrete042A_1K-PNG_Metalness.png-c12ad4289512f5b5f1add9058762e156.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/ColinsBuildingsTexture/FullyEntactConcrete/Concrete042A_1K-PNG_Metalness.png"
-dest_files=["res://.godot/imported/Concrete042A_1K-PNG_Metalness.png-c12ad4289512f5b5f1add9058762e156.s3tc.ctex"]
+dest_files=["res://.godot/imported/Concrete042A_1K-PNG_Metalness.png-c12ad4289512f5b5f1add9058762e156.s3tc.ctex", "res://.godot/imported/Concrete042A_1K-PNG_Metalness.png-c12ad4289512f5b5f1add9058762e156.etc2.ctex"]
 
 [params]
 

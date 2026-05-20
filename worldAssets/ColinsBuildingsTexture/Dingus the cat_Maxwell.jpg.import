@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cap56b6fccfxu"
 path.s3tc="res://.godot/imported/Dingus the cat_Maxwell.jpg-5790f6bdf6156a436c12a38fee3d6cc2.s3tc.ctex"
+path.etc2="res://.godot/imported/Dingus the cat_Maxwell.jpg-5790f6bdf6156a436c12a38fee3d6cc2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://worldAssets/ColinsBuildingsTexture/Dingus the cat_Maxwell.jpg"
-dest_files=["res://.godot/imported/Dingus the cat_Maxwell.jpg-5790f6bdf6156a436c12a38fee3d6cc2.s3tc.ctex"]
+dest_files=["res://.godot/imported/Dingus the cat_Maxwell.jpg-5790f6bdf6156a436c12a38fee3d6cc2.s3tc.ctex", "res://.godot/imported/Dingus the cat_Maxwell.jpg-5790f6bdf6156a436c12a38fee3d6cc2.etc2.ctex"]
 
 [params]
 

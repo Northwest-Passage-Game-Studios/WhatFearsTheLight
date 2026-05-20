@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvljoeutb2bgd"
 path.s3tc="res://.godot/imported/body_(5).png-3b40b5d40720d06f8ae469c360165286.s3tc.ctex"
+path.etc2="res://.godot/imported/body_(5).png-3b40b5d40720d06f8ae469c360165286.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Monsters/Wendigo/AngelWendigo/the-angel-rig/textures/body_(5).png"
-dest_files=["res://.godot/imported/body_(5).png-3b40b5d40720d06f8ae469c360165286.s3tc.ctex"]
+dest_files=["res://.godot/imported/body_(5).png-3b40b5d40720d06f8ae469c360165286.s3tc.ctex", "res://.godot/imported/body_(5).png-3b40b5d40720d06f8ae469c360165286.etc2.ctex"]
 
 [params]
 

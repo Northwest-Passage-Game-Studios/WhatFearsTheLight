@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6yivqp7pwn1a"
 path.s3tc="res://.godot/imported/metalfence_gate_only_sides_0.png-d90608a6f3d05665cb29b3fcb6bf94f0.s3tc.ctex"
+path.etc2="res://.godot/imported/metalfence_gate_only_sides_0.png-d90608a6f3d05665cb29b3fcb6bf94f0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://worldAssets/Fences/metal_fence/metalfence_gate_only_sides_0.png"
-dest_files=["res://.godot/imported/metalfence_gate_only_sides_0.png-d90608a6f3d05665cb29b3fcb6bf94f0.s3tc.ctex"]
+dest_files=["res://.godot/imported/metalfence_gate_only_sides_0.png-d90608a6f3d05665cb29b3fcb6bf94f0.s3tc.ctex", "res://.godot/imported/metalfence_gate_only_sides_0.png-d90608a6f3d05665cb29b3fcb6bf94f0.etc2.ctex"]
 
 [params]
 

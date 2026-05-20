@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkpchpwtxiaxf"
 path.s3tc="res://.godot/imported/ColdCutsSet001_1K-JPG_Displacement.jpg-23e6963b380d96630c1c921171e7272e.s3tc.ctex"
+path.etc2="res://.godot/imported/ColdCutsSet001_1K-JPG_Displacement.jpg-23e6963b380d96630c1c921171e7272e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/ColinsBuildingsTexture/meat/ColdCutsSet001_1K-JPG_Displacement.jpg"
-dest_files=["res://.godot/imported/ColdCutsSet001_1K-JPG_Displacement.jpg-23e6963b380d96630c1c921171e7272e.s3tc.ctex"]
+dest_files=["res://.godot/imported/ColdCutsSet001_1K-JPG_Displacement.jpg-23e6963b380d96630c1c921171e7272e.s3tc.ctex", "res://.godot/imported/ColdCutsSet001_1K-JPG_Displacement.jpg-23e6963b380d96630c1c921171e7272e.etc2.ctex"]
 
 [params]
 

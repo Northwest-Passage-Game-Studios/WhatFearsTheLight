@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmgki7pys4uju"
 path.s3tc="res://.godot/imported/brick_Wall_corner_concrete_bare.jpg-8ce7efef8af298a59b716c1aff2d3038.s3tc.ctex"
+path.etc2="res://.godot/imported/brick_Wall_corner_concrete_bare.jpg-8ce7efef8af298a59b716c1aff2d3038.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://worldAssets/Fences/brick_fence/brick_Wall_corner_concrete_bare.jpg"
-dest_files=["res://.godot/imported/brick_Wall_corner_concrete_bare.jpg-8ce7efef8af298a59b716c1aff2d3038.s3tc.ctex"]
+dest_files=["res://.godot/imported/brick_Wall_corner_concrete_bare.jpg-8ce7efef8af298a59b716c1aff2d3038.s3tc.ctex", "res://.godot/imported/brick_Wall_corner_concrete_bare.jpg-8ce7efef8af298a59b716c1aff2d3038.etc2.ctex"]
 
 [params]
 

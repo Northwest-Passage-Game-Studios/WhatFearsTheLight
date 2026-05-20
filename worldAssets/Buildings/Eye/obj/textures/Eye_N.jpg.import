@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlccai4wdxxq4"
 path.s3tc="res://.godot/imported/Eye_N.jpg-20e80930cd34811e1fca6a2576255ad2.s3tc.ctex"
+path.etc2="res://.godot/imported/Eye_N.jpg-20e80930cd34811e1fca6a2576255ad2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/Buildings/Eye/obj/textures/Eye_N.jpg"
-dest_files=["res://.godot/imported/Eye_N.jpg-20e80930cd34811e1fca6a2576255ad2.s3tc.ctex"]
+dest_files=["res://.godot/imported/Eye_N.jpg-20e80930cd34811e1fca6a2576255ad2.s3tc.ctex", "res://.godot/imported/Eye_N.jpg-20e80930cd34811e1fca6a2576255ad2.etc2.ctex"]
 
 [params]
 

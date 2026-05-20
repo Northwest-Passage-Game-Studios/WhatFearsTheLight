@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfhs33gr1cuaj"
 path.s3tc="res://.godot/imported/Wallpaper001C.png-9e3f5d0b0ced1f1d576bd5c8cfc2ea39.s3tc.ctex"
+path.etc2="res://.godot/imported/Wallpaper001C.png-9e3f5d0b0ced1f1d576bd5c8cfc2ea39.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/ColinsBuildingsTexture/MoldyWallPaper/Wallpaper001C.png"
-dest_files=["res://.godot/imported/Wallpaper001C.png-9e3f5d0b0ced1f1d576bd5c8cfc2ea39.s3tc.ctex"]
+dest_files=["res://.godot/imported/Wallpaper001C.png-9e3f5d0b0ced1f1d576bd5c8cfc2ea39.s3tc.ctex", "res://.godot/imported/Wallpaper001C.png-9e3f5d0b0ced1f1d576bd5c8cfc2ea39.etc2.ctex"]
 
 [params]
 

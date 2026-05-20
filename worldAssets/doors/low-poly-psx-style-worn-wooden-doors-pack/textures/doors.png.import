@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhwr4frbotysc"
 path.s3tc="res://.godot/imported/doors.png-284bb307d2da95f68caa058f7e123ae1.s3tc.ctex"
+path.etc2="res://.godot/imported/doors.png-284bb307d2da95f68caa058f7e123ae1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/doors/low-poly-psx-style-worn-wooden-doors-pack/textures/doors.png"
-dest_files=["res://.godot/imported/doors.png-284bb307d2da95f68caa058f7e123ae1.s3tc.ctex"]
+dest_files=["res://.godot/imported/doors.png-284bb307d2da95f68caa058f7e123ae1.s3tc.ctex", "res://.godot/imported/doors.png-284bb307d2da95f68caa058f7e123ae1.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bo4hcw46sh7as"
 path.s3tc="res://.godot/imported/brick_wall_one_overhang_small_concrete_bare.jpg-0aa808548ddd38d402ae2d525e60f92e.s3tc.ctex"
+path.etc2="res://.godot/imported/brick_wall_one_overhang_small_concrete_bare.jpg-0aa808548ddd38d402ae2d525e60f92e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://worldAssets/Fences/brick_fence/brick_wall_one_overhang_small_concrete_bare.jpg"
-dest_files=["res://.godot/imported/brick_wall_one_overhang_small_concrete_bare.jpg-0aa808548ddd38d402ae2d525e60f92e.s3tc.ctex"]
+dest_files=["res://.godot/imported/brick_wall_one_overhang_small_concrete_bare.jpg-0aa808548ddd38d402ae2d525e60f92e.s3tc.ctex", "res://.godot/imported/brick_wall_one_overhang_small_concrete_bare.jpg-0aa808548ddd38d402ae2d525e60f92e.etc2.ctex"]
 
 [params]
 

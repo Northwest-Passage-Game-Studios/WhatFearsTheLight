@@ -2,15 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bnf8wptrqe4hs" path="res://UI/HUD/hud.gd" id="1_ia7gp"]
 [ext_resource type="Script" uid="uid://dgjnxyyasaw1x" path="res://UI/FrameRateCounter/frameRate.gd" id="2_ing8j"]
-[ext_resource type="FontFile" uid="uid://bjxq30vac3n3w" path="res://fomts/SpecialElite.ttf" id="2_radol"]
 [ext_resource type="Texture2D" uid="uid://cqg2flctt0g08" path="res://worldAssets/paper/poster-basic-low-poly/textures/wanted_poster_blank.png" id="3_te8l2"]
 [ext_resource type="AudioStream" uid="uid://c08raxsaced86" path="res://Sounds/SoundEffects/561145__fmaudio__crumpling-piece-of-paper.wav" id="4_qdh7y"]
 [ext_resource type="Script" uid="uid://o6c5tvu7g5xk" path="res://UI/hallucinations/hallucinations.gd" id="6_s83ig"]
 [ext_resource type="FontFile" uid="uid://swrd57gvrc8t" path="res://fomts/ProtestRevolution-Regular.ttf" id="7_db5ks"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ia7gp"]
-font = ExtResource("2_radol")
-font_size = 26
 
 [sub_resource type="Animation" id="Animation_ing8j"]
 length = 0.001
@@ -109,16 +104,16 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_ia7gp")
 
-[node name="Quest_Show_Label" type="Label" parent="." unique_id=1511955420]
+[node name="Notfication_Window" type="VBoxContainer" parent="." unique_id=1203094411]
+custom_minimum_size = Vector2(200, 300)
 layout_mode = 1
-offset_left = 423.0
-offset_top = 31.0
-offset_right = 743.0
-offset_bottom = 84.0
-text = "Quest Added:"
-label_settings = SubResource("LabelSettings_ia7gp")
-horizontal_alignment = 1
-autowrap_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 300.0
+grow_horizontal = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1000270159]
 layout_mode = 1
@@ -148,6 +143,7 @@ text = "Debug"
 script = ExtResource("2_ing8j")
 
 [node name="fadeIn" type="ColorRect" parent="." unique_id=1326881781]
+visible = false
 modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15

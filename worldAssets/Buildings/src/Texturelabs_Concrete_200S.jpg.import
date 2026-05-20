@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvg7xesvvy52t"
 path.s3tc="res://.godot/imported/Texturelabs_Concrete_200S.jpg-996caa68a1843211b057acae4aeb1860.s3tc.ctex"
+path.etc2="res://.godot/imported/Texturelabs_Concrete_200S.jpg-996caa68a1843211b057acae4aeb1860.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/Buildings/src/Texturelabs_Concrete_200S.jpg"
-dest_files=["res://.godot/imported/Texturelabs_Concrete_200S.jpg-996caa68a1843211b057acae4aeb1860.s3tc.ctex"]
+dest_files=["res://.godot/imported/Texturelabs_Concrete_200S.jpg-996caa68a1843211b057acae4aeb1860.s3tc.ctex", "res://.godot/imported/Texturelabs_Concrete_200S.jpg-996caa68a1843211b057acae4aeb1860.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bk1jc5fmyx8vb"
 path.s3tc="res://.godot/imported/wendigoExplanation.png-1e25ba479ae028cec5968f69ba38dad8.s3tc.ctex"
+path.etc2="res://.godot/imported/wendigoExplanation.png-1e25ba479ae028cec5968f69ba38dad8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/paper/wendigoExplanation.png"
-dest_files=["res://.godot/imported/wendigoExplanation.png-1e25ba479ae028cec5968f69ba38dad8.s3tc.ctex"]
+dest_files=["res://.godot/imported/wendigoExplanation.png-1e25ba479ae028cec5968f69ba38dad8.s3tc.ctex", "res://.godot/imported/wendigoExplanation.png-1e25ba479ae028cec5968f69ba38dad8.etc2.ctex"]
 
 [params]
 

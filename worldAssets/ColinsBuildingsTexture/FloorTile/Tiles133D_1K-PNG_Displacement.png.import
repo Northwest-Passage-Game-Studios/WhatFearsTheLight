@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://csm4iiae6ogls"
 path.s3tc="res://.godot/imported/Tiles133D_1K-PNG_Displacement.png-973b44bc5a0f489cc2c5ce8ef1d77604.s3tc.ctex"
+path.etc2="res://.godot/imported/Tiles133D_1K-PNG_Displacement.png-973b44bc5a0f489cc2c5ce8ef1d77604.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://worldAssets/ColinsBuildingsTexture/FloorTile/Tiles133D_1K-PNG_Displacement.png"
-dest_files=["res://.godot/imported/Tiles133D_1K-PNG_Displacement.png-973b44bc5a0f489cc2c5ce8ef1d77604.s3tc.ctex"]
+dest_files=["res://.godot/imported/Tiles133D_1K-PNG_Displacement.png-973b44bc5a0f489cc2c5ce8ef1d77604.s3tc.ctex", "res://.godot/imported/Tiles133D_1K-PNG_Displacement.png-973b44bc5a0f489cc2c5ce8ef1d77604.etc2.ctex"]
 
 [params]
 
