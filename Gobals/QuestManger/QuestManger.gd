@@ -150,6 +150,11 @@ func _quest_complete_check(Ref_ID:int):
 			return false
 	return true
 
+func delete_quest(Ref_ID:int):
+	var quest :=get_quest(Ref_ID)
+	var index = all_quests.find(quest)
+	all_quests.pop_at(index)
+	
 
 func get_quest(Ref_ID:int)->Dictionary:
 	for dict in all_quests:
@@ -183,3 +188,16 @@ func mark_quest_completed(Ref_ID:int):
 			quest_marker.queue_free() 
 	Quest_Completed.emit(quest_to_mark)
 	print(quest_to_mark)
+
+func get_completed_quest()->Array[Dictionary]:
+	var return_list :Array[Dictionary]= []
+	for quest in all_quests:
+		if quest["Is_Completed"]==true:
+			return_list.append(quest)
+	return return_list
+
+func load_save_quest(quests:Array[Dictionary]):
+	for quest in quests:
+		var ref_id = add_new_quest(quest["Title"],"N/A",Quest_Type.Just_Text)
+		var quest_dict = get_quest(ref_id)
+		quest_dict["Is_Completed"]=true

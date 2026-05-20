@@ -83,6 +83,15 @@ func _on_static_body_3d_opened() -> void:
 		)
 
 
+func _player_died(thing:String):
+
+	if quest_stage_one_ref_id!=-1:
+		Quest_Manger.delete_quest(quest_stage_one_ref_id)
+	if quest_stage_two_ref_id!=-1:
+		Quest_Manger.delete_quest(quest_stage_two_ref_id)
+	if quest_stage_three_ref_id!=-1:
+		Quest_Manger.delete_quest(quest_stage_two_ref_id)
+	super(thing)
 
 func _on_static_body_3d_tried_to_open() -> void:
 	if Quest_Manger.get_quest(quest_stage_one_ref_id)["Is_Completed"]==false:

@@ -30,6 +30,7 @@ func _on_pickable_picked_up() -> void:
 
 
 func _on_door_interact_teleport_signal() -> void:
+	Quest_Manger.mark_quest_completed(find_the_way_out_the_beach)
 	player.black_animator.play("Fad_to_Black")
 	await player.black_animator.animation_finished
 	get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/Forset_Level/main_world.tscn")

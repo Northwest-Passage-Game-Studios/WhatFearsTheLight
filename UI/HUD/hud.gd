@@ -1,16 +1,17 @@
 class_name HUD extends Control
-@onready var quest_show_label: Label = $Quest_Show_Label
+
+
+
 @onready var debug_pannel: Panel = $DebugPannel
 @onready var fade_in: ColorRect = $fadeIn
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var start_save_spin: Label = $Start_Save_Spin
-const QUEST_SHOW_LABEL = preload("uid://dtejieuxnt83o")
-
-var quest_label_display_pos:Vector2
+@onready var notfication_window: VBoxContainer = $Notfication_Window
 @onready var cross_hair: TextureRect = $TextureRect
 @onready var paper_back: TextureRect = $paperBack
 @onready var text_spin: AnimationPlayer = $Text_Spin
+
 
 
 @export_category("Crosshair_Textures")
@@ -20,6 +21,11 @@ var quest_label_display_pos:Vector2
 @export var genderman : Texture2D
 
 
+
+const QUEST_SHOW_LABEL = preload("uid://dtejieuxnt83o")
+
+
+var quest_label_display_pos:Vector2
 
 func load_note(note_texture):
 	print(note_texture)
@@ -31,8 +37,10 @@ func load_note(note_texture):
 		audio_stream_player.play()
 
 func _on_quest_load(quest:Dictionary):
-	quest_show_label.show()
-	var text_to_set="Quest Added: "+quest["Title"]
+	
+	var quest_show_label := QUEST_SHOW_LABEL.instantiate()
+	notfication_window.add_child(quest_show_label)
+	var text_to_set="Quest Added: "+quest["Title"]	
 	var move_tween = create_tween()
 	move_tween.tween_property(quest_show_label,"text",text_to_set,2)
 	await move_tween.finished
@@ -40,10 +48,11 @@ func _on_quest_load(quest:Dictionary):
 	var hide_tween=create_tween()
 	hide_tween.tween_property(quest_show_label,"text","",2)
 	await hide_tween.finished
-	quest_show_label.hide()
+	quest_show_label.queue_free()
 	
 func _on_quest_completed(quest:Dictionary):
-	quest_show_label.show()
+	var quest_show_label := QUEST_SHOW_LABEL.instantiate()
+	notfication_window.add_child(quest_show_label)
 	var text_to_set="Quest Completed: "+quest["Title"]
 	var move_tween = create_tween()
 	move_tween.tween_property(quest_show_label,"text",text_to_set,1)
@@ -52,7 +61,7 @@ func _on_quest_completed(quest:Dictionary):
 	var hide_tween=create_tween()
 	hide_tween.tween_property(quest_show_label,"text","",1)
 	await hide_tween.finished
-	quest_show_label.hide()
+	quest_show_label.queue_free()
 
 func can_intercat(state:bool):
 	if state:
@@ -63,8 +72,6 @@ func can_intercat(state:bool):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animation_player.play("fadeIn")
-	quest_show_label.hide()
-	quest_label_display_pos=quest_show_label.position
 	Quest_Manger.Quest_Added.connect(_on_quest_load)
 	Quest_Manger.Quest_Completed.connect(_on_quest_completed)
 	can_intercat(false)

@@ -60,10 +60,12 @@ const JUMP_VELOCITY = 4.5
 var headPosNeg:=false
 var lowestheadPos:=100.0
 var last_look_at:Node3D
-signal can_pick_up(state:bool)
+
 @onready var book_container: Node3D = $Neck/Camera3D/bookContainer
 var bookScene=preload("res://Objects/Items/book/book.tscn")
 
+signal can_pick_up(state:bool)
+signal played_died(thing:String)
 
 func _ready() -> void:
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
@@ -259,15 +261,8 @@ func _physics_process(delta: float) -> void:
 func murdered(thing : String)->void:
 	print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 	black_animator.play("new_animation")
-	if thing=="Wendigo":
-		await get_tree().create_timer(0.2).timeout
-		get_tree().change_scene_to_file("res://Monsters/Wendigo/wendigo_jumpscare.tscn")
-	if thing=="WendigoR":
-		await get_tree().create_timer(0.2).timeout
-		get_tree().change_scene_to_file("res://Monsters/Wendigo/wendigo_jumpscare_red.tscn")
-	if thing=="Blindman":
-		await get_tree().create_timer(0.2).timeout
-		get_tree().change_scene_to_file("res://Monsters/BlindMan/blindman_jumpscare.tscn")
+	played_died.emit(thing)
+
 
 
 func _input(event: InputEvent) -> void:
@@ -293,3 +288,4 @@ func _on_auto_save():
 		Save_Handler.current_save_file.player_items=self.tool_handler.items
 		Save_Handler.current_save_file.player_key_ring=self.tool_handler.key_rings
 		Save_Handler.current_save_file.player_quest_items=self.tool_handler.quest_objects
+		Save_Handler.current_save_file.player_completed_quest=Quest_Manger.get_completed_quest()

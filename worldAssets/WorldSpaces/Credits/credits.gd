@@ -134,4 +134,4 @@ func _process(delta: float) -> void:
 				have_finshed+=1
 				mover.visible=false
 		if have_finshed>=len(all_movers):
-			get_tree().change_scene_to_file("res://Data/Scences/main_menu.tscn")
+			get_tree().change_scene_to_file("res://worldAssets/WorldSpaces/MainMenu/main_menu.tscn")

@@ -1,7 +1,7 @@
 class_name save_file extends Resource
 
 @export var save_name:String="Debug_Save"
-@export var save_ver:int = 0 
+@export var save_ver:int = 0
 @export var current_sence:String
 @export var player_items:Array
 @export var player_quest:Array
@@ -9,3 +9,4 @@ class_name save_file extends Resource
 @export var player_key_ring:Array
 @export var player_quest_items:Array
 @export var last_played:int
+@export var player_completed_quest:Array[Dictionary]

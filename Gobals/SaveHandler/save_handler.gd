@@ -5,7 +5,7 @@ class_name SaveHandler extends Node
 var save_file_path := "saves"
 var current_save_file:save_file
 var save_files = []
-var current_save_verison = 1
+var current_save_verison = 2
 signal AutoSave
 signal Save_Writing
 signal Save_Written(error:Error)
@@ -42,6 +42,8 @@ func _load_save_file(save:save_file)->Save_Return_Codes:
 	var changing_sence_load := load(save.current_sence)
 	if changing_sence_load==null:
 		return Save_Return_Codes.World_Space_Null
+	
+	Quest_Manger.load_save_quest(save.player_completed_quest)
 	var inst_of_new_sence = changing_sence_load.instantiate()
 	get_tree().change_scene_to_node(inst_of_new_sence)
 	current_save_file=save
