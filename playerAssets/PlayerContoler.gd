@@ -68,6 +68,7 @@ signal can_pick_up(state:bool)
 signal played_died(thing:String)
 
 func _ready() -> void:
+	Manager.losingIt=false
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	Save_Handler.AutoSave.connect(_on_auto_save)
 
