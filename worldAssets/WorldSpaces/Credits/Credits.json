@@ -8,8 +8,8 @@
 			"Duncan 'BarbecuedWaffle' Casper"
 		],
 		"Voice Actors":["I FORGET TO PAY THEM"],
-		"Tech Help": ["Mr Prudy"],
-		"Emotinal Support":["Ben","Baeu"],
+		"Tech Help": ["Mr Purdy"],
+		"Emotional Support":["Ben","Beau"],
 		"Lord And Savoir":["Mathew Farah"]
 	},
   "Game Assets": {
@@ -183,6 +183,12 @@
 		"creator": "GIMP Development Team",
 		"license": "GNU GENERAL PUBLIC LICENSE",
 		"url": "https://www.gimp.org/"
+	  },
+		{
+		"name": "Blender",
+		"creator": "Blender Foundation",
+		"license": " GNU General Public License (GPL)",
+		"url": "https://www.blender.org/"
 	  },
 		{
 		"name": "AI Discolures",

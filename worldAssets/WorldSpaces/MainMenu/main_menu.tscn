@@ -12,7 +12,7 @@
 [ext_resource type="ArrayMesh" uid="uid://i6imfkqn5vy8" path="res://Shaders/Smoke/Mesh.tres" id="3_aw34y"]
 [ext_resource type="Texture2D" uid="uid://bptweawpjb4x7" path="res://UI/HandCourrsor/real hands - normal select.png" id="3_sw7kw"]
 [ext_resource type="Texture2D" uid="uid://d2sqcbiwvv2ac" path="res://UI/Load_menu/notebook_background.png" id="4_g6kxn"]
-[ext_resource type="Script" uid="uid://ct0ugyb0hg0ct" path="res://worldAssets/WorldSpaces/MainMenu/load_panel.gd" id="5_oqeu1"]
+[ext_resource type="Script" path="res://worldAssets/WorldSpaces/MainMenu/load_panel.gd" id="5_oqeu1"]
 [ext_resource type="Texture2D" uid="uid://cqg2flctt0g08" path="res://worldAssets/paper/poster-basic-low-poly/textures/wanted_poster_blank.png" id="6_uhvo3"]
 [ext_resource type="Script" uid="uid://d372wxmu033du" path="res://worldAssets/WorldSpaces/MainMenu/error.gd" id="7_68xqm"]
 [ext_resource type="Texture2D" uid="uid://cox5s051a157q" path="res://worldAssets/sky/mud_road_puresky_4k.exr" id="7_p46oc"]
@@ -177,6 +177,68 @@ albedo_color = Color(18.892157, 18.892157, 7.7643785, 1)
 shading_mode = 0
 albedo_color = Color(4.087714, 4.087714, 1.6546733, 1)
 
+[sub_resource type="Animation" id="Animation_tam20"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.594956, 6.971776e-08)]
+}
+
+[sub_resource type="Animation" id="Animation_68xqm"]
+resource_name = "bob"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3.9666667, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.922, 0), Vector3(0, -1.594956, 6.971776e-08)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.6333334, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.5095001, 1.5707971, -1.5707971), Vector3(-1.5707964, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qjey3"]
+_data = {
+&"RESET": SubResource("Animation_tam20"),
+&"bob": SubResource("Animation_68xqm")
+}
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tam20"]
 shading_mode = 0
 
@@ -198,15 +260,16 @@ shader_parameter/scroll_speed2 = Vector2(-0.2, 0)
 shader_parameter/blend_factor = 0.5
 shader_parameter/scale1 = Vector2(100, 100)
 shader_parameter/scale2 = Vector2(100, 100)
-shader_parameter/wave_strength = 0.1
-shader_parameter/wave_scale = 0.02
+shader_parameter/wave_strength = 0.905
+shader_parameter/wave_scale = 0.255
 shader_parameter/pixelation_level = 56
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oqeu1"]
 size = Vector3(44.063477, 23.75415, 21.80664)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vsltj"]
-sky_horizon_color = Color(0.385, 0.454, 0.55, 1)
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
 sky_curve = 3.7659962
 sky_energy_multiplier = 0.01
 sky_cover = ExtResource("7_p46oc")
@@ -225,7 +288,6 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.44
 tonemap_mode = 2
-glow_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.1558
 volumetric_fog_albedo = Color(0, 0, 0, 1)
@@ -235,10 +297,6 @@ volumetric_fog_detail_spread = 0.5
 [node name="MainMenu" type="Node3D" unique_id=1717556023]
 script = ExtResource("1_aw34y")
 end_color = Color(1, 1, 1, 0)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2032906591]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=899726406]
 
@@ -583,7 +641,7 @@ transform = Transform3D(0.8231337, -0.08072765, 0.56208, 0.003944274, 0.99063206
 fov = 65.35576
 
 [node name="12219BoatV2L2" type="MeshInstance3D" parent="." unique_id=1961364391]
-transform = Transform3D(0.01, 0, 0, 0, -4.3711387e-10, 0.01, 0, -0.01, -4.3711387e-10, 0, -1.594956, 6.971776e-08)
+transform = Transform3D(0.010000002, 0, 0, 0, -4.3711385e-10, 0.010000002, 0, -0.009999999, -4.3711396e-10, 0, -1.594956, 6.971776e-08)
 layers = 2
 mesh = ExtResource("1_ro24h")
 
@@ -607,7 +665,6 @@ material = SubResource("StandardMaterial3D_p46oc")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="12219BoatV2L2/CSGSphere3D" unique_id=1649856785]
 transform = Transform3D(3.0000002, 2.3841858e-07, 0, -2.3841858e-07, 3.0000002, -2.1316282e-14, 1.4210855e-14, -7.1054274e-15, 3, -0.06742382, -0.024114609, -0.021079063)
-visible = false
 light_color = Color(1, 1, 0.8980392, 1)
 light_energy = 16.0
 light_volumetric_fog_energy = 22.0
@@ -625,6 +682,10 @@ material = SubResource("StandardMaterial3D_vsltj")
 transform = Transform3D(33.333332, 0, 0, 0, 33.333332, 2.876277e-11, 0, -2.876277e-11, 33.333332, -55.139725, -55.656746, 341.81055)
 size = Vector3(19.367752, 5.005005, 4.55661)
 material = SubResource("StandardMaterial3D_vsltj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="12219BoatV2L2" unique_id=1258558194]
+libraries/ = SubResource("AnimationLibrary_qjey3")
+autoplay = &"bob"
 
 [node name="OceanSurface" type="MeshInstance3D" parent="." unique_id=1891312276]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7115488, 0)

@@ -5530,7 +5530,7 @@ debug_color = Color(0.80613714, 4.1536838e-05, 0.37893307, 0.41960785)
 [node name="PSX_First_Person_Arms" parent="." unique_id=1394949179 instance=ExtResource("38_w6b6j")]
 transform = Transform3D(7.0529485, 10.549503, 0, -10.549503, 7.0529485, 0, 0, 0, 12.69, -122.68035, 8.021, 15.701)
 
-[node name="arms" parent="PSX_First_Person_Arms/arms_armature/Skeleton3D" parent_id_path=PackedInt32Array(1394949179, 1784107092) index="0" unique_id=1817223309]
+[node name="arms" parent="PSX_First_Person_Arms/arms_armature/Skeleton3D" parent_id_path=PackedInt32Array(1394949179, 1693027634) index="0" unique_id=857829180]
 surface_material_override/0 = ExtResource("39_dwrbj")
 
 [connection signal="Picked_Up" from="Node3D2/Key_1/gate_key" to="." method="_on_gate_key_picked_up"]
